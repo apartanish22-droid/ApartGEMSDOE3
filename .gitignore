@@ -1,0 +1,11 @@
+# Large, reproducible downloads and feature caches; never commit credentials
+.cache/
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+data/bridge/
+data/official/
+data/external/
+# Downloaded, hash-verified upstream template is not redistributed without a license
+vendor/gems57/

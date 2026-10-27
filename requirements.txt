@@ -1,0 +1,8 @@
+# Versions used for the reproducibility audit; Python 3.11
+numpy==2.4.6
+scipy==1.17.1
+rasterio==1.4.4
+scikit-learn==1.9.1
+pytest==9.1.1
+
+PyYAML==6.0.3

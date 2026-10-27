@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An evidence-led workspace for the DOE GEMS fault mapping challenge.">
+  <title>Apart GEMS Lab · Submission readiness</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Apart GEMS Lab home"><span class="brand-mark">A.</span><span class="brand-name">APART / GEMS<small>RESEARCH WORKSPACE</small></span></a>
+    <nav class="nav" aria-label="Main navigation"><a href="#site-review">Site review</a><a href="docs/research.html">Research</a><a href="docs/sources.html">Sources</a><a class="nav-button" href="docs/executive-summary.html">Submission guide ↗</a></nav>
+  </div>
+</header>
+<main id="main">
+  <section class="hero container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">DOE GEMS · decision brief</span>
+        <h1>Better science.<br>Fewer wasted submissions.</h1>
+        <p class="lead">An evidence-first workspace for discovering unmapped faults—and knowing when a competition file is actually ready.</p>
+        <div class="hero-actions"><button class="button" disabled aria-describedby="no-file">No approved file to download</button><a class="button secondary" href="docs/executive-summary.html">How to submit <span aria-hidden="true">↗</span></a></div>
+        <p id="no-file" class="small muted" style="margin:12px 0 0">No competition upload or weekly slot was used in this run.</p>
+      </div>
+      <aside class="decision-card" aria-label="Current submission decision">
+        <div class="card-top"><span class="kicker">Current decision</span><span class="pill stop">● DO NOT SUBMIT</span></div>
+        <h2>No candidate is cleared.</h2>
+        <p>The assigned method is missing and the literal registry rule blocks a common dot budget. There is no new, validated TIFF or credible score estimate.</p>
+        <ul class="check-list"><li><span>Method lane</span><strong>NOT ASSIGNED</strong></li><li><span>Holdout & leakage checks</span><strong>NOT RUN</strong></li><li><span>Full registry uniqueness</span><strong>NOT ESTABLISHED</strong></li><li><span>Format & slot approval</span><strong>NOT AVAILABLE</strong></li></ul>
+        <a href="docs/data/run_card.json" class="small">Open machine-readable run card →</a>
+      </aside>
+    </div>
+  </section>
+  <div class="container metrics" aria-label="Evidence snapshot">
+    <article class="metric"><span class="kicker">Highest claim in nine sites</span><div class="metric-value">0.2778</div><p>USER-REPORTED / UNVERIFIED · GEMSDOE32<br>No file-bound organizer receipt found.</p></article>
+    <article class="metric"><span class="kicker">Public leaderboard snapshot</span><div class="metric-value" id="live-score">0.4544</div><p id="live-time">Public leaderboard · observed 2026-10-27 21:17 UTC</p><p id="feed-warning"></p></article>
+    <article class="metric"><span class="kicker">New file estimate</span><div class="metric-value">Unavailable</div><p>No tested candidate. A catalogue holdout is not a leaderboard forecast.</p></article>
+  </div>
+  <section class="container section" id="site-review">
+    <div class="section-head"><div><span class="eyebrow">Nine priority sites</span><h2>What the historical files tell us</h2><p>The files below are comparison archives, <strong>not recommended uploads</strong>. Their score-to-file mappings come from the prompt and lack organizer receipts. Estimated new scores are deliberately blank.</p></div><a class="small" href="docs/data/site_scorecard.csv">Download scorecard CSV ↓</a></div>
+    <div class="table-wrap"><table class="scorecard"><thead><tr><th scope="col">Site</th><th scope="col">Historical archive · research only</th><th scope="col">Reported result</th><th scope="col">Score estimate</th><th scope="col">Finite & [0,1]?</th><th scope="col">Unique vs other eight?</th><th scope="col">Submit?</th></tr></thead><tbody>{{TABLE_ROWS}}</tbody></table></div>
+    <p class="small muted" style="margin-top:12px">{{AUDIT_TIME}} · “Inside” refers to the provisional mirrored footprint; “all cells” is a stricter local diagnostic, not portal acceptance. Full-pixel directed overlap, not a complete registry or pre-placement-surface audit. <span id="head-feed">Source-head feed is loading.</span></p>
+  </section>
+  <section class="container section">
+    <div class="section-head"><div><span class="eyebrow">What we can actually verify</span><h2>The reported leader is a family, not a new method.</h2></div><a class="small" href="docs/research.html">Read the technical review →</a></div>
+    <div class="grid-two">
+      <article class="panel"><h3>H33-B2 is a pruned earlier dot set</h3><p>The inspected GEMSDOE32 mask exactly matches the GEMSDOE25 historical mask after removing dots within two pixels of the mirrored known-fault catalogue. That geometry is measurable; the reported score and its cause are not independently established.</p><p class="small muted">Sparse placement can reduce redundant prediction mass, but pruning can also remove useful near-catalogue discoveries. The hidden labels are unavailable.</p><a class="small" href="docs/research/review.md">Inspect the full analysis →</a></article>
+      <article class="panel panel-accent"><span class="kicker" style="color:#a5c4b4">Literal registry preflight · geometry, not score</span><div class="big-number">≥82.34%</div><p>Minimum three-pixel overlap for any 37,654-dot map against a registered calibration lattice. The rule stops at more than 70%.</p><p class="small">This bound is budget-specific. It does not prove that all smaller maps fail, or justify moving dots just to evade the gate.</p><a class="small" href="evidence/prior_audit.json">View the reproducible audit →</a></article>
+    </div>
+  </section>
+  <section class="container section">
+    <div class="section-head"><div><span class="eyebrow">Research pipeline</span><h2>Ideas worth testing, not promises.</h2><p>Four untested hypotheses are ranked qualitatively. The top idea cannot run until a method lane and valid comparison protocol are established.</p></div><a class="small" href="docs/research.html">Explore hypotheses →</a></div>
+    <div class="research-grid"><article class="research-card"><span class="number">01 / PROPOSED</span><h3>Composition-matched magnetic breaks</h3><p>Compare magnetic flank signatures while conditioning on radiometric composition.</p></article><article class="research-card"><span class="number">02 / DEFERRED</span><h3>Drainage-deflection consistency</h3><p>Look for repeated channel offsets along a shared line in elevation and hydrography.</p></article><article class="research-card"><span class="number">03 / DEFERRED</span><h3>Shallow thermal alignment</h3><p>Test sparse temperature anomalies against independent structural breaks.</p></article><article class="research-card"><span class="number">04 / DEFERRED</span><h3>Flight-line persistence</h3><p>Distinguish consistent geophysical anomalies from acquisition artifacts.</p></article></div>
+  </section>
+  <section class="container section"><div class="notice"><strong>Important distinction:</strong> the competition predicts geological faults. A predicted fault is not proof of an active geothermal vent, temperature, permeability, or a commercial resource. <a href="docs/sources.html">Review official sources →</a></div></section>
+</main>
+<footer class="footer"><div class="container footer-inner"><span><strong>APART / GEMS</strong><br>Maximize P(Win) · Own the Outcome</span><span><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">Official leaderboard</a> · <a href="docs/sources.html">Sources & limitations</a> · <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3">Repository</a></span></div></footer>
+</body>
+</html>
