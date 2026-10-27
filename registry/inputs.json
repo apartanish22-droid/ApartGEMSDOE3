@@ -1,0 +1,29 @@
+{
+  "scope": "Peer-mirrored organizer-like inputs; authenticity as organizer bytes is NOT established. Binary files are cached locally, not checked into this repo.",
+  "inputs": [
+    {
+      "name": "sample_submission",
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+      "path": "data/bridge/sample_submission.tif",
+      "git_blob": "7d865a9921a40ed2ea4c742a6a25b1fa2f357c5a",
+      "size": 1599597
+    },
+    {
+      "name": "labels",
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+      "path": "data/bridge/labels.tif",
+      "git_blob": "4ad3c1f3f19823e40924589bee7e51e44ae3a2e7",
+      "size": 425830
+    },
+    {
+      "name": "lattice",
+      "repo": "buffedlizard55-lab/13GEMSDOE",
+      "ref": "92ee6f074323f161eed837b80ec3ee5b662e26f5",
+      "path": "docs/downloads/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "git_blob": "81c802618e6d46c6d62289d856ae74439439bbc6",
+      "size": 1706456
+    }
+  ]
+}

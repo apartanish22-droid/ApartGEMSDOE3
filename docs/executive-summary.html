@@ -16,7 +16,7 @@
   <section class="warn">
     <p class="eyebrow">RELEASE DECISION</p>
     <h2>DO NOT SUBMIT</h2>
-    <p>The existing MRCJ raster is available for research download only. It is not a new model result from this review. It passes strict in-footprint range/grid checks and pairwise comparisons to nine tracked historical rasters, but fails the official null/NaN-outside format check. The complete concurrent registry, paired current-best comparison, exact-file C2ST, independent replay, and live quota receipt are unavailable. A newer public owner page also describes a lattice that would conditionally force an overlap above the protocol threshold; see the scope warning below.</p>
+    <p>The existing MRCJ raster is available for research download only. It is not a new model result from this review. It passes strict in-footprint range/grid checks and pairwise comparisons to nine tracked historical rasters, but fails the official null/NaN-outside format check. The complete concurrent registry, paired current-best comparison, exact-file C2ST, independent replay, and live quota receipt are unavailable. An independent exact-file audit found 100% of its dots within 3 pixels of the registered lattice, exceeding the 70% stop threshold.</p>
     <a class="button" href="downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif" download>Download MRCJ research-only TIFF — NOT submit-ready</a>
     <p>SHA-256 <code>fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1</code></p>
   </section>
@@ -61,8 +61,8 @@
     <p>The 0.3195 and 0.4413 overall claims conflict and have no matching receipt here. For GEMSDOE32, the public <a href="https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html">owner page</a> labels 0.2778 an owner report without a submission-page receipt linking the raster hash to the score. Its <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/pull/9">PR #9</a> describes a removal mechanism: remove 2,545 catalogue-flank dots from a 40,199-dot base to make a 37,654-dot raster. The PR's 0.2747 is a projection, not a score. Reducing low-credit false-positive mass while retaining fault coverage is plausible, but causality against hidden truth is not proven.</p>
   </section>
   <section class="warn">
-    <h2>External full-registry hazard — conditional but consequential</h2>
-    <p>The current <a href="https://buffedlizard55-lab.github.io/GEMSDOE28/">GEMSDOE28 owner page</a> reports a 3-pixel lattice leaving no more than 6,649 valid footprint cells uncovered. If that exact geometry applies to this template, a 37,654-dot candidate has a minimum possible overlap of `(37,654 − 6,649) / 37,654 = 82.34%`, above the 70% stop line. GEMSDOE31 reports the same bound. The lattice raster is not in this checkout; this is owner-reported and not independently replayed. It is an additional stop warning, and no candidate should be moved around a lattice merely to evade it.</p>
+    <h2>Registered lattice — independently verified failure</h2>
+    <p>We independently checked the pinned lattice against the exact MRCJ TIFF: <strong>37,654 of 37,654 dots (100%)</strong> are within 3 pixels, exceeding the literal 70% stop rule. The nine-site comparison did not include this control. Only 6,649 of 5,167,373 mirrored footprint cells are outside its 3-pixel neighborhood, so even the mathematical minimum at this dot count is 82.34%. Full registry and surface replay remain incomplete. <a href="../evidence/parallel_mrcj_audit.json">Exact-file audit</a>. Do not move dots around the lattice to evade the rule.</p>
   </section>
   <section>
     <h2>Provisional next-lane slate — not experiments or forecasts</h2>
@@ -82,7 +82,7 @@
     <h2>Three review passes & remaining gates</h2>
     <ol>
       <li><strong>Repository/data reconciliation:</strong> merged current main artifacts, corrected stale empty-checkout assessment, preserved the prior MRCJ TIFF and immutable experiment card. No experiment rerun.</li>
-      <li><strong>Scientific/artifact review:</strong> exact SHA/grid/strict range validator; recomputed surface and final-dot comparison against all nine local rasters. All local thresholds pass; official exterior-null requirement fails; external lattice is a conditional stop hazard.</li>
+      <li><strong>Scientific/artifact review:</strong> exact SHA/grid/strict range validator; recomputed surface and final-dot comparison against all nine local rasters. All local thresholds pass; official exterior-null requirement fails; the subsequent exact-file lattice audit measured 100% overlap and blocks the candidate.</li>
       <li><strong>Source/release review:</strong> checked official metric/format pages, public owner pages and GEMSDOE32 PR #9; corrected stale promote wording; saved a current selector receipt. No organizer score, upload, or slot claim.</li>
     </ol>
     <p>Remaining blockers: authenticated organizer template; official exterior nodata conformance; active lane; paired same-evaluator current-best holdout; complete live registry and peers; exact-file C2ST and independent replay; live quota receipt. The prior 3-experiment budget is spent.</p>

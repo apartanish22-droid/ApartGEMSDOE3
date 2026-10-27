@@ -77,6 +77,11 @@ def place(score, eligible, k=BUDGET):
 
 
 def main():
+    # Historical source retained so the saved surface can be independently audited.
+    # The prior run exhausted the three-experiment budget, lacked an assigned
+    # lane, and its final file failed the registered lattice stop rule. Never
+    # recreate the historical self-promotion or overwrite the current run card.
+    raise SystemExit("STOP: historical MRCJ run is blocked; the three-experiment budget is spent and the raster fails the lattice gate. See evidence/run_card.json.")
     template = ROOT / "data/bridge/sample_submission.tif"
     with rasterio.open(template) as ds:
         raw = ds.read(1)

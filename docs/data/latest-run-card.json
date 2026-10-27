@@ -1,10 +1,11 @@
 {
   "external_registry_hazard": {
     "conditional_minimum_candidate_overlap": 0.8234184947150369,
-    "evidence_label": "OWNER-REPORTED-GEOMETRY-AUDIT; NOT INDEPENDENTLY REPRODUCED HERE",
-    "interpretation": "If the public lattice count applies to this exact grid/footprint, a 37,654-dot candidate has a geometric lower bound above the 70% stop threshold. The lattice raster is absent from this checkout; treat as an additional stop warning until independently checked.",
-    "reported_rule": "A tracked 3-pixel calibration lattice reportedly leaves at most 6,649 footprint cells uncovered.",
-    "source_url": "https://buffedlizard55-lab.github.io/GEMSDOE28/",
+    "evidence_label": "INDEPENDENT EXACT-FILE LATTICE AUDIT; FULL REGISTRY NOT CHECKED",
+    "interpretation": "Independent exact-file audit measured 100% lattice overlap, so the literal duplicate rule fails. Complete registry and lattice surface checks remain unavailable.",
+    "measured_candidate_overlap": 1.0,
+    "reported_rule": "Registered lattice dots within 3 pixels of the candidate dots; stop above 70%.",
+    "source_url": "evidence/parallel_mrcj_audit.json",
     "threshold": 0.7
   },
   "final_dot_overlap_within_3px_vs_focus_registry": {
@@ -42,7 +43,7 @@
   "organizer_confirmed_score": null,
   "raster_sha256": "fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1",
   "review_scope": "Read-only exact artifact, shared format validator, and nine focus-site registry audit; no new experiment",
-  "reviewed_at_utc": "2026-10-27T21:44:32.870949+00:00",
+  "reviewed_at_utc": "2026-10-27T21:52:47.944710+00:00",
   "schema_version": "apartgemsdoe3-current-review-v2",
   "score_estimate": null,
   "selector": {
@@ -50,7 +51,7 @@
     "artifact": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
     "artifact_sha256": "fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1",
     "current_point_best_source": null,
-    "decided_utc": "2026-10-27T21:44:32.870911+00:00",
+    "decided_utc": "2026-10-27T21:52:47.944660+00:00",
     "decision": "DO_NOT_SUBMIT",
     "gates": {
       "artifact_hash_matches_run_card": true,
@@ -79,7 +80,7 @@
     "scope": "Recorded-evidence screening and exact-file validation only; positive authorization is not implemented. Not an organizer score, quota record or acceptance guarantee. The agent never uploads.",
     "selector_version": "gems-selector-v2-literal-quota-fail-closed"
   },
-  "source_run_card": "evidence/run_card.json",
+  "source_run_card": "evidence/parallel_mrcj_original.json",
   "source_run_card_sha256": "e2318a9bf0c41e1bb60aa5aa62e3711c19df632bf5ef47c290d28b982d6bf9fa",
   "static_h33_comparator": {
     "ci_95": [
@@ -93,7 +94,7 @@
     "withheld_positive_count": 60988
   },
   "submission_name": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
-  "submission_note": "MRCJ magnetic-curvature + radiometric-gradient junctions; 37,654 dots; automated gates passed.",
+  "submission_note": "DO NOT SUBMIT: 100% lattice overlap; organizer format and comparable baseline unverified.",
   "submission_slots_used": 0,
   "surface_spearman_vs_focus_registry": {
     "GEMSDOE24": 0.007896787820635272,
@@ -194,5 +195,5 @@
     "upload_authorization": "not evaluated by a format validator; separate scientific selector required"
   },
   "verdict": "negative",
-  "verdict_reason": "The stored run card lacks the selector's paired current-best, full registry/peer, exact-file C2ST, and independently verified quota/replay evidence. Exterior zeros also differ from the competition page's null/NaN-outside instruction. No submission is authorized."
+  "verdict_reason": "Independent audit measured 100% final-dot overlap with the registered lattice, above the 70% stop rule. The paired current-best, full registry, independent replay and live quota are missing; exterior zeros differ from null/NaN-outside text. No submission is authorized."
 }

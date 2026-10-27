@@ -5,16 +5,21 @@ import rasterio
 
 ROOT=Path(__file__).parents[1]
 CARD=ROOT/'evidence/run_card.json'
+ARCHIVE=ROOT/'evidence/parallel_mrcj_original.json'
 TIF=ROOT/'docs/downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif'
 
 def test_run_card_and_bytes_agree():
-    c=json.loads(CARD.read_text())
-    assert c['experiments_run'] <= c['budget_limit'] == 3
-    assert c['feature_leakage_canary']['passed']
-    assert c['feature_leakage_canary']['worst_pooled_auc'] <= .90
-    assert max(abs(x) for x in c['correlation_vs_registry'].values() if x is not None) <= .90
-    assert max(x for x in c['overlap_vs_registry'].values() if x is not None) <= .70
-    assert hashlib.sha256(TIF.read_bytes()).hexdigest() == c['raster_sha256']
+    current=json.loads(CARD.read_text())
+    historical=json.loads(ARCHIVE.read_text())
+    assert historical['experiments_run'] <= historical['budget_limit'] == 3
+    assert historical['feature_leakage_canary']['passed']
+    assert historical['feature_leakage_canary']['worst_pooled_auc'] <= .90
+    assert max(abs(x) for x in historical['correlation_vs_registry'].values() if x is not None) <= .90
+    assert max(x for x in historical['overlap_vs_registry'].values() if x is not None) <= .70
+    # Those nine-only results do not waive the independent lattice failure.
+    assert current['verdict'] == 'negative' and current['ok_to_submit'] is False
+    assert current['correlation_overlap_vs_registry']['final_dots_lattice_overlap'] == 1.0
+    assert hashlib.sha256(TIF.read_bytes()).hexdigest() == current['raster_sha256'] == historical['raster_sha256']
 
 def test_submission_is_strictly_finite_and_aligned():
     with rasterio.open(TIF) as s, rasterio.open(ROOT/'data/bridge/sample_submission.tif') as t:
@@ -35,6 +40,7 @@ def test_current_review_rechecks_focus_registry_and_stays_negative():
     assert report['novel_vs_each_focus_raster_under_thresholds'] is True
     assert report['focus_registry_count'] == 9
     assert report['external_registry_hazard']['conditional_minimum_candidate_overlap'] > 0.70
+    assert report['external_registry_hazard']['measured_candidate_overlap'] == 1.0
     assert report['validator_output']['format_valid'] is True
     assert report['validator_output']['official_format_compliant'] is False
     assert report['holdout_dti']['label'] == 'HOLDOUT-DTI'

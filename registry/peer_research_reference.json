@@ -1,0 +1,21 @@
+{
+  "scope": "Historical peer research reference for learning only, not a new submission.",
+  "files": [
+    {
+      "name": "raster",
+      "repo": "buffedlizard55-lab/GEMSDOE36",
+      "ref": "7edcc9b58e6ad0f88c6e6f5ee9218761a391769d",
+      "path": "docs/downloads/gemsdoe36-tcd36-exp2-20261027-9970b80c6585-zeros.tif",
+      "git_blob": "41bf1973a8626b562b0f026d2e07221598432c19",
+      "size": 825986
+    },
+    {
+      "name": "run_card",
+      "repo": "buffedlizard55-lab/GEMSDOE36",
+      "ref": "7edcc9b58e6ad0f88c6e6f5ee9218761a391769d",
+      "path": "evidence/tcd36_run_card_20261027.json",
+      "git_blob": "5f8048e90e2422a643c4186ce03438ab8922563b",
+      "size": 15645
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema": "apartgemsdoe3-peer-research-reference-v1",
+  "checked_utc": "2026-10-27T21:42:38.520582+00:00",
+  "scope": "Existing peer TIFF for learning; no new raster, holdout experiment or slot approval.",
+  "raster": {
+    "name": "gemsdoe36-tcd36-exp2-20261027-9970b80c6585-zeros.tif",
+    "source": "https://github.com/buffedlizard55-lab/GEMSDOE36/blob/7edcc9b58e6ad0f88c6e6f5ee9218761a391769d/docs/downloads/gemsdoe36-tcd36-exp2-20261027-9970b80c6585-zeros.tif",
+    "sha256": "513a7378a96452fa31e524a002f467457c58fabcb0da896fa75830d0973f4037",
+    "dots": 37654,
+    "metadata": {
+      "dtype": "float32",
+      "nodata": null,
+      "nodata_is_nan": false
+    }
+  },
+  "recorded_holdout_not_replayed": {
+    "source": "https://github.com/buffedlizard55-lab/GEMSDOE36/blob/7edcc9b58e6ad0f88c6e6f5ee9218761a391769d/evidence/tcd36_run_card_20261027.json",
+    "source_sha256": "62b8c2f9cf2dec701840a55a5c1ef04f812e54ba8563fe732ad2fbb23e7fc6cc",
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": "gems-segment-pooled-v1",
+    "withheld_positive_pixels": 60988,
+    "value": 0.19416399564770398,
+    "ci95": [
+      0.18034221043880366,
+      0.20834334518799855
+    ],
+    "limitation": "Peer-recorded, not replayed; not an organizer score or transferable leaderboard estimate."
+  },
+  "candidate_to_historical_nine": [
+    {
+      "reference": "GEMSDOE24",
+      "candidate_within_3px_fraction": 0.6281669942104424
+    },
+    {
+      "reference": "GEMSDOE25",
+      "candidate_within_3px_fraction": 0.6082222340256015
+    },
+    {
+      "reference": "GEMSDOE27",
+      "candidate_within_3px_fraction": 0.6317257130716524
+    },
+    {
+      "reference": "GEMSDOE28",
+      "candidate_within_3px_fraction": 0.5839485844797365
+    },
+    {
+      "reference": "GEMSDOE30",
+      "candidate_within_3px_fraction": 0.6082222340256015
+    },
+    {
+      "reference": "GEMSDOE31",
+      "candidate_within_3px_fraction": 0.5909332341849471
+    },
+    {
+      "reference": "GEMSDOE32",
+      "candidate_within_3px_fraction": 0.5698996122589898
+    },
+    {
+      "reference": "GEMSDOE33",
+      "candidate_within_3px_fraction": 0.5995910129069952
+    },
+    {
+      "reference": "GEMSDOE36",
+      "candidate_within_3px_fraction": 0.5718383173102459
+    }
+  ],
+  "maximum_vs_historical_nine": {
+    "reference": "GEMSDOE27",
+    "candidate_within_3px_fraction": 0.6317257130716524
+  },
+  "candidate_within_3px_of_lattice": 0.993493387156743,
+  "literal_lattice_duplicate": true,
+  "complete_registry_checked": false,
+  "preplacement_surface_replayed": false,
+  "new_raster": false,
+  "ok_to_submit": false
+}
