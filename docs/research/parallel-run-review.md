@@ -1,0 +1,17 @@
+# Parallel MRCJ release review — 2026-10-27
+
+**Decision: DO NOT SUBMIT.** This document supersedes the parallel run's earlier `promote` and “OK to submit” claim. It does not delete or alter the underlying experiment, and it is not a new scientific experiment or submission.
+
+While this review was underway, [PR #2](https://github.com/apartanish22-droid/ApartGEMSDOE3/pull/2) merged a candidate and supporting files into `main` at `7976f987fcb8909ca8cb5cde1547504c106c6021`. We pinned that commit and Git blob IDs in [`registry/parallel_mrcj.json`](../../registry/parallel_mrcj.json), then independently reopened the exact TIFF. Its SHA-256 is `fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1`; 37,654 cells are positive in the peer-mirrored footprint.
+
+## Decisive uniqueness failure
+
+The parallel run reported a maximum 27.39% candidate-to-reference overlap against the **nine** selected historical files. We independently reproduce that maximum. It did not compare the candidate against the registered spacing-5 lattice. We measure **37,654/37,654 = 100%** of its final dots within 3 pixels of the lattice. The prompt's literal stop rule is strictly greater than 70%, so this candidate is a duplicate under that rule. Low rank correlation alone does not waive the overlap gate. The pre-placement surface and the complete registry have **not** been independently replayed here. Full metrics and pinned source paths: [`evidence/parallel_mrcj_audit.json`](../../evidence/parallel_mrcj_audit.json).
+
+## Scientific and format boundaries
+
+The parallel record reports **HOLDOUT-DTI 0.0220695384**, `gems-segment-pooled-v1`, 60,988 withheld positives, spatial-block 95% CI `[0.0172370496, 0.0269231558]`. This is an existing, locally recorded holdout, **not replayed in this review** and not an organizer score or leaderboard estimate. The author explicitly says its comparison TIFF was not rebuilt fold by fold and is not promotion-grade OOF evidence; consequently the claimed promotion cannot establish improvement over a comparable current best. The referenced single assigned method paragraph was absent, even though the prior run chose a lane. Its record reports three experiments and no slot spent; this review ran zero experiments and used no slot.
+
+The exact TIFF is single-band float32, matches the peer-mirrored grid, and has finite `[0,1]` values on the footprint and in the raw whole array. It has **zero**, not null/NaN, outside that footprint. We have not authenticated the sample against the organizer. A strict raw-range diagnostic alone does not establish compliance with the official null/NaN wording or prove that it resolves the user's rejected upload; see the embedded format report in the independent audit.
+
+The original run card is preserved byte-for-byte at [`evidence/parallel_mrcj_original.json`](../../evidence/parallel_mrcj_original.json) for provenance. It contains the original unsafe `promote` and `ok_to_submit: true` fields: **those historical claims are superseded by the current negative [run card](../../evidence/run_card.json)**. No user should use the old note asserting that all gates passed. Do not adjust the placements around lattice holes or remove the lattice from the registry to manufacture a pass. An independent selector may revisit only after a valid assigned lane, full registry, comparable baseline, authenticated inputs, and official format are established.

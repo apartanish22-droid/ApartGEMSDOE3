@@ -1,0 +1,62 @@
+{
+  "schema": "apartgemsdoe3-run-card-v2",
+  "date_utc": "2026-10-27",
+  "hypothesis": "MRCJ: persistent cross-scale magnetic curvature at opposed Th/K and orthogonal U/Th gradients marks concealed fault-controlled alteration junctions.",
+  "mechanism": "A concealed permeable structure can juxtapose magnetic domains while focusing chemically distinct hydrothermal alteration; cross-scale persistence rejects short-wavelength noise.",
+  "named_non_fault_process": "lithologic contact or acquisition-block seam",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": "gems-segment-pooled-v1",
+    "withheld_positive_pixels": 60988,
+    "value": 0.0220695384115339,
+    "ci95": [
+      0.01723704956650266,
+      0.02692315577995154
+    ],
+    "status": "PARALLEL-RUN RECORDED, NOT REPLAYED: not an organizer score; no verified fold-rebuilt best comparison."
+  },
+  "correlation_overlap_vs_registry": {
+    "preplacement_surface_full_registry": null,
+    "preplacement_surface_max_abs_spearman_nine_reported_not_replayed": 0.008743989058724037,
+    "final_dots_max_overlap_nine": 0.2739151218993998,
+    "final_dots_lattice_overlap": 1.0,
+    "final_dots_lattice_spearman": 6.246371257602123e-05,
+    "full_registry_checked": false,
+    "duplicate_stop": true,
+    "status": "Independent exact-dot audit: 100% within 3 px of the registered lattice; exceeds 70%. Surface was not replayed.",
+    "evidence": "evidence/parallel_mrcj_audit.json"
+  },
+  "raster_sha256": "fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1",
+  "validator_output": {
+    "no_nan_inside_footprint": true,
+    "values_in_0_1": true,
+    "crs_shape_transform_match": true,
+    "template": "peer mirror, not organizer-authenticated",
+    "outside_null_or_nan_relative_to_template": false,
+    "strict_raw_full_array_finite_0_1": true,
+    "official_sample_authenticated": false,
+    "organizer_acceptance_verified": false,
+    "status": "Format-only checks; zero exterior fails the literal null/NaN check. Portal rejection cause remains unknown."
+  },
+  "submission_name": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
+  "submission_note": "DO NOT SUBMIT: 100% lattice overlap; organizer format and comparable baseline unverified.",
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "reasons": [
+    "The parallel file fails the literal registered-lattice overlap gate: 100% within 3 pixels, threshold strictly greater than 70%.",
+    "The prompt did not identify its referenced single assigned method paragraph; the parallel MRCJ lane was not assigned by that paragraph.",
+    "The parallel run compared to an explicitly non-fold-rebuilt static raster, not a validated comparable current best.",
+    "The organizer sample, feature inputs and labels were not authenticated; the peer sample contains exact label values on its footprint.",
+    "The zero exterior is not null/NaN, and the original portal range rejection remains unexplained.",
+    "Full current registry and pre-placement surface were not independently checked, and a separate selector has not authorized a slot."
+  ],
+  "experiments_run_in_this_review": 0,
+  "parallel_run_experiments_reported": 3,
+  "experiment_budget": 3,
+  "weekly_slots_used_in_this_review": 0,
+  "prior_parallel_slot_used_reported": false,
+  "new_tiff_created_in_this_review": false,
+  "previous_parallel_tiff_exists": true,
+  "source_archive": "evidence/parallel_mrcj_original.json",
+  "archive_warning": "Historical promote/OK claim in the archived source is superseded by this negative review."
+}

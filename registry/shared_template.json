@@ -1,0 +1,70 @@
+{
+  "template": "buffedlizard55-lab/GEMSDOE24",
+  "ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+  "note": "Downloaded to ignored .cache byte-for-byte and verified as Git blobs. No private fork. This cache does not contain the feature stack, every package module or a runnable assigned lane.",
+  "files": [
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+      "path": "src/gems/__init__.py",
+      "git_blob": "32f3c742d9c3387814be5f030db0ecc53faa8818",
+      "size": 410
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+      "path": "src/gems/metric.py",
+      "git_blob": "b6b3316e9639c2278f648c79b292c520f8582b6a",
+      "size": 11550
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+      "path": "src/gems/holdout.py",
+      "git_blob": "5c0bacd82138c58c1f015b043bad40b953106f88",
+      "size": 29688
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+      "path": "src/gems/submission.py",
+      "git_blob": "34f98babf65d4fdb3af20ac5ecf48c743fc72b79",
+      "size": 12242
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+      "path": "src/gems/validator.py",
+      "git_blob": "e98fab4bde46ca2c926d0b4790777badd5369218",
+      "size": 396
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+      "path": "src/gems/novelty.py",
+      "git_blob": "296ac383b90a058ccd2f50de1d5aead6bfa400af",
+      "size": 19652
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+      "path": "src/gems/uniqueness_budget.py",
+      "git_blob": "ea52411189c40f2ca258445fe1b372eb90186de3",
+      "size": 1177
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+      "path": "scripts/evaluate_holdout.py",
+      "git_blob": "c880b0576c3bc0bdf6657c5671e47cf7d5c40e71",
+      "size": 15684
+    },
+    {
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+      "path": "scripts/submission_writer.py",
+      "git_blob": "0eb8879b6fcaac82eae5426848341342be4b8fa2",
+      "size": 1788
+    }
+  ]
+}

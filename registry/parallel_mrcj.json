@@ -1,0 +1,21 @@
+{
+  "scope": "Previously generated parallel MRCJ research file. Its original promotion claim is not accepted; it fails the literal lattice control.",
+  "files": [
+    {
+      "name": "raster",
+      "repo": "apartanish22-droid/ApartGEMSDOE3",
+      "ref": "7976f987fcb8909ca8cb5cde1547504c106c6021",
+      "path": "docs/downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
+      "git_blob": "5272cb46e5a7db77b23245d1f23481cc907b6743",
+      "size": 799474
+    },
+    {
+      "name": "run_card",
+      "repo": "apartanish22-droid/ApartGEMSDOE3",
+      "ref": "7976f987fcb8909ca8cb5cde1547504c106c6021",
+      "path": "evidence/run_card.json",
+      "git_blob": "9ef8d20032944f90061c7fa2673765baf1524a7d",
+      "size": 22018
+    }
+  ]
+}

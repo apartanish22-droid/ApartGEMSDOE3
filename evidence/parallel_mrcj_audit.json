@@ -1,0 +1,205 @@
+{
+  "schema": "apartgemsdoe3-parallel-mrcj-review-v1",
+  "checked_utc": "2026-10-27T21:47:08.196656+00:00",
+  "scope": "Read-only exact-file review of a parallel run; no new experiment, upload or promotion.",
+  "raster": {
+    "file": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
+    "source": "https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/7976f987fcb8909ca8cb5cde1547504c106c6021/docs/downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
+    "sha256": "fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1",
+    "dots": 37654,
+    "metadata": {
+      "dtype": "float32",
+      "nodata": null,
+      "nodata_is_nan": false
+    }
+  },
+  "recorded_holdout_not_replayed": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": "gems-segment-pooled-v1",
+    "withheld_positive_pixels": 60988,
+    "value": 0.0220695384115339,
+    "ci95": [
+      0.01723704956650266,
+      0.02692315577995154
+    ],
+    "source": "evidence/parallel_mrcj_original.json",
+    "limitation": "Recorded by the parallel run; not independently replayed, not an organizer score, and not compared with a verified fold-rebuilt best."
+  },
+  "original_claim": {
+    "verdict": "promote",
+    "ok_to_submit": true,
+    "scope": "Only nine selected site rasters; the literal registered lattice was omitted.",
+    "status": "Superseded: not approved by this review."
+  },
+  "final_dots_vs_historical_nine": [
+    {
+      "reference": "GEMSDOE24",
+      "final_dot_spearman": 0.004782204495325882,
+      "candidate_within_3px_fraction": 0.26708981781484037
+    },
+    {
+      "reference": "GEMSDOE25",
+      "final_dot_spearman": 0.004173920389600535,
+      "candidate_within_3px_fraction": 0.25248313592181443
+    },
+    {
+      "reference": "GEMSDOE27",
+      "final_dot_spearman": 0.004834841739853505,
+      "candidate_within_3px_fraction": 0.2739151218993998
+    },
+    {
+      "reference": "GEMSDOE28",
+      "final_dot_spearman": 0.003920978988803935,
+      "candidate_within_3px_fraction": 0.2336803526849737
+    },
+    {
+      "reference": "GEMSDOE30",
+      "final_dot_spearman": 0.004173920389600535,
+      "candidate_within_3px_fraction": 0.25248313592181443
+    },
+    {
+      "reference": "GEMSDOE31",
+      "final_dot_spearman": 0.004119765791122066,
+      "candidate_within_3px_fraction": 0.23920433420088172
+    },
+    {
+      "reference": "GEMSDOE32",
+      "final_dot_spearman": 0.0039224587332084265,
+      "candidate_within_3px_fraction": 0.22613799330748394
+    },
+    {
+      "reference": "GEMSDOE33",
+      "final_dot_spearman": 0.004211738759236626,
+      "candidate_within_3px_fraction": 0.2451266797684177
+    },
+    {
+      "reference": "GEMSDOE36",
+      "final_dot_spearman": 0.005975740413556395,
+      "candidate_within_3px_fraction": 0.25620120040367556
+    }
+  ],
+  "maximum_final_overlap_vs_historical_nine": {
+    "reference": "GEMSDOE27",
+    "final_dot_spearman": 0.004834841739853505,
+    "candidate_within_3px_fraction": 0.2739151218993998
+  },
+  "registered_lattice": {
+    "candidate_within_3px_fraction": 1.0,
+    "final_dot_spearman": 6.246371257602123e-05,
+    "duplicate_under_literal_rule": true
+  },
+  "preplacement_surface_replayed": false,
+  "complete_registry_checked": false,
+  "format_inspection": {
+    "schema": "apartgemsdoe3-format-inspection-v1",
+    "candidate": "/home/user/ApartGEMSDOE3/.cache/priority-audit/5272cb46e5a7db77b23245d1f23481cc907b6743.tif",
+    "candidate_sha256": "fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1",
+    "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "template_authenticity": "not established by this tool; compare with organizer's authenticated sample",
+    "footprint_definition": "Finite and unmasked pixels of the supplied template; authenticity is not established.",
+    "shared_template_ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+    "shared_validator": {
+      "file": "5272cb46e5a7db77b23245d1f23481cc907b6743.tif",
+      "bytes": 799474,
+      "sha256": "fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1",
+      "format_valid": true,
+      "ok_to_upload": false,
+      "upload_authorization": "not evaluated by a format validator; separate scientific selector required",
+      "format_acceptable": true,
+      "submission_authorized": false,
+      "scope": "Format only; this does not certify bias audit, holdout promotion or weekly-slot eligibility",
+      "hard_failures": [],
+      "official_format_compliant": false,
+      "in_footprint_positive_pixels": 37654,
+      "in_footprint_mass": 37654.0,
+      "checks": {
+        "official_template_grid_and_footprint": {
+          "pass": true,
+          "detail": "Template must be the pinned organizer grid, not just a self-consistent arbitrary raster",
+          "hard_requirement": true
+        },
+        "single_band": {
+          "pass": true,
+          "detail": "count=1",
+          "hard_requirement": true
+        },
+        "dtype_float32": {
+          "pass": true,
+          "detail": "dtypes=('float32',)",
+          "hard_requirement": true
+        },
+        "crs_epsg_32611": {
+          "pass": true,
+          "detail": "EPSG:32611",
+          "hard_requirement": true
+        },
+        "shape_matches_template": {
+          "pass": true,
+          "detail": "(3730, 3292) vs (3730, 3292)",
+          "hard_requirement": true
+        },
+        "geotransform_matches_template": {
+          "pass": true,
+          "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+          "hard_requirement": true
+        },
+        "footprint_all_finite": {
+          "pass": true,
+          "detail": "0 NaN/Inf inside the 5,167,373-pixel footprint",
+          "hard_requirement": true
+        },
+        "footprint_range_0_1": {
+          "pass": true,
+          "detail": "finite=5167373/5167373; range=0.0 to 1.0",
+          "hard_requirement": true
+        },
+        "outside_is_nan_official_text": {
+          "pass": false,
+          "detail": "0 of 7,111,787 outside pixels are NaN",
+          "hard_requirement": false
+        },
+        "nodata_tag_is_nan": {
+          "pass": false,
+          "detail": "nodata=None",
+          "hard_requirement": false
+        },
+        "variant_nan_aware_whole_array": {
+          "pass": true,
+          "detail": "np.nanmin/np.nanmax over the whole array",
+          "hard_requirement": true
+        },
+        "variant_masked_read": {
+          "pass": true,
+          "detail": "rasterio read(masked=True).compressed()",
+          "hard_requirement": true
+        },
+        "variant_strict_whole_array_no_nan_allowed": {
+          "pass": true,
+          "detail": "((a>=0)&(a<=1)).all() over the whole array - fails for ANY NaN, including the official sample's NaN outside",
+          "hard_requirement": false
+        },
+        "profile_matches_official_sample": {
+          "pass": false,
+          "detail": "driver/dtype/nodata/size/crs/transform equal to template; compress=lzw (template lzw)",
+          "hard_requirement": false
+        }
+      }
+    },
+    "diagnostics": {
+      "shared_hard_format_checks": true,
+      "inside_all_finite_and_in_0_1": true,
+      "inside_no_masked_pixels": true,
+      "outside_null_or_nan_relative_to_template": false,
+      "strict_raw_full_array_finite_0_1_diagnostic": true
+    },
+    "masked_pixels_inside_template_footprint": 0,
+    "passes_local_textual_checks": false,
+    "organizer_acceptance_verified": false,
+    "scientific_or_uniqueness_gates_evaluated": false,
+    "ok_to_submit": false,
+    "warning": "A zero exterior may pass a strict raw range check but does not by itself establish the official null/NaN exterior requirement. A NaN exterior may fail a strict raw range check. The rejection's cause is unverified."
+  },
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "weekly_slot_used_in_this_review": false
+}

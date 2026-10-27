@@ -1,0 +1,109 @@
+{
+  "schema": "apartgemsdoe3-format-inspection-v1",
+  "candidate": ".cache/priority-audit/17a76895f68174cc93f3cb1597d25686f6d6bc67.tif",
+  "candidate_sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+  "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+  "template_authenticity": "not established by this tool; compare with organizer's authenticated sample",
+  "footprint_definition": "Finite and unmasked pixels of the supplied template; authenticity is not established.",
+  "shared_template_ref": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+  "shared_validator": {
+    "file": "17a76895f68174cc93f3cb1597d25686f6d6bc67.tif",
+    "bytes": 219065,
+    "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+    "format_valid": true,
+    "ok_to_upload": false,
+    "upload_authorization": "not evaluated by a format validator; separate scientific selector required",
+    "format_acceptable": true,
+    "submission_authorized": false,
+    "scope": "Format only; this does not certify bias audit, holdout promotion or weekly-slot eligibility",
+    "hard_failures": [],
+    "official_format_compliant": false,
+    "in_footprint_positive_pixels": 37654,
+    "in_footprint_mass": 37654.0,
+    "checks": {
+      "official_template_grid_and_footprint": {
+        "pass": true,
+        "detail": "Template must be the pinned organizer grid, not just a self-consistent arbitrary raster",
+        "hard_requirement": true
+      },
+      "single_band": {
+        "pass": true,
+        "detail": "count=1",
+        "hard_requirement": true
+      },
+      "dtype_float32": {
+        "pass": true,
+        "detail": "dtypes=('float32',)",
+        "hard_requirement": true
+      },
+      "crs_epsg_32611": {
+        "pass": true,
+        "detail": "EPSG:32611",
+        "hard_requirement": true
+      },
+      "shape_matches_template": {
+        "pass": true,
+        "detail": "(3730, 3292) vs (3730, 3292)",
+        "hard_requirement": true
+      },
+      "geotransform_matches_template": {
+        "pass": true,
+        "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+        "hard_requirement": true
+      },
+      "footprint_all_finite": {
+        "pass": true,
+        "detail": "0 NaN/Inf inside the 5,167,373-pixel footprint",
+        "hard_requirement": true
+      },
+      "footprint_range_0_1": {
+        "pass": true,
+        "detail": "finite=5167373/5167373; range=0.0 to 1.0",
+        "hard_requirement": true
+      },
+      "outside_is_nan_official_text": {
+        "pass": false,
+        "detail": "0 of 7,111,787 outside pixels are NaN",
+        "hard_requirement": false
+      },
+      "nodata_tag_is_nan": {
+        "pass": false,
+        "detail": "nodata=None",
+        "hard_requirement": false
+      },
+      "variant_nan_aware_whole_array": {
+        "pass": true,
+        "detail": "np.nanmin/np.nanmax over the whole array",
+        "hard_requirement": true
+      },
+      "variant_masked_read": {
+        "pass": true,
+        "detail": "rasterio read(masked=True).compressed()",
+        "hard_requirement": true
+      },
+      "variant_strict_whole_array_no_nan_allowed": {
+        "pass": true,
+        "detail": "((a>=0)&(a<=1)).all() over the whole array - fails for ANY NaN, including the official sample's NaN outside",
+        "hard_requirement": false
+      },
+      "profile_matches_official_sample": {
+        "pass": false,
+        "detail": "driver/dtype/nodata/size/crs/transform equal to template; compress=deflate (template lzw)",
+        "hard_requirement": false
+      }
+    }
+  },
+  "diagnostics": {
+    "shared_hard_format_checks": true,
+    "inside_all_finite_and_in_0_1": true,
+    "inside_no_masked_pixels": true,
+    "outside_null_or_nan_relative_to_template": false,
+    "strict_raw_full_array_finite_0_1_diagnostic": true
+  },
+  "masked_pixels_inside_template_footprint": 0,
+  "passes_local_textual_checks": false,
+  "organizer_acceptance_verified": false,
+  "scientific_or_uniqueness_gates_evaluated": false,
+  "ok_to_submit": false,
+  "warning": "A zero exterior may pass a strict raw range check but does not by itself establish the official null/NaN exterior requirement. A NaN exterior may fail a strict raw range check. The rejection's cause is unverified."
+}
