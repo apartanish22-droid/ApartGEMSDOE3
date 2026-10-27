@@ -22,7 +22,7 @@ from gems57 import uniqueness
 from validate_submission import check
 
 
-def run(candidate: Path, cache: Path, source: str) -> dict:
+def run(candidate: Path, cache: Path, source: str, include_history: bool = False) -> dict:
     manifest = json.loads((ROOT / "registry/input_manifest.json").read_text())
     records = {r["id"]: r for r in manifest["files"]}
     sample, grid, _ = load_pinned(records["sample"], cache)
@@ -43,6 +43,20 @@ def run(candidate: Path, cache: Path, source: str) -> dict:
     near_count = int((uniqueness._near(reference) & dots).sum())
     fraction = near_count / count
     rho = binary_rank_correlation(dots, reference, fp)
+    history = None
+    if include_history:
+        history_records = [r for r in manifest["files"] if r.get("group") == "history"]
+        if len(history_records) != 9:
+            raise ValueError("expected exactly nine pinned historical files")
+        history = []
+        for record in history_records:
+            arr, _, _ = load_pinned(record, cache, grid)
+            ref_dots = uniqueness._dots(arr) & fp
+            overlap = float(uniqueness._near(ref_dots)[dots].mean())
+            history.append({"id": record["id"], "sha256": record["sha256"],
+                            "candidate_dot_overlap_within_3px": overlap,
+                            "final_binary_support_spearman": binary_rank_correlation(dots, ref_dots, fp),
+                            "duplicate_by_overlap": overlap > .70})
     format_report = check(candidate, cache)
     local_checks = format_report["local"]["checks"]
     return {
@@ -60,6 +74,7 @@ def run(candidate: Path, cache: Path, source: str) -> dict:
         "surface_rank_correlation": None,
         "surface_reason": "Pre-placement surface unavailable; final binary support is not a surface-stage check.",
         "duplicate_by_overlap": bool(fraction > .70),
+        "historical_comparisons": history,
         "complete_registry_checked": False,
         "format": {
             "local_format_passed": format_report["format_passed"],
@@ -81,10 +96,11 @@ def main(argv=None):
     parser.add_argument("candidate", type=Path)
     parser.add_argument("--cache", type=Path, default=ROOT / ".cache/inputs")
     parser.add_argument("--source", default="local file; source not independently provided")
+    parser.add_argument("--history", action="store_true", help="Also compare final dots to the nine pinned historical files")
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args(argv)
     try:
-        result = run(args.candidate, args.cache, args.source)
+        result = run(args.candidate, args.cache, args.source, include_history=args.history)
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
     except (OSError, ValueError, rasterio.errors.RasterioError) as exc:

@@ -52,13 +52,34 @@ required, the original text must be supplied again rather than reconstructed.
   see the [official leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)
   for current values. That leaderboard does not identify the winning file.
 
+### A parallel research TIFF is not cleared
+
+While this review was running, another branch merged an MRCJ magnetic/radiometric
+candidate. Its exact saved bytes pass our local format checks, but **all 37,654
+of its dots overlap the registered lattice within three pixels**. Its earlier
+approval compared only nine historical files and is superseded; the original
+receipt is retained for provenance. Its recorded HOLDOUT-DTI 0.022070
+(`gems-segment-pooled-v1`, 60,988 withheld positives, 95% CI [0.017237, 0.026923])
+was not independently replayed here, and its comparator was not fold-rebuilt.
+**Research download only; DO NOT SUBMIT.**
+
+[Research TIFF](docs/downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif)
+· [Independent exact-byte audit](evidence/mrcj_audit.json)
+· [Corrected parallel run card](evidence/run_card.json)
+· [Original historical card](evidence/mrcj_original_run_card.json)
+
+The archived experiment entry point now stops before overwriting results or
+issuing a false promotion. This review ran zero geological experiments; the
+separate parallel run reports three.
+
 ## Reproduce the audit
 
 Python 3.11, GDAL-compatible wheels, internet access to public GitHub and the
 GitHub CLI `gh` are required to restore the inputs. Third-party mirror bytes are
 pinned by commit and SHA-256; those hashes do **not** authenticate organizer
-origin, license permission, or the reported results. Large downloads are stored
-only in ignored `.cache/`. No DrivenData credentials are used.
+origin, license permission, or the reported results. This review's restored
+large inputs live in ignored `.cache/`; the parallel branch had already committed
+some separate mirrored TIFFs before the merge. No DrivenData credentials are used.
 
 ```bash
 python3.11 -m venv .venv
@@ -70,6 +91,8 @@ python scripts/fetch_template.py
 python scripts/fetch_assets.py --groups core history
 # Write a new, separate record; does not modify the checked-in dated audit.
 python scripts/audit_prior.py --out .cache/review/reproduced-audit.json
+# Independently recheck the parallel research file against nine files and lattice.
+python scripts/audit_candidate.py docs/downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif --history --out .cache/review/mrcj-audit.json
 # Optional: restore the 19-band raw feature TIFF and owner radiometric mirror.
 python scripts/fetch_assets.py --groups features external
 python -m pytest -q

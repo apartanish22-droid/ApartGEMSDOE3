@@ -5,7 +5,10 @@ started with only an empty README; none has previously been implemented *here*. 
 reviewed related public sibling descriptions, but cannot prove that no other parallel
 session has tried a similar idea. Expected benefit is a qualitative priority, not a
 projection. **No run is authorized until the missing assigned-method paragraph is
-resolved and the literal registry preflight can pass.**
+resolved and the literal registry preflight can pass.** A parallel run subsequently
+published MRCJ, another magnetic/radiometric idea in a related family. The
+composition-matched proposal predates our discovery of that run and must be
+compared with it before anyone can claim methodological novelty.
 
 | Rank | Hypothesis and input layers | Physical signature; why a fault missing from the catalogue might be found | Distinguishing operation / named non-fault mimic | Expected benefit / cost / data status |
 | --- | --- | --- | --- | --- |

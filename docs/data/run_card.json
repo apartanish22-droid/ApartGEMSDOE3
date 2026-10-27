@@ -1,32 +1,61 @@
 {
-  "run_id": "apartgemsdoe3-preflight-20261027",
-  "hypothesis": "Composition-matched magnetic breaks proposed as rank one; not assigned or tested",
-  "mechanism": "Search for a cross-line magnetic break with similar radiometric composition on both flanks; conditional, untested research hypothesis.",
-  "named_non_fault_mimic": "A same-composition intrusive margin or magnetic lithologic contact",
+  "run_id": "apartgemsdoe3-independent-audit-20261027",
+  "hypothesis": "MRCJ: persistent cross-scale magnetic curvature at opposed Th/K and orthogonal U/Th gradients marks concealed fault-controlled alteration junctions.",
+  "mechanism": "A concealed permeable structure can juxtapose magnetic domains while focusing chemically distinct hydrothermal alteration; cross-scale persistence rejects short-wavelength noise.",
+  "named_non_fault_mimic": "lithologic contact or acquisition-block seam",
   "assigned_method_lane": null,
-  "experiments_run": 0,
+  "experiments_run_in_this_review": 0,
+  "parallel_run_experiments_reported": 3,
   "holdout_dti": {
-    "evidence_class": "HOLDOUT-DTI",
-    "evaluator_version": null,
-    "withheld_positive_count": null,
-    "value": null,
-    "ci95": null,
-    "reason": "No geological experiment was authorized or run; no matched incumbent was established."
+    "evidence_class": "HOLDOUT-DTI (SOURCE-RECORDED, not independently replayed)",
+    "evaluator_version": "gems-segment-pooled-v1",
+    "withheld_positive_count": 60988,
+    "value": 0.0220695384115339,
+    "ci95": [
+      0.01723704956650266,
+      0.02692315577995154
+    ],
+    "limitation": "Prior comparison was to a static historical map, not a fold-rebuilt promotion-grade current best; not a leaderboard estimate."
   },
-  "leakage_canaries": {"status": "not run", "feature_aucs": null},
+  "leakage_canaries": {
+    "status": "parallel run reported pass; not independently replayed",
+    "feature_aucs": "see corrected source card"
+  },
   "registry": {
-    "scope": "Nine pinned historical rasters and a calibration-lattice witness; not the full parallel registry",
-    "surface_rank_correlation": null,
-    "final_dot_overlap": null,
-    "status": "no candidate surface or dots; uniqueness not established",
-    "preflight": "At 37654 distinct in-footprint dots, at least 82.34% must lie within 3 pixels of the pinned lattice; greater than the 70% limit.",
-    "evidence": "../../evidence/prior_audit.json"
+    "scope": "Nine pinned historical rasters and a calibration-lattice witness; not the complete parallel registry",
+    "source_reported_surface_rank_correlation_max_vs_nine": 0.008743989058724037,
+    "surface_rank_correlation_vs_lattice": null,
+    "max_final_dot_overlap_vs_nine": 0.2739151218993998,
+    "final_dot_overlap_vs_lattice": 1.0,
+    "final_binary_support_spearman_vs_lattice": 6.246371257602123e-05,
+    "status": "DUPLICATE-STOP: 37654/37654 dots within 3 pixels of the registered lattice; more than 70%.",
+    "evidence": "../../evidence/mrcj_audit.json"
   },
-  "raster_sha256": null,
-  "validator": {"status": "not run on a new candidate", "no_nan_inside_footprint": null, "range_0_1": null, "crs_shape_transform_match": null, "organizer_acceptance": null},
+  "raster_sha256": "fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1",
+  "validator": {
+    "status": "local exact-byte format checks passed against hash-pinned third-party reference",
+    "no_nan_inside_footprint": true,
+    "range_0_1": true,
+    "crs_shape_transform_match": true,
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "organizer_acceptance": null
+  },
+  "artifact_name": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
   "submission_name": null,
-  "submission_note": null,
+  "submission_note": "MRCJ research only; 100% overlap with registered lattice. DO NOT SUBMIT.",
   "approved_for_weekly_slot": false,
-  "submission_slots_used": 0,
+  "submission_slots_used_in_this_review": 0,
   "verdict": "negative"
 }

@@ -44,3 +44,16 @@ tests. Added CI and a scheduled static-site deployment design, and checked the
 preview's pages, links and JavaScript. Result: **57 tests passed** after this
 pass. Deployment capability and current source-host status must still be
 verified separately; a passing test or Pages deploy is not scientific approval.
+
+## Follow-up: a concurrent main-branch artifact
+
+After the three passes, a parallel merge added an MRCJ research file and an
+incorrect nine-only “promote” status. We independently reopened the exact TIFF
+and checked the same nine pinned historic files **and** the registered lattice:
+27.39% maximum against the former, **100.00%** (37,654 / 37,654) against the
+latter. The file is locally finite and in range, but fails the mandatory literal
+novelty rule. We preserved the parallel artifact and original receipt, marked
+the current receipt and both site entry points **DO NOT SUBMIT**, and made the
+archived experiment runner stop before overwriting evidence. Its source-reported
+holdout was not replayed. Tests now also cover the decisive witness and runner
+stop; no additional geological experiment or slot was used by this review.

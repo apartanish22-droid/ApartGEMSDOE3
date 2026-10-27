@@ -75,8 +75,11 @@ def test_evidence_and_csv_cannot_indicate_historical_files_are_approved():
         assert row["sha256"] == audit["historic"][row["site"]]["sha256"]
     run = json.loads((ROOT / "docs/data/run_card.json").read_text())
     assert run["verdict"] == "negative" and run["approved_for_weekly_slot"] is False
-    assert run["raster_sha256"] is None and run["submission_name"] is None
-    assert run["experiments_run"] == run["submission_slots_used"] == 0
+    parallel = json.loads((ROOT / "evidence/mrcj_audit.json").read_text())
+    assert run["raster_sha256"] == parallel["candidate_sha256"] and run["submission_name"] is None
+    assert run["registry"]["final_dot_overlap_vs_lattice"] == 1.0
+    assert run["experiments_run_in_this_review"] == run["submission_slots_used_in_this_review"] == 0
+    assert len(run["submission_note"]) <= 140 and "DO NOT SUBMIT" in run["submission_note"]
 
 
 def test_vendor_files_match_immutable_blob_provenance():

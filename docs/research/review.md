@@ -8,8 +8,36 @@ contains no paragraph assigning a particular method to this session. Choosing a
 lane ourselves could collide with parallel work. There is no authenticated complete
 registry of all concurrent/private runs, no cached derived template stack in this
 checkout, and no same-protocol frozen incumbent here. No geological experiment or
-weekly submission was attempted. The [run card](../data/run_card.json) records missing
-measurements as null, not invented numbers.
+weekly submission was attempted in this review. A concurrently merged parallel run did
+create an MRCJ research TIFF; its previous “promote” claim is superseded by the
+independent [lattice audit](../../evidence/mrcj_audit.json), and the
+[run card](../data/run_card.json) distinguishes source-reported from independently
+measured evidence.
+
+### Parallel MRCJ: a concrete duplicate-stop
+
+A separate run on main published `apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif`
+with SHA-256 `fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1`.
+We reopened those exact bytes: 37,654 positive in-footprint pixels, none outside;
+all 37,654 are within three pixels of the registered calibration lattice
+(**100.00%**, limit **70%**). The nine historical file overlaps range from
+22.61% to 27.39%, illustrating why the earlier nine-only screen was incomplete.
+The saved file passes local all-finite range and grid checks relative to the
+hash-pinned owner mirror, not an organizer acceptance check. The independent
+final-dot binary Spearman with the lattice is approximately 0.00006246; this is
+not a pre-placement surface correlation, which is unavailable. One failed
+reference suffices to stop; the complete registry was not scanned.
+
+The parallel run reports **HOLDOUT-DTI 0.022070** (evaluator
+`gems-segment-pooled-v1`, 60,988 withheld positives, 95% spatial-block CI
+[0.017237, 0.026923]), but this review did not replay its scientific analysis.
+Its comparator is explicitly described as a static H33 map rather than a
+fold-rebuilt, promotion-grade incumbent. The earlier run auto-selected a method
+despite the missing assigned lane and claimed a slot promotion; neither satisfies
+the supplied protocol. Its artifact and original run card are preserved for
+research; the corrected card is negative and the old runner now fails closed
+before writing. [Original run card](../../evidence/mrcj_original_run_card.json)
+contains historical claims, not current authority. **Do not submit the TIFF.**
 
 ### What the independent byte audit establishes
 
@@ -68,7 +96,7 @@ says leaderboard components are pooled over the public subset before the index i
 | Asset or source | What was actually checked | Limitation |
 | --- | --- | --- |
 | [DrivenData data tab](https://www.drivendata.org/competitions/306/competition-doe-gems/data/) | Public fetch redirects to login. | We do not have competition login or private truth; no credentials were requested or stored. |
-| [Pinned owner-mirror manifest](../../registry/input_manifest.json) | Core 19-band TIFF was restored from five pinned parts; each part and assembled bytes match published hashes. Labels, sample, historical rasters, lattice, and a derived four-band radiometric mirror were also hash-verified. Grid metadata matches across the named inputs. | A hash establishes identity with a third-party mirror, **not** official origin, license permission, or data quality. Large files are in ignored `.cache/`, not committed. |
+| [Pinned owner-mirror manifest](../../registry/input_manifest.json) | Core 19-band TIFF was restored from five pinned parts; each part and assembled bytes match published hashes. Labels, sample, historical rasters, lattice, and a derived four-band radiometric mirror were also hash-verified. Grid metadata matches across the named inputs. | A hash establishes identity with a third-party mirror, **not** official origin, license permission, or data quality. This review's downloads are in ignored `.cache/`; the parallel branch separately committed some mirror TIFFs. |
 | Alleged sample | The mirrored sample has 60,988 positive cells, identical to the mirrored catalogue's positive support. | The official problem page describes an all-fault-absence sample, so this discrepancy prevents authenticating it as the real sample. It is used as a provisional grid/footprint only. |
 | [Shared 57GEMSDOE template](https://github.com/buffedlizard55-lab/57GEMSDOE) | The locally restored files match pinned upstream Git blob IDs and SHA-256 hashes. | The upstream repository had no license file or GitHub license metadata when checked; independent permission for reuse and redistribution was not established, so source files are not republished here. |
 | [USGS GeoDAWN](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and) | Official page describes airborne magnetics/radiometrics and their public data release, CC0. | The derivative quantization and provenance of the owner mirror were not independently reproduced from USGS files. |

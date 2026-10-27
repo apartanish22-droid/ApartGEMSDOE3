@@ -33,6 +33,12 @@ def outputs():
     audit = json.loads((ROOT / "evidence/prior_audit.json").read_text())
     history = audit["historic"]
     reviews = json.loads((ROOT / "registry/site_review.json").read_text())
+    parallel_audit = json.loads((ROOT / "evidence/mrcj_audit.json").read_text())
+    parallel_card = json.loads((ROOT / "evidence/run_card.json").read_text())
+    if (parallel_card["verdict"] != "negative" or parallel_card["ok_to_submit"] is not False
+            or parallel_card["raster_sha256"] != parallel_audit["candidate_sha256"]
+            or not parallel_audit["duplicate_by_overlap"]):
+        raise ValueError("parallel MRCJ audit and fail-closed decision disagree")
     if len(history) != 9 or set(reviews["sites"]) != set(history):
         raise ValueError("expected matching reviews for nine explicitly named historical references")
     idx = (ROOT / "site_templates/index.html").read_text()
@@ -84,8 +90,22 @@ def outputs():
                          "overlap_within_3px": f"{uniq['worst_overlap_within_3px']:.8f}",
                          "in_footprint_finite_in_range": inside, "strict_all_cells_finite_in_range": whole,
                          "unique_vs_named_sites": "NO", "submit": "NO"})
+    holdout = parallel_card["holdout_dti"]
+    ci = holdout["ci95"]["interval"]
+    mrcj_rows = parallel_audit["historical_comparisons"]
+    if len(mrcj_rows) != 9:
+        raise ValueError("MRCJ nine-file comparison is incomplete")
     result[ROOT / "index.html"] = render(idx, {"TABLE_ROWS": "\n".join(rows),
-        "AUDIT_TIME": "Historical raster audit: " + e(audit["observed_utc"])})
+        "AUDIT_TIME": "Historical raster audit: " + e(audit["observed_utc"]),
+        "MRCJ_FILE": e(parallel_card["submission_name"]),
+        "MRCJ_SHA": e(parallel_audit["candidate_sha256"]),
+        "MRCJ_DOTS": f"{parallel_audit['candidate_in_footprint_dots']:,}",
+        "MRCJ_LATTICE": f"{parallel_audit['three_pixel_overlap_fraction'] * 100:.2f}%",
+        "MRCJ_NINE": f"{max(r['candidate_dot_overlap_within_3px'] for r in mrcj_rows) * 100:.2f}%",
+        "MRCJ_DTI": f"{holdout['dti']:.5f}",
+        "MRCJ_CI": f"[{ci[0]:.5f}, {ci[1]:.5f}]",
+        "MRCJ_WITHHELD": f"{holdout['n_withheld_positive_pixels']:,}",
+        "MRCJ_EVALUATOR": e(holdout["evaluator_version"])})
     result[ROOT / "docs/data/site_scorecard.csv"] = stream.getvalue()
     return result
 
