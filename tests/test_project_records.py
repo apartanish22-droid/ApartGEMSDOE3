@@ -54,36 +54,54 @@ class FocusSiteRecordTests(unittest.TestCase):
 class RunCardTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.card = load_json("docs/data/run-card.json")
+        cls.card = load_json("docs/data/latest-run-card.json")
 
-    def test_negative_card_fails_closed(self):
+    def test_current_review_fails_closed_and_identifies_research_artifact(self):
         card = self.card
-        self.assertEqual(card["schema"], "apart-gems-run-card-v1")
+        self.assertEqual(card["schema_version"], "apartgemsdoe3-current-review-v2")
         self.assertEqual(card["verdict"], "negative")
-        self.assertFalse(card["slot_selected"])
-        self.assertFalse(card["slot_used"])
-        self.assertEqual(card["experiments"]["performed"], 0)
-        self.assertIsNone(card["raster"]["path"])
-        self.assertIsNone(card["raster"]["sha256"])
-        self.assertEqual(card["raster"]["status"], "NO TIFF GENERATED")
+        self.assertFalse(card["ok_to_submit"])
+        self.assertEqual(card["selector"]["decision"], "DO_NOT_SUBMIT")
+        self.assertFalse(card["selector"]["ok_to_submit"])
+        self.assertTrue(card["ok_to_download_for_research"])
+        self.assertEqual(card["new_experiments"], 0)
+        self.assertEqual(card["submission_slots_used"], 0)
+        self.assertTrue(card["submission_name"].endswith("-zeros.tif"))
+        self.assertEqual(card["raster_sha256"], card["validator_output"]["sha256"])
+        self.assertRegex(card["raster_sha256"], r"^[0-9a-f]{64}$")
 
-    def test_no_unrun_score_or_validation_is_fabricated(self):
-        holdout = self.card["holdout"]
+    def test_prior_holdout_is_labeled_and_not_represented_as_a_projection(self):
+        holdout = self.card["holdout_dti"]
         self.assertEqual(holdout["label"], "HOLDOUT-DTI")
-        self.assertEqual(holdout["status"].split(" — ")[0], "NOT RUN")
-        self.assertIsNone(holdout["value"])
-        self.assertIsNone(holdout["ci95"])
-        self.assertIsNone(holdout["evaluator_version"])
-        self.assertIsNone(holdout["withheld_positive_count"])
-        self.assertEqual(self.card["validator"]["status"].split(" — ")[0], "NOT RUN")
-        self.assertIsNone(self.card["validator"]["crs_matches"])
-        self.assertIsNone(self.card["registry_comparison"]["preplacement_abs_spearman_max"])
-        self.assertIsNone(self.card["registry_comparison"]["final_dot_max_fraction_within_3px"])
+        self.assertEqual(holdout["evaluator_version"], "gems-segment-pooled-v1")
+        self.assertEqual(holdout["withheld_positive_count"], 60988)
+        self.assertEqual(len(holdout["ci_95"]), 2)
+        self.assertIn("not replayed", holdout["provenance"].lower())
+        self.assertIsNone(self.card["score_estimate"])
+        self.assertIsNone(self.card["organizer_confirmed_score"])
 
-    def test_submission_note_limit_is_validated(self):
-        self.assertEqual(self.card["submission_note_character_limit"], 140)
-        self.assertIsNone(self.card["submission_note"])
-        self.assertIsNone(self.card["submission_name"])
+    def test_core_raster_checks_do_not_override_official_format_failure(self):
+        output = self.card["validator_output"]
+        checks = output["checks"]
+        self.assertTrue(output["format_valid"])
+        self.assertFalse(output["official_format_compliant"])
+        self.assertFalse(output["ok_to_upload"])
+        self.assertTrue(checks["single_band"]["pass"])
+        self.assertTrue(checks["dtype_float32"]["pass"])
+        self.assertTrue(checks["footprint_all_finite"]["pass"])
+        self.assertTrue(checks["footprint_range_0_1"]["pass"])
+        self.assertTrue(checks["shape_matches_template"]["pass"])
+        self.assertTrue(checks["geotransform_matches_template"]["pass"])
+        self.assertFalse(checks["nodata_tag_is_nan"]["pass"])
+        self.assertFalse(checks["outside_is_nan_official_text"]["pass"])
+
+    def test_current_run_card_note_is_under_140_chars_and_not_historical_claim(self):
+        note = self.card["submission_note"]
+        self.assertIsInstance(note, str)
+        self.assertLessEqual(len(note), 140)
+        self.assertIn("DO NOT SUBMIT", note)
+        self.assertIn("null/NaN", note)
+        self.assertIn("automated gates passed", self.card["recorded_experiment_note"].lower())
 
 
 class LeaderboardSnapshotTests(unittest.TestCase):

@@ -16,7 +16,7 @@
 | GEMSDOE33 | H33D · analog tip/stepover · R30 | **0.2632 OWNER-REPORTED**; no receipt archived | The artifact tag names an analog tip/stepover approach. Its held-out geological contribution was not independently evaluated here. | **FAIL** — owner audit reports a focus-nine overlap above the `70%` limit. |
 | GEMSDOE36 | Andersonian geothermal PINN | **0.2750 OWNER-REPORTED**; no receipt archived | The owner nested-mask audit reports this legacy mask contains the B2 set plus `1,200` additional dots. This is a lineage claim, not a receipt-to-file verification. | **FAIL** — owner audit reports a focus-nine overlap above the `70%` limit. |
 
-The exact values, hashes, source URLs, pairwise overlap/correlation fields and review date are machine-readable in [`../data/focus-sites.json`](../data/focus-sites.json). The owner audit's `max directed overlap vs other eight` is a secondary check: it is not a full current registry comparison, and this checkout did not download/recompute the historical rasters.
+The exact values, hashes, source URLs, owner-reported pairwise fields and review date are machine-readable in [`../data/focus-sites.json`](../data/focus-sites.json). Those historical pairwise results are transcribed from the owner audit, not independently reproduced here. The repo separately tracks the nine rasters and has a freshly recomputed MRCJ-vs-focus-registry comparison, but that does not re-audit the historical pairwise table or cover a complete current registry.
 
 ## Cross-site pattern and practical meaning
 
@@ -26,7 +26,7 @@ A plausible metric mechanism is that sparse pruning removes redundant or low-cre
 
 ## Latest method records reviewed separately
 
-The historical table is not a summary of the new 2026-10-27 experiments. The latest public GEMSDOE30 POOL-1 and GEMSDOE36 TCD-36 records are reviewed in [`repo-review.md`](repo-review.md). Their internal HOLDOUT-DTI values are explicitly labeled with evaluator, withheld-positive count and confidence intervals; they use different evaluators, are not organizer scores, and are not compared to the historical `OWNER-REPORTED` table. A current-main best-of review of all nine repositories is still outstanding.
+The historical table is not a summary of this repo's prior MRCJ experiment or the newer parallel runs. The latest public GEMSDOE30 POOL-1 and GEMSDOE36 TCD-36 records are summarized in the [current repository review](../review-2026-10-27.md). Their internal HOLDOUT-DTI values are explicitly labeled with evaluator, withheld-positive count and confidence intervals; they use different evaluators, are not organizer scores, and are not compared to the historical `OWNER-REPORTED` table. A current-main best-of review of all nine repositories is still outstanding.
 
 ## Sources
 
@@ -36,4 +36,4 @@ The historical table is not a summary of the new 2026-10-27 experiments. The lat
 - [GEMSDOE30 current POOL-1 record, pinned commit](https://github.com/buffedlizard55-lab/GEMSDOE30/blob/d21ddd9502f3c3911e8d77b8f1e6abfaadffc876/docs/research/2026-10-27-pool/run-card.json)
 - [GEMSDOE36 current TCD-36 record, pinned commit](https://github.com/buffedlizard55-lab/GEMSDOE36/blob/7edcc9b58e6ad0f88c6e6f5ee9218761a391769d/docs/downloads/tcd36-run-card.json)
 
-**Decision: none of these historical files is approved for this repo's submission download.** The current project has no candidate TIFF and has not used a slot. See the single canonical JSON [run card](../data/run-card.json).
+**Decision: none of these historical files is an approved candidate for submission.** A separate prior MRCJ TIFF is available for research only and is marked `DO_NOT_SUBMIT`; no slot has been used. See the canonical current JSON [run card](../data/latest-run-card.json).

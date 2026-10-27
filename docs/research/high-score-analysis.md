@@ -50,7 +50,7 @@ This is a scientifically plausible *metric mechanism*. It does not establish tha
 
 ## Could this project beat the reported value?
 
-**No validated answer is available.** The current checkout has no official feature stack, labels, sample grid, canonical evaluator runtime, or holdout truth. We did not run the segment-buffered hide-and-recover protocol or the leakage canary. Consequently there is no new HOLDOUT-DTI, no confidence interval, and no basis for a numeric prediction. The project must not claim “higher than H33” until a new method beats a comparable shared-evaluator holdout baseline and passes registry/format gates.
+**No validated answer is available.** The merged checkout has a mirrored sample/grid, known-fault masks, evaluator code and a prior MRCJ research artifact, but not the authenticated full competition feature stack or complete current registry. A prior MRCJ HOLDOUT-DTI is recorded with evaluator, withheld-positive count and 95% CI; it was not replayed in this review and is not calibrated to organizer scores. No new holdout or leakage-canary experiment ran in this review. Consequently there is no new HOLDOUT-DTI, no new confidence interval, and no basis for a numeric prediction. The project must not claim “higher than H33” until a new method beats a comparable shared-evaluator holdout baseline and passes registry/format gates in an authorized future cycle.
 
 For context only, the [official public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) fetched on **2026-10-27** displayed a top public entry of `0.4544` (**ORGANIZER-PUBLIC-LEADERBOARD snapshot; not a submission-page receipt and not a score estimate for this project**). The leaderboard is dynamic and reports public-test standings; it is not a final/private prize result. The prompt's `0.4413` and `0.3195` “current” values are older/conflicting user-reported figures relative to that fetched snapshot.
 
@@ -59,4 +59,4 @@ For context only, the [official public leaderboard](https://www.drivendata.org/c
 - **Do not download or submit** any of the nine historical top TIFFs; the owner-side comparison says they all fail the focus-nine uniqueness threshold.
 - The H33-B2 value is for learning and metric analysis only. No copied or renamed file was generated.
 - No slot was used. Promotion to a real upload is a separate selector decision and must not be inferred from this analysis.
-- The only safe status for this repository is **negative / not ready** until the missing authorized inputs and shared tools are restored and all gates are run.
+- The prior MRCJ artifact's only safe status is **research-only / negative / not ready**. The current selector returns `DO_NOT_SUBMIT`; the official format, full-registry and paired-current-best gates are not satisfied. Future work requires authorized inputs and a fresh, fully gated review.

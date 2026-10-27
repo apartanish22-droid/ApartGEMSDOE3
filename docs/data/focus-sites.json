@@ -20,14 +20,14 @@
   },
   "holdout_estimate": {
     "label": "HOLDOUT-DTI",
-    "status": "NOT_RUN",
+    "status": "NOT_AVAILABLE_FOR_THESE_HISTORICAL_RASTERS",
     "evaluator_version": null,
     "withheld_positive_count": null,
     "ci_95": null,
     "value": null,
-    "reason": "No competition feature stack, labels, official sample grid, or shared evaluator runtime is present in this checkout."
+    "reason": "The historical focus-nine records do not include a comparable, reproducible HOLDOUT-DTI result for each exact raster. A partial local sample/mask and evaluator code now exist, but they do not establish a new score for these owner-reported files."
   },
-  "download_decision": "NO — these are historical files for research only; no new candidate TIFF exists and none of the nine passes the focus-nine uniqueness audit.",
+  "download_decision": "NO — these historical files are comparison artifacts, not authorized submission candidates; the separate MRCJ research TIFF is available on the home page but is DO NOT SUBMIT.",
   "sites": [
     {
       "site": "GEMSDOE24",

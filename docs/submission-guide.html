@@ -4,23 +4,23 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A fail-closed, step-by-step guide for validating and submitting a future DOE GEMS fault-prediction GeoTIFF.">
   <title>Submission guide · ApartGEMSDOE3</title>
-  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="assets/research.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
-    <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">AG</span><span><strong>ApartGEMSDOE3</strong><small>DOE GEMS · evidence-first fault research</small></span></a>
-    <nav aria-label="Main navigation"><a href="../index.html#executive">Summary</a><a href="../index.html#sites">Site audit</a><a href="hypotheses.html">Hypotheses</a><a href="submission-guide.html" aria-current="page">Submission guide</a></nav>
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">AG</span><span><strong>ApartGEMSDOE3</strong><small>DOE GEMS · evidence-first fault research</small></span></a>
+    <nav aria-label="Main navigation"><a href="index.html">Summary</a><a href="executive-summary.html">Site audit</a><a href="hypotheses.html">Hypotheses</a><a href="submission-guide.html" aria-current="page">Submission guide</a></nav>
   </header>
   <main id="main" class="section-wrap">
     <section class="page-hero">
-      <div class="breadcrumbs"><a href="../index.html">HOME</a> / SUBMISSION GUIDE</div>
+      <div class="breadcrumbs"><a href="index.html">HOME</a> / SUBMISSION GUIDE</div>
       <div class="eyebrow"><span class="live-dot"></span> Manual review · authoritative portal requirements take precedence</div>
       <h1>Validate every gate.<br><em>Then—and only then—upload.</em></h1>
-      <p>This page explains the future workflow. It is not an approval to use a competition slot. The current project state is <strong>DO NOT SUBMIT</strong>: no candidate TIFF, official data files, local evaluator, uniqueness result, or raster validator exists in this checkout.</p>
+      <p>This page explains the future workflow. It is not an approval to use a competition slot. The current project state is <strong>DO NOT SUBMIT</strong>: a prior MRCJ research TIFF and local review code exist, but no new TIFF was generated here; the prior artifact fails the official null/NaN-outside check and the full-registry, current-best, replay and quota gates are incomplete.</p>
     </section>
 
-    <div class="warning-box"><strong>Current decision: STOP.</strong> GEMSDOE24/25/27/28/30/31/32/33/36 historical files are comparison artifacts only. The public owner audit says their focus-nine masks fail the stated uniqueness test. This repository intentionally offers no TIFF or ZIP for download.</div>
+    <div class="warning-box"><strong>Current decision: STOP.</strong> The repo contains a prior MRCJ research TIFF with a research-only download button on the home page. Its exact-file checks pass against the nine locally tracked historical rasters, but an external lattice hazard, missing full-registry/paired-current-best evidence, and official outside-null mismatch block submission. Do not treat the research link as an upload recommendation.</div>
 
     <section class="content-card">
       <h2>Required file contract</h2>
@@ -32,18 +32,18 @@
         <li>No NaN or infinity inside the footprint; do not silently clip, normalize, or overwrite failed predictions just to pass a portal check.</li>
         <li>Save as one `.tif` and use only an archive format if the current portal explicitly permits it. Do not add auxiliary bands or unrelated files.</li>
       </ul>
-      <p>The official task page supplies `EPSG:32611` and a 100 m training grid. Treat those as expectations to verify against the authorized sample raster, not values to hard-code in place of reading the sample. The download/page access was login-gated in this review.</p>
+      <p>The official task page supplies `EPSG:32611` and a 100 m training grid. Treat those as expectations to verify against an authenticated sample raster, not values to hard-code. The official download page was login-gated in this review. The repo contains owner-mirrored sample/known-fault rasters and derived GeoDAWN inputs, but they are not an authenticated organizer download; verify provenance and hashes before use.</p>
     </section>
 
     <section class="content-card">
       <h2>Step-by-step submission workflow</h2>
       <ol class="guide-steps">
         <li><strong>Check the home-page status and the single run card.</strong> Proceed only after a separate selector authorizes a candidate. The card must say `promote`, not `negative`; the current card is `negative`. A public leaderboard value or reported peer score cannot satisfy this gate.</li>
-        <li><strong>Acquire inputs through the official contest account.</strong> Sign in directly to DrivenData in your own browser, download only the official data, and verify its hash and grid. Never paste credentials into a chat, script committed to Git, issue, or run card. Keep licensed/large input files outside Git.</li>
-        <li><strong>Reproduce the shared pipeline.</strong> Use the pinned template's cached feature stack, holdout evaluator, and submission writer. Follow the assigned method lane. Do not create a private evaluator fork. If a shared tool is wrong, fix the shared template and record the pinned revision.</li>
+        <li><strong>Acquire and provenance-check inputs.</strong> Sign in directly to DrivenData in your own browser for official downloads; this review saw the data page redirect to login. Existing owner-mirrored sample/known-fault rasters and GeoDAWN derivatives are present in the repo, but are not a substitute for an authenticated full training-feature download. Verify the source manifest, hashes and grid. Never paste credentials into chat or Git.</li>
+        <li><strong>Reproduce the pinned pipeline.</strong> Use the repo's existing auditable feature/evaluator/writer code and the shared template's cache/evaluator/writer where the active lane requires it. The full official feature stack and assigned method paragraph are still absent; do not invent a lane or create a private metric fork. If shared-tool policy is wrong, resolve it in the shared template and record its pinned revision.</li>
         <li><strong>Pass leakage and holdout tests before export.</strong> Build fold-specific catalogue features from visible faults only; hide complete fault segments with the required buffer; mask visible fault pixels exactly; test each feature alone. Investigate any AUC above <code>0.90</code> as a leakage canary. Report pooled HOLDOUT-DTI with evaluator version, withheld-positive count, and 95% CI.</li>
         <li><strong>Pass uniqueness before placement and again on final dots.</strong> Compare the candidate surface to the complete registry. Stop/log if absolute Spearman rank correlation is above <code>0.90</code> or if more than <code>70%</code> of final dots fall within <code>3</code> pixels of any registered raster. Check the up-to-date registry; the focus-nine comparison alone is not enough.</li>
-        <li><strong>Run the shared automatic GeoTIFF validator after policy reconciliation.</strong> The pinned `57GEMSDOE` validator exists, but at the reviewed revision it enforces whole-array finite values and zero outside the footprint, while the official task page says outside-grid data should be null/NaN. Resolve that difference against the authorized sample/organizer guidance <em>in the shared template</em>; do not maintain a private validator fork or use a policy mismatch to claim a pass. Then fail closed on band count, dtype, range, footprint mask, CRS, shape and transform. Save the complete validator output and SHA-256 in the run card.</li>
+        <li><strong>Run the automatic validator after policy reconciliation.</strong> The current exact-file review reports the MRCJ research TIFF passes the core one-band/float32/grid and in-footprint range checks, but fails official null/NaN-outside compliance because the exterior is zero with no nodata tag. The pinned shared `57GEMSDOE` validator also enforces whole-array finite values and zero outside, so resolve the mismatch against the authenticated sample/organizer guidance <em>in the shared template</em>; do not maintain a private validator fork or advertise a format-only pass as submit-ready. Save the complete validator output and SHA-256 in the canonical run card.</li>
         <li><strong>Create a unique artifact name and concise note.</strong> Use a fresh method/lane tag, UTC timestamp and a hash-derived suffix. Keep the portal note at or under <code>140</code> characters. Never reuse an old filename for changed bytes.</li>
         <li><strong>Prepare an accurate AI-use disclosure and final documentation.</strong> The DOE Rules allow generative AI but require the submission narrative to state whether and how it was used. This project used an AI agent for repository review, research synthesis, website/documentation and test scaffolding; accurately disclose any use of this work and any later model/data analysis. Finalists may also need complete code assets and reproducibility documentation. Do not claim work or verification that was not performed.</li>
         <li><strong>Review account eligibility and the single-final-submission rule.</strong> The official rules state a maximum of three feedback submissions per week, but by the deadline a competitor must select only one final submission for evaluation across both prize rounds. Verify the current portal limits and your own eligibility/attestations; this repository cannot do that for you.</li>
@@ -57,14 +57,14 @@
     <section class="content-card">
       <h2>Current readiness snapshot</h2>
       <ul>
-        <li><strong>Competition data:</strong> absent; official page redirected to login during this review.</li>
-        <li><strong>Shared cache/evaluator/writer/validator:</strong> not installed; no local data bytes to run them on. The pinned validator's whole-array/zero-outside policy needs reconciliation with the official null/NaN-outside requirement in the shared template.</li>
-        <li><strong>Holdout, canary and CI:</strong> not run; no score estimate available.</li>
-        <li><strong>Pre-placement/final uniqueness:</strong> not run for a new candidate; no candidate exists.</li>
-        <li><strong>Validator, SHA-256, submission name and note:</strong> not applicable until a real file is generated.</li>
-        <li><strong>Slot choice:</strong> not made and explicitly outside this research deliverable.</li>
+        <li><strong>Official competition data:</strong> the portal download page redirected to login. Owner-mirrored sample/known-fault rasters and GeoDAWN-derived inputs exist locally, but the authenticated full feature stack and complete concurrent registry do not.</li>
+        <li><strong>Shared pipeline:</strong> this repo contains review/evaluator/writer code and a prior MRCJ artifact; the full official training cache and assigned lane are not available.</li>
+        <li><strong>Holdout/canary:</strong> a prior MRCJ HOLDOUT-DTI is recorded with evaluator, withheld-positive count and CI, but was not replayed in this review. It is not an organizer score or leaderboard estimate; no new experiment ran and the three-run budget is exhausted.</li>
+        <li><strong>Uniqueness:</strong> the prior candidate was recomputed against nine locally tracked rasters and passed those pairwise thresholds only. A separate owner-reported lattice hazard may exceed the overlap limit; it is not locally reproduced.</li>
+        <li><strong>GeoTIFF validator:</strong> exact candidate hash/grid/range were rechecked; official-format compliance is false because exterior values are zero rather than null/NaN.</li>
+        <li><strong>Slot choice:</strong> none selected or used. The separate selector returns <code>DO_NOT_SUBMIT</code>.</li>
       </ul>
-      <p>See the <a href="data/run-card.json">current JSON run card</a> and the <a href="research/repo-review.md">review and limitations</a>.</p>
+      <p>See the <a href="data/latest-run-card.json">current JSON run card</a>, the <a href="review-2026-10-27.md">current repository review</a>, and the <a href="research/hypotheses.md">future hypothesis slate</a>.</p>
     </section>
 
     <section class="content-card">
@@ -77,8 +77,8 @@
         <li><a href="https://github.com/drivendataorg/gems-prize-reference-solution" target="_blank" rel="noreferrer">Reference solution ↗</a></li>
       </ul>
     </section>
-    <div class="doc-footer"><a href="../index.html">← Back to executive summary</a><span> · One JSON run card: <a href="data/run-card.json">run-card.json</a></span></div>
+    <div class="doc-footer"><a href="index.html">← Back to executive summary</a><span> · One JSON run card: <a href="data/latest-run-card.json">latest-run-card.json</a></span></div>
   </main>
-  <footer class="site-footer section-wrap"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">AG</span><span><strong>ApartGEMSDOE3</strong><small>Maximize P(Win) · Own the Outcome</small></span></a><p>Fail closed. Verify against the official portal and pinned shared tools.</p><a href="../README.md">Project charter ↗</a></footer>
+  <footer class="site-footer section-wrap"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">AG</span><span><strong>ApartGEMSDOE3</strong><small>Maximize P(Win) · Own the Outcome</small></span></a><p>Fail closed. Verify against the official portal and pinned shared tools.</p><a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/README.md">Project charter ↗</a></footer>
 </body>
 </html>

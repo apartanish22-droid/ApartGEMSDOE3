@@ -1,6 +1,8 @@
-# Preregistered hypothesis slate — research only, not a submission
+# Supplemental hypothesis slate — future research only, not an active run
 
-**Status:** pre-implementation review. No experiment was run. There is no local feature stack, holdout truth, canonical evaluator runtime, or candidate raster. No candidate is validated or viable for a submission slot at this time. Because a 2026-10-27 owner freshness receipt reports that all nine repository main refs changed since its exact-file audit, and this checkout only inspected the latest GEMSDOE30 and GEMSDOE36 method cards in depth, **none of these hypotheses is certified globally untried against every current head or the full registry**. They are ranked leads pending a complete novelty review.
+**Status:** this is a desk-review slate only. No new experiment or TIFF was generated in this review. Current `main` now contains a prior MRCJ experiment, review/evaluator/writer code, an owner-mirrored sample/known-fault rasters, GeoDAWN-derived extensions, nine tracked registry rasters, and a research-only candidate TIFF. The authenticated full competition feature stack and full concurrent registry are still incomplete. The prior MRCJ run used the three-experiment budget; no experiment is authorized in this cycle. The selector's current decision is `DO_NOT_SUBMIT`.
+
+A 2026-10-27 owner freshness receipt reports that all nine repository main refs changed since its exact-file audit. This review inspected current GEMSDOE30 POOL-1 and GEMSDOE36 TCD-36 method cards for novelty, but not every current method in every repo. **None of the hypotheses below is certified globally untried against all latest heads or the full registry.** They are ranked future leads pending a complete novelty review and an authorized new budget/lane.
 
 **Lane irregularity:** the task says this parallel run has one “single method paragraph,” but the supplied prompt/check-out does not contain a method paragraph that identifies the lane. I am not treating another run’s method as authorization. The list below is a preregistered research slate only; the highest-ranked idea below is **not** claimed to be the assigned lane, and has not been implemented.
 
@@ -20,7 +22,7 @@
 - **Fluvial chi/knickpoint detection from LiDAR:** removed after checking the latest public GEMSDOE36 run card, which names 10 m 3DEP morphometry, chi/steepness/knickpoint “worms,” and other hydrologic/terrain features. Repeating a nearby method would violate the parallel-lane and registry-drift intent.
 - **Pooled MSDB + CSR + LiDAR feature ensemble:** the latest public GEMSDOE30 POOL-1 preregistration/run card already tests this union in one HGB. Do not clone it under a new name; candidate 1 instead requires depth-resolved external AEM data and must prove that it is not merely the competition conductivity bands again.
 
-Both checks use public owner-maintained method records, not independent raster-level uniqueness calculations in this checkout. The cited parallel run cards report negative upload verdicts; their reported HOLDOUT-DTI values use different evaluators/protocols and are not copied as results for this project. See [`repo-review.md`](repo-review.md) for the labeled records and exact limitations.
+Both checks use public owner-maintained method records, not independent raster-level uniqueness calculations for those peer candidates in this checkout. The cited parallel run cards report negative upload verdicts; their reported HOLDOUT-DTI values use different evaluators/protocols and are not copied as results for this project. See the [current repository review](../review-2026-10-27.md) for labeled records and exact limitations.
 
 ## Official-source and availability checks
 
@@ -32,8 +34,8 @@ Both checks use public owner-maintained method records, not independent raster-l
 
 These official landing pages confirm that the sources/products exist and describe access/licensing; they do **not** establish file-level AOI intersection, feature quality, or expected score improvement. The sandbox cannot download those external source files, and the competition data page redirects to login.
 
-## Required test for the first candidate
+## Future test protocol (not authorized in this cycle)
 
-If and only if the assigned lane is clarified, the template feature cache and official holdout data are restored, and the AEM product is shown to add non-duplicated coverage, preregister one experiment with a frozen candidate definition. Build every catalogue-dependent predictor from visible faults in each fold. Run the AEM signature **alone** first; an AUC above `0.90` is a leakage stop, not a win. Then run the shared pooled DTI evaluator on withheld whole segments with the prescribed buffer and exact visible-fault mask. Record evaluator version, withheld positives, paired baseline, 95% CI, pre-placement surface correlation, and final-dot overlap. If the candidate does not beat the comparable HOLDOUT-DTI baseline under the prespecified decision rule, record `negative`, emit no submission TIFF, and spend no slot.
+Only after a new budget and assigned method lane are explicitly authorized, the template cache and official holdout data are restored, and the AEM product is shown to add non-duplicated coverage, preregister one experiment with a frozen candidate definition. Build catalogue-dependent predictors from visible faults only in each buffered whole-segment fold; mask visible faults pixel-exactly. Run the AEM signature **alone** first; AUC above `0.90` is a leakage stop, not a win. Then run the shared pooled DTI evaluator with the prescribed buffer and record evaluator version, withheld-positive count, paired baseline, 95% CI, pre-placement surface correlation, and final-dot overlap. Stop/log if registry correlation exceeds `0.90` or final-dot overlap within 3 px exceeds `70%`. If the candidate does not beat the comparable HOLDOUT-DTI baseline under the preregistered rule, record `negative`, emit no submission TIFF, and spend no slot.
 
-**Experiments performed in this checkout: none.**
+**Experiments performed in this review: 0 new.** The prior MRCJ review lists three experiments against the allowance; do not run another without an explicit new-budget decision.

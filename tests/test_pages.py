@@ -1,5 +1,3 @@
-import json
-import re
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
@@ -7,7 +5,17 @@ from urllib.parse import urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = (ROOT / "index.html", ROOT / "docs" / "submission-guide.html", ROOT / "docs" / "hypotheses.html")
+PAGES = (
+    ROOT / "index.html",
+    ROOT / "docs" / "index.html",
+    ROOT / "docs" / "executive-summary.html",
+    ROOT / "docs" / "hypotheses.html",
+    ROOT / "docs" / "submission-guide.html",
+)
+SITES = (
+    "GEMSDOE24", "GEMSDOE25", "GEMSDOE27", "GEMSDOE28", "GEMSDOE30",
+    "GEMSDOE31", "GEMSDOE32", "GEMSDOE33", "GEMSDOE36",
+)
 
 
 class LinkParser(HTMLParser):
@@ -38,27 +46,31 @@ class StaticPageTests(unittest.TestCase):
                     self.assertTrue(target.is_relative_to(ROOT.resolve()), "local link escaped repository")
                     self.assertTrue(target.exists(), f"broken local link: {value}")
 
-    def test_executive_summary_has_clear_fail_closed_state(self):
-        html = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertIn("NOT READY · DO NOT SUBMIT", html)
-        self.assertIn("No new candidate GeoTIFF exists", html)
-        self.assertIn("OWNER-REPORTED", html)
-        self.assertIn("no download", html.lower())
-        self.assertEqual(html.count("<tr>"), 10)  # header plus nine pre-rendered site rows
-        record = json.loads((ROOT / "docs/data/focus-sites.json").read_text(encoding="utf-8"))
-        for site in record["sites"]:
-            with self.subTest(site=site["site"]):
-                self.assertIn(site["site"], html)
-                self.assertIn(site["file"], html)
-                self.assertIn(site["method_tag"], html)
-                self.assertIn(f"{site['reported_score']:.4f}", html)
+    def test_pages_deployed_from_docs_have_local_stylesheets(self):
+        for page in PAGES[1:]:
+            parser = LinkParser()
+            parser.feed(page.read_text(encoding="utf-8"))
+            stylesheets = [value for _tag, key, value in parser.links if key == "href" and value.endswith(".css")]
+            with self.subTest(page=str(page.relative_to(ROOT))):
+                self.assertTrue(stylesheets)
+                for stylesheet in stylesheets:
+                    self.assertTrue((page.parent / stylesheet).is_file(), stylesheet)
 
-    def test_javascript_uses_local_audit_records(self):
-        script = (ROOT / "assets" / "site.js").read_text(encoding="utf-8")
-        self.assertIn('fetch(jsonUrl("focus-sites.json")', script)
-        self.assertIn('fetch(jsonUrl("leaderboard.json")', script)
-        self.assertIn("textContent", script)
-        self.assertNotRegex(script, re.compile(r"innerHTML\s*="))
+    def test_current_executive_summary_is_fail_closed_and_covers_all_sites(self):
+        html = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("DO NOT SUBMIT", html)
+        self.assertIn("Research download: available", html)
+        self.assertIn("official-format compliance fails", html)
+        self.assertIn("user-supplied owner reports, not organizer receipts", html.lower())
+        self.assertIn("not an organizer score", html.lower())
+        detailed = (ROOT / "docs" / "executive-summary.html").read_text(encoding="utf-8")
+        self.assertIn("h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros", detailed)
+        for site in SITES:
+            with self.subTest(site=site):
+                self.assertIn(site, html)
+        self.assertEqual(html.count("<tr>"), 10)  # header plus nine pre-rendered site rows
+        self.assertIn('href="hypotheses.html"', html)
+        self.assertIn('href="submission-guide.html"', html)
 
 
 if __name__ == "__main__":
