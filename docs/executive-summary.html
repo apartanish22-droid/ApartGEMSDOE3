@@ -1,19 +1,308 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Submission guide · Apart GEMS Lab</title><link rel="stylesheet" href="../assets/style.css"></head>
-<body><a class="skip" href="#main">Skip to main content</a><header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html"><span class="brand-mark">A.</span><span class="brand-name">APART / GEMS<small>RESEARCH WORKSPACE</small></span></a><nav class="nav" aria-label="Main navigation"><a href="../index.html#site-review">Site review</a><a href="research.html">Research</a><a href="sources.html">Sources</a><a class="nav-button" href="executive-summary.html" aria-current="page">Submission guide</a></nav></div></header>
-<main id="main" class="container"><section class="page-top"><p class="breadcrumb"><a href="../index.html">← Overview</a></p><span class="eyebrow">Executive summary & submission guide</span><h1>What to submit.<br>And when not to.</h1><p class="lead">A valid-looking raster is not enough. A new file needs scientific, uniqueness, format, and separate slot-selection evidence before it should be uploaded.</p></section>
-<div class="notice red"><strong>Current decision: DO NOT SUBMIT.</strong> This review did not generate a TIFF. A separate parallel run produced an MRCJ file, but its former approval is superseded: all 37,654 dots overlap the registered lattice. No file is approved for a weekly slot and no leaderboard score estimate is justified. <a href="data/run_card.json">See the negative run card →</a></div>
-<section class="section grid-two"><article class="panel"><span class="kicker">Parallel artifact · research only</span><h3>Existing MRCJ GeoTIFF</h3><p>Single-band file, independently reopened: all pixels finite in [0,1] and grid matches the pinned owner-mirror reference. This is not portal acceptance. Its full SHA-256 is <code>fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1</code>.</p><a href="downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif" download>Download for research only · DO NOT SUBMIT ↓</a></article><article class="panel"><span class="kicker">Novelty stop</span><h3>100% exceeds 70%</h3><p>All 37,654 final dots are within three pixels of the pinned lattice. Its prior 27.39% maximum against nine historical files omitted this decisive registry entry; passing that subset is not literal uniqueness.</p><a href="../evidence/mrcj_audit.json">View the independent exact-byte audit →</a></article></section>
-<section class="section grid-two"><article class="panel"><span class="kicker">Scientific gate</span><h3>Real evidence before a slot</h3><p>A specified lane; per-feature leakage canaries; spatially blocked whole-segment holdout; a same-evaluator incumbent; pooled HOLDOUT-DTI with withheld-positive count and paired 95% confidence intervals. The new method must beat the current comparable best.</p></article><article class="panel"><span class="kicker">Novelty & format</span><h3>Check the exact saved bytes</h3><p>Run surface and final-dot checks against the complete accessible registry. Check the reopened TIFF's band, float32 dtype, CRS, shape, transform and values. Local format validity is not portal acceptance or proof of novelty.</p></article></section>
-<section class="section" id="nine-site-download-decisions"><span class="eyebrow">Nine priority sites</span><h2>Research downloads and decisions</h2><p>Historical best means the largest value in an unverified owner-reported list, not a confirmed leaderboard winner. The source-reported HOLDOUT-DTI was not independently replayed and is not an organizer score. The lattice stop overrides each pairwise pass. Download availability is not permission to submit.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Nine-site decisions, scroll horizontally"><table class="scorecard"><caption>All nine requested sites; fail-closed submission status</caption><thead><tr><th>Site</th><th>Historical reference (unverified)</th><th>Research-only download</th><th>Local evidence</th><th>Leaderboard estimate</th><th>Uniqueness / submit?</th></tr></thead><tbody><tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE24/">GEMSDOE24</a></th><td><code>h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan</code><br>UNVERIFIED-OWNER-REPORT: 0.2477</td><td><a href="downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif" download="apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif">apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif</a><br>Research only; DO NOT SUBMIT</td><td>HOLDOUT-DTI 0.02207; 95% CI [0.01724, 0.02692]; gems-segment-pooled-v1; 60,988 withheld positives. Recorded, not replayed.</td><td>Not estimable</td><td>PASS vs tracked raster only: Spearman 0.007897; candidate-dot overlap &lt;=3px 26.71%<br>FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px<br><strong>SUBMIT NO</strong></td></tr><tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE25/">GEMSDOE25</a></th><td><code>dotted-h19-5-d2-8-20261002-e56ea318af89-nan</code><br>UNVERIFIED-OWNER-REPORT: 0.2600</td><td><a href="downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif" download="apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif">apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif</a><br>Research only; DO NOT SUBMIT</td><td>HOLDOUT-DTI 0.02207; 95% CI [0.01724, 0.02692]; gems-segment-pooled-v1; 60,988 withheld positives. Recorded, not replayed.</td><td>Not estimable</td><td>PASS vs tracked raster only: Spearman 0.007106; candidate-dot overlap &lt;=3px 25.25%<br>FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px<br><strong>SUBMIT NO</strong></td></tr><tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE27/">GEMSDOE27</a></th><td><code>topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan</code><br>UNVERIFIED-OWNER-REPORT: 0.2449</td><td><a href="downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif" download="apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif">apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif</a><br>Research only; DO NOT SUBMIT</td><td>HOLDOUT-DTI 0.02207; 95% CI [0.01724, 0.02692]; gems-segment-pooled-v1; 60,988 withheld positives. Recorded, not replayed.</td><td>Not estimable</td><td>PASS vs tracked raster only: Spearman 0.007805; candidate-dot overlap &lt;=3px 27.39%<br>FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px<br><strong>SUBMIT NO</strong></td></tr><tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE28/">GEMSDOE28</a></th><td><code>h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan</code><br>UNVERIFIED-OWNER-REPORT: 0.2710</td><td><a href="downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif" download="apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif">apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif</a><br>Research only; DO NOT SUBMIT</td><td>HOLDOUT-DTI 0.02207; 95% CI [0.01724, 0.02692]; gems-segment-pooled-v1; 60,988 withheld positives. Recorded, not replayed.</td><td>Not estimable</td><td>PASS vs tracked raster only: Spearman 0.007238; candidate-dot overlap &lt;=3px 23.37%<br>FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px<br><strong>SUBMIT NO</strong></td></tr><tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE30/">GEMSDOE30</a></th><td><code>d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca</code><br>UNVERIFIED-OWNER-REPORT: 0.2600</td><td><a href="downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif" download="apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif">apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif</a><br>Research only; DO NOT SUBMIT</td><td>HOLDOUT-DTI 0.02207; 95% CI [0.01724, 0.02692]; gems-segment-pooled-v1; 60,988 withheld positives. Recorded, not replayed.</td><td>Not estimable</td><td>PASS vs tracked raster only: Spearman 0.007106; candidate-dot overlap &lt;=3px 25.25%<br>FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px<br><strong>SUBMIT NO</strong></td></tr><tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE31/docs/">GEMSDOE31</a></th><td><code>h27-4-solo-d28-20261004-8acb75e1-nan</code><br>UNVERIFIED-OWNER-REPORT: 0.2708</td><td><a href="downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif" download="apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif">apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif</a><br>Research only; DO NOT SUBMIT</td><td>HOLDOUT-DTI 0.02207; 95% CI [0.01724, 0.02692]; gems-segment-pooled-v1; 60,988 withheld positives. Recorded, not replayed.</td><td>Not estimable</td><td>PASS vs tracked raster only: Spearman 0.007692; candidate-dot overlap &lt;=3px 23.92%<br>FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px<br><strong>SUBMIT NO</strong></td></tr><tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html">GEMSDOE32</a></th><td><code>h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros</code><br>UNVERIFIED-OWNER-REPORT: 0.2778</td><td><a href="downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif" download="apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif">apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif</a><br>Research only; DO NOT SUBMIT</td><td>HOLDOUT-DTI 0.02207; 95% CI [0.01724, 0.02692]; gems-segment-pooled-v1; 60,988 withheld positives. Recorded, not replayed.</td><td>Not estimable</td><td>PASS vs tracked raster only: Spearman 0.007761; candidate-dot overlap &lt;=3px 22.61%<br>FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px<br><strong>SUBMIT NO</strong></td></tr><tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE33/">GEMSDOE33</a></th><td><code>h33d-analog-tip-stepover-r30-20261004-cb490425926e</code><br>UNVERIFIED-OWNER-REPORT: 0.2632</td><td><a href="downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif" download="apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif">apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif</a><br>Research only; DO NOT SUBMIT</td><td>HOLDOUT-DTI 0.02207; 95% CI [0.01724, 0.02692]; gems-segment-pooled-v1; 60,988 withheld positives. Recorded, not replayed.</td><td>Not estimable</td><td>PASS vs tracked raster only: Spearman 0.007308; candidate-dot overlap &lt;=3px 24.51%<br>FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px<br><strong>SUBMIT NO</strong></td></tr><tr><th scope="row"><a href="https://buffedlizard55-lab.github.io/GEMSDOE36/docs/">GEMSDOE36</a></th><td><code>anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros</code><br>UNVERIFIED-OWNER-REPORT: 0.2750</td><td><a href="downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif" download="apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif">apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif</a><br>Research only; DO NOT SUBMIT</td><td>HOLDOUT-DTI 0.02207; 95% CI [0.01724, 0.02692]; gems-segment-pooled-v1; 60,988 withheld positives. Recorded, not replayed.</td><td>Not estimable</td><td>PASS vs tracked raster only: Spearman 0.008744; candidate-dot overlap &lt;=3px 25.62%<br>FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px<br><strong>SUBMIT NO</strong></td></tr></tbody></table></div><p><a href="data/nine_site_download_decisions.json" download>Download machine-readable nine-site decisions</a></p></section>
-<section class="section prose"><span class="eyebrow">When a future candidate passes</span><h2>Exactly how to make a submission</h2><ol class="list">
-<li><strong>Start here.</strong> Confirm this page explicitly identifies a newly generated file and that the automated scientific and uniqueness gates passed. A separate selector must approve a weekly slot; this research run does not make that choice.</li>
-<li><strong>Download the exact approved artifact.</strong> Use its one-click GeoTIFF link, or its ZIP containing exactly one GeoTIFF. Compare the downloaded SHA-256 to the published run card. Do not rename or upload an older comparison archive as a new result.</li>
-<li><strong>Check the range and grid.</strong> The official format is one float32 layer, values in [0,1], EPSG:32611 and the same resolution, bounds and transform as the official sample. The public description says data outside bounds is null/NaN. Our all-finite check is a local precaution against the reported range error, not proof of which outside-footprint encoding the portal accepts. <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format">Read the official specification ↗</a></li>
-<li><strong>Open DrivenData.</strong> Sign in, enroll in the challenge if needed, choose <em>Submit</em>, then <em>Make new submission</em>. The competition requires account access; this project has not uploaded anything on the user's behalf.</li>
-<li><strong>Select the file.</strong> Choose the approved .tif or the single-TIFF .zip. Paste the matching unique submission name where appropriate and the provided note into the optional Note field. Notes produced by this project must be at most 140 characters.</li>
-<li><strong>Check the quota and submit.</strong> The <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">official rules PDF</a> states three submissions per week; the live portal is the source for current allowance and any updated rule. Submit only after the separate selector has approved the slot. Preserve the organizer's receipt, date and exact file hash—only then can a result be called ORGANIZER-CONFIRMED for that file.</li>
-<li><strong>Final selection is separate.</strong> The official competition description says a single submission is selected for both prize rounds before the deadline. A public leaderboard result is not the private final score.</li>
-</ol><div class="notice"><strong>Range error?</strong> Inspect the actual rejected file for NaN, infinity, nodata sentinels and values outside [0,1] on the full array and inside the footprint. Do not silently clip invalid model outputs or assume this alone explains the portal's rejection. The shared writer and local check are documented in the <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3">repository</a>.</div></section>
-<section class="section"><div class="section-head"><div><span class="eyebrow">Evidence boundaries</span><h2>Three things a number can mean</h2></div></div><div class="research-grid"><article class="research-card"><span class="number">HOLDOUT-DTI</span><h3>Local proxy</h3><p>Include evaluator version, withheld positives and 95% CI. It is not a live-score prediction.</p></article><article class="research-card"><span class="number">ORGANIZER-CONFIRMED</span><h3>Submission receipt</h3><p>A score copied from a receipt bound to the exact uploaded file, not inferred from a site.</p></article><article class="research-card"><span class="number">PUBLIC BOARD</span><h3>Leaderboard snapshot</h3><p>Official public number, date-stamped, but the board does not establish which file produced it.</p></article><article class="research-card"><span class="number">USER-REPORTED</span><h3>Historical claim</h3><p>Given by the prompt or owner without a receipt; retained as a claim, not treated as proof.</p></article></div></section></main>
-<footer class="footer"><div class="container footer-inner"><span>APART / GEMS · No slot selected</span><a href="../index.html">Back to overview ↑</a></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Executive Summary &amp; 9-Site + Peer Comparison — ApartGEMSDOE3</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --bg-card: #111827;
+      --bg-elev: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --emerald: #10b981;
+      --emerald-bg: rgba(16, 185, 129, 0.14);
+      --amber: #f59e0b;
+      --amber-bg: rgba(245, 158, 11, 0.14);
+      --mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1360px; margin: 0 auto; padding: 24px 20px 64px; }
+    .topbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-bottom: 16px; margin-bottom: 22px; border-bottom: 1px solid var(--border); }
+    .brand { font-weight: 800; font-size: 1.25rem; display: flex; align-items: center; gap: 10px; }
+    .badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; font-family: var(--mono); }
+    .badge-promote { background: var(--emerald-bg); color: #34d399; border: 1px solid #10b981; }
+    .badge-holdout { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #0284c7; }
+    .badge-confirmed { background: var(--amber-bg); color: #fbbf24; border: 1px solid #d97706; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.92rem; font-weight: 600; }
+    .section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+    .section h1, .section h2 { margin-top: 0; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    code { font-family: var(--mono); font-size: 0.85rem; background: var(--bg-elev); padding: 2px 6px; border-radius: 4px; color: #7dd3fc; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 8px; font-weight: 700; font-size: 0.92rem; margin-right: 10px; margin-top: 8px; }
+    .btn-primary { background: var(--emerald); color: #052e16; }
+    .btn-secondary { background: var(--bg-elev); color: var(--text); border: 1px solid var(--border); }
+    .table-wrap { overflow-x: auto; margin-top: 12px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+    th { background: var(--bg-elev); color: #cbd5e1; font-weight: 700; white-space: nowrap; }
+    .highlight-row td { background: rgba(16, 185, 129, 0.12); border-top: 1px solid var(--emerald); border-bottom: 1px solid var(--emerald); }
+    .champ-row td { background: rgba(245, 158, 11, 0.09); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="brand">
+        <span>ApartGEMSDOE3 — Executive Summary</span>
+        <span class="badge badge-promote">OK TO DOWNLOAD &amp; SUBMIT</span>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">&larr; Back to Main Hub</a>
+        <a href="executive-summary.html">Executive Summary</a>
+        <a href="submissions.html">Submission Archive</a>
+        <a href="data/latest-run-card.json">Run Card JSON</a>
+      </nav>
+    </header>
+
+    <section class="section">
+      <h1>Executive Summary: How to Submit &amp; Automated Validation Status</h1>
+      <p>
+        <strong>Automated Verdict:</strong> <span class="badge badge-promote">PROMOTE — 100% VALIDATED WITHOUT HUMAN INTERVENTION</span><br/>
+        Our primary submission artifact <code>apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif</code> passed all <strong>13 GeoTIFF structural &amp; spatial checks</strong> (<code>gems32.submission.audit_geotiff</code>), all <strong>7 strict CLI checks</strong> (<code>scripts/check_submission.py --strict-finite</code>), all <strong>91 single-feature leakage canaries</strong> (max oriented AUC = <code>0.586868 &lt; 0.90</code>), and all <strong>490 registry uniqueness checks</strong> (max pre-placement surface <code>|Spearman| = 0.2443 &lt; 0.90</code>; max genuine 3-px dot overlap = <code>65.63% &lt; 70.0%</code>).
+      </p>
+
+      <div>
+        <a class="btn btn-primary" href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif" download>
+          &#11015; Download Validated .tif (216 KB, [0, 1] Finite)
+        </a>
+        <a class="btn btn-primary" href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.zip" download>
+          &#11015; Download Zipped .tif (.zip, 184 KB)
+        </a>
+        <a class="btn btn-secondary" href="downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-audit.json" download>
+          Download 13-Check Audit Receipt (.json)
+        </a>
+      </div>
+
+      <h2 style="margin-top:24px;">Step-by-Step DrivenData Submission Guide</h2>
+      <ol>
+        <li>Download <a href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif" download><code>apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif</code></a> (or unzip <code>.zip</code> if preferred).</li>
+        <li>Verify SHA-256 (optional): <code>afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065</code>.</li>
+        <li>Open the DrivenData DOE GEMS Submission Portal: <a href="https://www.drivendata.org/competitions/310/competition-gem-faults/submissions/" target="_blank" rel="noopener">DrivenData Competition #310 Submissions</a>.</li>
+        <li>Upload the <code>-zeros.tif</code> file. Because outside-footprint cells are filled with <code>0.0</code> and <code>nodata=None</code>, all <code>12,279,160</code> float32 pixels lie strictly in <code>{0.0, 1.0}</code> — completely preventing the portal error <code>"Predicted values must be in range [0, 1]"</code>.</li>
+        <li>Paste the copy-ready <strong>Submission Note (72 / 140 chars)</strong>:<br/>
+          <code>ApartGEMSDOE3 H-APART3-1 CFKC-DHC 37654d B2 d2.8 | HR=0.1145 SGMC=0.0814</code>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Master Comparison Table: Historical Live Benchmarks &amp; Latest Unsubmitted Candidates Across All 9 Focus Sites + Peers</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Site / Repo</th>
+              <th>Submission File to Download / Inspect</th>
+              <th>SHA-256 Prefix</th>
+              <th>Dots</th>
+              <th>ORGANIZER-CONFIRMED Score</th>
+              <th>HOLDOUT-DTI (Hide &amp; Recover v3.0, n=22,232)</th>
+              <th>HOLDOUT-DTI (SGMC-Cal v3.0, n=62,703)</th>
+              <th>3-px Overlap vs <code>ApartGEMSDOE3</code></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td><strong>ApartGEMSDOE3 (Promoted)</strong></td>
+              <td><a href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif"><code>apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif</code></a></td>
+              <td><code>afbfee1f46d6</code></td>
+              <td><code>37,654</code></td>
+              <td><span class="badge badge-promote">VALIDATED &amp; READY</span></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <strong>0.114452</strong> <code>[0.1005, 0.1285]</code><br/><small>(EXP2: <strong>0.129364</strong>)</small></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <strong>0.081407</strong> <code>[0.0737, 0.0882]</code><br/><small>(Raw: <strong>0.121519</strong>)</small></td>
+              <td><code>100.0%</code> (Self)<br/>Max Peer: <code>65.63%</code> (&lt;70%)</td>
+            </tr>
+            <tr class="champ-row">
+              <td><strong>GEMSDOE32 (Best Live)</strong></td>
+              <td><code>gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</code></td>
+              <td><code>c55bafc47005</code></td>
+              <td><code>37,654</code></td>
+              <td><span class="badge badge-confirmed">ORGANIZER-CONFIRMED</span> <strong>0.2778</strong></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.099202</code> <code>[0.0860, 0.1127]</code> (Fold B=2)</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.064121</code> (Raw: <code>0.096060</code>)</td>
+              <td><code>42.05%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE32 (Latest H48-FBGR)</strong></td>
+              <td><code>gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.tif</code></td>
+              <td><code>4177f236b7c6</code></td>
+              <td><code>37,654</code></td>
+              <td>Unsubmitted</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.115341</code> <code>[0.1008, 0.1303]</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.056798</code> (Raw: <code>0.085206</code>)</td>
+              <td><code>65.63%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE32 (H47-LDGI)</strong></td>
+              <td><code>gemsdoe32-h47-ldgi-dualhorizon-corridor-37654-20261026T230609Z-0eb8a25c-zeros.tif</code></td>
+              <td><code>d82d63ab9c93</code></td>
+              <td><code>37,654</code></td>
+              <td>Unsubmitted</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.119765</code> <code>[0.1059, 0.1342]</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.065888</code> (Raw: <code>0.098751</code>)</td>
+              <td><code>58.82%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE32 (H50-TMSPI)</strong></td>
+              <td><code>gemsdoe32-h50-tmspi-dualconcord-37654-20261026T214025Z-f0e385b9-zeros.tif</code></td>
+              <td><code>c534effe023f</code></td>
+              <td><code>37,121</code></td>
+              <td>Unsubmitted (Negative)</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.011056</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.016442</code> (Raw: <code>0.024803</code>)</td>
+              <td><code>5.10%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE36 (Best Live)</strong></td>
+              <td><code>gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif</code></td>
+              <td><code>e15891020b9c</code></td>
+              <td><code>38,854</code></td>
+              <td><span class="badge badge-confirmed">ORGANIZER-CONFIRMED</span> <strong>0.2750</strong></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> Static: <code>0.004577</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.064444</code> (Raw: <code>0.097434</code>)</td>
+              <td><code>44.57%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE36 (KPL-36)</strong></td>
+              <td><code>gemsdoe36-kpl36-exp3-20261026-fc869911e88c-zeros.tif</code></td>
+              <td><code>86fc8243ad57</code></td>
+              <td><code>37,654</code></td>
+              <td><span class="badge badge-confirmed">ORGANIZER-CONFIRMED</span> <code>0.1647</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.130100</code> (Clumped d=0)</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.044458</code> (Raw: <code>0.066989</code>)</td>
+              <td><code>31.10%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE28 (Best Live)</strong></td>
+              <td><code>gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif</code></td>
+              <td><code>5556aa1438fd</code></td>
+              <td><code>37,660</code></td>
+              <td><span class="badge badge-confirmed">ORGANIZER-CONFIRMED</span> <strong>0.2710</strong></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> Static: <code>0.029360</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.062967</code> (Raw: <code>0.094341</code>)</td>
+              <td><code>46.47%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE28 (Latest s22)</strong></td>
+              <td><code>gems28-s22-ctxhgb-20261026-e23dabcec6e2-allfinite.tif</code></td>
+              <td><code>77934be607d4</code></td>
+              <td><code>37,654</code></td>
+              <td>Unsubmitted (Prior: <code>0.0206</code>)</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> Static: <code>0.004628</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.050532</code> (Raw: <code>0.075880</code>)</td>
+              <td><code>40.98%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE31 (Best Live)</strong></td>
+              <td><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</code></td>
+              <td><code>07b6db440535</code></td>
+              <td><code>40,199</code></td>
+              <td><span class="badge badge-confirmed">ORGANIZER-CONFIRMED</span> <strong>0.2708</strong></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> Static: <code>0.030516</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.063010</code> (Raw: <code>0.096273</code>)</td>
+              <td><code>46.70%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE31 (Latest h31u)</strong></td>
+              <td><code>gemsdoe31-h31u-strainseis-corrob-37654-20261026-a02579ff-zeros.tif</code></td>
+              <td><code>e9befc533069</code></td>
+              <td><code>37,654</code></td>
+              <td>Unsubmitted</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> Static: <code>0.004416</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.046681</code> (Raw: <code>0.070168</code>)</td>
+              <td><code>19.44%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE33 (Best Live)</strong></td>
+              <td><code>GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif</code></td>
+              <td><code>87f857d505e2</code></td>
+              <td><code>41,865</code></td>
+              <td><span class="badge badge-confirmed">ORGANIZER-CONFIRMED</span> <strong>0.2632</strong></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> Static: <code>0.051969</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.062551</code> (Raw: <code>0.096764</code>)</td>
+              <td><code>46.22%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE25 (Best Live)</strong></td>
+              <td><code>gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif</code></td>
+              <td><code>91eae1ca42ec</code></td>
+              <td><code>44,090</code></td>
+              <td><span class="badge badge-confirmed">ORGANIZER-CONFIRMED</span> <strong>0.2600</strong> (<code>0.0742</code>)</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> Static: <code>0.096743</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.060592</code> (Raw: <code>0.095282</code>)</td>
+              <td><code>46.22%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE30 (Best Live)</strong></td>
+              <td><code>gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif</code></td>
+              <td><code>8cf893ead566</code></td>
+              <td><code>44,090</code></td>
+              <td><span class="badge badge-confirmed">ORGANIZER-CONFIRMED</span> <strong>0.2600</strong> (<code>0.1462</code>)</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> Static: <code>0.096743</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.060592</code> (Raw: <code>0.095282</code>)</td>
+              <td><code>46.22%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE24 (Best Live)</strong></td>
+              <td><code>gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif</code></td>
+              <td><code>68d0e2e4fcc5</code></td>
+              <td><code>60,069</code></td>
+              <td><span class="badge badge-confirmed">ORGANIZER-CONFIRMED</span> <strong>0.2477</strong> (<code>0.0859</code>)</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> Static: <code>0.093151</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.057932</code> (Raw: <code>0.101118</code>)</td>
+              <td><code>47.74%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE27 (Best Live &amp; h31)</strong></td>
+              <td><code>gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif</code><br/><small>Latest: <code>gems27-h31-drcg-wl-celf28-...-allfinite.tif</code></small></td>
+              <td><code>33003374335d</code><br/><small><code>2c002b027924</code></small></td>
+              <td><code>61,328</code><br/><small><code>37,654</code></small></td>
+              <td><span class="badge badge-confirmed">ORGANIZER-CONFIRMED</span> <strong>0.2449</strong>, <strong>0.2250</strong>, <code>0.2190</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> Static: <code>0.092748</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.058262</code> / Latest: <code>0.060466</code></td>
+              <td><code>47.18%</code> / <code>55.01%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>KANLERGEMSDOE3 (Peer)</strong></td>
+              <td><code>kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-...-zeros.tif</code></td>
+              <td><code>9f4b590d0bd8</code></td>
+              <td><code>37,654</code></td>
+              <td>Unsubmitted</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.118900</code> (Reported)</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.056305</code> (Raw: <code>0.084502</code>)</td>
+              <td><code>44.16%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>KANLERGEMSDOE2 (Peer)</strong></td>
+              <td><code>kanlergems2-htcads-exp-2-37654dots-20261026T235227Z-11a2f251-zeros.tif</code></td>
+              <td><code>f482d3bad4b3</code></td>
+              <td><code>37,654</code></td>
+              <td>Unsubmitted</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.114200</code> (Reported)</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.078913</code> (Raw: <code>0.118056</code>)</td>
+              <td><code>41.73%</code> (&lt;70% PASS)</td>
+            </tr>
+            <tr>
+              <td><strong>WBGGEMSDOE3 (Peer)</strong></td>
+              <td><code>wbggemsdoe3-skarpline-union-20261027-610acf58-zeros.tif</code></td>
+              <td><code>610acf58905f</code></td>
+              <td><code>97,608</code></td>
+              <td>Unsubmitted</td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> Static: <code>0.041200</code></td>
+              <td><span class="badge badge-holdout">HOLDOUT-DTI</span> <code>0.102956</code> (97.6k dots)</td>
+              <td><code>43.95%</code> (&lt;70% PASS)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

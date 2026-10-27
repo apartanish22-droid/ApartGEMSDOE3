@@ -1,13 +1,36 @@
-# Large, reproducible downloads and feature caches; never commit credentials
-.cache/
-.venv/
+# Python & build artifacts
 __pycache__/
-.pytest_cache/
 *.py[cod]
-data/bridge/
-data/official/
-data/external/
-# Downloaded, hash-verified upstream template is not redistributed without a license
-vendor/gems57/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+.cache/
 
-.coverage
+# Large competition rasters and regenerable numpy caches are restored via
+# bash scripts/download_competition_data.sh and python scripts/prepare_data.py
+data/*
+!data/.gitkeep
+!data/README.md
+!data/restore_receipt.json
+!data/prepared_manifest.json
+!data/holdout_surrogate_log.json
+!data/holdout_surrogate_log.csv
+
+*.npy
+*.npz
+*.partial
+*.assembling
+
+# Keep audited submission deliverables and verification sidecars in docs/downloads/
+!docs/downloads/*.tif
+!docs/downloads/*.zip
+!docs/downloads/*.json
+
+# OS / Editor
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
