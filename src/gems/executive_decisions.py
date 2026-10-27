@@ -1,8 +1,4 @@
-"""Conservative nine-site decision packet; never selects a weekly submission slot.
-
-Historical owner claims identify references only. Current-best review certifies
-local bytes, not a cross-site winner or a calibrated hidden-label prediction.
-"""
+"""Conservative nine-site packet; never selects or authorizes a weekly slot."""
 
 from __future__ import annotations
 
@@ -10,6 +6,7 @@ import json
 import math
 from html import escape
 from pathlib import Path
+from typing import Any
 
 from .validator import sha256_file
 
@@ -17,60 +14,89 @@ SITES = tuple(f"GEMSDOE{n}" for n in (24, 25, 27, 28, 30, 31, 32, 33, 36))
 CLAIMS = "registry/owner_reported_scores_2026-10-26.json"
 
 
-def build_decisions(root: Path, current: dict) -> dict:
-    claims = json.loads((root / CLAIMS).read_text())
-    if set(claims["sites"]) != set(SITES):
+def build_decisions(root: Path, current: dict[str, Any]) -> dict[str, Any]:
+    """Combine the verified current audit with explicitly unverified owner claims."""
+    root = Path(root)
+    claims = json.loads((root / CLAIMS).read_text(encoding="utf-8"))
+    if set(claims.get("sites", {})) != set(SITES):
         raise ValueError("Nine-site claim inventory must match the requested sites exactly")
     if current.get("ok_to_submit") is not False or current.get("verdict") != "negative":
         raise ValueError("Review packet cannot authorize submission")
-    name = current["submission_name"]
-    if Path(name).name != name or not name.endswith("-zeros.tif"):
+    name = current.get("submission_name")
+    if not isinstance(name, str) or Path(name).name != name or not name.endswith("-zeros.tif"):
         raise ValueError("Unsafe research filename")
     artifact = root / "docs/downloads" / name
-    if sha256_file(artifact) != current["raster_sha256"]:
+    if not artifact.is_file() or sha256_file(artifact) != current.get("raster_sha256"):
         raise ValueError("Research download differs from reviewed bytes")
+
+    rho_by_site = current.get("surface_spearman_vs_focus_registry", {})
+    overlap_by_site = current.get("final_dot_overlap_within_3px_vs_focus_registry", {})
+    holdout = current.get("holdout_dti", {})
+    lattice = current.get("independent_lattice_audit", {})
+    if lattice.get("duplicate_by_overlap") is True:
+        global_novelty = f"FAIL vs pinned lattice: candidate-dot overlap {lattice['overlap_fraction']:.2%} within 3px"
+    else:
+        global_novelty = "NOT ESTABLISHED: complete-registry and independent lattice evidence required"
+    holdout_packet = {
+        "label": holdout.get("label"),
+        "dti": holdout.get("value"),
+        "evaluator_version": holdout.get("evaluator_version"),
+        "n_withheld_positive_pixels": holdout.get("withheld_positive_count"),
+        "ci95": {"level": 0.95, "interval": holdout.get("ci_95")},
+        "provenance": holdout.get("provenance"),
+        "interpretation": holdout.get("interpretation"),
+    }
     rows = []
     for site in SITES:
         entries = claims["sites"][site]
         if not entries:
-            raise ValueError("Missing historical claims")
+            raise ValueError(f"Missing historical claims for {site}")
         for entry in entries:
-            value = entry["owner_reported"]
+            value = entry.get("owner_reported")
             if (
                 not isinstance(entry.get("name"), str)
                 or not entry["name"]
                 or type(value) not in (int, float)
                 or not math.isfinite(value)
                 or not 0 <= value <= 1
+                or not isinstance(entry.get("source_url"), str)
             ):
-                raise ValueError("Malformed owner-reported reference")
+                raise ValueError(f"Malformed owner-reported reference for {site}")
         best = max(entries, key=lambda entry: entry["owner_reported"])
-        rows.append(
-            {
-                "site": site,
-                "source_url": f"https://github.com/buffedlizard55-lab/{site}",
-                "historical_reference": best["name"],
-                "historical_claim": {
-                    "label": "UNVERIFIED-OWNER-REPORT",
-                    "value": best["owner_reported"],
-                    "source": CLAIMS,
-                },
-                "research_download": name if site == "GEMSDOE24" else None,
-                "holdout": current["holdout"] if site == "GEMSDOE24" else None,
-                "leaderboard_estimate": None,
-                "organizer_confirmed_score": None,
-                "uniqueness": (
-                    "FAIL: literal registry overlap"
-                    if site == "GEMSDOE24"
-                    else "NOT ESTABLISHED: no fresh artifact-level audit in this review"
-                ),
-                "ok_to_submit": False,
-                "decision": "DO_NOT_SUBMIT",
-            }
-        )
+        rho = rho_by_site.get(site)
+        overlap = overlap_by_site.get(site)
+        if type(rho) not in (float, int) or type(overlap) not in (float, int):
+            uniqueness = "NOT ESTABLISHED: exact raster audit missing"
+        elif abs(rho) <= 0.90 and overlap <= 0.70:
+            uniqueness = f"PASS vs tracked raster only: Spearman {rho:.6f}; candidate-dot overlap <=3px {overlap:.2%}"
+        else:
+            uniqueness = f"FAIL vs tracked raster: Spearman {rho:.6f}; candidate-dot overlap <=3px {overlap:.2%}"
+        rows.append({
+            "site": site,
+            "source_url": best["source_url"],
+            "historical_reference": best["name"],
+            "historical_claim": {
+                "label": "UNVERIFIED-OWNER-REPORT",
+                "value": best["owner_reported"],
+                "source": CLAIMS,
+            },
+            "research_download": name,
+            "holdout": holdout_packet,
+            "leaderboard_estimate": None,
+            "organizer_confirmed_score": None,
+            "surface_spearman": rho,
+            "final_dot_overlap_within_3px": overlap,
+            "uniqueness": uniqueness,
+            "global_novelty": global_novelty,
+            "ok_to_submit": False,
+            "decision": "DO_NOT_SUBMIT",
+        })
     return {
-        "schema_version": "nine-site-decisions-v1",
-        "scope": "Local exact-file review plus historical owner claims; no cross-site selection",
+        "schema_version": "nine-site-decisions-v3",
+        "scope": "Current exact-file review plus user-supplied owner claims; nine pairwise comparisons plus separate lattice audit, not a complete registry or cross-site selection",
+        "independent_lattice_audit": lattice,
+        "global_novelty": global_novelty,
+        "claims_provenance": claims.get("provenance"),
         "claims_sha256": sha256_file(root / CLAIMS),
         "leaderboard_estimate_method": "Unavailable: no independently calibrated paired organizer receipts",
         "rows": rows,
@@ -79,7 +105,7 @@ def build_decisions(root: Path, current: dict) -> dict:
     }
 
 
-def render_decisions(packet: dict) -> str:
+def render_decisions(packet: dict[str, Any]) -> str:
     e = lambda value: escape(str(value), quote=True)  # noqa: E731
     rows = []
     for row in packet["rows"]:
@@ -87,11 +113,9 @@ def render_decisions(packet: dict) -> str:
         download = (
             f'<a href="downloads/{e(name)}" download="{e(name)}">{e(name)}</a>'
             "<br>Research only; DO NOT SUBMIT"
-            if name
-            else "None recommended by this review"
         )
-        metric = "Not independently harmonized / replayed"
-        if holdout:
+        metric = "Not available"
+        if holdout.get("label") == "HOLDOUT-DTI" and holdout.get("ci95", {}).get("interval"):
             low, high = holdout["ci95"]["interval"]
             metric = (
                 f"HOLDOUT-DTI {holdout['dti']:.5f}; 95% CI [{low:.5f}, {high:.5f}]; "
@@ -104,21 +128,19 @@ def render_decisions(packet: dict) -> str:
             f"<td><code>{e(row['historical_reference'])}</code><br>"
             f"{e(claim['label'])}: {claim['value']:.4f}</td>"
             f"<td>{download}</td><td>{metric}</td>"
-            f"<td>Unknown; no calibrated estimate</td><td>{e(row['uniqueness'])}<br>"
-            "<strong>SUBMIT NO</strong></td></tr>"
+            f"<td>Not estimable</td><td>{e(row['uniqueness'])}<br>"
+            f"{e(row['global_novelty'])}<br><strong>SUBMIT NO</strong></td></tr>"
         )
     return (
-        '<section class="card" id="nine-site-download-decisions">'
-        "<h2>Nine-site download and submission decisions</h2>"
-        "<p>No approved submission exists. Historical best means highest value in the owner's "
-        "list, not a verified leaderboard winner. A blank estimate is deliberate: local holdout "
-        "cannot be converted into an organizer score without calibration. No new TIFF was "
-        "generated by this review. Research download availability is not permission to submit.</p>"
-        '<div class="tablewrap" tabindex="0" role="region" aria-label="Nine-site decisions, scroll horizontally">'
-        "<table><caption>All nine requested sites; fail-closed submission status</caption>"
-        "<thead><tr><th>Site</th><th>Historical reference (not a download recommendation)</th>"
-        "<th>File to download</th><th>Local evidence</th><th>Leaderboard estimate</th>"
-        "<th>Unique / submit?</th></tr></thead><tbody>"
+        '<section class="section" id="nine-site-download-decisions">'
+        '<span class="eyebrow">Nine priority sites</span><h2>Research downloads and decisions</h2>'
+        "<p>Historical best means the largest value in an unverified owner-reported list, not a confirmed leaderboard winner. "
+        "The source-reported HOLDOUT-DTI was not independently replayed and is not an organizer score. The lattice stop overrides each pairwise pass. Download availability is not permission to submit.</p>"
+        '<div class="table-wrap" tabindex="0" role="region" aria-label="Nine-site decisions, scroll horizontally">'
+        '<table class="scorecard"><caption>All nine requested sites; fail-closed submission status</caption>'
+        "<thead><tr><th>Site</th><th>Historical reference (unverified)</th>"
+        "<th>Research-only download</th><th>Local evidence</th><th>Leaderboard estimate</th>"
+        "<th>Uniqueness / submit?</th></tr></thead><tbody>"
         + "".join(rows)
         + '</tbody></table></div><p><a href="data/nine_site_download_decisions.json" download>'
         "Download machine-readable nine-site decisions</a></p></section>"

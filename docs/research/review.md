@@ -36,7 +36,7 @@ fold-rebuilt, promotion-grade incumbent. The earlier run auto-selected a method
 despite the missing assigned lane and claimed a slot promotion; neither satisfies
 the supplied protocol. Its artifact and original run card are preserved for
 research; the corrected card is negative and the old runner now fails closed
-before writing. [Original run card](../../evidence/mrcj_original_run_card.json)
+before writing. [Original run card](../../evidence/run_card.json)
 contains historical claims, not current authority. **Do not submit the TIFF.**
 
 ### What the independent byte audit establishes

@@ -34,7 +34,7 @@ def html_pages():
 
 def test_generated_site_matches_audit_and_templates():
     generated = build_site.outputs()
-    assert len(generated) == 11  # nine briefs, index, CSV
+    assert len(generated) == 12  # nine briefs, index, executive guide, CSV
     for path, content in generated.items():
         assert path.read_text() == content, f"generated artifact drift: {path}"
         assert "{{" not in content and "}}" not in content

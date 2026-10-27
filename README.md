@@ -65,8 +65,11 @@ was not independently replayed here, and its comparator was not fold-rebuilt.
 
 [Research TIFF](docs/downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif)
 · [Independent exact-byte audit](evidence/mrcj_audit.json)
-· [Corrected parallel run card](evidence/run_card.json)
-· [Original historical card](evidence/mrcj_original_run_card.json)
+· [Corrected parallel run card](evidence/mrcj_current_run_card.json)
+· [Original historical card](evidence/run_card.json)
+· [Current selector review](docs/data/latest-run-card.json)
+· [Nine-site decision packet](docs/data/nine_site_download_decisions.json)
+· [Archived parallel review](docs/research/parallel-site-review-original.md)
 
 The archived experiment entry point now stops before overwriting results or
 issuing a false promotion. This review ran zero geological experiments; the
@@ -129,7 +132,10 @@ to diagnose the user's reported range error.
 
 `site_templates/` and `scripts/build_site.py` generate the historical table,
 nine file-specific briefs and CSV from `evidence/prior_audit.json` and the
-dated third-party site reviews in `registry/site_review.json`. A scheduled
+dated third-party site reviews in `registry/site_review.json`. The submission
+guide also renders the current nine-site fail-closed packet; regenerate that
+packet with `scripts/review_current_artifact.py` before rebuilding the site.
+A scheduled
 GitHub Pages workflow runs checks and refreshes the public leaderboard and
 source heads without logging in to DrivenData. On fetch/parsing failures it
 retains the last available observation and its original time rather than

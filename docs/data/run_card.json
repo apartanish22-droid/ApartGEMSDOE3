@@ -50,7 +50,11 @@
       -100.0,
       4508550.0
     ],
-    "organizer_acceptance": null
+    "organizer_acceptance": null,
+    "outside_footprint_zero_pixels": 7111787,
+    "outside_footprint_nodata_set": false,
+    "strict_outside_footprint_interpretation": "FAIL: exterior cells are zero, not null/NaN",
+    "official_outside_bounds_interpretation": "unresolved; portal acceptance not tested"
   },
   "artifact_name": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
   "submission_name": null,

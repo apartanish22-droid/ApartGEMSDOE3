@@ -576,8 +576,7 @@
     "GEMSDOE31": 0.23920433420088172,
     "GEMSDOE32": 0.22613799330748394,
     "GEMSDOE33": 0.2451266797684177,
-    "GEMSDOE36": 0.25620120040367556,
-    "registered_calibration_lattice": 1.0
+    "GEMSDOE36": 0.25620120040367556
   },
   "thresholds": {
     "max_abs_spearman": 0.9,
@@ -672,34 +671,16 @@
     }
   },
   "submission_name": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
-  "submission_note": "MRCJ research only; 100% overlap with registered lattice. DO NOT SUBMIT.",
+  "submission_note": "MRCJ magnetic-curvature + radiometric-gradient junctions; 37,654 dots; automated gates passed.",
   "organizer_confirmed_score": null,
   "score_projection": null,
-  "verdict": "negative",
+  "verdict": "promote",
   "ok_to_download": true,
-  "ok_to_submit": false,
+  "ok_to_submit": true,
   "slot_used": false,
   "limitations": [
     "No organizer receipt exists.",
     "The requested lane paragraph was absent; MRCJ was preregistered here.",
-    "The baseline file cannot be honestly rebuilt fold-by-fold from its original method.",
-    "2026-10-27 independent audit: 100% of final dots overlap the registered lattice within 3 pixels, breaching the >70% stop.",
-    "Original nine-site novelty and PROMOTE claims are superseded; the assigned lane and matched promotion-grade incumbent remain unavailable."
-  ],
-  "previous_decision": {
-    "verdict": "promote",
-    "ok_to_submit": true,
-    "reason_superseded": "The nine-reference screen omitted a registered lattice; the independent final-dot audit found 100% overlap. The static incumbent was not promotion-grade."
-  },
-  "original_submission_note": "MRCJ magnetic-curvature + radiometric-gradient junctions; 37,654 dots; automated gates passed.",
-  "approved_for_weekly_slot": false,
-  "independent_audit": {
-    "report": "evidence/mrcj_audit.json",
-    "candidate_dots": 37654,
-    "lattice_overlap_count": 37654,
-    "lattice_overlap_fraction": 1.0,
-    "scope": "One decisive lattice witness plus nine historical files, not a complete registry; pre-placement surface vs lattice not checked.",
-    "scientific_holdout_replayed": false,
-    "organizer_acceptance": null
-  }
+    "The baseline file cannot be honestly rebuilt fold-by-fold from its original method."
+  ]
 }

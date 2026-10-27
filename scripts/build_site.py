@@ -11,6 +11,8 @@ from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+from gems.executive_decisions import render_decisions  # noqa: E402
 
 
 def e(value):
@@ -34,7 +36,7 @@ def outputs():
     history = audit["historic"]
     reviews = json.loads((ROOT / "registry/site_review.json").read_text())
     parallel_audit = json.loads((ROOT / "evidence/mrcj_audit.json").read_text())
-    parallel_card = json.loads((ROOT / "evidence/run_card.json").read_text())
+    parallel_card = json.loads((ROOT / "evidence/mrcj_current_run_card.json").read_text())
     if (parallel_card["verdict"] != "negative" or parallel_card["ok_to_submit"] is not False
             or parallel_card["raster_sha256"] != parallel_audit["candidate_sha256"]
             or not parallel_audit["duplicate_by_overlap"]):
@@ -107,6 +109,14 @@ def outputs():
         "MRCJ_WITHHELD": f"{holdout['n_withheld_positive_pixels']:,}",
         "MRCJ_EVALUATOR": e(holdout["evaluator_version"])})
     result[ROOT / "docs/data/site_scorecard.csv"] = stream.getvalue()
+    decisions = json.loads((ROOT / "docs/data/nine_site_download_decisions.json").read_text())
+    if (decisions.get("verdict") != "negative" or decisions.get("ok_to_submit") is not False
+            or decisions.get("independent_lattice_audit", {}).get("duplicate_by_overlap") is not True
+            or len(decisions.get("rows", [])) != 9
+            or any(row.get("ok_to_submit") is not False for row in decisions["rows"])):
+        raise ValueError("nine-site decisions must retain the failed lattice gate and negative verdict")
+    guide = (ROOT / "site_templates/executive-summary.html").read_text()
+    result[ROOT / "docs/executive-summary.html"] = render(guide, {"NINE_SITE_DECISIONS": render_decisions(decisions)})
     return result
 
 
