@@ -1,0 +1,23 @@
+{
+  "channels": [
+    "grav_vec_div_crest",
+    "mag_tilt_zerocross_wall",
+    "piedmont_horst_step_spine",
+    "transtensional_accommodation_bridge",
+    "hydrothermal_claycap_radon_vent",
+    "bhgc_farfield_structural_spine"
+  ],
+  "shape": [
+    3730,
+    3292,
+    6
+  ],
+  "dtype": "float32",
+  "label_free": true,
+  "native_gravity_vector_bands": [
+    "Band 18 (iso_grav_anom_hg = dg/dx)",
+    "Band 11 (iso_grav_anom_vg = dg/dy)"
+  ],
+  "total_channels_with_template": 89,
+  "msub_pure_non_lidar_col_count": 76
+}

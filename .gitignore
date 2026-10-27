@@ -1,0 +1,16 @@
+# Python virtualenvs & bytecode caches
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Regenerable large data & feature stack caches (restored via scripts/restore_data.py)
+.cache/
+
+# OS / editor artifacts
+.DS_Store
+Thumbs.db
