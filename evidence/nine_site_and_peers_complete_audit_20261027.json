@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "GEMSDOE27",
+    "pattern": "h31-drcg-wl-celf28",
+    "path": "docs/downloads/gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite.tif",
+    "sha256": "2c002b02792419864bd3b29a218e543cb41e3f07b3b57c29ef35c6e39e184bfe",
+    "dots": 37654,
+    "sgmc_raw_dti": 0.090606,
+    "sgmc_cal_dti": 0.060466,
+    "apart3_within_3px_of_peer": 0.5501,
+    "peer_within_3px_of_02778_champ": 0.5023
+  },
+  {
+    "repo": "GEMSDOE28",
+    "pattern": "s22-ctxhgb",
+    "path": "docs/downloads/gems28-s22-ctxhgb-20261026-e23dabcec6e2-allfinite.tif",
+    "sha256": "77934be607d48a4daec5b046009cdabf61d3fdee210aadc75be82ac70f3beb2e",
+    "dots": 37654,
+    "sgmc_raw_dti": 0.07588,
+    "sgmc_cal_dti": 0.050532,
+    "apart3_within_3px_of_peer": 0.4098,
+    "peer_within_3px_of_02778_champ": 0.4205
+  },
+  {
+    "repo": "GEMSDOE31",
+    "pattern": "h31u-strainseis-corrob",
+    "path": "docs/downloads/gemsdoe31-h31u-strainseis-corrob-37654-20261026-a02579ff-zeros.tif",
+    "sha256": "e9befc533069ad98b1c44764c89161398c61c3109560173ce96ba296040fe3b0",
+    "dots": 37654,
+    "sgmc_raw_dti": 0.070168,
+    "sgmc_cal_dti": 0.046681,
+    "apart3_within_3px_of_peer": 0.1944,
+    "peer_within_3px_of_02778_champ": 0.2647
+  },
+  {
+    "repo": "GEMSDOE32",
+    "pattern": "h48-fbgr-dualcover",
+    "path": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.tif",
+    "sha256": "4177f236b7c6a26fdf39d85f0896d1a83da745c9a36b04be7fe201a0076bf29f",
+    "dots": 37654,
+    "sgmc_raw_dti": 0.085206,
+    "sgmc_cal_dti": 0.056798,
+    "apart3_within_3px_of_peer": 0.6563,
+    "peer_within_3px_of_02778_champ": 0.5262
+  },
+  {
+    "repo": "GEMSDOE32",
+    "pattern": "h47-ldgi-dualhorizon",
+    "path": "docs/downloads/gemsdoe32-h47-ldgi-dualhorizon-corridor-37654-20261026T230609Z-0eb8a25c-zeros.tif",
+    "sha256": "d82d63ab9c935b4eb6d8886129a7820da4642d20c3304c57364c55380438f27a",
+    "dots": 37654,
+    "sgmc_raw_dti": 0.098751,
+    "sgmc_cal_dti": 0.065888,
+    "apart3_within_3px_of_peer": 0.5882,
+    "peer_within_3px_of_02778_champ": 0.3578
+  },
+  {
+    "repo": "GEMSDOE32",
+    "pattern": "h50-tmspi",
+    "path": "docs/downloads/gemsdoe32-h50-tmspi-dualconcord-37654-20261026T214025Z-f0e385b9-zeros.tif",
+    "sha256": "c534effe023f2876b08239384d075be313d489a8dc3bf8dbf22f7d6509872112",
+    "dots": 37121,
+    "sgmc_raw_dti": 0.024803,
+    "sgmc_cal_dti": 0.016442,
+    "apart3_within_3px_of_peer": 0.051,
+    "peer_within_3px_of_02778_champ": 0.142
+  },
+  {
+    "repo": "GEMSDOE36",
+    "pattern": "kpl36-exp3",
+    "path": "docs/downloads/gemsdoe36-kpl36-exp3-20261026-fc869911e88c-zeros.tif",
+    "sha256": "86fc8243ad573bcdbfac8b432daf0ec5b6800b991b2c3278706358be7eb9922d",
+    "dots": 37654,
+    "sgmc_raw_dti": 0.066989,
+    "sgmc_cal_dti": 0.044458,
+    "apart3_within_3px_of_peer": 0.311,
+    "peer_within_3px_of_02778_champ": 0.5613
+  },
+  {
+    "repo": "KANLERGEMSDOE3",
+    "pattern": "h-k3-1-cadg-submod-exp-k3-3",
+    "path": "docs/cadg-submod/downloads/kanlergemsdoe3-h-k3-1-cadg-submod-exp-k3-3-oof8f-37654-20261026-9a4ecfd71d00-zeros.tif",
+    "sha256": "9f4b590d0bd887632c54ec34c114136d4de52d452de052ba105e35ebfeffe8b5",
+    "dots": 37654,
+    "sgmc_raw_dti": 0.084502,
+    "sgmc_cal_dti": 0.056305,
+    "apart3_within_3px_of_peer": 0.4416,
+    "peer_within_3px_of_02778_champ": 0.4632
+  },
+  {
+    "repo": "KANLERGEMSDOE2",
+    "pattern": "htcads-exp-2",
+    "path": "docs/downloads/kanlergems2-htcads-exp-2-37654dots-20261026T235227Z-11a2f251-zeros.tif",
+    "sha256": "f482d3bad4b390470be06363b60867c8e42942101271caf4fa82ae3c3975abeb",
+    "dots": 37654,
+    "sgmc_raw_dti": 0.118056,
+    "sgmc_cal_dti": 0.078913,
+    "apart3_within_3px_of_peer": 0.4173,
+    "peer_within_3px_of_02778_champ": 0.3966
+  },
+  {
+    "repo": "WBGGEMSDOE3",
+    "pattern": "skarpline-union",
+    "path": "docs/downloads/wbggemsdoe3-skarpline-union-20261027-610acf58-zeros.tif",
+    "sha256": "610acf58905f3b461971bd4a5c67ff7c30894cd92dca20f480f27ecc66de5bb2",
+    "dots": 97608,
+    "sgmc_raw_dti": 0.212698,
+    "sgmc_cal_dti": 0.102956,
+    "apart3_within_3px_of_peer": 0.4395,
+    "peer_within_3px_of_02778_champ": 0.1351
+  }
+]
