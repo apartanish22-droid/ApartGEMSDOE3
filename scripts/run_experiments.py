@@ -77,6 +77,15 @@ def place(score, eligible, k=BUDGET):
 
 
 def main():
+    # This archived runner predates the literal lattice and assigned-lane gates.
+    # It otherwise overwrites the existing evidence and can self-promote on a
+    # nine-file subset with a static, non-promotion-grade comparator. Preserve
+    # the research code below for inspection, but never rerun it as a release.
+    raise SystemExit(
+        "STOP: archived MRCJ runner is not authorized. The method lane was not "
+        "assigned, the registry is incomplete, and the existing 37,654-dot "
+        "artifact overlaps the registered lattice by 100%. No file was written."
+    )
     template = ROOT / "data/bridge/sample_submission.tif"
     with rasterio.open(template) as ds:
         raw = ds.read(1)

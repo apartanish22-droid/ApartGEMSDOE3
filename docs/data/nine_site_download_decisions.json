@@ -1,12 +1,25 @@
 {
   "claims_provenance": "Transcribed from the user's supplied GEMSDOE focus-site list on 2026-10-27. These are not organizer receipts and have not been independently confirmed.",
   "claims_sha256": "edc2ca2490c5c4aefd25bf0fb8fcd63fbccaf0fa4760a4984b36e90cfe06aa3d",
+  "global_novelty": "FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px",
+  "independent_lattice_audit": {
+    "candidate_dots": 37654,
+    "complete_registry_checked": false,
+    "duplicate_by_overlap": true,
+    "observed_utc": "2026-10-27T21:44:43.090418+00:00",
+    "overlap_fraction": 1.0,
+    "overlapping_dots": 37654,
+    "reference_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "report": "evidence/mrcj_audit.json",
+    "status": "recorded independent measurement; not rerun in this endpoint"
+  },
   "leaderboard_estimate_method": "Unavailable: no independently calibrated paired organizer receipts",
   "ok_to_submit": false,
   "rows": [
     {
       "decision": "DO_NOT_SUBMIT",
       "final_dot_overlap_within_3px": 0.26708981781484037,
+      "global_novelty": "FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px",
       "historical_claim": {
         "label": "UNVERIFIED-OWNER-REPORT",
         "source": "registry/owner_reported_scores_2026-10-26.json",
@@ -34,12 +47,13 @@
       "research_download": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
       "site": "GEMSDOE24",
       "source_url": "https://buffedlizard55-lab.github.io/GEMSDOE24/",
-      "surface_spearman": 0.007896787820635272,
+      "surface_spearman": 0.007896787820640742,
       "uniqueness": "PASS vs tracked raster only: Spearman 0.007897; candidate-dot overlap <=3px 26.71%"
     },
     {
       "decision": "DO_NOT_SUBMIT",
       "final_dot_overlap_within_3px": 0.25248313592181443,
+      "global_novelty": "FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px",
       "historical_claim": {
         "label": "UNVERIFIED-OWNER-REPORT",
         "source": "registry/owner_reported_scores_2026-10-26.json",
@@ -67,12 +81,13 @@
       "research_download": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
       "site": "GEMSDOE25",
       "source_url": "https://buffedlizard55-lab.github.io/GEMSDOE25/",
-      "surface_spearman": 0.007106052065600519,
+      "surface_spearman": 0.007106052065602929,
       "uniqueness": "PASS vs tracked raster only: Spearman 0.007106; candidate-dot overlap <=3px 25.25%"
     },
     {
       "decision": "DO_NOT_SUBMIT",
       "final_dot_overlap_within_3px": 0.2739151218993998,
+      "global_novelty": "FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px",
       "historical_claim": {
         "label": "UNVERIFIED-OWNER-REPORT",
         "source": "registry/owner_reported_scores_2026-10-26.json",
@@ -100,12 +115,13 @@
       "research_download": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
       "site": "GEMSDOE27",
       "source_url": "https://buffedlizard55-lab.github.io/GEMSDOE27/",
-      "surface_spearman": 0.0078052553664591465,
+      "surface_spearman": 0.007805255366450921,
       "uniqueness": "PASS vs tracked raster only: Spearman 0.007805; candidate-dot overlap <=3px 27.39%"
     },
     {
       "decision": "DO_NOT_SUBMIT",
       "final_dot_overlap_within_3px": 0.2336803526849737,
+      "global_novelty": "FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px",
       "historical_claim": {
         "label": "UNVERIFIED-OWNER-REPORT",
         "source": "registry/owner_reported_scores_2026-10-26.json",
@@ -133,12 +149,13 @@
       "research_download": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
       "site": "GEMSDOE28",
       "source_url": "https://buffedlizard55-lab.github.io/GEMSDOE28/",
-      "surface_spearman": 0.0072383628132697475,
+      "surface_spearman": 0.007238362813273841,
       "uniqueness": "PASS vs tracked raster only: Spearman 0.007238; candidate-dot overlap <=3px 23.37%"
     },
     {
       "decision": "DO_NOT_SUBMIT",
       "final_dot_overlap_within_3px": 0.25248313592181443,
+      "global_novelty": "FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px",
       "historical_claim": {
         "label": "UNVERIFIED-OWNER-REPORT",
         "source": "registry/owner_reported_scores_2026-10-26.json",
@@ -166,12 +183,13 @@
       "research_download": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
       "site": "GEMSDOE30",
       "source_url": "https://buffedlizard55-lab.github.io/GEMSDOE30/",
-      "surface_spearman": 0.007106052065600519,
+      "surface_spearman": 0.007106052065602929,
       "uniqueness": "PASS vs tracked raster only: Spearman 0.007106; candidate-dot overlap <=3px 25.25%"
     },
     {
       "decision": "DO_NOT_SUBMIT",
       "final_dot_overlap_within_3px": 0.23920433420088172,
+      "global_novelty": "FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px",
       "historical_claim": {
         "label": "UNVERIFIED-OWNER-REPORT",
         "source": "registry/owner_reported_scores_2026-10-26.json",
@@ -199,12 +217,13 @@
       "research_download": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
       "site": "GEMSDOE31",
       "source_url": "https://buffedlizard55-lab.github.io/GEMSDOE31/docs/",
-      "surface_spearman": 0.007692118749825753,
+      "surface_spearman": 0.007692118749838981,
       "uniqueness": "PASS vs tracked raster only: Spearman 0.007692; candidate-dot overlap <=3px 23.92%"
     },
     {
       "decision": "DO_NOT_SUBMIT",
       "final_dot_overlap_within_3px": 0.22613799330748394,
+      "global_novelty": "FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px",
       "historical_claim": {
         "label": "UNVERIFIED-OWNER-REPORT",
         "source": "registry/owner_reported_scores_2026-10-26.json",
@@ -232,12 +251,13 @@
       "research_download": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
       "site": "GEMSDOE32",
       "source_url": "https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html",
-      "surface_spearman": 0.0077610420869185315,
+      "surface_spearman": 0.007761042086909883,
       "uniqueness": "PASS vs tracked raster only: Spearman 0.007761; candidate-dot overlap <=3px 22.61%"
     },
     {
       "decision": "DO_NOT_SUBMIT",
       "final_dot_overlap_within_3px": 0.2451266797684177,
+      "global_novelty": "FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px",
       "historical_claim": {
         "label": "UNVERIFIED-OWNER-REPORT",
         "source": "registry/owner_reported_scores_2026-10-26.json",
@@ -265,12 +285,13 @@
       "research_download": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
       "site": "GEMSDOE33",
       "source_url": "https://buffedlizard55-lab.github.io/GEMSDOE33/",
-      "surface_spearman": 0.0073080547789155514,
+      "surface_spearman": 0.00730805477891972,
       "uniqueness": "PASS vs tracked raster only: Spearman 0.007308; candidate-dot overlap <=3px 24.51%"
     },
     {
       "decision": "DO_NOT_SUBMIT",
       "final_dot_overlap_within_3px": 0.25620120040367556,
+      "global_novelty": "FAIL vs pinned lattice: candidate-dot overlap 100.00% within 3px",
       "historical_claim": {
         "label": "UNVERIFIED-OWNER-REPORT",
         "source": "registry/owner_reported_scores_2026-10-26.json",
@@ -298,11 +319,11 @@
       "research_download": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
       "site": "GEMSDOE36",
       "source_url": "https://buffedlizard55-lab.github.io/GEMSDOE36/docs/",
-      "surface_spearman": 0.008743989058724037,
+      "surface_spearman": 0.008743989058725378,
       "uniqueness": "PASS vs tracked raster only: Spearman 0.008744; candidate-dot overlap <=3px 25.62%"
     }
   ],
-  "schema_version": "nine-site-decisions-v2",
-  "scope": "Current exact-file review plus user-supplied owner claims; local comparison is limited to nine tracked rasters, no cross-site selection",
+  "schema_version": "nine-site-decisions-v3",
+  "scope": "Current exact-file review plus user-supplied owner claims; nine pairwise comparisons plus separate lattice audit, not a complete registry or cross-site selection",
   "verdict": "negative"
 }

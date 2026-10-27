@@ -28,6 +28,7 @@ def main() -> int:
         "sha256": result["raster_sha256"],
         "HOLDOUT-DTI": result["holdout_dti"],
         "focus_rasters_pairwise_pass": result["novel_vs_each_focus_raster_under_thresholds"],
+        "independent_lattice_audit": result["independent_lattice_audit"],
         "format_valid": result["validator_output"]["format_valid"],
         "official_format_compliant": result["validator_output"]["official_format_compliant"],
         "selector_decision": result["selector"]["decision"],

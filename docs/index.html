@@ -18,8 +18,8 @@
   <section class="warn" aria-labelledby="decision-title">
     <p class="eyebrow">CURRENT RELEASE DECISION</p>
     <h2 id="decision-title">DO NOT SUBMIT</h2>
-    <p><strong>Research download: available.</strong> The TIFF below is the prior MRCJ experiment artifact. It is not a newly generated submission, and it is not authorized for a weekly slot. Its strict in-footprint value/grid checks pass, but its exterior is zero rather than null/NaN, paired current-best evidence is missing, the full peer registry and independent replay/C2ST evidence are incomplete, and live quota status is unknown.</p>
-    <p class="warn"><strong>Additional registry stop warning (not locally replayed):</strong> the current GEMSDOE28 owner page reports a 3 px lattice leaving only 6,649 footprint cells uncovered. If that grid claim matches this footprint, any 37,654-dot raster must have at least 82.34% overlap, above the 70% stop threshold. The exact lattice raster is absent here; treat the full-registry test as blocked until the source is verified. <a href="https://buffedlizard55-lab.github.io/GEMSDOE28/">Source</a>.</p>
+    <p><strong>Research download: available.</strong> The TIFF below is the prior MRCJ experiment artifact. It is not a newly generated submission, and it is not authorized for a weekly slot. The exact file fails the literal 3-pixel novelty stop against a registered lattice. Its in-footprint value/grid checks pass locally; exterior-zero acceptability is unresolved, paired current-best evidence and a full registry/replay are missing, and quota status is unknown.</p>
+    <p class="warn"><strong>Independently measured novelty STOP:</strong> all 37,654 of 37,654 dots (100%) fall within three pixels of the pinned calibration lattice, exceeding the 70% threshold. This alone forbids submission. The other nine comparisons do not clear the full registry. <a href="../evidence/mrcj_audit.json">Exact-byte audit</a>.</p>
     <a class="button" href="downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif" download>Download research-only GeoTIFF — NOT submit-ready</a>
     <p><small>SHA-256</small><br><code>fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1</code></p>
   </section>
@@ -30,7 +30,7 @@
       <article><span>Prior internal result</span><b>HOLDOUT-DTI 0.022070</b><span>Evaluator: <code>gems-segment-pooled-v1</code>; 60,988 withheld positives; 95% CI [0.017237, 0.026923]. Stored prior result, not replayed in this review.</span></article>
       <article><span>Leaderboard estimate</span><b>Not estimable</b><span>This internal holdout has not been calibrated to hidden leaderboard scores.</span></article>
       <article><span>Focus-raster uniqueness</span><b>9 of 9 pass pairwise limits</b><span>Maximum absolute surface Spearman 0.008744; maximum final-dot overlap within 3 px 27.39%.</span></article>
-      <article><span>Upload gate</span><b>DO_NOT_SUBMIT</b><span>Shared format preflight says official-format compliance false; the shared selector fails closed.</span></article>
+      <article><span>Registered lattice stop</span><b>100% overlap</b><span>37,654 / 37,654 candidate dots within 3 px. The literal &gt;70% stop applies; DO NOT SUBMIT.</span></article>
     </div>
   </section>
 
@@ -41,15 +41,15 @@
       <table>
         <thead><tr><th>Site</th><th>Highest supplied claim*</th><th>Candidate surface ρ</th><th>Dots within 3 px</th><th>Candidate status</th></tr></thead>
         <tbody>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE24/">GEMSDOE24</a></td><td>0.2477</td><td>0.007897</td><td>26.71%</td><td>Unique vs tracked raster; research only</td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE25/">GEMSDOE25</a></td><td>0.2600</td><td>0.007106</td><td>25.25%</td><td>Unique vs tracked raster; research only</td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE27/">GEMSDOE27</a></td><td>0.2449</td><td>0.007805</td><td>27.39%</td><td>Unique vs tracked raster; research only</td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE28/">GEMSDOE28</a></td><td>0.2710</td><td>0.007238</td><td>23.37%</td><td>Unique vs tracked raster; research only</td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE30/">GEMSDOE30</a></td><td>0.2600</td><td>0.007106</td><td>25.25%</td><td>Unique vs tracked raster; research only</td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE31/docs/">GEMSDOE31</a></td><td>0.2708</td><td>0.007692</td><td>23.92%</td><td>Unique vs tracked raster; research only</td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html">GEMSDOE32</a></td><td><strong>0.2778</strong></td><td>0.007761</td><td>22.61%</td><td>Unique vs tracked raster; research only</td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE33/">GEMSDOE33</a></td><td>0.2632</td><td>0.007308</td><td>24.51%</td><td>Unique vs tracked raster; research only</td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE36/docs/">GEMSDOE36</a></td><td>0.2750</td><td>0.008744</td><td>25.62%</td><td>Unique vs tracked raster; research only</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE24/">GEMSDOE24</a></td><td>0.2477</td><td>0.007897</td><td>26.71%</td><td>Pass vs this one; FAIL vs lattice</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE25/">GEMSDOE25</a></td><td>0.2600</td><td>0.007106</td><td>25.25%</td><td>Pass vs this one; FAIL vs lattice</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE27/">GEMSDOE27</a></td><td>0.2449</td><td>0.007805</td><td>27.39%</td><td>Pass vs this one; FAIL vs lattice</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE28/">GEMSDOE28</a></td><td>0.2710</td><td>0.007238</td><td>23.37%</td><td>Pass vs this one; FAIL vs lattice</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE30/">GEMSDOE30</a></td><td>0.2600</td><td>0.007106</td><td>25.25%</td><td>Pass vs this one; FAIL vs lattice</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE31/docs/">GEMSDOE31</a></td><td>0.2708</td><td>0.007692</td><td>23.92%</td><td>Pass vs this one; FAIL vs lattice</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html">GEMSDOE32</a></td><td><strong>0.2778</strong></td><td>0.007761</td><td>22.61%</td><td>Pass vs this one; FAIL vs lattice</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE33/">GEMSDOE33</a></td><td>0.2632</td><td>0.007308</td><td>24.51%</td><td>Pass vs this one; FAIL vs lattice</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE36/docs/">GEMSDOE36</a></td><td>0.2750</td><td>0.008744</td><td>25.62%</td><td>Pass vs this one; FAIL vs lattice</td></tr>
         </tbody>
       </table>
     </div>
@@ -66,8 +66,9 @@
     <h2>Automated current audit</h2>
     <ul>
       <li>One float32 band; EPSG:32611; sample shape/transform match; strict finite [0,1] values; 37,654 positive pixels: pass.</li>
-      <li>Exterior: 7,111,787 cells are zero, not null/NaN; nodata unset: official-format compliance fails.</li>
-      <li>Focus-site novelty checks: freshly recomputed and consistent with the historical run card; all nine under correlation/overlap thresholds.</li>
+      <li>Exterior: 7,111,787 cells are zero and nodata is unset. A strict null/NaN-outside interpretation fails; organizer interpretation and portal acceptance remain unknown.</li>
+      <li>Registered lattice: independently measured 37,654/37,654 dots within 3 px (100%); <strong>novelty STOP</strong>.</li>
+      <li>The nine focus-site comparisons alone are under correlation/overlap thresholds; none changes the failed lattice stop.</li>
       <li>Selector: <strong>DO_NOT_SUBMIT</strong>; paired current-best evidence, complete peer registry, exact-file C2ST, independent replay, and independently verified quota are missing.</li>
       <li>Experiments in prior card: 3 of 3. New experiments in this review: 0. Slots used: 0.</li>
     </ul>

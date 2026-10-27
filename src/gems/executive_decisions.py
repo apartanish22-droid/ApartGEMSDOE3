@@ -32,6 +32,11 @@ def build_decisions(root: Path, current: dict[str, Any]) -> dict[str, Any]:
     rho_by_site = current.get("surface_spearman_vs_focus_registry", {})
     overlap_by_site = current.get("final_dot_overlap_within_3px_vs_focus_registry", {})
     holdout = current.get("holdout_dti", {})
+    lattice = current.get("independent_lattice_audit", {})
+    if lattice.get("duplicate_by_overlap") is True:
+        global_novelty = f"FAIL vs pinned lattice: candidate-dot overlap {lattice['overlap_fraction']:.2%} within 3px"
+    else:
+        global_novelty = "NOT ESTABLISHED: complete-registry and independent lattice evidence required"
     holdout_packet = {
         "label": holdout.get("label"),
         "dti": holdout.get("value"),
@@ -82,12 +87,15 @@ def build_decisions(root: Path, current: dict[str, Any]) -> dict[str, Any]:
             "surface_spearman": rho,
             "final_dot_overlap_within_3px": overlap,
             "uniqueness": uniqueness,
+            "global_novelty": global_novelty,
             "ok_to_submit": False,
             "decision": "DO_NOT_SUBMIT",
         })
     return {
-        "schema_version": "nine-site-decisions-v2",
-        "scope": "Current exact-file review plus user-supplied owner claims; local comparison is limited to nine tracked rasters, no cross-site selection",
+        "schema_version": "nine-site-decisions-v3",
+        "scope": "Current exact-file review plus user-supplied owner claims; nine pairwise comparisons plus separate lattice audit, not a complete registry or cross-site selection",
+        "independent_lattice_audit": lattice,
+        "global_novelty": global_novelty,
         "claims_provenance": claims.get("provenance"),
         "claims_sha256": sha256_file(root / CLAIMS),
         "leaderboard_estimate_method": "Unavailable: no independently calibrated paired organizer receipts",
@@ -121,19 +129,19 @@ def render_decisions(packet: dict[str, Any]) -> str:
             f"{e(claim['label'])}: {claim['value']:.4f}</td>"
             f"<td>{download}</td><td>{metric}</td>"
             f"<td>Not estimable</td><td>{e(row['uniqueness'])}<br>"
-            "<strong>SUBMIT NO</strong></td></tr>"
+            f"{e(row['global_novelty'])}<br><strong>SUBMIT NO</strong></td></tr>"
         )
     return (
-        '<section class="card" id="nine-site-download-decisions">'
-        "<h2>Nine-site download and submission decisions</h2>"
+        '<section class="section" id="nine-site-download-decisions">'
+        '<span class="eyebrow">Nine priority sites</span><h2>Research downloads and decisions</h2>'
         "<p>Historical best means the largest value in an unverified owner-reported list, not a confirmed leaderboard winner. "
-        "The local HOLDOUT-DTI is not calibrated to organizer scores. Download availability is not permission to submit.</p>"
-        '<div class="tablewrap" tabindex="0" role="region" aria-label="Nine-site decisions, scroll horizontally">'
-        "<table><caption>All nine requested sites; fail-closed submission status</caption>"
+        "The source-reported HOLDOUT-DTI was not independently replayed and is not an organizer score. The lattice stop overrides each pairwise pass. Download availability is not permission to submit.</p>"
+        '<div class="table-wrap" tabindex="0" role="region" aria-label="Nine-site decisions, scroll horizontally">'
+        '<table class="scorecard"><caption>All nine requested sites; fail-closed submission status</caption>'
         "<thead><tr><th>Site</th><th>Historical reference (unverified)</th>"
         "<th>Research-only download</th><th>Local evidence</th><th>Leaderboard estimate</th>"
         "<th>Uniqueness / submit?</th></tr></thead><tbody>"
         + "".join(rows)
-        + '</tbody></table><p><a href="data/nine_site_download_decisions.json" download>'
+        + '</tbody></table></div><p><a href="data/nine_site_download_decisions.json" download>'
         "Download machine-readable nine-site decisions</a></p></section>"
     )
