@@ -1,0 +1,40 @@
+{
+  "schema_version": "arena-gems-run-card-v1",
+  "generated_at_utc": "2026-10-27",
+  "status": "blocked_before_experiment",
+  "hypothesis": "A fresh submission cannot be responsibly generated or scored from the current checkout; any proposed geological hypothesis remains untested.",
+  "mechanism": "No local training/feature stack, holdout evaluator, submission writer, template raster, labels, fault catalogue, or registry rasters exist in this checkout; the protocol's active method lane is not identified.",
+  "named_non_fault_mimic": "Lithologic boundaries and drainage capture can mimic structural lineaments in DEM-derived terrain features.",
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "value": null,
+    "ci_95": null,
+    "evaluator_version": null,
+    "withheld_positive_count": null,
+    "reason_unavailable": "No evaluator, feature/data inputs, or split geometry in this checkout; no experiment was run."
+  },
+  "registry_comparison": {
+    "rank_correlation_max_abs": null,
+    "max_fraction_dots_within_3px": null,
+    "rasters_checked": 0,
+    "result": "not measured; registry rasters are absent"
+  },
+  "raster_sha256": null,
+  "validator": {
+    "run": false,
+    "single_band": null,
+    "no_nan_inside_footprint": null,
+    "values_in_0_1": null,
+    "crs_match": null,
+    "shape_match": null,
+    "transform_match": null,
+    "result": "not run; no raster or official template is present"
+  },
+  "submission": {
+    "name": null,
+    "note": "DO NOT SUBMIT: no locally generated candidate; holdout and uniqueness gates unavailable.",
+    "file": null
+  },
+  "verdict": "negative",
+  "verdict_reason": "Fail closed: no unique validated candidate exists in this checkout. No submission slot used."
+}

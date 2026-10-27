@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ApartGEMSDOE3 — Research and submission status</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header><div class="wrap">
+  <h1>ApartGEMSDOE3</h1>
+  <p>DOE GEMS fault-discovery research · evidence first · submissions fail closed</p>
+</div></header>
+<div class="wrap">
+<nav aria-label="Main navigation">
+  <a href="index.html" aria-current="page">Overview</a>
+  <a href="executive-summary.html">Executive summary &amp; site comparison</a>
+  <a href="review-2026-10-27.md">Full research review</a>
+</nav>
+<main>
+  <section class="card status" aria-labelledby="decision">
+    <p class="kicker">Submission decision</p>
+    <h2 id="decision">NO DOWNLOADABLE SUBMISSION IS APPROVED</h2>
+    <p>This checkout has no competition data, cached features, holdout evaluator, registry rasters, submission writer, or candidate GeoTIFF. No new TIF was generated. There is no file to upload, and the historical files listed here have not passed the required uniqueness and holdout gates.</p>
+    <span class="btn-disabled" aria-disabled="true">TIF download unavailable — validation blocked</span>
+  </section>
+
+  <section class="grid" aria-label="Project readiness">
+    <div class="metric"><span class="kicker">Local source files</span><strong>None beyond project docs</strong><span class="muted">No model or data pipeline in this checkout.</span></div>
+    <div class="metric"><span class="kicker">Experiments run this turn</span><strong>0</strong><span class="muted">No valid inputs/evaluator; budget preserved.</span></div>
+    <div class="metric"><span class="kicker">Submission slots used</span><strong>0</strong><span class="muted">No slot should be spent without passing gates.</span></div>
+  </section>
+
+  <section class="card">
+    <h2>Why we are not producing a TIFF yet</h2>
+    <p>A new file must be scored using a spatially blocked hide-and-recover holdout and compared with the complete registry before it can be called high scoring or unique. The template also has to match the official CRS, shape, and geotransform; predictions must be finite on the evaluation footprint and in <code>[0,1]</code>. None of the inputs or shared tools required to perform those checks is present in this repository.</p>
+    <p class="note"><strong>Safety decision:</strong> a synthetic, copied, or unvalidated raster could fail the portal's range check or duplicate an earlier submission. This page intentionally offers no TIF download until all validation gates pass.</p>
+  </section>
+
+  <section class="card">
+    <h2>Start here</h2>
+    <ol>
+      <li>Read the <a href="../README.md">standing mission and mandatory protocol</a>.</li>
+      <li>Review the <a href="executive-summary.html">nine-site executive summary</a>; every score there is marked user-reported and unverified.</li>
+      <li>See <a href="review-2026-10-27.md">the full repo review, H33 caveats, candidate hypotheses, and prerequisites</a>.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Competition and primary references</h2>
+    <ul>
+      <li><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">Problem statement</a> · <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">Competition rules</a> · <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">Official leaderboard</a></li>
+      <li><a href="https://github.com/drivendataorg/gems-prize-reference-solution">DrivenData reference solution</a> · <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN data</a> · <a href="https://gbcge.org/current-projects/ingenious/">INGENIOUS project</a></li>
+    </ul>
+  </section>
+</main>
+<footer><div class="wrap">Status as of 2026-10-27. This is a research status page, not an organizer score receipt. Never treat a projected or owner-reported value as an official score.</div></footer>
+</div>
+</body>
+</html>
