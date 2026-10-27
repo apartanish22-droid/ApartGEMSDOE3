@@ -1,64 +1,63 @@
 # ApartGEMSDOE3 — evidence-first DOE GEMS research
 
-> **Persistent project starting point:** read this file before every work session. This checkout began as an empty starter and still has no competition rasters, cached feature stack, shared evaluator/writer, full registry, or prior experiments. Do not imply that a TIFF was generated, a score was measured, uniqueness was checked, or a submission was authorized when those inputs are absent.
+> **Persistent starting brief — read before every work session.** Maximize P(Win) through auditable geological discovery, not optimistic score projections. Own the complete outcome. A valid GeoTIFF, uniqueness check, holdout score, organizer score, and permission to use a weekly slot are different things; never conflate them. No manual-inspection step is an automated validation gate.
 
-## Mission and operating principles
+## Current release decision
 
-The goal is to improve the probability of a scientifically credible, high-scoring submission to the [DOE GEMS Prize Challenge](https://www.drivendata.org/competitions/306/competition-doe-gems/), while owning the end-to-end result. Optimize for **Maximize P(Win)**: spend scarce experiments and submission slots only on candidates with evidence. **Own the Outcome**: surface failures, correct tool defects in shared code, preserve negative results, and never relabel an estimate as a score.
+**Research TIFF available: YES. OK to submit: NO — DO NOT SUBMIT.** The existing candidate is the prior MRCJ run artifact, not a new TIFF generated in this review. It passes pairwise checks against the nine historical rasters tracked locally and strict `[0,1]`/grid checks inside the template footprint, but the official null-outside instruction is not met (exterior values are zero), its archived scientific card does not satisfy the current selector contract, no current-best paired comparison or independent replay is available, and weekly quota is unverified. A current external owner page also reports a 3-pixel lattice that would conditionally force at least 82.34% overlap for any 37,654-dot candidate; that lattice is not in this checkout and was not independently replayed. A stale original run card says `promote`; the current exact-file selector review supersedes that wording and fails closed. No competition slot has been used.
 
-### Required lane / parallel-run protocol
+- Research artifact: [`apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif`](docs/downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif)
+- Current fail-closed review: [`docs/data/latest-run-card.json`](docs/data/latest-run-card.json)
+- Human-readable decision and nine-site table: [`docs/index.html`](docs/index.html) and [`docs/executive-summary.md`](docs/executive-summary.md)
+- Original experiment card (immutable prior record; not current upload authorization): [`evidence/run_card.json`](evidence/run_card.json)
 
-1. **Stay in the explicitly assigned method lane.** Before placement and again on final prediction dots, compare the prediction surface's rank-correlation and dot proximity against every registry raster. If absolute rank-correlation exceeds `0.90` or more than `70%` of dots fall within `3 px` of any registry raster, label it a duplicate and stop. An absent assignment or registry is a blocker; do not invent either.
-2. **Reuse the shared template tools.** Use the cached feature stack, `evaluate_holdout.py`, and `submission_writer.py`; do not create private replacement tools. Holdout means hide whole fault segments with a buffer; recompute every catalogue-derived feature from visible faults only; mask visible faults pixel-exactly; pool DTI using `alpha=0.2`, `beta=0.8`, and the official `300 m` triangular kernel. Fix shared tooling once where needed.
-3. **Evidence labels.** Label every reported metric as either `HOLDOUT-DTI` (include evaluator version, withheld positive count, and 95% CI) or `ORGANIZER-CONFIRMED` (copied from a submission-page receipt). A projected score is never a score. Without receipt or valid holdout evidence, report `unknown` rather than a leaderboard estimate.
-4. **Leakage canary.** Evaluate every feature alone on the holdout before trusting a model; AUC above `0.90` is presumed leakage until disproven.
-5. **Automated release card.** Every run ends with a JSON card containing hypothesis, mechanism, named non-fault mimic, holdout-DTI and CI, registry correlation/overlap, raster SHA-256, validator results (no NaN inside footprint, values `[0,1]`, CRS/shape/transform match), submission name/note (note <=140 characters), and verdict `promote` or `negative`. Negative results are deliverables.
-6. **Budget.** At most three experiments or two hours per run. Do not choose a real submission: promotion to a weekly slot is a separate selector step and depends on the current competition cap.
-7. **No human-inspection dependency.** Build automated checks and show an unambiguous status. A technical format PASS is not scientific promotion or permission to submit.
+The prior experiment reports **HOLDOUT-DTI 0.022070** (`gems-segment-pooled-v1`, `60,988` withheld positives, spatial-block bootstrap 95% CI `[0.017237, 0.026923]`). This is internal hide-and-recover evidence, not an organizer score or a leaderboard estimate. No defensible leaderboard-score estimate is available. The user's two overall-high-score claims (`0.3195`, `0.4413`) conflict and neither is linked to a submission-page receipt here.
 
-## Submission status for this checkout
+## Non-negotiable parallel-run protocol
 
-**NO TIFF is available. DO NOT DOWNLOAD OR SUBMIT anything from this repository.** There is no data or model output in this checkout, so no defensible holdout score, unique-file claim, leaderboard-score estimate, or downloadable competition submission can be produced here. Competition data requires an authenticated DrivenData download; the user-provided Dropbox links and separate GitHub Pages files are not present in this repository and have not been copied into it. Do not fabricate a raster from the reported scores.
+1. Stay inside the explicitly assigned method lane. The prompt's promised single-method paragraph is absent from the materials available to this branch, so no further experiment is authorized until the active lane is recorded. Before placement and on final dots, check absolute Spearman rank-correlation against every registry raster; stop if `|rho| > 0.90` or more than `70%` of dots lie within `3 px` of any registry raster. Our fresh audit is scoped to the nine tracked focus rasters only.
+2. Reuse the template's cached feature stack, shared `evaluate_holdout.py`, and shared `submission_writer.py` where present. Do not fork the metric/writer. Holdout hides complete fault components with a buffer; catalogue-derived features use visible faults only; visible faults are masked pixel-exactly; pooled DTI uses `alpha=0.2`, `beta=0.8`, and the `300 m` triangular kernel.
+3. Label a score only as `HOLDOUT-DTI` with evaluator version, withheld-positive count, and 95% CI, or `ORGANIZER-CONFIRMED` from a submission-page receipt. Label other metrics by their type. A projection is never a score.
+4. Test every feature alone on the holdout. AUC above `0.90` is presumed leakage until proven otherwise.
+5. End each run with a machine-readable card: hypothesis, mechanism, non-fault mimic, holdout DTI/CI, correlation and overlap, raster SHA-256, validator output, submission name/note (<=140 characters), and `promote` or `negative` verdict. Negative results are deliverables.
+6. Stop after three experiments or two hours. A selector—not a model runner—decides whether a weekly slot may be used. Never upload automatically.
+7. Do not let a format-only pass or a file download button imply slot authorization.
 
-The highest value in the user's historical list for the nine requested sites is the **GEMSDOE32** claim (`h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros`, `0.2778`), but the supplied text is not a submission-page receipt. Accordingly it is **unverified owner-reported context**, not `ORGANIZER-CONFIRMED`, not `HOLDOUT-DTI`, not proof of superiority on hidden labels, and not a forecast. The user also supplied two conflicting claims for the current overall high score (`0.3195` and `0.4413`); neither has been independently verified from a receipt in this checkout. No estimated leaderboard score is published.
+## Submission-format preflight
 
-See [the executive summary](docs/executive-summary.md) for the nine-site table, score interpretation, ranked hypotheses, official sources, format validator, blockers, and run card.
+The official [DrivenData problem page](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/) requires one float32 GeoTIFF band, same template CRS/grid/resolution/bounds, values in `[0,1]`, and null/NaN outside the bounds. Use `src/gems/submission.py` and `scripts/submission_writer.py`; the preflight is deliberately separate from scientific promotion. The candidate currently passes the in-footprint strict range and sample-grid checks, but the current release audit reports `official_format_compliant: false` because its exterior is zero, not null/NaN. Do not upload it.
 
-## Submission format and safe workflow
-
-The official competition description specifies a single-band float32 GeoTIFF, projected UTM Zone 11N (EPSG:32611), same resolution and bounds/grid as the training/template raster, confidence values in `[0,1]`, and null/NaN outside the study bounds. Derive shape, geotransform, and footprint from the organizer's sample/template; never hard-code a guessed grid. See the official [problem description and metric](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/).
-
-Once authorized data and an actual candidate TIFF are present, run:
+Re-run the read-only audit (no geological experiment or submission slot is used):
 
 ```bash
 python -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python scripts/validate_submission.py path/to/candidate.tif --template path/to/sample_submission.tif
+.venv/bin/python scripts/review_current_artifact.py
+.venv/bin/python -m pytest -q
 ```
 
-The CLI checks file-level format/grid/range/null constraints and emits JSON. A `PASS` means **format preflight only**. It does not establish scientific value, uniqueness, holdout improvement, permission to submit, or an organizer score. This checkout contains no template, so the validator has not been run against competition data here.
+## Data, provenance, and limitations
 
-## Research guardrails
+This checkout now contains an owner-mirrored sample/template, known-fault masks, GeoDAWN-derived extensions, the nine focus-site comparison rasters, and the MRCJ research TIFF. The geophysical extension manifest cites the official USGS GeoDAWN data release and records archive checksums; the mirrored submission template is not from an authenticated DrivenData session. The original full competition training features, all external/concurrent submission rasters, complete up-to-date registry manifest, a matched current-best paired holdout card, submission-page receipt, and quota verifier are not present. These are blockers, not facts to infer.
 
-- Distinguish hidden-fault holdout evidence from the organizer leaderboard. Catalogue hide-and-recover is only a proxy and may not predict expert-discovered faults.
-- Prefer explicit negative controls, spatial blocks, leakage checks, paired confidence intervals, and a frozen registry over repeated tuning on one holdout.
-- The cited historical site scores are useful for prioritizing forensic review, but different source repositories/evaluators and absent score receipts make them incomparable as validated model evaluations.
-- Never claim exact uniqueness from a changed name or hash. Uniqueness requires the source rasters/registry, a specified correlation calculation, and the prescribed pre-placement and final-dot checks.
-- Do not use a real weekly submission slot until the separate selector confirms all gates and current quota.
+The current selector correctly fails closed when current-best evidence, complete registry/peer evidence, exact-file C2ST, independent replay, or organizer quota evidence are missing. Do not weaken it or re-label the MRCJ result to get a positive status.
 
-## Repository structure
+## Official sources
 
-- `docs/executive-summary.md` — decision status, historical score claims, hypotheses, sources, blockers, and the current run card.
-- `docs/index.html` — GitHub Pages landing page with the submission decision visible immediately.
-- `scripts/validate_submission.py` — fail-closed GeoTIFF format preflight against an organizer template.
-- `tests/` — validator tests using small synthetic GeoTIFF fixtures.
+- [Competition page, rules, metric and submission format](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/)
+- [Competition rules](https://www.drivendata.org/competitions/306/competition-doe-gems/rules/)
+- [Reference solution](https://github.com/drivendataorg/gems-prize-reference-solution)
+- [USGS GeoDAWN source record](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and) · [ScienceBase](https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7) · [DOI](https://doi.org/10.5066/P93LGLVQ)
+- [USGS 3DEP products](https://www.usgs.gov/3d-elevation-program/about-3dep-products-services)
+- [USGS stress dataset](https://data.usgs.gov/datacatalog/data/USGS:5cf6e143e4b0d63728b9b49a)
+- [DOE geothermal data resources](https://www.energy.gov/hgeo/geothermal/technical-resources) · [GDR 1391](https://gdr.openei.org/submissions/1391)
+- External registry hazard (owner-reported; not independently reproduced in this checkout): [GEMSDOE28 current page](https://buffedlizard55-lab.github.io/GEMSDOE28/) · [GEMSDOE31 status](https://buffedlizard55-lab.github.io/GEMSDOE31/docs/)
 
-## Limitations / next work
+## Next work
 
-1. Place authorized competition data in an ignored `data/` directory using the authenticated competition download; confirm exact template footprint and metadata.
-2. Bring in the shared, version-pinned feature stack, evaluator, writer, frozen registry, and assigned single-method lane. This repository contains none of these yet.
-3. Reproduce a segment-buffered, leakage-safe holdout and feature-only canaries; quantify uncertainty and compare against a same-evaluator incumbent.
-4. Audit raster rank-correlation and 3-pixel dot overlap against the full registry before and after placement; stop on lane conflict.
-5. Only after science, uniqueness, and validator gates pass, make a separate selector decision under current weekly submission limits. Preserve the page receipt as organizer-confirmed evidence.
+1. Reconcile the stale original `promote` card with the current negative selector status; preserve both provenance records without implying the old promotion is active.
+2. Supply the missing same-evaluator current-best and paired baseline receipts, full up-to-date registry manifest/rasters (including concurrent submissions), lane assignment, and independent C2ST/replay evidence.
+3. Use the existing registered candidate and experiment evidence as research only. Do not spend another experiment until the current best and the active lane are established; the previous three-experiment budget is already exhausted.
+4. Obtain authenticated organizer template/format confirmation and current weekly-cap status; then generate a new TIFF only after a candidate beats the current holdout best and all novelty/format gates pass.
 
-No PR or leaderboard submission should claim a validated new candidate until these blockers are resolved.
+No new submission should be described as submit-ready until the separate selector returns `OK_TO_SUBMIT` with complete evidence. At present it returns `DO_NOT_SUBMIT`.

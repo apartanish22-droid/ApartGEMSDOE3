@@ -3,104 +3,88 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Evidence-first DOE GEMS fault-mapping research and submission preflight.">
-  <title>ApartGEMSDOE3 — GEMS research decision</title>
-  <style>
-    :root { color-scheme: light; --ink:#172b3a; --muted:#536878; --line:#d8e1e8; --paper:#f4f7f9; --card:#fff; --accent:#0a625d; --warn:#8c2c24; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; }
-    header { background:#143342; color:#fff; padding:2.2rem max(1.2rem,calc((100% - 1100px)/2)); }
-    header p { color:#d9e9ed; max-width:780px; }
-    main { max-width:1100px; margin:1.5rem auto 4rem; padding:0 1rem; }
-    h1 { margin:0; font-size:clamp(1.9rem,4vw,3rem); line-height:1.12; }
-    h2 { margin-top:2.1rem; font-size:1.45rem; }
-    .banner { background:#fff0ee; border:2px solid #b94539; border-radius:12px; padding:1.25rem 1.4rem; }
-    .banner strong { color:var(--warn); font-size:1.25rem; }
-    .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1.2rem; margin:1rem 0; }
-    .links { display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1rem; }
-    .button { display:inline-block; padding:.65rem .9rem; border-radius:8px; color:#fff; background:var(--accent); text-decoration:none; font-weight:650; }
-    .button.secondary { color:var(--ink); background:#e7eef2; }
-    .scroll { overflow-x:auto; }
-    table { border-collapse:collapse; width:100%; min-width:800px; background:white; }
-    th,td { border:1px solid var(--line); text-align:left; padding:.65rem .75rem; vertical-align:top; }
-    th { background:#e9f0f3; }
-    .pill { display:inline-block; padding:.12rem .5rem; border-radius:999px; background:#fff0ee; color:#822d25; font-weight:700; white-space:nowrap; }
-    .muted { color:var(--muted); }
-    a { color:#075e77; }
-    footer { border-top:1px solid var(--line); margin-top:2rem; padding-top:1rem; color:var(--muted); }
-    code { overflow-wrap:anywhere; }
-  </style>
+  <meta name="description" content="Evidence-first research and fail-closed submission review for ApartGEMSDOE3.">
+  <title>ApartGEMSDOE3 — research review</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<header>
-  <h1>ApartGEMSDOE3</h1>
-  <p>Evidence-first research for the DOE GEMS fault-mapping challenge. Optimize for credible discovery, not a hopeful upload. Core values: <strong>Maximize P(Win)</strong> and own the outcome.</p>
-</header>
 <main>
-  <section class="banner" aria-labelledby="decision">
-    <strong id="decision">NO SUBMISSION FILE — DO NOT DOWNLOAD OR SUBMIT</strong>
-    <p>This checkout contains no competition raster data, model output, run evaluator, writer, or registry. No new TIFF has been generated; no holdout score or uniqueness result exists. We will not present a fabricated or unvalidated file as submit-ready.</p>
-    <p><b>Format preflight:</b> not run against the competition template. A format-only pass would not authorize a competition upload.</p>
-    <div class="links">
-      <a class="button" href="executive-summary.md">Read executive summary</a>
-      <a class="button secondary" href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">Official task &amp; submission rules</a>
-      <a class="button secondary" href="https://github.com/drivendataorg/gems-prize-reference-solution">Official-linked reference solution</a>
-      <a class="button secondary" href="run-card.json">This review's negative run card (JSON)</a>
-    </div>
-  </section>
+  <header>
+    <p class="eyebrow">DOE GEMS · EVIDENCE-FIRST RESEARCH</p>
+    <h1>ApartGEMSDOE3</h1>
+    <p class="lede">A transparent audit of the existing MRCJ GeoTIFF, its internal holdout evidence, nine tracked focus-site rasters, and the remaining submission blockers.</p>
+  </header>
 
-  <section class="card">
-    <h2>Historical nine-site scorecard</h2>
-    <p>Values are from the user-supplied historical list and are <b>unverified user-reported claims</b>, not an organizer receipt or a local HOLDOUT-DTI. No defensible leaderboard estimate is available. Files are not stored here; uniqueness is unknown, so none is approved for re-upload.</p>
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Site</th><th>Supplied highest value</th><th>Historical submission identifier</th><th>File to download here</th><th>Leaderboard-score estimate</th><th>Unique?</th><th>Action</th></tr></thead>
-        <tbody>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE24/">GEMSDOE24</a></td><td>0.2477 — unverified claim</td><td><code>h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan</code></td><td>None — no candidate TIFF</td><td>Not estimable</td><td>Unknown</td><td><span class="pill">DO NOT SUBMIT</span></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE25/">GEMSDOE25</a></td><td>0.2600 — unverified claim</td><td><code>dotted-h19-5-d2-8-20261002-e56ea318af89-nan</code></td><td>None — no candidate TIFF</td><td>Not estimable</td><td>Unknown</td><td><span class="pill">DO NOT SUBMIT</span></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE27/">GEMSDOE27</a></td><td>0.2449 — unverified claim</td><td><code>topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan</code></td><td>None — no candidate TIFF</td><td>Not estimable</td><td>Unknown</td><td><span class="pill">DO NOT SUBMIT</span></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE28/">GEMSDOE28</a></td><td>0.2710 — unverified claim</td><td><code>h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan</code></td><td>None — no candidate TIFF</td><td>Not estimable</td><td>Unknown</td><td><span class="pill">DO NOT SUBMIT</span></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE30/">GEMSDOE30</a></td><td>0.2600 — unverified claim</td><td><code>d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca</code></td><td>None — no candidate TIFF</td><td>Not estimable</td><td>Unknown</td><td><span class="pill">DO NOT SUBMIT</span></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE31/docs/">GEMSDOE31</a></td><td>0.2708 — unverified claim</td><td><code>h27-4-solo-d28-20261004-8acb75e1-nan</code></td><td>None — no candidate TIFF</td><td>Not estimable</td><td>Unknown</td><td><span class="pill">DO NOT SUBMIT</span></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html">GEMSDOE32</a></td><td><b>0.2778 — largest supplied claim</b></td><td><code>h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros</code></td><td>None — no candidate TIFF</td><td>Not estimable</td><td>Unknown</td><td><span class="pill">DO NOT RESUBMIT</span></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE33/">GEMSDOE33</a></td><td>0.2632 — unverified claim</td><td><code>h33d-analog-tip-stepover-r30-20261004-cb490425926e</code></td><td>None — no candidate TIFF</td><td>Not estimable</td><td>Unknown</td><td><span class="pill">DO NOT SUBMIT</span></td></tr>
-          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE36/docs/">GEMSDOE36</a></td><td>0.2750 — unverified claim</td><td><code>anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros</code></td><td>None — no candidate TIFF</td><td>Not estimable</td><td>Unknown</td><td><span class="pill">DO NOT SUBMIT</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="muted">The prompt includes conflicting overall-high-score claims, 0.3195 and 0.4413. Neither is verified here. Historical rankings do not establish a new submission score.</p>
-  </section>
-
-  <section class="card">
-    <h2>Why GEMSDOE32 is a useful lead, not a guarantee</h2>
-    <p>The identifier suggests a sparse/dotted variant of the H19-5/D2.8 family. A plausible explanation is less redundant spatial emission and more useful coverage; the official metric favors reducing missed faults relative to false alarms, while distance weighting softens small positional errors. But the actual raster, code, receipt, evaluator, and holdout are absent here. This is a hypothesis, not a verified causal explanation. We cannot claim to beat its reported value or forecast leaderboard performance.</p>
-  </section>
-
-  <section class="card">
-    <h2>What is needed before creating a TIFF</h2>
-    <ol>
-      <li>Authenticated competition data and the official sample template.</li>
-      <li>The assigned single-method lane, cached feature stack, shared holdout evaluator/writer, and complete raster registry.</li>
-      <li>Leakage-safe segment hide-and-recover validation, feature-only canaries, paired confidence interval, and full pre-placement/final-dot uniqueness checks.</li>
-      <li>Automated file-format validation and separate selector approval under the actual weekly cap.</li>
-    </ol>
-    <p>There is a fail-closed GeoTIFF preflight tool in this repository. It does not generate submissions and does not establish scientific quality or selector approval.</p>
-    <a class="button secondary" href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/arena/00e17025-apartgemsdoe3/scripts/validate_submission.py">Review validator source</a>
+  <section class="warn" aria-labelledby="decision-title">
+    <p class="eyebrow">CURRENT RELEASE DECISION</p>
+    <h2 id="decision-title">DO NOT SUBMIT</h2>
+    <p><strong>Research download: available.</strong> The TIFF below is the prior MRCJ experiment artifact. It is not a newly generated submission, and it is not authorized for a weekly slot. Its strict in-footprint value/grid checks pass, but its exterior is zero rather than null/NaN, paired current-best evidence is missing, the full peer registry and independent replay/C2ST evidence are incomplete, and live quota status is unknown.</p>
+    <p class="warn"><strong>Additional registry stop warning (not locally replayed):</strong> the current GEMSDOE28 owner page reports a 3 px lattice leaving only 6,649 footprint cells uncovered. If that grid claim matches this footprint, any 37,654-dot raster must have at least 82.34% overlap, above the 70% stop threshold. The exact lattice raster is absent here; treat the full-registry test as blocked until the source is verified. <a href="https://buffedlizard55-lab.github.io/GEMSDOE28/">Source</a>.</p>
+    <a class="button" href="downloads/apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif" download>Download research-only GeoTIFF — NOT submit-ready</a>
+    <p><small>SHA-256</small><br><code>fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1</code></p>
   </section>
 
   <section>
-    <h2>Official research sources</h2>
+    <h2>What the number means</h2>
+    <div class="metrics">
+      <article><span>Prior internal result</span><b>HOLDOUT-DTI 0.022070</b><span>Evaluator: <code>gems-segment-pooled-v1</code>; 60,988 withheld positives; 95% CI [0.017237, 0.026923]. Stored prior result, not replayed in this review.</span></article>
+      <article><span>Leaderboard estimate</span><b>Not estimable</b><span>This internal holdout has not been calibrated to hidden leaderboard scores.</span></article>
+      <article><span>Focus-raster uniqueness</span><b>9 of 9 pass pairwise limits</b><span>Maximum absolute surface Spearman 0.008744; maximum final-dot overlap within 3 px 27.39%.</span></article>
+      <article><span>Upload gate</span><b>DO_NOT_SUBMIT</b><span>Shared format preflight says official-format compliance false; the shared selector fails closed.</span></article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Nine-site historical context</h2>
+    <p>Historical figures below are user-supplied owner reports, not organizer receipts. Pairwise checks compare this MRCJ candidate with each locally tracked site raster; they do not establish global or concurrent-submission uniqueness.</p>
+    <div class="table">
+      <table>
+        <thead><tr><th>Site</th><th>Highest supplied claim*</th><th>Candidate surface ρ</th><th>Dots within 3 px</th><th>Candidate status</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE24/">GEMSDOE24</a></td><td>0.2477</td><td>0.007897</td><td>26.71%</td><td>Unique vs tracked raster; research only</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE25/">GEMSDOE25</a></td><td>0.2600</td><td>0.007106</td><td>25.25%</td><td>Unique vs tracked raster; research only</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE27/">GEMSDOE27</a></td><td>0.2449</td><td>0.007805</td><td>27.39%</td><td>Unique vs tracked raster; research only</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE28/">GEMSDOE28</a></td><td>0.2710</td><td>0.007238</td><td>23.37%</td><td>Unique vs tracked raster; research only</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE30/">GEMSDOE30</a></td><td>0.2600</td><td>0.007106</td><td>25.25%</td><td>Unique vs tracked raster; research only</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE31/docs/">GEMSDOE31</a></td><td>0.2708</td><td>0.007692</td><td>23.92%</td><td>Unique vs tracked raster; research only</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html">GEMSDOE32</a></td><td><strong>0.2778</strong></td><td>0.007761</td><td>22.61%</td><td>Unique vs tracked raster; research only</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE33/">GEMSDOE33</a></td><td>0.2632</td><td>0.007308</td><td>24.51%</td><td>Unique vs tracked raster; research only</td></tr>
+          <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE36/docs/">GEMSDOE36</a></td><td>0.2750</td><td>0.008744</td><td>25.62%</td><td>Unique vs tracked raster; research only</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><small>* All nine values are user-supplied, unverified claims. The conflicting overall claims 0.3195 and 0.4413 have no receipt in this project. None is presented as ORGANIZER-CONFIRMED.</small></p>
+    <p><a href="executive-summary.html">Read the full score/source table, H33-2-B2 evidence interpretation, hypothesis slate, and three review passes →</a> · <a href="executive-summary.md">Markdown source</a></p>
+  </section>
+
+  <section>
+    <h2>Why the notable H33 result is not a proven recipe</h2>
+    <p>The public <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/pull/9">GEMSDOE32 PR #9</a> describes an H33-2-B2 removal arm that drops 2,545 catalogue-flank dots from a 40,199-dot base. Its author-reported local mirror projection is 0.2747, not an organizer score; the PR says no organizer score was available. Removing low-credit false-positive mass while preserving true-fault coverage is a plausible mechanism, but hidden labels are needed to establish that it caused the claimed 0.2778.</p>
+  </section>
+
+  <section>
+    <h2>Automated current audit</h2>
     <ul>
-      <li><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">DrivenData problem, metric, and GeoTIFF format</a></li>
-      <li><a href="https://github.com/drivendataorg/gems-prize-reference-solution">DrivenData reference-solution repository</a></li>
-      <li><a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN official release</a> · <a href="https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7">ScienceBase record</a></li>
-      <li><a href="https://www.usgs.gov/3d-elevation-program/about-3dep-products-services">USGS 3DEP products and services</a></li>
-      <li><a href="https://www.usgs.gov/national-hydrography/access-national-hydrography-products">USGS hydrography products (NHD retirement/current 3DHP notice)</a></li>
-      <li><a href="https://data.usgs.gov/datacatalog/data/USGS:5cf6e143e4b0d63728b9b49a">USGS stress-map data release</a></li>
+      <li>One float32 band; EPSG:32611; sample shape/transform match; strict finite [0,1] values; 37,654 positive pixels: pass.</li>
+      <li>Exterior: 7,111,787 cells are zero, not null/NaN; nodata unset: official-format compliance fails.</li>
+      <li>Focus-site novelty checks: freshly recomputed and consistent with the historical run card; all nine under correlation/overlap thresholds.</li>
+      <li>Selector: <strong>DO_NOT_SUBMIT</strong>; paired current-best evidence, complete peer registry, exact-file C2ST, independent replay, and independently verified quota are missing.</li>
+      <li>Experiments in prior card: 3 of 3. New experiments in this review: 0. Slots used: 0.</li>
+    </ul>
+    <p><a href="data/latest-run-card.json">Machine-readable current review and selector receipt</a> · <a href="data/nine_site_download_decisions.json">Nine-site decision JSON</a> · <a href="review-2026-10-27.md">Detailed review</a></p>
+  </section>
+
+  <section>
+    <h2>Official references</h2>
+    <ul>
+      <li><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">DrivenData problem page, metric and file format</a></li>
+      <li><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/rules/">Competition rules</a> · <a href="https://github.com/drivendataorg/gems-prize-reference-solution">reference solution</a></li>
+      <li><a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN</a> · <a href="https://doi.org/10.5066/P93LGLVQ">DOI 10.5066/P93LGLVQ</a></li>
+      <li><a href="https://www.usgs.gov/3d-elevation-program/about-3dep-products-services">USGS 3DEP</a> · <a href="https://data.usgs.gov/datacatalog/data/USGS:5cf6e143e4b0d63728b9b49a">USGS stress data</a></li>
       <li><a href="https://www.energy.gov/hgeo/geothermal/technical-resources">DOE geothermal data resources</a> · <a href="https://gdr.openei.org/submissions/1391">GDR 1391</a></li>
     </ul>
   </section>
-  <footer>Last repository review: 2026-10-27 UTC. This is a static research summary, not a live leaderboard feed. Source freshness and authenticated competition state must be rechecked before any future selector decision.</footer>
+  <footer>ApartGEMSDOE3 · Research-only artifact · No organizer-confirmed score · No submission authorized</footer>
 </main>
 </body>
 </html>

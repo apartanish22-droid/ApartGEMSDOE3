@@ -1,16 +1,5 @@
-# Organizer competition data and large derived stacks (download locally; never commit)
-data/
-*.tif
-*.tiff
-*.vrt
-*.gpkg
-*.gdb/
-*.zip
-*.pt
-*.pth
-*.ckpt
-*.npy
-*.npz
-__pycache__/
-.pytest_cache/
 .venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
