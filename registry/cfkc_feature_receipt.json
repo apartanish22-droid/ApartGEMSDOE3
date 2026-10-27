@@ -1,0 +1,23 @@
+{
+  "channels": [
+    "dem10_curv_scarp_crest",
+    "dem10_aniso_lineament_ridge",
+    "chi_ksn_rangefront_halo",
+    "chi_knickpoint_step_conduit",
+    "dem10_piedmont_thermal_bridge",
+    "dem1m_openness_lrm_scarp",
+    "cfkc_seamfree_gap_carrier",
+    "cfkc_hybrid_crustal_crest"
+  ],
+  "shape": [
+    3730,
+    3292,
+    8
+  ],
+  "dtype": "float32",
+  "label_free": true,
+  "dem10_coverage_in_footprint": 1.0,
+  "dem10_coverage_in_lidar_gap": 1.0,
+  "mfull_col_count": 91,
+  "msub_pure_non_lidar_col_count": 77
+}

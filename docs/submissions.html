@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submission Archive &amp; Validator Receipt — ApartGEMSDOE3</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --bg-card: #111827;
+      --bg-elev: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --emerald: #10b981;
+      --emerald-bg: rgba(16, 185, 129, 0.14);
+      --mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 24px 20px 64px; }
+    .topbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-bottom: 16px; margin-bottom: 22px; border-bottom: 1px solid var(--border); }
+    .brand { font-weight: 800; font-size: 1.25rem; display: flex; align-items: center; gap: 10px; }
+    .badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; font-family: var(--mono); }
+    .badge-promote { background: var(--emerald-bg); color: #34d399; border: 1px solid #10b981; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.92rem; font-weight: 600; }
+    .section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+    .section h1, .section h2 { margin-top: 0; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    code, pre { font-family: var(--mono); font-size: 0.85rem; }
+    code { background: var(--bg-elev); padding: 2px 6px; border-radius: 4px; color: #7dd3fc; }
+    pre { background: #090d16; border: 1px solid var(--border); border-radius: 8px; padding: 14px; overflow-x: auto; color: #e2e8f0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin-top: 12px; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid var(--border); text-align: left; }
+    th { background: var(--bg-elev); color: #cbd5e1; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="brand">
+        <span>ApartGEMSDOE3 — Submission Archive</span>
+        <span class="badge badge-promote">13/13 CHECKS PASSED</span>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">&larr; Back to Main Hub</a>
+        <a href="executive-summary.html">Executive Summary</a>
+        <a href="submissions.html">Submission Archive</a>
+        <a href="data/latest-run-card.json">Run Card JSON</a>
+      </nav>
+    </header>
+
+    <section class="section">
+      <h1>Downloadable Submission Bundle (<code>docs/downloads/</code>)</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Artifact Filename</th>
+            <th>Role &amp; Outside-Footprint Mode</th>
+            <th>Size (Bytes)</th>
+            <th>SHA-256 Checksum</th>
+            <th>Validation Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif" download><code>apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif</code></a></td>
+            <td><strong>Primary Portal GeoTIFF</strong> (Zero-filled outside footprint, <code>nodata=None</code>, all <code>12,279,160</code> cells in <code>[0.0, 1.0]</code>)</td>
+            <td><code>216,370</code></td>
+            <td><code>afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065</code></td>
+            <td><span class="badge badge-promote">13/13 PASS</span></td>
+          </tr>
+          <tr>
+            <td><a href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.zip" download><code>apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.zip</code></a></td>
+            <td><strong>Zipped Primary GeoTIFF</strong> (Single-file ZIP archive)</td>
+            <td><code>183,583</code></td>
+            <td><code>b4799f207bc26d941f88f959c6aaa0a591f3d82ea8bb0f75c7ed1ada76a8b3a1</code></td>
+            <td><span class="badge badge-promote">VERIFIED</span></td>
+          </tr>
+          <tr>
+            <td><a href="downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif" download><code>gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif</code></a></td>
+            <td>Canonical <code>scripts/submission_writer.py</code> filename (byte-identical to primary <code>-zeros.tif</code>)</td>
+            <td><code>216,370</code></td>
+            <td><code>afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065</code></td>
+            <td><span class="badge badge-promote">13/13 PASS</span></td>
+          </tr>
+          <tr>
+            <td><a href="downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-nan.tif" download><code>gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-nan.tif</code></a></td>
+            <td>Companion NaN-outside GeoTIFF (<code>0</code> NaNs inside <code>5,167,373</code> footprint, <code>NaN</code> outside footprint)</td>
+            <td><code>352,163</code></td>
+            <td><code>b0855f1a0a8f7da8dc39c076d747e49d0601414e5e6e03fbfbcbc681f5610e88</code></td>
+            <td><span class="badge badge-promote">13/13 PASS</span></td>
+          </tr>
+          <tr>
+            <td><a href="downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-audit.json" download><code>gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-audit.json</code></a></td>
+            <td>Automated 13-Check GeoTIFF Audit Sidecar JSON</td>
+            <td><code>3,690</code></td>
+            <td>Sidecar Receipt</td>
+            <td><span class="badge badge-promote">VERIFIED</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Automated Audit Sidecar JSON (<code>gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-audit.json</code>)</h2>
+      <pre id="audit-pre">Loading audit sidecar ...</pre>
+    </section>
+  </div>
+  <script>
+    fetch("downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-audit.json")
+      .then(r => r.json())
+      .then(d => { document.getElementById("audit-pre").textContent = JSON.stringify(d, null, 2); })
+      .catch(() => { document.getElementById("audit-pre").textContent = "See docs/downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-audit.json"; });
+  </script>
+</body>
+</html>
