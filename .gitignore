@@ -1,36 +1,16 @@
-# Python & build artifacts
+# Python virtualenvs & bytecode caches
+.venv/
 __pycache__/
 *.py[cod]
-.venv/
-venv/
+*$py.class
+*.egg-info/
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
-*.egg-info/
+
+# Regenerable large data & feature stack caches (restored via scripts/restore_data.py)
 .cache/
 
-# Large competition rasters and regenerable numpy caches are restored via
-# bash scripts/download_competition_data.sh and python scripts/prepare_data.py
-data/*
-!data/.gitkeep
-!data/README.md
-!data/restore_receipt.json
-!data/prepared_manifest.json
-!data/holdout_surrogate_log.json
-!data/holdout_surrogate_log.csv
-
-*.npy
-*.npz
-*.partial
-*.assembling
-
-# Keep audited submission deliverables and verification sidecars in docs/downloads/
-!docs/downloads/*.tif
-!docs/downloads/*.zip
-!docs/downloads/*.json
-
-# OS / Editor
-.vscode/
-.idea/
+# OS / editor artifacts
 .DS_Store
 Thumbs.db

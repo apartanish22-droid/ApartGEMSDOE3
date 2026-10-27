@@ -337,50 +337,6 @@
       "sha256": "a88356423c03fc8b6510a84f77cee2b1d38c4ccbd7761bc95c1ca8332a2e166a",
       "bytes": 5752587,
       "provenance": "Owner-audited label-free Euclidean distance in meters to US Bureau of Land Management (BLM MLRS/LR2000 public-domain mineral and geothermal claim records) historic closed lode/hydrothermal claim locations on EPSG:32611 3730x3292 100 m competition grid. SHA-256 pins verify the owner mirror."
-    },
-    {
-      "id": "ext_topo_10m_derived_100m_u8",
-      "repo": "buffedlizard55-lab/60GEMSDOE",
-      "ref": "156e7486b5b22c34bf9d7b8d90a714545d63f15a",
-      "path": "data/external/topo_10m_derived_100m_u8.tif",
-      "dest": "external/topo_10m_derived_100m_u8.tif",
-      "group": "external",
-      "sha256": "a6398d9950965dec6aae6ccecdaa6ced48645d133eab222cbdd11def9bdabfa4",
-      "bytes": 32523329,
-      "provenance": "derived from USGS 3DEP 1/3 arc-second (10 m) seamless DEM across 100% of the GEMS footprint (public domain USGS, https://www.usgs.gov/3d-elevation-program): 9 uint8 bands (slope_p90, slope_max, steep_frac, slope_std, relief_local, curv_prof_absmax, aspect_coherence, hs_lineament, dem_mean); zero fault-catalogue inputs"
-    },
-    {
-      "id": "ext_dem10_chi_100m_i16",
-      "repo": "buffedlizard55-lab/60GEMSDOE",
-      "ref": "156e7486b5b22c34bf9d7b8d90a714545d63f15a",
-      "path": "data/external/dem10_chi_100m_i16.tif",
-      "dest": "external/dem10_chi_100m_i16.tif",
-      "group": "external",
-      "sha256": "8897ba9c30ef1cd7ad5f23c16c6dfd7bb070e7e757f36fd9486eb45edfd973a5",
-      "bytes": 12777098,
-      "provenance": "derived from USGS 3DEP 10 m seamless DEM via Perron-Royden (2013) fluvial chi drainage integration (theta_ref = 0.45, public domain USGS): 5 int16 bands (step_max_x1000, step_min_x1000, ksn_max_m0.9, log10_area_m2_x1000, zmean_m integer elevation m ASL); zero fault-catalogue inputs"
-    },
-    {
-      "id": "ext_dem10_chi_100m_u8",
-      "repo": "buffedlizard55-lab/60GEMSDOE",
-      "ref": "156e7486b5b22c34bf9d7b8d90a714545d63f15a",
-      "path": "data/external/dem10_chi_100m_u8.tif",
-      "dest": "external/dem10_chi_100m_u8.tif",
-      "group": "external",
-      "sha256": "e8830ba6f0bb99f525266b1b3a483b0722d25cd4758c2bbccc6e7f54eb6b1b6a",
-      "bytes": 2061484,
-      "provenance": "derived from USGS 3DEP 10 m seamless DEM channel/knickpoint hydrology (public domain USGS): 4 uint8 bands (chan_n, knick_n, raised_n endorheic pit fill, valid_n); zero fault-catalogue inputs"
-    },
-    {
-      "id": "ext_dem1m_high_prior_openness_lrm",
-      "repo": "buffedlizard55-lab/19GEMSDOE",
-      "ref": "a3aca62fdb2be428f4245e22570cbc54082b2c15",
-      "path": "evidence/ci/dem1m_high_prior_openness_lrm.npz",
-      "dest": "external/dem1m_high_prior_openness_lrm.npz",
-      "group": "external",
-      "sha256": "62f27929747ad3c35be4dd3e0257b0bde7d7bea8566474956e1711269ad451fe",
-      "bytes": 610575,
-      "provenance": "derived from USGS 3DEP 1 m DEM openness dipole and local relief model (public domain USGS); zero fault-catalogue inputs"
     }
   ]
 }

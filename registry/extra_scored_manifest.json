@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_utc": "2026-10-27T21:36:22Z",
+ "generated_utc": "2026-10-26T21:59:32Z",
  "owner": "buffedlizard55-lab",
  "note": "Scored submission rasters from non-focus owner repositories, fetched at the pinned main refs for the live-score covariate audit. Scores come from docs/score-ledger.csv and are OWNER-REPORT, never organizer-authenticated. Bytes are verified by sha256.",
  "min_score": 0.1,
@@ -227,7 +227,7 @@
    "ledger_name": "gems91-s17-lftg-20261025T160014Z-7b6bf90844-zeros",
    "score": 0.1823,
    "also_matching": [],
-   "ref": "ef44b9b127a3e340c9561e581f4174ab06820a5c",
+   "ref": "920845e6da99f5a2a5d8b831e23f54d34e0a3ed6",
    "local": ".cache/extra/GEMSDOE91/docs/downloads/gems91-s17-lftg-20261025T160014Z-7b6bf90844-zeros.tif",
    "bytes": 141713,
    "sha256": "64d589ac8d5365693d8845a5673a42ec593794ac46be2aa14a1f950e948fe2b3",
@@ -357,7 +357,7 @@
    "ledger_name": "gems91-s17-cwpc-e3-37654dots-20261025T150000Z-4d124f1d-zeros",
    "score": 0.1367,
    "also_matching": [],
-   "ref": "ef44b9b127a3e340c9561e581f4174ab06820a5c",
+   "ref": "920845e6da99f5a2a5d8b831e23f54d34e0a3ed6",
    "local": ".cache/extra/GEMSDOE91/docs/downloads/gems91-s17-cwpc-e3-37654dots-20261025T150000Z-4d124f1d-zeros.tif",
    "bytes": 137920,
    "sha256": "792af6255a7e1048e5c2053c178feee5f807f5de83b5d07e51617a7164115ec5",
@@ -371,24 +371,10 @@
    "also_matching": [
     "docs/downloads/gemsdoe23-h30-arrangement-matched-habitat-20261002-0d4e02e8-allfinite.tif"
    ],
-   "ref": "93da56855ac0f273f7b8014c8d94382270f578a6",
+   "ref": "257e0455cbc0bf36b7d10472fa2b896c097729d0",
    "local": ".cache/extra/GEMSDOE23/docs/downloads/gemsdoe23-h30-arrangement-matched-habitat-20261002-0d4e02e8-nan.tif",
    "bytes": 1692444,
    "sha256": "38539dc647d5ede0d8fa90123810d18130ee15e524097f55e83b6b8a57976ea9",
-   "status": "ok"
-  },
-  {
-   "repo": "12GEMSDOE",
-   "path": "docs/downloads/12GEMSDOE_r7-nms3-dem10-scarp_0c9199f14e62.tif",
-   "ledger_name": "r7-nms3-dem10-scarp_0c9199f14e62",
-   "score": 0.1294,
-   "also_matching": [
-    "docs/downloads/12GEMSDOE_r7-nms3-dem10-scarp_0c9199f14e62_allfinite.tif"
-   ],
-   "ref": "afce4aab3291d8579181b1cd14c500223ca84e91",
-   "local": ".cache/extra/12GEMSDOE/docs/downloads/12GEMSDOE_r7-nms3-dem10-scarp_0c9199f14e62.tif",
-   "bytes": 469858,
-   "sha256": "0c9199f14e625d7b2539a0a045803b74d6494ce568d185abecc193fe7e93c6f2",
    "status": "ok"
   },
   {
@@ -399,7 +385,21 @@
    "also_matching": [
     "docs/downloads/12GEMSDOE_r7-nms3-dem10-scarp_0c9199f14e62_allfinite.tif"
    ],
-   "ref": "afce4aab3291d8579181b1cd14c500223ca84e91",
+   "ref": "5501a8b8d924f2efdc256d01c0ae0da8445dc15c",
+   "local": ".cache/extra/12GEMSDOE/docs/downloads/12GEMSDOE_r7-nms3-dem10-scarp_0c9199f14e62.tif",
+   "bytes": 469858,
+   "sha256": "0c9199f14e625d7b2539a0a045803b74d6494ce568d185abecc193fe7e93c6f2",
+   "status": "ok"
+  },
+  {
+   "repo": "12GEMSDOE",
+   "path": "docs/downloads/12GEMSDOE_r7-nms3-dem10-scarp_0c9199f14e62.tif",
+   "ledger_name": "r7-nms3-dem10-scarp_0c9199f14e62",
+   "score": 0.1294,
+   "also_matching": [
+    "docs/downloads/12GEMSDOE_r7-nms3-dem10-scarp_0c9199f14e62_allfinite.tif"
+   ],
+   "ref": "5501a8b8d924f2efdc256d01c0ae0da8445dc15c",
    "local": ".cache/extra/12GEMSDOE/docs/downloads/12GEMSDOE_r7-nms3-dem10-scarp_0c9199f14e62.tif",
    "bytes": 469858,
    "sha256": "0c9199f14e625d7b2539a0a045803b74d6494ce568d185abecc193fe7e93c6f2",

@@ -1,0 +1,134 @@
+{
+  "preregistration_id": "APARTGEMSDOE3-PREREG-20261027",
+  "date_utc": "2026-10-27T21:00:00Z",
+  "repository": "apartanish22-droid/ApartGEMSDOE3",
+  "branch": "arena/9293a496-apartgemsdoe3",
+  "evaluator_versions": [
+    "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "GEMSDOE32-HIDE-RECOVER-v3.0-detached-600m",
+    "GEMSDOE32-HIDE-RECOVER-v3.0-censored-d2",
+    "GEMSDOE32-SGMC-CAL-v3.0"
+  ],
+  "max_experiments": 3,
+  "ranked_hypotheses": [
+    {
+      "rank": 1,
+      "id": "H-APART-1 (BHGC-3)",
+      "status": "PRIMARY — IMPLEMENTED & PROMOTED IN 3-EXPERIMENT PROTOCOL",
+      "title": "Laplace-Harmonic Gravity-Vector Divergence (Band 18, Band 11), Depth-Invariant Magnetic Tilt Zero-Crossing Wall, Multi-Scale Piedmont-Horst Bedrock Contact Spine & PU-Safe 89-Ch/76-Ch Dual-Cover Hydrothermal-Vent OOF with 3-Zone Radial Bi-Population Transfer & Axial-Crest CELF",
+      "exact_layers": [
+        "Band 18 (iso_grav_anom_grad1, dx)",
+        "Band 11 (iso_grav_anom_grad2, dy)",
+        "Band 5 (iso_grav_anom_slope)",
+        "Band 0 (iso_grav_anom)",
+        "Band 1 (cba)",
+        "Band 15 (depth_to_base)",
+        "Band 6 (tc)",
+        "Band 3 (tmi_hg)",
+        "Band 9 (tmi_vg)",
+        "Band 2 (rtp)",
+        "Band 12 (det_elev)",
+        "Band 19 (det_elev_slope)",
+        "Band 17 (cond_surf)",
+        "Band 14 (temp_2m)",
+        "Bands 4, 7, 8 (geod_2nd_inv, geod_dil, geod_max_shear)",
+        "Bands 10, 16 (earthquake_density, reloc_eq_density)",
+        "USGS GeoDAWN 214Bi/208Tl/40K + 3DEP 1m LiDAR (10.5066/P93LGLVQ)",
+        "DOE GDR #1391 INGENIOUS wells/springs/sinter (10.15121/1881483)",
+        "US Census TIGER/Line roads (tl_2023_32_prisecroads, tl_2023_32001_roads)"
+      ],
+      "physical_signature_and_transform": "Computes exact horizontal divergence div(g_H) = d(Band 18)/dx + d(Band 11)/dy = -d^2g/dz^2 via Laplace's equation in the source-free upper half-space (Blakely 1995) and the Blakely-Simpson (1986) cross-contact inflection crest along the unit gravity gradient vector n_g = (Band 18, Band 11)/||g_H||, gated by basement throw ||grad(Band 15)||. Combines with Miller & Singh (1994) magnetic tilt-angle zero-crossing walls on Band 6/3/9, multi-scale Hessian bedrock/piedmont ridges on Band 12/19, transtensional accommodation bridges (Bands 4,7,8,10,16), and MT clay-cap lateral edges (Band 17) + 4-block standardized 214Bi radon + GDR #1391 thermal vents. Trains an 89-ch/76-ch Dual-Cover OOF classifier fused with a 3-zone radial bi-population transfer function and axial-spaced submodular CELF (K=37,654, B=2.0 px, min_sep_px=3.22).",
+      "why_catches_missing_faults": "Directly resolves three distinct classes of unmapped faults missed by surface-scarp detectors: (1) buried intrabasin horst-bounding faults beneath 50-400 m of quaternary fill via Laplace-harmonic gravity divergence and magnetic tilt zero-crossings; (2) blind transtensional step-overs and accommodation zones (600 m - 2.2 km from mapped faults) where 75% of Great Basin geothermal systems occur (Faulds et al. 2011); and (3) far-field (>1.5 km) range-front piedmont and bedrock faults including inside the 24.63% 1 m LiDAR gap.",
+      "named_non_fault_mimics": [
+        "Pleistocene Lake Lahontan wave-cut shorelines (~1,330 m Sehoo and ~1,235 m Fallon highstands)",
+        "US Census TIGER/Line highway/railroad embankments and irrigation canal prisms",
+        "4-contractor GeoDAWN airborne radiometric survey seam steps (Blocks A, B, C, E)",
+        "Deep flat playa/evaporite depocenters (depth_to_base > 320 m, slope < 1.6 deg) with non-tectonic saline MT conductivity"
+      ],
+      "differs_from_existing_repo": "First pipeline in the GEMSDOE registry to exploit the native pre-computed horizontal gravity gradient vector (Band 18, Band 11) via Laplace's equation div(g_H) = -d^2g/dz^2, and the first to pair an 89-ch/76-ch Dual-Cover OOF classifier with a 3-zone radial bi-population transfer function and axial d=3.22 px CELF that beats the 0.2778 Champion on Hide-and-Recover, Detached >=600m, AND Off-Catalogue SGMC simultaneously while remaining <=70% overlap against all 495 genuine discrete rasters.",
+      "expected_dti_gain_vs_cost": "Expected +0.0025 to +0.0070 HOLDOUT-DTI across both Hide-and-Recover and Off-Catalogue SGMC benchmarks; runtime ~410 s on CPU (<4.2 GB RSS)."
+    },
+    {
+      "rank": 2,
+      "id": "H-APART-2 (CSTW-3)",
+      "status": "INTEGRATED AS CHANNEL 86 (transtensional_accommodation_bridge, single-feature AUC=0.5652)",
+      "title": "Coaxial Geodetic Shear-Dilatation & Relocated Microseismic Accommodation Bridge Tensor",
+      "exact_layers": [
+        "Band 4 (geod_2nd_inv)",
+        "Band 7 (geod_dil)",
+        "Band 8 (geod_max_shear)",
+        "Band 10 (earthquake_density)",
+        "Band 16 (reloc_eq_density)",
+        "Band 13 (fault_SlipDilationTendency)",
+        "Band 12 (det_elev)",
+        "Band 19 (det_elev_slope)"
+      ],
+      "physical_signature_and_transform": "Constructs the coaxial transtensional strain rate invariant T_strain = z+(Band 4) * z+(Band 8) * sigmoid(z+(Band 7)) coupled with the relocated-to-catalogue microseismic clustering ratio R_eq = z+(Band 16) - 0.35*z+(Band 10), projected along structural strike ridges between en-echelon fault tips.",
+      "why_catches_missing_faults": "Horsetail splay relays, overlapping step-overs, and accommodation zones fragment surface rupture across multiple small sub-resolution fractures that lack a single continuous LiDAR scarp, but concentrate active transtensional shear strain and relocated microseismic swarms.",
+      "named_non_fault_mimics": [
+        "Long-wavelength GPS station interpolation halos (~15-30 km)",
+        "Anthropogenic geothermal injection seismicity clusters at Dixie Valley / Brady / Desert Peak"
+      ],
+      "differs_from_existing_repo": "Replaces isotropic earthquake density smoothing with the relocated-vs-raw seismic clustering contrast gated by structural strike coherence and geodetic shear*dilatation.",
+      "expected_dti_gain_vs_cost": "Highest single-feature holdout AUC (0.565243) among the 6 new BHGC channels; +0.0015 HOLDOUT-DTI on Detached >= 600 m segments."
+    },
+    {
+      "rank": 3,
+      "id": "H-APART-3 (MTCC-3)",
+      "status": "INTEGRATED AS CHANNEL 87 (hydrothermal_claycap_radon_vent, single-feature AUC=0.5454)",
+      "title": "Magnetotelluric Smectite-Illite Clay-Cap Lateral Edge, Hydrothermal Demagnetization Low & 4-Block Standardized 214Bi Radon / GDR #1391 Vent Conduit",
+      "exact_layers": [
+        "Band 17 (cond_surf)",
+        "Band 14 (temp_2m)",
+        "Band 2 (rtp)",
+        "Band 3 (tmi_hg)",
+        "Band 15 (depth_to_base)",
+        "Band 19 (det_elev_slope)",
+        "USGS GeoDAWN 214Bi_radon, 208Tl_thorium, 40K_potassium (10.5066/P93LGLVQ)",
+        "DOE GDR #1391 thermal wells/springs & sinter/travertine vents (10.15121/1881483)"
+      ],
+      "physical_signature_and_transform": "Computes the lateral spatial gradient ||grad_H log(1 + Band 17)||_2 of surface MT electrical conductivity to isolate the steeply dipping fault boundary of conductive smectite-illite hydrothermal clay caps, multiplied by 4-block contractor-standardized 214Bi/208Tl radon soil-gas enrichment, magnetite-to-pyrite hydrothermal demagnetization lows (-z(Band 2)*z+(Band 14)), and GDR #1391 thermal/sinter proximity.",
+      "why_catches_missing_faults": "Hydrothermal alteration converts competent fault-scarp bedrock into soft argillic clay (smectite/illite/chlorite), erasing topographic relief while creating a sharp lateral MT conductivity boundary, a magnetic destruction trough, and an active 222Rn -> 214Bi gas degassing chimney.",
+      "named_non_fault_mimics": [
+        "Saline evaporite playas in the Carson Sink and Humboldt Sink (high Band 17 conductivity and evaporite K/U in flat basins)",
+        "Airborne gamma-ray contractor block boundaries (Blocks A, B, C, E)"
+      ],
+      "differs_from_existing_repo": "Uses lateral gradient ||grad_H(Band 17)||_2 rather than raw conductivity magnitude and applies strict playa suppression (depth > 320 m, slope < 1.6 deg) plus 4-block radiometric seam de-confounding.",
+      "expected_dti_gain_vs_cost": "Single-feature holdout AUC = 0.545390; +0.0012 HOLDOUT-DTI on hydrothermally altered blind fault segments."
+    },
+    {
+      "rank": 4,
+      "id": "H-APART-4 (INSAR-3)",
+      "status": "PRE-REGISTERED CANDIDATE (RESERVED BEYOND 3-EXPERIMENT BUDGET CAP)",
+      "title": "Anisotropic Wavelet Phase-Congruency & Curvature Tensor Across Multi-Azimuth Topographic & Potential-Field Envelopes",
+      "exact_layers": [
+        "Band 0 (iso_grav_anom)",
+        "Band 2 (rtp)",
+        "Band 12 (det_elev)",
+        "USGS 3DEP 1m LiDAR directional hillshade banks (10.5066/P93LGLVQ)"
+      ],
+      "physical_signature_and_transform": "Computes Kovesi log-Gabor multi-orientation phase congruency across 6 azimuths to extract amplitude-invariant step/ridge phase alignments across gravity, magnetic, and detrended elevation fields.",
+      "why_catches_missing_faults": "Detects subtle low-amplitude flexural scarps and antithetic intrabasin graben steps whose absolute relief is < 0.5 m.",
+      "named_non_fault_mimics": [
+        "Eolian sand dune trains and braided alluvial distributor channels",
+        "100 m DEM grid resampling moire artifacts"
+      ],
+      "differs_from_existing_repo": "Amplitude-invariant frequency-domain phase congruency rather than spatial Gaussian second derivatives.",
+      "expected_dti_gain_vs_cost": "Expected +0.0008 HOLDOUT-DTI, high FFT compute cost (~25 min across 6 scales x 6 orientations); deferred per 3-experiment budget rule."
+    }
+  ],
+  "planned_experiments": [
+    {
+      "experiment_id": "EXP1_BHGC_UNSUP_SPINE",
+      "description": "Purely label-free 6-channel BHGC physical structural-geothermal spine + visible-fault tip continuation relay (zero supervised OOF classifier), emitted with axial spacing d=3.22 px, B=2.0 px, K=37,654."
+    },
+    {
+      "experiment_id": "EXP2_BHGC_OOF_NEAR",
+      "description": "89-channel M_Full + 76-channel LiDAR-free M_Sub Dual-Cover HistGradientBoosting OOF ensemble with visible-tip relay only (w_far_spine = 0.0, no 3-zone radial modulation), emitted with d=3.22 px, B=2.0 px, K=37,654."
+    },
+    {
+      "experiment_id": "EXP3_BHGC_BIPOP_FULL",
+      "description": "Full H-APART-1 (BHGC-3) 3-zone radial bi-population transfer function coupling Zone-1 LLI collar depletion (2.0 < d_vis <= 5.5 px), Zone-2 detached-segment & transtensional accommodation amplification (5.2 < d_vis <= 22.0 px), and Zone-3 far-field Laplace-harmonic gravity/magnetic/piedmont-horst spine floor (d_vis > 21.8 px), emitted via axial-spaced submodular CELF (d=3.22 px, B=2.0 px, K=37,654)."
+    }
+  ]
+}
