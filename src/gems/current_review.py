@@ -10,6 +10,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -51,6 +52,8 @@ def review_current_best(root: Path) -> dict[str, Any]:
 
     # Recompute the exact MRCJ surface and final-dot comparisons against the
     # requested focus-site registry. This is a registry audit, not model fitting.
+    if str(root) not in sys.path:
+        sys.path.insert(0, str(root))
     from scripts.run_experiments import surfaces
 
     with rasterio.open(template_path) as ds:

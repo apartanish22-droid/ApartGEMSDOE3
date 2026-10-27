@@ -42,7 +42,7 @@
   "organizer_confirmed_score": null,
   "raster_sha256": "fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1",
   "review_scope": "Read-only exact artifact, shared format validator, and nine focus-site registry audit; no new experiment",
-  "reviewed_at_utc": "2026-10-27T21:39:51.394699+00:00",
+  "reviewed_at_utc": "2026-10-27T21:44:32.870949+00:00",
   "schema_version": "apartgemsdoe3-current-review-v2",
   "score_estimate": null,
   "selector": {
@@ -50,7 +50,7 @@
     "artifact": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
     "artifact_sha256": "fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1",
     "current_point_best_source": null,
-    "decided_utc": "2026-10-27T21:39:51.394632+00:00",
+    "decided_utc": "2026-10-27T21:44:32.870911+00:00",
     "decision": "DO_NOT_SUBMIT",
     "gates": {
       "artifact_hash_matches_run_card": true,
