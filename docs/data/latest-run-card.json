@@ -1,0 +1,199 @@
+{
+  "external_registry_hazard": {
+    "conditional_minimum_candidate_overlap": 0.8234184947150369,
+    "evidence_label": "INDEPENDENT EXACT-FILE LATTICE AUDIT; FULL REGISTRY NOT CHECKED",
+    "interpretation": "Independent exact-file audit measured 100% lattice overlap, so the literal duplicate rule fails. Complete registry and lattice surface checks remain unavailable.",
+    "measured_candidate_overlap": 1.0,
+    "reported_rule": "Registered lattice dots within 3 pixels of the candidate dots; stop above 70%.",
+    "source_url": "evidence/parallel_mrcj_audit.json",
+    "threshold": 0.7
+  },
+  "final_dot_overlap_within_3px_vs_focus_registry": {
+    "GEMSDOE24": 0.26708981781484037,
+    "GEMSDOE25": 0.25248313592181443,
+    "GEMSDOE27": 0.2739151218993998,
+    "GEMSDOE28": 0.2336803526849737,
+    "GEMSDOE30": 0.25248313592181443,
+    "GEMSDOE31": 0.23920433420088172,
+    "GEMSDOE32": 0.22613799330748394,
+    "GEMSDOE33": 0.2451266797684177,
+    "GEMSDOE36": 0.25620120040367556
+  },
+  "focus_registry_count": 9,
+  "focus_registry_scope": "The nine requested GEMSDOE site rasters only; this is not a claim that all concurrent/global submissions are covered.",
+  "holdout_dti": {
+    "ci_95": [
+      0.01723704956650266,
+      0.02692315577995154
+    ],
+    "evaluator_version": "gems-segment-pooled-v1",
+    "interpretation": "Internal hide-and-recover evidence only; not a leaderboard estimate.",
+    "label": "HOLDOUT-DTI",
+    "provenance": "Recorded prior experiment card; not replayed in this review.",
+    "value": 0.0220695384115339,
+    "withheld_positive_count": 60988
+  },
+  "hypothesis": "MRCJ: persistent cross-scale magnetic curvature at opposed Th/K and orthogonal U/Th gradients marks concealed fault-controlled alteration junctions.",
+  "mechanism": "A concealed permeable structure can juxtapose magnetic domains while focusing chemically distinct hydrothermal alteration; cross-scale persistence rejects short-wavelength noise.",
+  "named_non_fault_mimic": "lithologic contact or acquisition-block seam",
+  "new_experiments": 0,
+  "novel_vs_each_focus_raster_under_thresholds": true,
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "organizer_confirmed_score": null,
+  "raster_sha256": "fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1",
+  "review_scope": "Read-only exact artifact, shared format validator, and nine focus-site registry audit; no new experiment",
+  "reviewed_at_utc": "2026-10-27T21:52:47.944710+00:00",
+  "schema_version": "apartgemsdoe3-current-review-v2",
+  "score_estimate": null,
+  "selector": {
+    "all_gates_passed": false,
+    "artifact": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
+    "artifact_sha256": "fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1",
+    "current_point_best_source": null,
+    "decided_utc": "2026-10-27T21:52:47.944660+00:00",
+    "decision": "DO_NOT_SUBMIT",
+    "gates": {
+      "artifact_hash_matches_run_card": true,
+      "artifact_name_matches_run_card": true,
+      "budget_and_no_slot_spent": true,
+      "complete_independent_replay_certificate": false,
+      "current_account_quota_independently_verified": false,
+      "g1_format_strict_0_1": true,
+      "g2_leakage_canary": true,
+      "g3_holdout_beats_recorded_best_and_paired_baseline": false,
+      "g4_registry_novelty": false,
+      "g5_exact_file_c2st": false,
+      "note_at_most_140_chars": true
+    },
+    "human_inspection_used": false,
+    "ok_to_submit": false,
+    "quota_status": "unknown_BLOCKED_no_manual_confirmation_exception",
+    "reasons": [
+      "g3_holdout_beats_recorded_best_and_paired_baseline: holdout evidence malformed",
+      "g4_registry_novelty: novelty evidence missing or malformed",
+      "g5_exact_file_c2st: C2ST evidence missing or malformed",
+      "current_account_quota_independently_verified: unknown; no quota verifier/receipt adapter implemented; no human-confirmation exception",
+      "complete_independent_replay_certificate: not implemented; recorded flags and numeric summaries are screening evidence, not an independent promotion certificate"
+    ],
+    "recorded_scientific_screen_passed": false,
+    "scope": "Recorded-evidence screening and exact-file validation only; positive authorization is not implemented. Not an organizer score, quota record or acceptance guarantee. The agent never uploads.",
+    "selector_version": "gems-selector-v2-literal-quota-fail-closed"
+  },
+  "source_run_card": "evidence/parallel_mrcj_original.json",
+  "source_run_card_sha256": "e2318a9bf0c41e1bb60aa5aa62e3711c19df632bf5ef47c290d28b982d6bf9fa",
+  "static_h33_comparator": {
+    "ci_95": [
+      0.006041121207444067,
+      0.0074048908975619865
+    ],
+    "evaluator_version": "gems-segment-pooled-v1",
+    "label": "HOLDOUT-DTI",
+    "limitation": "Static comparison only; not fold-rebuilt, paired, or promotion-grade current-best evidence.",
+    "value": 0.0067081038868037944,
+    "withheld_positive_count": 60988
+  },
+  "submission_name": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
+  "submission_note": "DO NOT SUBMIT: 100% lattice overlap; organizer format and comparable baseline unverified.",
+  "submission_slots_used": 0,
+  "surface_spearman_vs_focus_registry": {
+    "GEMSDOE24": 0.007896787820635272,
+    "GEMSDOE25": 0.007106052065600519,
+    "GEMSDOE27": 0.0078052553664591465,
+    "GEMSDOE28": 0.0072383628132697475,
+    "GEMSDOE30": 0.007106052065600519,
+    "GEMSDOE31": 0.007692118749825753,
+    "GEMSDOE32": 0.0077610420869185315,
+    "GEMSDOE33": 0.0073080547789155514,
+    "GEMSDOE36": 0.008743989058724037
+  },
+  "validator_output": {
+    "bytes": 799474,
+    "checks": {
+      "crs_epsg_32611": {
+        "detail": "EPSG:32611",
+        "hard_requirement": true,
+        "pass": true
+      },
+      "dtype_float32": {
+        "detail": "dtypes=('float32',)",
+        "hard_requirement": true,
+        "pass": true
+      },
+      "footprint_all_finite": {
+        "detail": "0 NaN/Inf inside the 5,167,373-pixel footprint",
+        "hard_requirement": true,
+        "pass": true
+      },
+      "footprint_range_0_1": {
+        "detail": "finite=5167373/5167373; range=0.0 to 1.0",
+        "hard_requirement": true,
+        "pass": true
+      },
+      "geotransform_matches_template": {
+        "detail": "(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+        "hard_requirement": true,
+        "pass": true
+      },
+      "nodata_tag_is_nan": {
+        "detail": "nodata=None",
+        "hard_requirement": false,
+        "pass": false
+      },
+      "official_template_grid_and_footprint": {
+        "detail": "Template must be the pinned organizer grid, not just a self-consistent arbitrary raster",
+        "hard_requirement": true,
+        "pass": true
+      },
+      "outside_is_nan_official_text": {
+        "detail": "0 of 7,111,787 outside pixels are NaN",
+        "hard_requirement": false,
+        "pass": false
+      },
+      "profile_matches_official_sample": {
+        "detail": "driver/dtype/nodata/size/crs/transform equal to template; compress=lzw (template lzw)",
+        "hard_requirement": false,
+        "pass": false
+      },
+      "shape_matches_template": {
+        "detail": "(3730, 3292) vs (3730, 3292)",
+        "hard_requirement": true,
+        "pass": true
+      },
+      "single_band": {
+        "detail": "count=1",
+        "hard_requirement": true,
+        "pass": true
+      },
+      "variant_masked_read": {
+        "detail": "rasterio read(masked=True).compressed()",
+        "hard_requirement": true,
+        "pass": true
+      },
+      "variant_nan_aware_whole_array": {
+        "detail": "np.nanmin/np.nanmax over the whole array",
+        "hard_requirement": true,
+        "pass": true
+      },
+      "variant_strict_whole_array_no_nan_allowed": {
+        "detail": "((a>=0)&(a<=1)).all() over the whole array - fails for ANY NaN, including the official sample's NaN outside",
+        "hard_requirement": false,
+        "pass": true
+      }
+    },
+    "file": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",
+    "format_acceptable": true,
+    "format_valid": true,
+    "hard_failures": [],
+    "in_footprint_mass": 37654.0,
+    "in_footprint_positive_pixels": 37654,
+    "official_format_compliant": false,
+    "ok_to_upload": false,
+    "scope": "Format only; this does not certify bias audit, holdout promotion or weekly-slot eligibility",
+    "sha256": "fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1",
+    "submission_authorized": false,
+    "upload_authorization": "not evaluated by a format validator; separate scientific selector required"
+  },
+  "verdict": "negative",
+  "verdict_reason": "Independent audit measured 100% final-dot overlap with the registered lattice, above the 70% stop rule. The paired current-best, full registry, independent replay and live quota are missing; exterior zeros differ from null/NaN-outside text. No submission is authorized."
+}

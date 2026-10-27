@@ -1,8 +1,11 @@
 .venv/
 .cache/
 node_modules/
+_site/
 __pycache__/
+*.py[cod]
 .pytest_cache/
+.coverage
 data/raw/
 data/prepared/
 data/research/

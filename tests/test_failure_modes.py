@@ -1,5 +1,6 @@
 import json
 import os
+import subprocess
 import sys
 
 import pytest
@@ -54,6 +55,15 @@ def test_site_build_rejects_unexpected_authorization(tmp_path, monkeypatch):
     monkeypatch.setattr(build_site, 'ROOT', tmp_path)
     with pytest.raises(ValueError, match='negative run card'):
         build_site.render()
+
+
+def test_historical_runner_stops_before_overwriting_current_card():
+    card = ROOT / 'evidence/run_card.json'
+    before = card.read_bytes()
+    result = subprocess.run([sys.executable, str(ROOT / 'scripts/run_experiments.py')], capture_output=True, text=True)
+    assert result.returncode != 0
+    assert 'STOP:' in result.stderr and 'lattice' in result.stderr
+    assert card.read_bytes() == before
 
 
 def test_malformed_remote_sha_is_unknown(monkeypatch):

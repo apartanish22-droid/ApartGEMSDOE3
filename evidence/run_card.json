@@ -17,14 +17,16 @@
   },
   "correlation_overlap_vs_registry": {
     "preplacement_surface_full_registry": null,
-    "preplacement_surface_max_abs_spearman_nine_reported_not_replayed": 0.008743989058724037,
     "final_dots_max_overlap_nine": 0.2739151218993998,
     "final_dots_lattice_overlap": 1.0,
     "final_dots_lattice_spearman": 6.246371257602123e-05,
     "full_registry_checked": false,
     "duplicate_stop": true,
-    "status": "Independent exact-dot audit: 100% within 3 px of the registered lattice; exceeds 70%. Surface was not replayed.",
-    "evidence": "evidence/parallel_mrcj_audit.json"
+    "status": "Nine-site surface and final-dot comparisons were replayed separately. Independent dot audit: 100% within 3 px of the registered lattice; exceeds 70%. Lattice surface and full registry remain unchecked.",
+    "evidence": "evidence/parallel_mrcj_audit.json",
+    "preplacement_surface_max_abs_spearman_nine_replayed": 0.008743989058724037,
+    "preplacement_surface_vs_lattice": null,
+    "nine_surface_replay_evidence": "docs/data/latest-run-card.json"
   },
   "raster_sha256": "fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1",
   "validator_output": {

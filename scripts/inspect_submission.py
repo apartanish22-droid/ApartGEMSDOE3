@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
 import numpy as np
@@ -17,12 +16,11 @@ import rasterio
 from audit_priority import ROOT, sha256_file, verified_cached_file
 from cache_shared_template import cache_template
 from io_safety import validate_output_path
+from shared_import import load_shared_module
 
 
 def inspect(candidate: Path, template: Path, shared_root: Path) -> dict:
-    sys.path.insert(0, str(shared_root / "src"))
-    from gems.submission import check_variants  # unmodified, hash-pinned upstream
-
+    check_variants = load_shared_module(shared_root, "submission").check_variants
     candidate_hash = sha256_file(candidate)
     template_hash = sha256_file(template)
     shared = check_variants(candidate, template)

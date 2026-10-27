@@ -1,0 +1,46 @@
+:root {
+  color-scheme: light;
+  --ink: #172b3a;
+  --muted: #526575;
+  --paper: #f3f7f8;
+  --card: #ffffff;
+  --line: #d7e2e6;
+  --blue: #155c70;
+  --red: #842f2b;
+  --red-bg: #fff0ee;
+  --amber-bg: #fff7e2;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.58 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+a { color: var(--blue); }
+.wrap { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+header { background: #123b4a; color: white; padding: 27px 0; }
+header h1 { margin: 0; font-size: clamp(1.6rem, 4vw, 2.25rem); letter-spacing: -0.025em; }
+header p { margin: 4px 0 0; color: #d4e5e9; }
+nav { display: flex; gap: 18px; flex-wrap: wrap; padding: 12px 0; border-bottom: 1px solid var(--line); }
+nav a { font-weight: 650; text-decoration: none; }
+main { padding: 24px 0 48px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 22px; margin: 18px 0; box-shadow: 0 2px 8px #17394a0a; }
+.status { border: 2px solid #be6c60; background: var(--red-bg); }
+.status h2 { color: var(--red); margin-top: 0; }
+.kicker { font-size: .78rem; letter-spacing: .09em; font-weight: 800; text-transform: uppercase; color: var(--muted); }
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); }
+.metric { background: #f7fafb; border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+.metric strong { display: block; font-size: 1.2rem; }
+.note { background: var(--amber-bg); border-left: 4px solid #d3a33a; padding: 13px 16px; }
+.table-scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; min-width: 850px; font-size: .92rem; }
+th, td { border-bottom: 1px solid var(--line); padding: 11px 10px; text-align: left; vertical-align: top; }
+th { background: #edf3f5; }
+.badge { display: inline-block; border: 1px solid #b85f55; color: #752b27; background: #fff4f2; border-radius: 999px; padding: 2px 9px; font-size: .79rem; font-weight: 750; white-space: nowrap; }
+.btn { display: inline-block; background: var(--blue); color: white; text-decoration: none; border-radius: 8px; padding: 10px 15px; font-weight: 700; }
+.btn-disabled { display: inline-block; background: #dbe3e6; color: #465760; border-radius: 8px; padding: 10px 15px; font-weight: 700; cursor: not-allowed; }
+small, .muted { color: var(--muted); }
+code { overflow-wrap: anywhere; }
+footer { border-top: 1px solid var(--line); padding: 20px 0 32px; color: var(--muted); font-size: .9rem; }
+@media (max-width: 600px) { .card { padding: 16px; } header { padding: 22px 0; } }

@@ -6,7 +6,7 @@ While this review was underway, [PR #2](https://github.com/apartanish22-droid/Ap
 
 ## Decisive uniqueness failure
 
-The parallel run reported a maximum 27.39% candidate-to-reference overlap against the **nine** selected historical files. We independently reproduce that maximum. It did not compare the candidate against the registered spacing-5 lattice. We measure **37,654/37,654 = 100%** of its final dots within 3 pixels of the lattice. The prompt's literal stop rule is strictly greater than 70%, so this candidate is a duplicate under that rule. Low rank correlation alone does not waive the overlap gate. The pre-placement surface and the complete registry have **not** been independently replayed here. Full metrics and pinned source paths: [`evidence/parallel_mrcj_audit.json`](../../evidence/parallel_mrcj_audit.json).
+The parallel run reported a maximum 27.39% candidate-to-reference overlap against the **nine** selected historical files. We independently reproduce that maximum. It did not compare the candidate against the registered spacing-5 lattice. We measure **37,654/37,654 = 100%** of its final dots within 3 pixels of the lattice. The prompt's literal stop rule is strictly greater than 70%, so this candidate is a duplicate under that rule. Low rank correlation alone does not waive the overlap gate. A separate [read-only replay](../data/latest-run-card.json) recomputed the pre-placement surface against the nine selected sites; the surface against the lattice and the complete registry have **not** been checked. Final-dot metrics and pinned source paths: [`evidence/parallel_mrcj_audit.json`](../../evidence/parallel_mrcj_audit.json).
 
 ## Scientific and format boundaries
 

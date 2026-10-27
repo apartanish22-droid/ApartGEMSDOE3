@@ -1,6 +1,6 @@
 {
   "schema": "apartgemsdoe3-parallel-mrcj-review-v1",
-  "checked_utc": "2026-10-27T21:47:08.196656+00:00",
+  "checked_utc": "2026-10-27T21:55:05.265888+00:00",
   "scope": "Read-only exact-file review of a parallel run; no new experiment, upload or promotion.",
   "raster": {
     "file": "apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif",

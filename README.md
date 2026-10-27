@@ -3,7 +3,7 @@
 > **Start every session here. Current decision: NO NEW TIFF IS APPROVED TO SUBMIT.**
 > The original checkout contained only an empty README. A parallel run subsequently committed a research TIFF and partial peer-mirrored data. Its earlier `promote` claim is **superseded**: the TIFF fails the registered lattice rule. No assigned lane, authenticated organizer dataset, replayed comparable baseline, or complete live registry is established. This review used no weekly slot.
 
-[Open the executive dashboard](index.html) · [Submission guide](executive-summary.html) · [Research directions](research.html) · [Current run card](evidence/run_card.json) · [Nine-site audit](evidence/historical_audit.json)
+[Open the executive dashboard](index.html) · [Submission guide](executive-summary.html) · [Research directions](research.html) · [Current run card](evidence/run_card.json) · [Nine-site audit](evidence/historical_audit.json) · [Three-pass review](docs/research/review-passes-2026-10-27.md)
 
 ## Project brief — read first
 
@@ -34,7 +34,7 @@ The original request was supplied twice with long, partly duplicated site/result
 
 ## What we verified in this initial review
 
-- The parallel MRCJ file `apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif` exists with SHA-256 `fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1`, but **DO NOT SUBMIT**: an independent exact-file audit found 100% of its 37,654 dots within 3 pixels of the registered lattice. The parallel run's 27.39% maximum covered only nine other sites. Its original `promote`/`ok_to_submit` claim is archived but superseded; [audit](evidence/parallel_mrcj_audit.json).
+- The parallel MRCJ file `apartgems3-mrcj-curvature-junction-37654-20261027-zeros.tif` exists with SHA-256 `fb4400e342e8aab8b059e067cfac8b2225b48534e46800d6efe69c2f2d9403d1`, but **DO NOT SUBMIT**: an independent exact-file audit found 100% of its 37,654 dots within 3 pixels of the registered lattice. The parallel run's 27.39% maximum covered only nine other sites; those surface and final-dot comparisons were separately replayed, but the full registry and lattice surface were not. Its original `promote`/`ok_to_submit` claim is archived but superseded; [audit](evidence/parallel_mrcj_audit.json).
 - The parallel run recorded **HOLDOUT-DTI 0.022070** (`gems-segment-pooled-v1`, 60,988 withheld positives, 95% CI [0.01724, 0.02692]); this review did not replay it. Its comparison to a non-fold-rebuilt static champion does not prove improvement over a valid current best, and it is not a leaderboard score. The parallel run reports three experiments and no slot used; this review ran no experiments.
 - The nine selected historical TIFFs were fetched at pinned Git commits and their Git blob identities checked; their 72 directional pair comparisons all fail the literal overlap rule. A broader [457-path inventory](registry/tiff_inventory.json) is an **index only**, not a complete novelty audit.
 - The H33 raster is a pixel-exact subset of D2.8 after deleting 6,436 dots at most two pixels from the peer-mirrored catalogue. This geometry does not establish why the claimed score changed; [analysis](docs/research/h33-analysis.md).
@@ -76,7 +76,7 @@ To run the optional interactive browser smoke test, install Node 20+ and the ope
 
 ## Next steps and access limitations
 
-1. Resolve the missing lane/registry policy without changing the literal stop rule; the original common dot budget cannot pass the lattice bound. Do not optimize predictions around lattice gaps.
+1. Resolve the missing lane/registry policy without changing the literal stop rule; the original common dot budget cannot pass the lattice bound. Do not optimize predictions around lattice gaps. The prior parallel run reports all three experiments spent; `scripts/run_experiments.py` now stops instead of silently repeating them or overwriting the current card.
 2. Obtain the authenticated organizer example, numeric feature stack, known-fault labels and DEM links with lawful access; establish provenance and licensing. The [data tab](https://www.drivendata.org/competitions/306/competition-doe-gems/data/) returned login in this session. There is no DrivenData account access here, and direct binary access to the user-supplied Dropbox/GDR URLs is blocked by the sandbox's network policy.
 3. Reconstruct and replay a truly comparable fold-local best and a complete, current registry across parallel runs. Then run the assigned top hypothesis, canaries, surface/final checks and exact-byte validation under the budget. The separate selector must verify current weekly capacity before any upload.
 4. Resolve the exterior encoding with the organizers or an authenticated validation receipt. Never imply that zero fill automatically fixes an upload error.

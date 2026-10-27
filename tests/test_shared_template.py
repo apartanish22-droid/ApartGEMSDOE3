@@ -7,6 +7,7 @@ import pytest
 
 from audit_priority import ROOT, git_blob_file
 from cache_shared_template import cache_template
+from shared_import import load_shared_module
 
 
 def shared_root():
@@ -27,10 +28,31 @@ def test_shared_sources_are_byte_exact():
     assert cache_template(offline=True) == root
 
 
+def test_shared_import_does_not_use_an_already_imported_gems(monkeypatch):
+    import types
+    root = shared_root()
+    foreign = types.ModuleType("gems")
+    monkeypatch.setitem(sys.modules, "gems", foreign)
+    module = load_shared_module(root, "submission")
+    assert Path(module.__file__).resolve() == (root / "src/gems/submission.py").resolve()
+    assert sys.modules["gems"] is foreign
+
+
+def test_shared_import_rejects_modified_cached_source(tmp_path):
+    import shutil
+    root = shared_root()
+    copied = tmp_path / root.name
+    shutil.copytree(root, copied)
+    with (copied / 'src/gems/submission.py').open('a') as handle:
+        handle.write('\n# tampered\n')
+    with pytest.raises(ValueError, match='missing or modified'):
+        load_shared_module(copied, 'submission')
+
+
 def test_shared_fast_metric_agrees_with_exact_and_masks_known_pixels():
     root = shared_root()
-    sys.path.insert(0, str(root / "src"))
-    from gems.metric import dti_components_exact, dti_score_fast
+    metric = load_shared_module(root, "metric")
+    dti_components_exact, dti_score_fast = metric.dti_components_exact, metric.dti_score_fast
     pred = np.zeros((9, 9), np.float32)
     truth = np.zeros_like(pred)
     known = np.zeros_like(pred, bool)
@@ -51,8 +73,7 @@ def test_shared_fast_metric_agrees_with_exact_and_masks_known_pixels():
 
 def test_shared_canary_flags_a_known_label_feature():
     root = shared_root()
-    sys.path.insert(0, str(root / "src"))
-    from gems.holdout import SegmentHoldout
+    SegmentHoldout = load_shared_module(root, "holdout").SegmentHoldout
     fp = np.ones((60, 60), bool)
     labels = np.zeros_like(fp)
     for y, x in [(12, 12), (12, 45), (45, 12), (45, 45)]:
