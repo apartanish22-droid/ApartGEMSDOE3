@@ -24,3 +24,26 @@ def test_submission_is_strictly_finite_and_aligned():
         assert np.isfinite(a).all()
         assert a.min() >= 0 and a.max() <= 1
         assert np.count_nonzero(a) == 37654
+
+def test_current_review_rechecks_focus_registry_and_stays_negative():
+    from gems.current_review import review_current_best
+
+    report = review_current_best(ROOT)
+    assert report['verdict'] == 'negative'
+    assert report['ok_to_submit'] is False
+    assert report['ok_to_download_for_research'] is True
+    assert report['novel_vs_each_focus_raster_under_thresholds'] is True
+    assert report['focus_registry_count'] == 9
+    assert report['external_registry_hazard']['conditional_minimum_candidate_overlap'] > 0.70
+    assert report['validator_output']['format_valid'] is True
+    assert report['validator_output']['official_format_compliant'] is False
+    assert report['holdout_dti']['label'] == 'HOLDOUT-DTI'
+    assert report['selector']['decision'] == 'DO_NOT_SUBMIT'
+
+    from gems.executive_decisions import build_decisions
+    packet = build_decisions(ROOT, report)
+    assert len(packet['rows']) == 9
+    assert all(row['ok_to_submit'] is False for row in packet['rows'])
+    assert all(row['organizer_confirmed_score'] is None for row in packet['rows'])
+    assert all(row['leaderboard_estimate'] is None for row in packet['rows'])
+    assert all(row['uniqueness'].startswith('PASS vs tracked raster only') for row in packet['rows'])
