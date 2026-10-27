@@ -1,0 +1,12 @@
+# Raw competition data and generated feature cache stay out of Git unless a
+# specifically approved submission artifact is added under docs/downloads/.
+/data/
+.cache/
+*.npz
+*.npy
+*.gdb/
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+.DS_Store

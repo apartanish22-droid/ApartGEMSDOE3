@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Evidence-led review of DOE GEMS fault-prediction research, prior site submissions, uniqueness gates, and submission readiness.">
+  <meta name="theme-color" content="#0b1421">
+  <title>ApartGEMSDOE3 · evidence, novelty & submission readiness</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-project-root=".">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="ApartGEMSDOE3 home">
+      <span class="brand-mark" aria-hidden="true">AG</span>
+      <span><strong>ApartGEMSDOE3</strong><small>DOE GEMS · evidence-first fault research</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#executive">Summary</a>
+      <a href="#sites">Site audit</a>
+      <a href="#research">Hypotheses</a>
+      <a href="docs/submission-guide.html">Submission guide</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section-wrap" id="executive">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> Evidence review · 27 October 2026</div>
+        <h1>Research the faults.<br><em>Prove the file.</em></h1>
+        <p class="hero-lede">A comparative review of GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36—plus a clear, fail-closed answer on whether anything here is safe to submit.</p>
+        <div class="hero-alert" role="status">
+          <span class="alert-icon" aria-hidden="true">!</span>
+          <div><strong>NOT READY · DO NOT SUBMIT</strong><p>No new candidate GeoTIFF exists. Competition data access, shared feature cache, holdout evaluator, uniqueness checks and raster validation are all unavailable in this checkout.</p></div>
+        </div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="docs/research/hypotheses.md">Read ranked hypotheses <span aria-hidden="true">↗</span></a>
+          <a class="button button-quiet" href="docs/submission-guide.html">How a future submission is validated</a>
+        </div>
+      </div>
+      <aside class="hero-side" aria-label="Current project state">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="side-label">Current run card</div>
+        <div class="status-icon" aria-hidden="true"><span>×</span></div>
+        <p class="side-verdict">negative</p>
+        <p class="side-note">No experiment ran. No slot was used. No TIFF is offered for download.</p>
+        <a class="text-link" href="docs/data/run-card.json">Open the single JSON run card <span aria-hidden="true">→</span></a>
+      </aside>
+    </section>
+
+    <section class="stat-strip section-wrap" aria-label="Review summary">
+      <article class="stat-card"><span class="stat-value">9</span><span class="stat-label">focus sites reviewed</span><small>Owner-published audits; receipt evidence absent</small></article>
+      <article class="stat-card"><span class="stat-value">9<span class="stat-divider">/</span>9</span><span class="stat-label">reported masks fail pairwise uniqueness</span><small>Published audit; not independently replayed here</small></article>
+      <article class="stat-card"><span class="stat-value">0</span><span class="stat-label">new experiments in this checkout</span><small>No data, cache or evaluator available</small></article>
+      <article class="stat-card"><span class="stat-value">0</span><span class="stat-label">validated candidate GeoTIFFs</span><small>No download or submit link is enabled</small></article>
+    </section>
+
+    <section class="section-wrap section-block summary-grid">
+      <div class="section-heading"><span class="eyebrow">The result that needs explaining</span><h2>GEMSDOE32 H33-B2 leads the supplied nine—<br>but the evidence has limits.</h2></div>
+      <div class="summary-copy">
+        <p><strong>0.2778 OWNER-REPORTED</strong> is the highest of the nine owner/user-reported values in the published focus-site audit. No archived organizer submission-page receipt was found for the file, so it is <strong>not ORGANIZER-CONFIRMED</strong>.</p>
+        <p>The most plausible metric explanation is sparse pruning: a leaner prediction field may preserve nearby coverage while shedding redundant or low-credit mass under the official distance-weighted Tversky score. That is a mechanism consistent with the reported nested masks—not proof of why a hidden-test score changed or of new fault discovery.</p>
+        <p class="callout callout-warn"><strong>Uniqueness still fails.</strong> The owner-side audit reports every historical top mask exceeds the 3-pixel overlap limit against at least one other focus-site raster. We did not replay that comparison locally; no old TIFF is promoted here.</p>
+        <a class="text-link" href="docs/research/high-score-analysis.md">Read the evidence and metric analysis <span aria-hidden="true">→</span></a><br>
+        <a class="text-link" href="docs/research/focus-site-analysis.md">Open the nine-site method notes <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="section-wrap section-block" id="sites">
+      <div class="section-heading section-heading-row">
+        <div><span class="eyebrow">Nine-repository comparison</span><h2>Historical bests, with provenance attached.</h2></div>
+        <p class="section-intro">These are pinned historical best-file records, not current-main bests. An <a href="https://github.com/buffedlizard55-lab/GEMSDOE24/blob/a73f9ffba29260cc7708e8e0557c84c5bea7d47b/docs/data/portfolio_freshness.json" target="_blank" rel="noreferrer">owner freshness receipt ↗</a> reports all nine repository heads differed from the pinned audit refs at its check time; newer files/scores have not been fully audited. Scores are owner/user reports, not organizer receipts.</p>
+      </div>
+      <div class="table-shell">
+        <table class="data-table">
+          <caption>Pinned historical file tags and focus-nine uniqueness preflight. The full registry and post-audit main heads are not certified here.</caption>
+          <thead><tr><th scope="col">Site</th><th scope="col">Method tag · evidence note</th><th scope="col">Historical artifact · research only</th><th scope="col">Reported score</th><th scope="col">Max directed overlap<br>within 3 px</th><th scope="col">Max |Spearman|</th><th scope="col">Status</th></tr></thead>
+          <tbody id="focus-site-rows">
+            <tr><td><span class="site-name">GEMSDOE24</span></td><td><span class="method-label">H25-1 · dotted H19-5 · D1.5</span><span class="score-provenance method-note">Filename-tag summary only; H19-5 lineage and D1.5 label are not a full method-code audit.</span></td><td><code class="artifact-name">gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif</code><span class="score-provenance">SHA-256 68d0e2e4fcc5… · research only</span></td><td><span class="score-value">0.2477</span><span class="score-provenance">OWNER-REPORTED</span></td><td class="audit-value audit-fail">100.0%</td><td class="audit-value">0.990</td><td><span class="status-pill">FAIL · NOT UNIQUE</span></td></tr>
+            <tr><td><span class="site-name">GEMSDOE25</span></td><td><span class="method-label">Dotted H19-5 · D2.8</span><span class="score-provenance method-note">The owner-side nested-mask audit reports this positive-pixel set is identical to the GEMSDOE30 D28 mask.</span></td><td><code class="artifact-name">gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif</code><span class="score-provenance">SHA-256 91eae1ca42ec… · research only</span></td><td><span class="score-value">0.2600</span><span class="score-provenance">OWNER-REPORTED</span></td><td class="audit-value audit-fail">100.0%</td><td class="audit-value">1.000</td><td><span class="status-pill">FAIL · NOT UNIQUE</span></td></tr>
+            <tr><td><span class="site-name">GEMSDOE27</span></td><td><span class="method-label">Topo gap closure · T-V2 on D1.5</span><span class="score-provenance method-note">Filename-tag summary only; the pinned audit does not establish a causal improvement.</span></td><td><code class="artifact-name">gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif</code><span class="score-provenance">SHA-256 33003374335d… · research only</span></td><td><span class="score-value">0.2449</span><span class="score-provenance">OWNER-REPORTED</span></td><td class="audit-value audit-fail">98.0%</td><td class="audit-value">0.990</td><td><span class="status-pill">FAIL · NOT UNIQUE</span></td></tr>
+            <tr><td><span class="site-name">GEMSDOE28</span></td><td><span class="method-label">H36-1 · rung30 blind · R1</span><span class="score-provenance method-note">Filename-tag summary only; the exact method implementation was not re-audited here.</span></td><td><code class="artifact-name">gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif</code><span class="score-provenance">SHA-256 5556aa1438fd… · research only</span></td><td><span class="score-value">0.2710</span><span class="score-provenance">OWNER-REPORTED</span></td><td class="audit-value audit-fail">100.0%</td><td class="audit-value">0.714</td><td><span class="status-pill">FAIL · NOT UNIQUE</span></td></tr>
+            <tr><td><span class="site-name">GEMSDOE30</span></td><td><span class="method-label">D28 Poisson · 300 m · off-catalogue</span><span class="score-provenance method-note">The owner-side nested-mask audit reports this positive-pixel set is identical to the GEMSDOE25 D2.8 mask.</span></td><td><code class="artifact-name">gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif</code><span class="score-provenance">SHA-256 8cf893ead566… · research only</span></td><td><span class="score-value">0.2600</span><span class="score-provenance">OWNER-REPORTED</span></td><td class="audit-value audit-fail">100.0%</td><td class="audit-value">1.000</td><td><span class="status-pill">FAIL · NOT UNIQUE</span></td></tr>
+            <tr><td><span class="site-name">GEMSDOE31</span></td><td><span class="method-label">H27-4 solo · D28</span><span class="score-provenance method-note">The owner-side nested-mask audit reports this positive-pixel set is identical to the GEMSDOE28 solo-mask row.</span></td><td><code class="artifact-name">gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif</code><span class="score-provenance">SHA-256 07b6db440535… · research only</span></td><td><span class="score-value">0.2708</span><span class="score-provenance">OWNER-REPORTED</span></td><td class="audit-value audit-fail">100.0%</td><td class="audit-value">0.968</td><td><span class="status-pill">FAIL · NOT UNIQUE</span></td></tr>
+            <tr><td><span class="site-name">GEMSDOE32</span></td><td><span class="method-label">H33 · H33-2 · B2</span><span class="score-provenance method-note">The owner-side audit describes this as a pruned D2.8-family mask; method causality and receipt-to-file attribution are unverified.</span></td><td><code class="artifact-name">gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</code><span class="score-provenance">SHA-256 c55bafc47005… · research only</span></td><td><span class="score-value">0.2778</span><span class="score-provenance">OWNER-REPORTED</span></td><td class="audit-value audit-fail">100.0%</td><td class="audit-value">0.984</td><td><span class="status-pill">FAIL · NOT UNIQUE</span></td></tr>
+            <tr><td><span class="site-name">GEMSDOE33</span></td><td><span class="method-label">H33D · analog tip/stepover · R30</span><span class="score-provenance method-note">Filename-tag summary only; the method was not independently reproduced in this checkout.</span></td><td><code class="artifact-name">GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif</code><span class="score-provenance">SHA-256 87f857d505e2… · research only</span></td><td><span class="score-value">0.2632</span><span class="score-provenance">OWNER-REPORTED</span></td><td class="audit-value audit-fail">99.7%</td><td class="audit-value">0.819</td><td><span class="status-pill">FAIL · NOT UNIQUE</span></td></tr>
+            <tr><td><span class="site-name">GEMSDOE36</span></td><td><span class="method-label">Andersonian geothermal PINN</span><span class="score-provenance method-note">The owner-side audit reports 1,200 additional dots over the H33-B2 mask; score/file attribution is not receipt-confirmed.</span></td><td><code class="artifact-name">gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif</code><span class="score-provenance">SHA-256 e15891020b9c… · research only</span></td><td><span class="score-value">0.2750</span><span class="score-provenance">OWNER-REPORTED</span></td><td class="audit-value audit-fail">97.6%</td><td class="audit-value">0.984</td><td><span class="status-pill">FAIL · NOT UNIQUE</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="source-note"><span class="note-icon" aria-hidden="true">i</span><p><strong>Interpretation:</strong> uniqueness fails when any registry raster has |rank correlation| &gt; 0.90 or more than 70% of candidate dots within 3 px. The displayed focus-nine maximum is a secondary audit and is not a full-registry certification. <a href="https://github.com/buffedlizard55-lab/GEMSDOE36/blob/7edcc9b58e6ad0f88c6e6f5ee9218761a391769d/docs/downloads/focus-sites-pairwise-uniqueness.json" target="_blank" rel="noreferrer">Open the pinned owner audit ↗</a></p></div>
+    </section>
+
+    <section class="section-wrap section-block leaderboard-block">
+      <div class="leaderboard-panel">
+        <div><span class="eyebrow">Official public context · dynamic page</span><h2>Public leaderboard ≠ a run score.</h2><p>The snapshot below is a public standing, not a submission-page receipt, private prize score, or forecast for this project. The organizer page can change; open it for live results.</p></div>
+        <div class="leaderboard-top" id="leaderboard-top" aria-live="polite"><span class="loading-cell">Loading dated snapshot…</span></div>
+      </div>
+      <div class="leaderboard-foot"><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" target="_blank" rel="noreferrer">Open official leaderboard ↗</a><span>Snapshot checked 27 October 2026 · not tied to any raster in this repo</span></div>
+    </section>
+
+    <section class="section-wrap section-block parallel-watch">
+      <div class="section-heading section-heading-row"><div><span class="eyebrow">Latest parallel-method scan · owner records</span><h2>Current work narrows what counts as “new.”</h2></div><p class="section-intro">These peer run cards are not reproduced here. They use different evaluators and must not be compared to one another or to organizer leaderboard values.</p></div>
+      <div class="parallel-grid">
+        <article class="parallel-card"><div class="card-topline"><span class="rank-chip">GEMSDOE30 · POOL-1</span><span class="status-pill">NEGATIVE · DUPLICATE STOP</span></div><h3>Pooled MSDB + CSR + LiDAR</h3><p>Owner run card: candidate <strong>HOLDOUT-DTI 0.186699</strong> (95% CI [0.173113, 0.200171]); evaluator <code>component-holdout-v3-blockstats-20261025</code>; 60,988 withheld positives.</p><p>Matched dense-emitter control: <strong>HOLDOUT-DTI 0.188702</strong> (95% CI [0.174361, 0.203224]); paired candidate-minus-control: <strong>HOLDOUT-DTI difference −0.002003</strong> (95% CI [−0.004005, −0.000065]). The owner registry audit also reports 88.74% final-dot overlap, so no TIFF was published.</p><a href="https://github.com/buffedlizard55-lab/GEMSDOE30/blob/d21ddd9502f3c3911e8d77b8f1e6abfaadffc876/docs/research/2026-10-27-pool/run-card.json" target="_blank" rel="noreferrer">Pinned run card ↗</a></article>
+        <article class="parallel-card"><div class="card-topline"><span class="rank-chip">GEMSDOE36 · TCD-36</span><span class="status-pill">NEGATIVE · NO SLOT</span></div><h3>10 m 3DEP + fluvial chi/knickpoints</h3><p>Owner run card: best arm <strong>HOLDOUT-DTI 0.194164</strong> (95% CI [0.180342, 0.208343]); evaluator <code>gems-segment-pooled-v1</code>; 60,988 withheld positives.</p><p>The same card reports a 99.35% literal registry overlap against a calibration lattice under its strict gate. A research raster is mentioned in the owner repo; this site does not link or validate it. The result is not comparable to POOL-1's different evaluator.</p><a href="https://github.com/buffedlizard55-lab/GEMSDOE36/blob/7edcc9b58e6ad0f88c6e6f5ee9218761a391769d/docs/downloads/tcd36-run-card.json" target="_blank" rel="noreferrer">Pinned run card ↗</a></article>
+      </div>
+      <p class="parallel-caveat">Secondary owner-maintained evidence; not independently replayed in ApartGEMSDOE3. No candidate was generated here. <a href="docs/research/repo-review.md">Full method comparison and provenance notes →</a></p>
+    </section>
+
+    <section class="section-wrap section-block" id="research">
+      <div class="section-heading section-heading-row">
+        <div><span class="eyebrow">Before the next experiment</span><h2>Four distinct leads. No score claims.</h2></div>
+        <p class="section-intro">Ranked by qualitative value and cost, with confounders and source coverage stated. These are preregistered research ideas—not results and not permission to leave the assigned lane.</p>
+      </div>
+      <div class="hypothesis-cards">
+        <article class="hypothesis-card featured"><div class="card-topline"><span class="rank-chip">01 · highest conditional</span><span class="cost-tag">High cost</span></div><h3>Depth-resolved airborne EM</h3><p>Test whether a USGS resistivity boundary or depth-continuous conductor marks a buried basement break or fluid pathway.</p><div class="card-meta"><strong>Key mimic</strong><span>Clay-rich/saline basin fill, lithologic contact, or inversion/flight-line artifact.</span></div><div class="card-meta"><strong>Gate</strong><span>Prove grid overlap and non-duplication with the competition conductivity bands first.</span></div></article>
+        <article class="hypothesis-card"><div class="card-topline"><span class="rank-chip">02</span><span class="cost-tag">Med–high cost</span></div><h3>Heat-flow residuals</h3><p>Use departures from the USGS background conductive field as an indirect, uncertain signal of blind hydrothermal upflow.</p><div class="card-meta"><strong>Key mimic</strong><span>Groundwater advection, lithology and sparse wells.</span></div></article>
+        <article class="hypothesis-card"><div class="card-topline"><span class="rank-chip">03</span><span class="cost-tag">Medium cost</span></div><h3>Focal-mechanism coherence</h3><p>Test earthquake mechanism orientation and uncertainty—not another event-density map.</p><div class="card-meta"><strong>Key mimic</strong><span>Sparse events, ambiguous nodal planes and network coverage.</span></div></article>
+        <article class="hypothesis-card"><div class="card-topline"><span class="rank-chip">04 · overlap caution</span><span class="cost-tag">Med–high cost</span></div><h3>Corrected radiometric edges</h3><p>Only consider flightline-debiased channel ratios; simple scarp–radiometric fusion already appears in wider GEMSDOE work.</p><div class="card-meta"><strong>Key mimic</strong><span>Acquisition stripes, soil and non-fault lithologic contacts.</span></div></article>
+      </div>
+      <div class="screened-note"><strong>Screened out to avoid duplication:</strong> generic LiDAR chi/knickpoint detection. The latest public GEMSDOE36 run card already describes 3DEP, chi/steepness and knickpoint features. <a href="docs/research/hypotheses.md">Read the full ranking, source checks and required holdout protocol →</a></div>
+    </section>
+
+    <section class="section-wrap section-block readiness-block">
+      <div class="section-heading"><span class="eyebrow">Automatic readiness gate</span><h2>All required evidence gates are still closed.</h2></div>
+      <div class="readiness-grid">
+        <div class="gate-item"><span class="gate-mark gate-pending" aria-hidden="true">–</span><div><strong>Authorized data & grid</strong><p>Competition download page redirects to login; sample raster and training grid absent.</p></div><span class="gate-state">BLOCKED</span></div>
+        <div class="gate-item"><span class="gate-mark gate-pending" aria-hidden="true">–</span><div><strong>Shared stack & evaluator</strong><p>Template cache bytes, canonical evaluator and writer are not installed locally.</p></div><span class="gate-state">BLOCKED</span></div>
+        <div class="gate-item"><span class="gate-mark gate-pending" aria-hidden="true">–</span><div><strong>Leakage canary & holdout</strong><p>No feature-alone AUC, whole-segment holdout, withheld-positive count, or 95% CI.</p></div><span class="gate-state">NOT RUN</span></div>
+        <div class="gate-item"><span class="gate-mark gate-pending" aria-hidden="true">–</span><div><strong>Full-registry uniqueness</strong><p>No new surface exists for rank-correlation or final-dot checks.</p></div><span class="gate-state">NOT RUN</span></div>
+        <div class="gate-item"><span class="gate-mark gate-pending" aria-hidden="true">–</span><div><strong>GeoTIFF format validator</strong><p>No file/grid exists to check band count, float32, nodata, range, CRS, shape or transform.</p></div><span class="gate-state">NOT RUN</span></div>
+        <div class="gate-item"><span class="gate-mark gate-pass" aria-hidden="true">✓</span><div><strong>Submission-slot guard</strong><p>No real slot was selected or used. Slot choice remains a separate decision.</p></div><span class="gate-state gate-state-pass">SAFE</span></div>
+      </div>
+      <div class="no-download"><span aria-hidden="true">↧</span><div><strong>No validated download is available.</strong><p>There is no GeoTIFF or ZIP in this repository. Historical peer artifacts are not linked as submission downloads.</p></div><a class="button button-quiet" href="docs/data/run-card.json">Check the run card</a></div>
+    </section>
+
+    <section class="section-wrap section-block sources-block">
+      <div class="section-heading section-heading-row"><div><span class="eyebrow">Manual-review links</span><h2>Sources before assumptions.</h2></div><p class="section-intro">Official task requirements and official geoscience data catalogs are linked directly. Catalog availability does not prove contest-grid coverage.</p></div>
+      <div class="source-links">
+        <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/" target="_blank" rel="noreferrer"><span>01</span><strong>Metric & submission format</strong><small>DrivenData problem page ↗</small></a>
+        <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/" target="_blank" rel="noreferrer"><span>02</span><strong>Official challenge data</strong><small>Login-gated in this review ↗</small></a>
+        <a href="https://www.usgs.gov/data/regional-airborne-electromagnetic-and-magnetic-surveys-basin-and-range-province-nevada-oregon" target="_blank" rel="noreferrer"><span>03</span><strong>USGS AEM · DOI 10.5066/P1UKDJSM</strong><small>Rank-1 research lead ↗</small></a>
+        <a href="https://www.usgs.gov/data/heat-flow-maps-and-supporting-data-great-basin-usa" target="_blank" rel="noreferrer"><span>04</span><strong>USGS Great Basin heat flow</strong><small>DOI 10.5066/P9BZPVUC ↗</small></a>
+        <a href="https://earthquake.usgs.gov/fdsnws/event/1/" target="_blank" rel="noreferrer"><span>05</span><strong>USGS ComCat API</strong><small>Event & mechanism source ↗</small></a>
+        <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf" target="_blank" rel="noreferrer"><span>06</span><strong>DOE GEMS official rules</strong><small>Review before any upload ↗</small></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-wrap">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">AG</span><span><strong>ApartGEMSDOE3</strong><small>Maximize P(Win) · Own the Outcome</small></span></a>
+    <p>Evidence first. No unverified score claims. No submission without a passing holdout, uniqueness audit and automatic file validator.</p>
+    <a href="README.md">Project charter ↗</a>
+  </footer>
+  <script src="assets/site.js" defer></script>
+</body>
+</html>
