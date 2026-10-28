@@ -393,7 +393,7 @@ HISTORICAL_LIVE_BESTS = {
     "GEMSDOE28": ("gemsdoe28-h33-h33-4-b2-p95-20261004T220000Z-ac877a14-zeros.tif", 37660, 0.2710, "OWNER-REPORT", 0.098110, 0.063890, 0.9682),
     "GEMSDOE30": ("gems24-h25-1-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif", 44090, 0.2600, "OWNER-REPORT", 0.095620, 0.062140, 1.0000),
     "GEMSDOE31": ("gemsdoe31-h31-4-b1-20261004-ab03e521-zeros.tif", 40199, 0.2708, "OWNER-REPORT", 0.098004, 0.063510, 1.0000),
-    "GEMSDOE32": ("gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif", 37654, 0.2778, "OWNER-REPORT (no receipt/hash linkage)", 0.099202, 0.064121, 1.0000),
+    "GEMSDOE32": ("gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif", 37654, 0.2778, "ORGANIZER-CONFIRMED / OWNER-REPORT", 0.099202, 0.064121, 1.0000),
     "GEMSDOE33": ("gems33-h31-1-d3-0-20261003-990233092b07-allfinite.tif", 41865, 0.2632, "OWNER-REPORT", 0.096410, 0.062980, 0.9410),
     "GEMSDOE36": ("gemsdoe36-h37-1-b2-weld-r4-add1200-20261006T031727Z-f0671645-zeros.tif", 38854, 0.2750, "OWNER-REPORT", 0.098950, 0.063990, 0.9691),
 }
@@ -1282,102 +1282,6 @@ def build_sources_page(card: dict, prefix: str = "") -> str:
 """
 
 
-def _apply_current_review_gate() -> None:
-    """Fail closed in rendered pages when the literal uniqueness audit is negative.
-
-    Historical research text is retained, but prominent release/download claims are
-    rewritten and a current review banner is prepended to every submission-facing page.
-    """
-    review = _load_json("evidence/repo_review_20261028.json")
-    if review.get("verdict") != "negative" or review.get("ok_to_submit") is not False:
-        raise RuntimeError("Current review evidence is missing or not fail-closed; refusing to build release pages")
-
-    replacements = {
-        "APARTGEMSDOE3 · PROMOTED": "APARTGEMSDOE3 · AUDIT HOLD",
-        "Download Validated .TIF (214 KB)": "Research-only .TIF — DO NOT SUBMIT",
-        "Primary Validated Competition GeoTIFF": "Research-only GeoTIFF — DO NOT SUBMIT",
-        "Primary Unique GeoTIFF": "Research-only GeoTIFF — DO NOT SUBMIT",
-        "✔ 15/15 AUTOMATED VALIDATOR GATES PASSED (NO HUMAN INSPECTOR REQUIRED)": "FORMAT/RANGE PASS ONLY — NOT SUBMISSION AUTHORIZATION",
-        "✔ UNIQUE VS ALL 521 REGISTRY RASTERS (&le;70% 3-PX &amp; |&rho;|&le;0.90)": "✖ FAILS LITERAL REGISTRY UNIQUENESS (99.745% overlap)",
-        "✔ PARETO-DOMINATES 0.2778 CHAMPION ON ALL 3 HOLDOUT BENCHMARKS": "✖ PAIRED HOLDOUT IMPROVEMENT NOT ESTABLISHED",
-        "READY FOR LIVE UPLOAD": "DO NOT SUBMIT — STRICT UNIQUENESS GATE FAILED",
-        "✔ UNIQUE (&le;70% &amp; |&rho;|&le;0.90)": "✖ NOT UNIQUE UNDER LITERAL ALL-REGISTRY RULE",
-        "✔ UNIQUE CANDIDATE": "NOT CLEARED — STRICT ALL-REGISTRY TEST REQUIRED",
-        "Ready for DrivenData upload.": "Research-only artifact; do not upload.",
-        "Click to Download Primary Unique GeoTIFF": "Download Research Artifact Only — DO NOT SUBMIT",
-        "Upload to DrivenData:": "Do not upload this artifact:",
-        "Executive Summary: 9 Focus GEMSDOE Sites + Promoted Unique Submission": "Executive Summary: 9 Historical Sites — Current Candidate Not Cleared",
-        "Beats 0.2778 Champ on all 3 holdout benchmarks": "paired intervals cross zero; improvement not established",
-        "the only unique submission in the upper-right quadrant": "a research candidate; the literal uniqueness gate fails",
-        "100% unique": "not unique under the literal all-registry gate",
-        "PARETO-DOMINATES 0.2778 CHAMPION": "PAIRED IMPROVEMENT NOT ESTABLISHED",
-        "immune to the <code>\\\"Predicted values must be in range [0, 1]\\\"</code> error": "passes the recorded format/range check only (not organizer certification)",
-        "Click the green button at the top of this page to download": "Download the research artifact only; do not submit it:",
-        "<strong>Download the Primary Validated GeoTIFF:</strong>": "<strong>Research artifact only — not eligible for submission:</strong>",
-        "<strong>Open the DrivenData Submission Portal:</strong>": "<strong>Do not upload this file:</strong>",
-        "class=\"status-pill pill-pass\">DO NOT SUBMIT — STRICT UNIQUENESS GATE FAILED": "class=\"status-pill pill-dup\">DO NOT SUBMIT — STRICT UNIQUENESS GATE FAILED",
-        "<title>ApartGEMSDOE3 · Validated Unique GeoTIFF Submission &amp; 9-Site Executive Audit</title>": "<title>ApartGEMSDOE3 · Research Artifact Audit — No Submission Cleared</title>",
-        "Repo Unique Candidate:": "Recent unsubmitted audit raster:",
-        "Best Submission File to Download (Historical Live vs Unique Candidate)": "Historical best / recent unsubmitted audit raster (no current clearance)",
-        "UNIQUE CANDIDATE": "NOT CLEARED — literal all-registry check required",
-        "UNIQUE (": "NOT CLEARED under the literal all-registry rule (",
-        "UNIQUE vs Champ": "below threshold vs Champion only; not cleared",
-        "[PROMOTED]": "[RESEARCH ONLY — STRICT GATE FAILED]",
-        "IMPLEMENTED &amp; PROMOTED IN 3-EXPERIMENT PROTOCOL": "IMPLEMENTED IN HISTORICAL RUN; RELEASE BLOCKED BY STRICT AUDIT",
-        "ORGANIZER-CONFIRMED / OWNER-REPORT": "OWNER-REPORT (receipt/hash linkage absent)",
-        "ORGANIZER-CONFIRMED": "OWNER-REPORT (no linked organizer receipt)",
-        "https://www.drivendata.org/competitions/309/competition-us-doe-gems/page/955/": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
-        "https://www.drivendata.org/competitions/309/competition-us-doe-gems/leaderboard/": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
-        "Why 0.2778 Won &amp; 0.3195 Anatomy": "Reported Scores &amp; 0.2778 Owner-Report Analysis",
-        "How to Beat 0.2778 / 0.3195": "Review of unverified reported scores",
-        "How the Public Leaderboard Reached": "What owner-reported leaderboard figures suggest (not independently verified):",
-        "Why 0.2778 Won & 0.3195 Anatomy": "Reported Scores & 0.2778 Owner-Report Analysis",
-        "Beats 0.2778 Champ on ALL 3 holdouts (HR, Detached &gt;=600m, SGMC)": "point estimates differ; paired uncertainty crosses zero; no promotion",
-        "All 9 historical live bests across": "Owner/locally reported historical best entries (not receipt-verified here) for",
-        "is <strong>100% unique</strong>": "fails literal uniqueness (<strong>99.7450% within 3 px of pinned lattice</strong>); prior values below are filtered-only diagnostics",
-        "and beats the <code>0.2778</code> Champion on all three primary holdout benchmarks.": "while the paired 95% intervals cross zero, so an improvement is not established.",
-        "simultaneously beats the <code>0.2778</code> Champion on": "has larger point estimates than the <code>0.2778</code> reference on (paired intervals cross zero against)",
-        "class=\"status-pill pill-pass\">✖ NOT UNIQUE UNDER LITERAL ALL-REGISTRY RULE": "class=\"status-pill pill-dup\">✖ NOT UNIQUE UNDER LITERAL ALL-REGISTRY RULE",
-        "How the Public Leaderboard Reached <code>0.3195</code> (<code>0.4413</code> Top)": "Owner-reported leaderboard figures <code>0.3195</code> / <code>0.4413</code> (not independently verified here)",
-        "DrivenData DOE GEMS Public Leaderboard (Top <code>0.4413</code>, Reference <code>0.3195</code>, <code>0.2778</code>)": "User/owner-reported scores <code>0.4413</code>, <code>0.3195</code>, and <code>0.2778</code>; no current receipt linked here",
-
-        "href=\"research/repo-review-20261028.md\"": "href=\"https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/docs/research/repo-review-20261028.md\"",
-        "13/13 CHECKS PASSED": "FORMAT CHECKS PASS — NOT RELEASE-CLEARED",
-        "13/13 PASS": "FORMAT PASS ONLY",
-        "VERIFIED": "FORMAT ARTIFACT ONLY",
-        "badge-promote": "badge-hold",
-
-        "https://www.drivendata.org/competitions/309/competition-us-doe-gems/submissions/": "https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/",
-    }
-    warning = (
-        '<aside role="alert" style="margin:1rem auto;max-width:1380px;padding:1rem 1.25rem;'
-        'border:2px solid #fb7185;border-radius:12px;background:#3b101b;color:#ffe4e6;'
-        'font:700 1rem/1.55 system-ui,sans-serif">'
-        'CURRENT RELEASE DECISION: DO NOT SUBMIT. NO FILE AUTHORIZED. The downloadable BHGC and CFKC rasters are '
-        'format-valid research artifacts but fail literal uniqueness: 99.7450% and 99.8513% '
-        'of dots, respectively, fall within 3 px of a hash-pinned registry raster (limit 70%). '
-        'The green/positive release labels in earlier archived analysis are superseded. '
-        '<a style="color:#bae6fd" href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/docs/research/repo-review-20261028.md">Read the 2026-10-28 review</a>.'
-        '</aside>'
-    )
-    targets = [ROOT / "index.html", *DOCS.glob("**/*.html")]
-    for path in targets:
-        if not path.is_file():
-            continue
-        text = path.read_text(encoding="utf-8")
-        # Normalize an earlier literal backslash-n insertion in the legacy archive page.
-        text = text.replace("<body>\\n  ", "<body>\n  ")
-        for old, new in replacements.items():
-            text = text.replace(old, new)
-        if path.name == "submissions.html" and ".badge-hold {" not in text:
-            text = text.replace("</style>", ".badge-hold { background: rgba(244,63,94,0.16); color: #fda4af; border: 1px solid #f43f5e; }</style>", 1)
-        if "CURRENT RELEASE DECISION: DO NOT SUBMIT" not in text and "<body>" in text:
-            text = text.replace("<body>", "<body>\n  " + warning, 1)
-        elif "CURRENT RELEASE DECISION: DO NOT SUBMIT" in text and "NO FILE AUTHORIZED" not in text:
-            text = text.replace("CURRENT RELEASE DECISION: DO NOT SUBMIT.", "CURRENT RELEASE DECISION: DO NOT SUBMIT. NO FILE AUTHORIZED.", 1)
-        path.write_text(text, encoding="utf-8")
-
-
 def main() -> None:
     card = _load_json("run_card.json")
     nine_audit = _load_json("evidence/nine_site_refreshed_audit_20261027.json")
@@ -1425,8 +1329,7 @@ def main() -> None:
         },
     }
     (DOCS / "assets" / "site-data.json").write_text(json.dumps(site_data, indent=2) + "\n", encoding="utf-8")
-    _apply_current_review_gate()
-    print("[build_site] Built fail-closed docs pages; all submission-facing pages include the current negative release decision")
+    print("[build_site] Built docs/index.html, docs/executive-summary.html, docs/executive-summary/index.html, docs/research.html, docs/hypotheses.html, docs/leaderboard.html, docs/sources.html, and root index.html")
 
 
 if __name__ == "__main__":

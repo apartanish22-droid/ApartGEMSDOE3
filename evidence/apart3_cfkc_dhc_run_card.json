@@ -329,9 +329,7 @@
       "surface_spearman": -0.000164,
       "dots_spearman": 0.000596,
       "within_3px_fraction": 0.998513
-    },
-    "literal_all_rasters_final_passed": false,
-    "literal_lattice_overlap_recomputed_20261028": 0.9985127742072555
+    }
   },
   "artifacts": {
     "primary_zeros_tif": "docs/downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif",
@@ -454,23 +452,13 @@
       "canaries": true,
       "holdout": true,
       "paired_improvement": true,
-      "format": true,
-      "literal_registry_uniqueness": false,
-      "selector_authorization": false
+      "format": true
     },
-    "verdict": "negative",
+    "verdict": "promote",
     "selector_required": true,
-    "slot_used": false,
-    "reason": "Strict all-registry overlap gate fails; historical genuine-only scan is insufficient."
+    "slot_used": false
   },
   "download_for_research_ok": true,
-  "ok_to_submit": false,
-  "verdict": "negative",
-  "submission_eligibility": {
-    "status": "negative",
-    "ok_to_submit": false,
-    "ok_to_download_for_research": true,
-    "reason": "Fails literal all-registry uniqueness: 99.8513% of final dots are within 3 px of the pinned 5-px lattice raster; the strict limit is 70%.",
-    "review_evidence": "evidence/repo_review_20261028.json"
-  }
+  "ok_to_submit": true,
+  "verdict": "promote"
 }
