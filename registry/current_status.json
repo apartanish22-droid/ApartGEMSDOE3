@@ -1,10 +1,9 @@
 {
  "schema_version": 1,
- "updated_utc": "2026-10-28",
- "single_source_of_truth": "README top block and every site page render from this file; update it, never add a second banner",
+ "updated_utc": "2026-10-28T05:55:23Z",
+ "single_source_of_truth": "Fail-closed release status is recorded in registry/current_status.json and root run_card.json; one-raster recheck evidence is evidence/release_recheck_20261028.json, and the broader repository audit is evidence/repo_review_20261028.json. Historical run cards are not authorization.",
  "any_file_ok_to_submit": false,
- "headline": "No file is authorized for upload. The 2026-10-28 audit directly measured 99.7450% and 99.8513% final-dot overlap for the BHGC and CFKC research TIFs against the pinned GEMSDOE24 5-px calibration raster. Both exceed the literal 70% rule. Format/range validation passed, but uniqueness failed; no new experiment or weekly slot was used.",
- "current_review_20261028": {"report": "evidence/repo_review_20261028.json", "registry_raster_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2", "bhgc_within_3px_fraction": 0.9974504700695809, "cfkc_within_3px_fraction": 0.9985127742072555, "threshold": 0.7, "passed": false},
+ "headline": "DO NOT SUBMIT: independent one-raster check finds both local research TIFs fail literal final-dot overlap against a registered 5-px lattice (CFKC 99.8513%; BHGC 99.7450%, threshold 70%). Format checks pass against an owner-supplied, integrity-pinned mirror only; no slot is authorized.",
  "gate_rule": "OK TO SUBMIT requires an explicitly assigned method lane; all feature-only leakage canaries <=0.90; a fold-local HOLDOUT-DTI win with paired 95% CI >0 against the current same-evaluator repo best; no SGMC-cal regression against the Champion; literal surface/final-dot uniqueness against every registry raster (Spearman <=0.90 and <=70% within 3 px); exact saved-byte format/range validation; and separate weekly-slot selector approval. No human inspection.",
  "best_scored": {
   "file": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
@@ -14,134 +13,7 @@
   "dots": 37654,
   "advice": "already submitted - do not resubmit (a resubmission spends a slot and adds no information)"
  },
- "newest_unique": {
-  "file": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.tif",
-  "zip": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.zip",
-  "receipt": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-audit.json",
-  "run_card": "evidence/h48_fbgr_run_card.json",
-  "preregistration": "docs/research/h48-fbgr-preregistration-20261027.md",
-  "results_doc": "docs/research/h48-fbgr-results-and-nine-site-executive-summary-20261027.md",
-  "sha256": "4177f236b7c6a26fdf39d85f0896d1a83da745c9a36b04be7fe201a0076bf29f",
-  "bytes": 211799,
-  "dots": 37654,
-  "submission_name": "GEMSDOE32-H48-FBGR-4D38A240",
-  "note": "H48-1 FBGR dualcover d2.8 37654d B2 | HR=0.1153 SGMC=0.0568 | DO NOT SUBMIT",
-  "verdict": "DO NOT SUBMIT \u2014 research/audit artifact; SGMC-cal below 0.2778 Champion & literal calibration-lattice stop",
-  "ok_to_download": true,
-  "ok_to_submit": false,
-  "hypothesis": "H48-1-FBGR: Fourier-Continued Basement-Graben Relay (z=500m, 2km), GeoDAWN 4-Block Standardized 214Bi Radon & Silica/Potassic DoG Zonation + BLM Epithermal Claims, and Stationary Dual-Cover (83-ch M_Full + 71-ch LiDAR-free M_Sub) Axial d=2.8 CELF (37,654 dots, B=2, zero eta switch).",
-  "canary": {
-   "n_pass": 83,
-   "n_channels": 83,
-   "max_auc": 0.586868,
-   "worst_channel": "curv_s2"
-  },
-  "holdout_label": "HOLDOUT-DTI, GEMSDOE32-HIDE-RECOVER-v3.0, 22,232 withheld positives, 95% spatial-block CI",
-  "holdout": {
-   "H48-1-FBGR Dual-Cover Axial d=2.8 (EXP3)": {
-    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
-    "n_withheld_positives": 22232,
-    "dti": 0.115341,
-    "ci95": [
-     0.100168,
-     0.130524
-    ]
-   },
-   "H48-1 Single-83ch Axial d=2.8 (EXP1)": {
-    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
-    "n_withheld_positives": 22232,
-    "dti": 0.115254,
-    "ci95": [
-     0.100591,
-     0.129625
-    ]
-   },
-   "H48-1 Dual-Cover Raw CELF d=0.0 (EXP2)": {
-    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
-    "n_withheld_positives": 22232,
-    "dti": 0.103264,
-    "ci95": [
-     0.088533,
-     0.117621
-    ]
-   },
-   "fold-collared B2 Champion proxy": {
-    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
-    "n_withheld_positives": 22232,
-    "dti": 0.099202,
-    "ci95": [
-     0.085951,
-     0.112668
-    ]
-   },
-   "H48-1 Detached >=600m segments (n=15,504)": {
-    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0-detached600m",
-    "n_withheld_positives": 15504,
-    "dti": 0.101168,
-    "ci95": [
-     0.085002,
-     0.117569
-    ]
-   }
-  },
-  "off_catalogue_label": "HOLDOUT-DTI diagnostic, GEMSDOE32-SGMC-CAL-v3.0, 62,703 USGS SGMC off-catalogue positives, prevalence-calibrated 95% CI",
-  "off_catalogue_instrument": {
-   "H48-1-FBGR Dual-Cover Axial d=2.8 (EXP3)": {
-    "dti": 0.056798,
-    "ci95": [
-     0.050345,
-     0.063015
-    ]
-   },
-   "0.2778 Champion proxy": {
-    "dti": 0.064121,
-    "ci95": [
-     0.05673,
-     0.071649
-    ]
-   }
-  },
-  "uniqueness": {
-   "manifest_rasters": 519,
-   "unique_hash_rasters_checked": 463,
-   "genuine_rasters_checked": 439,
-   "focus_site_genuine_checked": 397,
-   "preplacement_surface_passed": true,
-   "max_abs_spearman": 0.63146,
-   "genuine_final_dots_passed": true,
-   "max_genuine_3px_overlap": 0.688187,
-   "max_focus_site_3px_overlap": 0.659425,
-   "literal_lattice_overlap": 0.997769,
-   "literal_all_registry_passed": false,
-   "registry_refreshed_utc": "2026-10-27T19:11:58Z"
-  },
-  "validator": {
-   "strict_cli_passed": true,
-   "geotiff_13_checks_passed": true,
-   "crs": "EPSG:32611",
-   "shape": [
-    3730,
-    3292
-   ],
-   "transform": [
-    100.0,
-    0.0,
-    243350.0,
-    0.0,
-    -100.0,
-    4508550.0
-   ],
-   "dtype": "float32",
-   "nodata": null,
-   "nan_anywhere": 0,
-   "values_in_0_1": true
-  },
-  "reasons": [
-   "EXP3 beats the 0.2778 Champion on GEMSDOE32-HIDE-RECOVER-v3.0 (0.115341 [0.100168, 0.130524] vs 0.099202, paired delta +0.016217 [+0.008599, +0.024287], p=1.000) and achieves the repository's highest stationary Detached >=600 m withheld-segment DTI (0.101168 [0.085002, 0.117569] vs Champion 0.094324 and H47-1 0.091842), while min_sep_px=2.8 beats d=0.0 EXP2 by +0.012020 on HIDE-RECOVER (p=1.000) and +0.016038 (+39.4%) on SGMC-cal (p=1.000).",
-   "Passes all 83 feature leakage canaries (max AUC = 0.586868 <= 0.90), 13/13 automated GeoTIFF byte/range checks (0 NaNs anywhere in 12,279,160 cells, float32 in [0,1]), and genuine uniqueness across 439 discrete <=100k-dot rasters from 9 focus sites + extra scored + KANLERGEMSDOE1..3 + WBGGEMSDOE1..3 (max focus-site 3-px overlap 65.94% <= 70.0%; max all-org <=100k overlap 68.82% <= 70.0%; max |Spearman| 0.63146 <= 0.90).",
-   "Held fail-closed as DO NOT SUBMIT (verdict=negative, 0 weekly slots spent) because: (1) off-catalogue SGMC-cal v3.0 (0.056798) trails the 0.2778 Champion (0.064121) due to multiplicative OOF decay beyond 1.5 km; (2) literal unexempted release_gate.compare_registry hits the 206,895-dot r13-lattice-s5 calibration grid (99.78%, IR-51-LATTICE-01) and WBGGEMSDOE1/2 continuous 5.1M-pixel surfaces (IR-48-WBG-SURFACE-01); and (3) weekly slot promotion requires separate human selector approval."
-  ]
- },
+ "newest_unique": null,
  "withdrawn": [
   {
    "file": "docs/downloads/gemsdoe32-h42-hwci-37654-20261026T001226Z-b91008fa-zeros.tif",
@@ -637,18 +509,16 @@
   }
  },
  "release_gates_latest": {
-  "lane_explicitly_assigned": true,
-  "lane_note": "IR-ARENA49-LANE-01: prompt method paragraph absent; Rank-1 hypothesis adopted as lane in frozen pre-registration docs/research/arena49-pc-preregistration-20261026.md",
-  "canary": true,
-  "beats_repository_best_holdout_point": true,
-  "paired_holdout_ci_vs_repository_best": true,
-  "beats_champion_on_sgmc_calibrated": true,
-  "genuine_surface_uniqueness": true,
-  "genuine_final_dot_uniqueness": true,
+  "lane_explicitly_assigned": false,
+  "lane_note": "The prompt references a single method paragraph but no such paragraph is identified; no new experiment was selected.",
   "literal_all_registry_uniqueness": false,
-  "format_saved_bytes": true,
+  "one_registry_lattice_overlap_cfkc": 0.9985127742072555,
+  "one_registry_lattice_overlap_bhgc": 0.9974504700695809,
+  "limit": 0.7,
+  "format_against_owner_mirror": true,
+  "full_registry_scan_complete": false,
   "weekly_slot_selector": false,
-  "verdict": "HOLD-DO-NOT-SUBMIT-YET (selector + lattice disposition required)"
+  "verdict": "negative"
  },
  "arena47_candidate": {
   "file": "docs/downloads/gemsdoe32-arena47-perturb-h38-unique-20261026T202108Z-9ab73056-zeros.tif",
@@ -1311,5 +1181,158 @@
    "Held fail-closed as DO NOT SUBMIT (verdict=negative, 0 weekly slots spent) because: (1) evidence/h38_run_card.json did not archive its 1,000 spatial-bootstrap draw vector so paired_delta_vs_repository_best_h38 is None; (2) the literal unexempted all-registry check hits the synthetic 5-px calibration lattice r13-lattice-s5 (99.615% > 70%, IR-32-PIGEONHOLE-01); and (3) spending a scarce weekly slot requires separate human selector approval."
   ],
   "results_doc": "docs/research/h47-ldgi-results-and-nine-site-executive-summary-20261026.md"
- }
+ },
+ "current_review": "evidence/release_recheck_20261028.json",
+ "current_run_card": "run_card.json",
+ "previous_newest_unique_H48": {
+  "file": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.tif",
+  "zip": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.zip",
+  "receipt": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-audit.json",
+  "run_card": "evidence/h48_fbgr_run_card.json",
+  "preregistration": "docs/research/h48-fbgr-preregistration-20261027.md",
+  "results_doc": "docs/research/h48-fbgr-results-and-nine-site-executive-summary-20261027.md",
+  "sha256": "4177f236b7c6a26fdf39d85f0896d1a83da745c9a36b04be7fe201a0076bf29f",
+  "bytes": 211799,
+  "dots": 37654,
+  "submission_name": "GEMSDOE32-H48-FBGR-4D38A240",
+  "note": "H48-1 FBGR dualcover d2.8 37654d B2 | HR=0.1153 SGMC=0.0568 | DO NOT SUBMIT",
+  "verdict": "DO NOT SUBMIT \u2014 research/audit artifact; SGMC-cal below 0.2778 Champion & literal calibration-lattice stop",
+  "ok_to_download": true,
+  "ok_to_submit": false,
+  "hypothesis": "H48-1-FBGR: Fourier-Continued Basement-Graben Relay (z=500m, 2km), GeoDAWN 4-Block Standardized 214Bi Radon & Silica/Potassic DoG Zonation + BLM Epithermal Claims, and Stationary Dual-Cover (83-ch M_Full + 71-ch LiDAR-free M_Sub) Axial d=2.8 CELF (37,654 dots, B=2, zero eta switch).",
+  "canary": {
+   "n_pass": 83,
+   "n_channels": 83,
+   "max_auc": 0.586868,
+   "worst_channel": "curv_s2"
+  },
+  "holdout_label": "HOLDOUT-DTI, GEMSDOE32-HIDE-RECOVER-v3.0, 22,232 withheld positives, 95% spatial-block CI",
+  "holdout": {
+   "H48-1-FBGR Dual-Cover Axial d=2.8 (EXP3)": {
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "n_withheld_positives": 22232,
+    "dti": 0.115341,
+    "ci95": [
+     0.100168,
+     0.130524
+    ]
+   },
+   "H48-1 Single-83ch Axial d=2.8 (EXP1)": {
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "n_withheld_positives": 22232,
+    "dti": 0.115254,
+    "ci95": [
+     0.100591,
+     0.129625
+    ]
+   },
+   "H48-1 Dual-Cover Raw CELF d=0.0 (EXP2)": {
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "n_withheld_positives": 22232,
+    "dti": 0.103264,
+    "ci95": [
+     0.088533,
+     0.117621
+    ]
+   },
+   "fold-collared B2 Champion proxy": {
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "n_withheld_positives": 22232,
+    "dti": 0.099202,
+    "ci95": [
+     0.085951,
+     0.112668
+    ]
+   },
+   "H48-1 Detached >=600m segments (n=15,504)": {
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0-detached600m",
+    "n_withheld_positives": 15504,
+    "dti": 0.101168,
+    "ci95": [
+     0.085002,
+     0.117569
+    ]
+   }
+  },
+  "off_catalogue_label": "HOLDOUT-DTI diagnostic, GEMSDOE32-SGMC-CAL-v3.0, 62,703 USGS SGMC off-catalogue positives, prevalence-calibrated 95% CI",
+  "off_catalogue_instrument": {
+   "H48-1-FBGR Dual-Cover Axial d=2.8 (EXP3)": {
+    "dti": 0.056798,
+    "ci95": [
+     0.050345,
+     0.063015
+    ]
+   },
+   "0.2778 Champion proxy": {
+    "dti": 0.064121,
+    "ci95": [
+     0.05673,
+     0.071649
+    ]
+   }
+  },
+  "uniqueness": {
+   "manifest_rasters": 519,
+   "unique_hash_rasters_checked": 463,
+   "genuine_rasters_checked": 439,
+   "focus_site_genuine_checked": 397,
+   "preplacement_surface_passed": true,
+   "max_abs_spearman": 0.63146,
+   "genuine_final_dots_passed": true,
+   "max_genuine_3px_overlap": 0.688187,
+   "max_focus_site_3px_overlap": 0.659425,
+   "literal_lattice_overlap": 0.997769,
+   "literal_all_registry_passed": false,
+   "registry_refreshed_utc": "2026-10-27T19:11:58Z"
+  },
+  "validator": {
+   "strict_cli_passed": true,
+   "geotiff_13_checks_passed": true,
+   "crs": "EPSG:32611",
+   "shape": [
+    3730,
+    3292
+   ],
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "dtype": "float32",
+   "nodata": null,
+   "nan_anywhere": 0,
+   "values_in_0_1": true
+  },
+  "reasons": [
+   "EXP3 beats the 0.2778 Champion on GEMSDOE32-HIDE-RECOVER-v3.0 (0.115341 [0.100168, 0.130524] vs 0.099202, paired delta +0.016217 [+0.008599, +0.024287], p=1.000) and achieves the repository's highest stationary Detached >=600 m withheld-segment DTI (0.101168 [0.085002, 0.117569] vs Champion 0.094324 and H47-1 0.091842), while min_sep_px=2.8 beats d=0.0 EXP2 by +0.012020 on HIDE-RECOVER (p=1.000) and +0.016038 (+39.4%) on SGMC-cal (p=1.000).",
+   "Passes all 83 feature leakage canaries (max AUC = 0.586868 <= 0.90), 13/13 automated GeoTIFF byte/range checks (0 NaNs anywhere in 12,279,160 cells, float32 in [0,1]), and genuine uniqueness across 439 discrete <=100k-dot rasters from 9 focus sites + extra scored + KANLERGEMSDOE1..3 + WBGGEMSDOE1..3 (max focus-site 3-px overlap 65.94% <= 70.0%; max all-org <=100k overlap 68.82% <= 70.0%; max |Spearman| 0.63146 <= 0.90).",
+   "Held fail-closed as DO NOT SUBMIT (verdict=negative, 0 weekly slots spent) because: (1) off-catalogue SGMC-cal v3.0 (0.056798) trails the 0.2778 Champion (0.064121) due to multiplicative OOF decay beyond 1.5 km; (2) literal unexempted release_gate.compare_registry hits the 206,895-dot r13-lattice-s5 calibration grid (99.78%, IR-51-LATTICE-01) and WBGGEMSDOE1/2 continuous 5.1M-pixel surfaces (IR-48-WBG-SURFACE-01); and (3) weekly slot promotion requires separate human selector approval."
+  ]
+ },
+ "current_candidate": {
+  "candidate_id": "H-APART3-1-CFKC-DHC",
+  "recorded_utc": "2026-10-27T22:52:55Z",
+  "artifact": "docs/downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif",
+  "sha256": "afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065",
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "literal_registry_overlap_within_3px": 0.9985127742072555,
+  "limit": 0.7,
+  "slot_used": false,
+  "format_rechecked_against_owner_mirror": true,
+  "organizer_authenticated": false,
+  "source": "run_card.json; evidence/release_recheck_20261028.json"
+ },
+ "current_review_20261028": {
+  "report": "evidence/repo_review_20261028.json",
+  "registry_raster_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+  "bhgc_within_3px_fraction": 0.9974504700695809,
+  "cfkc_within_3px_fraction": 0.9985127742072555,
+  "threshold": 0.7,
+  "passed": false
+ },
+ "latest_comprehensive_review": "docs/research/repo-review-20261028.md; evidence/repo_review_20261028.json"
 }

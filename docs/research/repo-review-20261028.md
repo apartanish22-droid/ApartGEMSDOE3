@@ -21,7 +21,7 @@ This is a review of the existing implementation and artifacts, not a new geologi
 5. **Stale/conflicting release artifacts (reconciled in this review):** before the edits, the README and rendered portal promoted BHGC while `docs/data/latest-run-card.json` named CFKC. The README, current run cards, sidecar audits, registry status headline, and generated pages now carry a negative release decision. Some archived forensic details remain for provenance and are visibly subordinate to the current warning; a future broad registry refresh is still needed.
 6. **Submission portal URL defect:** `scripts/build_site.py` generated a link under competition `309`, while the official competition URL supplied by the user and verified by web search is competition `306`. The link is corrected in the generator to use the official competition identifier.
 7. **Data provenance/availability:** this checkout did not contain the competition rasters or the full feature cache. For this review only, the sample grid, labels and SGMC diagnostic layer were restored from the hash-pinned owner mirror into ignored `.cache/` storage. The manifest explicitly labels the core competition files as owner-supplied mirrors, **not organizer-authenticated**. Full candidate reproduction/training and an independent hide-and-recover rerun were not possible from the checked-in files alone.
-8. **Tests:** after installing the declared Python requirements and restoring the three small test inputs above, the updated `pytest -q` suite returned **90 passed, 1 skipped** (33 Rasterio `PendingDeprecationWarning`s). The first post-edit run exposed one stale test that still expected the obsolete `promote` verdict; it was updated to assert negative eligibility and the literal lattice overlap failure, after which the full suite passed.
+8. **Tests:** after installing the declared Python requirements and restoring the three small test inputs above, the updated `pytest -q` suite returned **88 passed, 2 skipped** (32 Rasterio `PendingDeprecationWarning`s). The first post-edit run exposed one stale test that still expected the obsolete `promote` verdict; it was updated to assert negative eligibility and the literal lattice overlap failure, after which the full suite passed.
 
 ## Focus-site summary
 
@@ -81,4 +81,4 @@ These are research proposals only. They have not been tested in this review; nov
 - Sample template / labels / SGMC mirror SHA-256 matched the manifest when restored.
 - Candidate raster metadata, values and hashes were directly read and verified with Rasterio.
 - The lattice raster SHA-256 matched the pinned registry manifest; final-dot overlap was recomputed directly.
-- Full test suite after merging the current upstream fail-closed audit: `90 passed, 1 skipped`, with 33 Rasterio `PendingDeprecationWarning`s.
+- Full test suite after merging the current upstream fail-closed audit: `88 passed, 2 skipped`, with 32 Rasterio `PendingDeprecationWarning`s.

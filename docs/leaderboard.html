@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>524-Raster Registry Uniqueness Scan &amp; Leaderboard · ApartGEMSDOE3</title>
+  <title>Historical Registry Scan &amp; Leaderboard · ApartGEMSDOE3</title>
   <style>
 :root {
   --bg: #070b14;
@@ -370,24 +370,26 @@ tr.row-highlight td {
 </style>
 </head>
 <body>
+  <aside role="alert" style="margin:1rem auto;max-width:1380px;padding:1rem 1.25rem;border:2px solid #fb7185;border-radius:12px;background:#3b101b;color:#ffe4e6;font:700 1rem/1.55 system-ui,sans-serif">CURRENT RELEASE DECISION: DO NOT SUBMIT. NO FILE AUTHORIZED. The downloadable BHGC and CFKC rasters are format-valid research artifacts but fail literal uniqueness: 99.7450% and 99.8513% of dots, respectively, fall within 3 px of a hash-pinned registry raster (limit 70%). The green/positive release labels in earlier archived analysis are superseded. <a style="color:#bae6fd" href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/docs/research/repo-review-20261028.md">Read the 2026-10-28 review</a>.</aside>
   
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">
-      <span class="brand-badge">APARTGEMSDOE3 · PROMOTED</span>
+      <span class="brand-badge">APARTGEMSDOE3 · AUDIT HOLD</span>
       <span>DOE GEMS Fault Detection · H-APART-1 (BHGC-3)</span>
     </div>
     <nav class="nav-links">
-      <a href="index.html" class="">Overview & Download</a><a href="executive-summary.html" class="">Executive Summary (9-Site Audit)</a><a href="research.html" class="">Why 0.2778 Won & 0.3195 Anatomy</a><a href="hypotheses.html" class="">4 Hypotheses & 3 Ablations</a><a href="leaderboard.html" class="active">524-Raster Uniqueness & Leaderboard</a><a href="sources.html" class="">Official Sources & Run Card</a><a href="downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif" class="nav-cta" download>⬇ Download Validated .TIF (214 KB)</a>
+      <a href="index.html" class="">Overview & Download</a><a href="executive-summary.html" class="">Executive Summary (9-Site Audit)</a><a href="research.html" class="">Reported Scores & 0.2778 Owner-Report Analysis</a><a href="hypotheses.html" class="">4 Hypotheses & 3 Ablations</a><a href="leaderboard.html" class="active">Historical Registry Scan & Leaderboard</a><a href="sources.html" class="">Official Sources & Run Card</a><a href="downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif" class="nav-cta" download>⬇ Research-only .TIF — DO NOT SUBMIT</a>
     </nav>
   </div>
 </header>
 
   <main class="container">
     <div class="section">
-      <h2>Full 521-Unique-Raster Cross-Site Uniqueness Scan (<code>registry/registry_uniqueness_scan_20261027.json</code>)</h2>
+      <h2>Archived 2026-10-27 521-Raster Scan — Not Current Release Clearance (<code>registry/registry_uniqueness_scan_20261027.json</code>)</h2>
+      <p><strong>Historical archive only — not a fresh 2026-10-28 scan or current clearance.</strong> The green maxima below are filtered comparisons to the historical genuine-discrete subset; they do not satisfy the literal “any registry raster” rule. This review independently rechecked one pinned calibration raster and found CFKC <strong>99.8513%</strong> and BHGC <strong>99.7450%</strong> of final dots within 3 px (70% limit). A refreshed full-registry scan was not performed here. See the <a href="research/repo-review-20261028.md">dated repository review</a> and <a href="release-status.html">release status</a>.</p>
       <p>
-        Per Parallel-Run Protocol Rule 1, we scanned both the pre-placement continuous surface <code>S_BHGC</code> and the final <code>37,654</code> binary dots against all <strong>521 unique external SHA-256 rasters</strong> (583 registry paths across <code>GEMSDOE24..36</code>, <code>13GEMS..29GEMSDOE</code>, <code>KANLERGEMSDOE1..3</code>, <code>WBGGEMSDOE1..3</code>, <code>GEMSDOEkarage1..3</code>, <code>GINNYGEMSDOE1..3</code>, <code>EUGGEMSDOE1..3</code>, and <code>ApartGEMSDOE1..2</code>, partitioned into <strong>495 genuine discrete submissions &le; 100k dots</strong> and 26 space-filling diagnostic probes such as <code>13gems_20261001_r13-lattice-s5_v2_nan-outside.tif</code> which places <code>206,895</code> dots on a 5-px grid covering <code>99.87%</code> of the entire footprint at 3-px radius).
+        The stored 2026-10-27 record reports a scan of both the pre-placement continuous surface <code>S_BHGC</code> and the final <code>37,654</code> binary dots against <strong>521 unique external SHA-256 rasters</strong> (583 registry paths across <code>GEMSDOE24..36</code>, <code>13GEMS..29GEMSDOE</code>, <code>KANLERGEMSDOE1..3</code>, <code>WBGGEMSDOE1..3</code>, <code>GEMSDOEkarage1..3</code>, <code>GINNYGEMSDOE1..3</code>, <code>EUGGEMSDOE1..3</code>, and <code>ApartGEMSDOE1..2</code>, partitioned into <strong>495 genuine discrete submissions &le; 100k dots</strong>, 25 ultra-dense/continuous probes, and the separately counted calibration lattice <code>13gems_20261001_r13-lattice-s5_v2_nan-outside.tif</code> which places <code>206,895</code> dots on a 5-px grid covering <code>99.87%</code> of the entire footprint at 3-px radius).
       </p>
       <div class="kpi-grid">
         <div class="kpi-card">
@@ -693,7 +695,7 @@ tr.row-highlight td {
     </div>
   </main>
   <footer class="footer">
-    ApartGEMSDOE3 · 524-Raster Registry Uniqueness Scan · <a href="index.html">Back to Main Portal</a>
+    ApartGEMSDOE3 · Historical Registry Scan · <a href="index.html">Back to Main Portal</a>
   </footer>
 </body>
 </html>

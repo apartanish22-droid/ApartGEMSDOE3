@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Release status and executive summary · ApartGEMSDOE3</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--panel:#141d32;--line:#2a3a59;--text:#eff4ff;--muted:#afbdd2;--blue:#8fd3ff;--red:#ffb5ae;--redbg:#381b25;--green:#a7edc4}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}main{max-width:1120px;margin:auto;padding:28px 20px 56px}a{color:var(--blue)}h1,h2{line-height:1.2}h1{font-size:clamp(2rem,5vw,3.3rem);margin:12px 0}h2{font-size:1.55rem;margin-top:2.2rem}.muted{color:var(--muted)}.stop{background:var(--redbg);border:2px solid #ff746e;border-radius:16px;padding:22px;margin:20px 0}.stop strong{color:var(--red);font-size:1.15rem}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:850px}th,td{text-align:left;vertical-align:top;padding:11px;border-bottom:1px solid var(--line)}th{color:var(--blue)}code{overflow-wrap:anywhere;background:#09101f;padding:2px 5px;border-radius:4px}.tag{display:inline-block;padding:3px 9px;border:1px solid #ff746e;border-radius:20px;color:var(--red);font-weight:700}.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.kpi{background:#0d1528;border:1px solid var(--line);border-radius:10px;padding:14px}.kpi b{display:block;font:700 1.35rem ui-monospace,monospace;margin:4px 0}.note{font-size:.92rem;color:var(--muted)}.button{display:inline-block;background:#182846;color:#d8edff;padding:10px 14px;border-radius:8px;border:1px solid #42638d;text-decoration:none;font-weight:700}.button:hover{background:#20385d}footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted)}
+  </style>
+</head>
+<body><main>
+  <p class="muted"><a href="index.html">ApartGEMSDOE3</a> / Current status</p>
+  <span class="tag">NEGATIVE RELEASE · NO SLOT AUTHORIZED</span>
+  <h1>Executive summary &amp; release gate</h1>
+  <p class="muted">Status reviewed 2026-10-28 UTC. This page distinguishes owner-reported historic leaderboard scores, local holdout metrics, file-format checks, uniqueness, and actual submission authorization.</p>
+
+  <section class="stop" role="alert">
+    <strong>DO NOT SUBMIT THE CURRENT TIF.</strong>
+    <p>The latest recorded candidate fails the literal registry duplicate rule: an independent one-raster audit measured <b>99.8513%</b> of CFKC final dots within 3 px of a registered calibration-lattice raster. The older BHGC artifact also fails at <b>99.7450%</b>. The allowed threshold is 70%. Both original experiment cards' “promote” labels are superseded by the negative decision in <a href="../run_card.json">the current run card</a>.</p>
+    <p>Its recorded file-format checks are not a waiver of the duplicate stop, not an organizer validation receipt, and not permission to use a weekly submission slot. No current file is authorized to submit.</p>
+    <p>No new experiment or TIFF was generated in this review: the prompt refers to a single method paragraph but does not identify one, and the full training stack is absent. We did not guess a method lane or spend a weekly slot.</p>
+  </section>
+
+  <section class="card">
+    <h2 style="margin-top:0">Historical leader among the nine named sites</h2>
+    <p>The best result in the submitted history provided for this review is GEMSDOE32's <code>h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros</code>, score <b>OWNER-REPORT 0.2778</b>. It is a previously submitted reference, not a novel candidate and not evidence that a new method will exceed it. The score is not marked ORGANIZER-CONFIRMED because this checkout has no submission-page receipt tying that exact raster hash to that score.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Site</th><th>Best file in supplied history</th><th>Historical score provenance</th><th>Recommendation</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE24/">GEMSDOE24</a></td><td><code>h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan</code></td><td>OWNER-REPORT 0.2477</td><td>Historical reference only; do not copy/resubmit.</td></tr>
+        <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE25/">GEMSDOE25</a></td><td><code>dotted-h19-5-d2-8-20261002-e56ea318af89-nan</code></td><td>OWNER-REPORT 0.2600</td><td>Historical reference only; do not copy/resubmit.</td></tr>
+        <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE27/">GEMSDOE27</a></td><td><code>topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan</code></td><td>OWNER-REPORT 0.2449</td><td>Historical reference only; do not copy/resubmit.</td></tr>
+        <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE28/">GEMSDOE28</a></td><td><code>h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan</code></td><td>OWNER-REPORT 0.2710</td><td>Historical reference only; do not copy/resubmit.</td></tr>
+        <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE30/">GEMSDOE30</a></td><td><code>d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca</code></td><td>OWNER-REPORT 0.2600</td><td>Historical reference only; do not copy/resubmit.</td></tr>
+        <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE31/docs/">GEMSDOE31</a></td><td><code>h27-4-solo-d28-20261004-8acb75e1-nan</code></td><td>OWNER-REPORT 0.2708</td><td>Historical reference only; do not copy/resubmit.</td></tr>
+        <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html">GEMSDOE32</a></td><td><code>h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros</code></td><td>OWNER-REPORT 0.2778 (highest in this set)</td><td>Already submitted reference; do not resubmit.</td></tr>
+        <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE33/">GEMSDOE33</a></td><td><code>h33d-analog-tip-stepover-r30-20261004-cb490425926e</code></td><td>OWNER-REPORT 0.2632</td><td>Historical reference only; do not copy/resubmit.</td></tr>
+        <tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE36/docs/">GEMSDOE36</a></td><td><code>anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros</code></td><td>OWNER-REPORT 0.2750</td><td>Historical reference only; do not copy/resubmit.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">No reliable score estimate for a novel submission can be derived from these nine scores alone. Holdout results below are separate local validation metrics, not leaderboard-score projections.</p>
+  </section>
+
+  <section class="card">
+    <h2 style="margin-top:0">Latest local research artifact (not authorized)</h2>
+    <p>Latest local candidate: <code>H-APART3-1-CFKC-DHC</code>. The earlier BHGC artifact also failed the same literal lattice rule. Neither has an organizer-confirmed score estimate.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Research-only TIF</th><th>Score estimate</th><th>Literal uniqueness</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td><a href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif" download>CFKC-DHC candidate</a></td><td>Not estimable from available evidence; no organizer receipt</td><td>FAIL — 99.8513% within 3 px of a registered calibration raster</td><td><strong>DO NOT SUBMIT</strong></td></tr>
+        <tr><td><a href="downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif" download>BHGC-3 earlier candidate</a></td><td>Not estimable from available evidence; no organizer receipt</td><td>FAIL — 99.7450% within 3 px of the same raster</td><td><strong>DO NOT SUBMIT</strong></td></tr>
+      </tbody>
+    </table></div>
+    <div class="kpis">
+      <div class="kpi"><span>HOLDOUT-DTI · GEMSDOE32-HIDE-RECOVER-v3.0</span><b>0.114452</b><span class="note">22,232 withheld positives; 95% CI [0.100521, 0.128472]. Transcribed from historical local run card, not rerun in this review.</span></div>
+      <div class="kpi"><span>HOLDOUT-DTI · GEMSDOE32-SGMC-CAL-v3.0</span><b>0.081407</b><span class="note">62,703 withheld positives; 95% CI [0.073738, 0.088249]. Prevalence-calibrated local diagnostic; not a live score.</span></div>
+      <div class="kpi"><span>Registry duplicate gate</span><b style="color:var(--red)">FAIL</b><span class="note">99.8513% of dots within 3 px of the 5-px calibration lattice; limit 70%.</span></div>
+      <div class="kpi"><span>Format check vs pinned owner mirror</span><b style="color:var(--green)">PASS*</b><span class="note">Freshly rechecked: one float32 band, finite [0,1], EPSG:32611, matching 3730×3292 grid/transform. The mirror is not organizer-authenticated.</span></div>
+    </div>
+    <p>File SHA-256 in the historical candidate card: <code>afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065</code>. The artifact is retained for audit. <a class="button" href="downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif" download>Download research artifact only — NOT FOR SUBMISSION</a></p>
+    <p class="note">*The local competition training/template raster and Python geospatial stack were unavailable during this repository review, so the format report is historical rather than freshly reproduced.</p>
+  </section>
+
+  <section class="card">
+    <h2 style="margin-top:0">Why GEMSDOE32 reported 0.2778, and what we can conclude</h2>
+    <p>The supplied record associates the highest score in this subset with a 37,654-pixel submission named <code>h33-h33-2-b2</code>. Its name and sequence of adjacent site variants suggest a sparse/filtered derivative of a prior candidate family, but names and reported scores do not establish causal mechanisms. A sound explanation requires a controlled ablation evaluated with identical spatial folds and the exact organizer metric. The candidate's local holdout result cannot be converted directly into expected leaderboard score.</p>
+    <p>We have not verified an organizer receipt or independently downloaded/hashed the 9 site files in this review. Treat the score attribution and file naming as OWNER-REPORT. Use prior rasters for forensic comparison/education only; do not clone or resubmit them.</p>
+  </section>
+
+  <section class="card">
+    <h2 style="margin-top:0">What blocks release and what happens next</h2>
+    <ol>
+      <li>Apply duplicate checks literally to every registry raster. The calibration lattice cannot be excluded under the present wording.</li>
+      <li>Restore authorized competition training, label, sample submission and feature data; then rerun the evaluator and saved-byte validator from clean inputs.</li>
+      <li>Fix the static site generator and CI: old templates still promote a prior candidate and assume private data exists on a clean runner.</li>
+      <li>Preregister a genuinely distinct lane, test every feature alone for leakage, and stop at three experiments or two hours.</li>
+      <li>Only after all gates pass, use a separate weekly-slot selector. Obtain organizer receipts before reporting a competition score.</li>
+    </ol>
+    <p>Four untested, qualitative research hypotheses and their confounds are documented in the <a href="review.html">research shortlist and independent review</a>. They are proposals, not tested score estimates; do not begin until the lane is assigned and required data/novelty checks are complete.</p>
+    <p>Official review links: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">competition rules</a> · <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">leaderboard</a> · <a href="https://github.com/drivendataorg/gems-prize-reference-solution">reference solution</a> · <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN</a> · <a href="https://gbcge.org/current-projects/ingenious/">INGENIOUS</a> · <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">DOE/NLR technical report</a>.</p>
+  </section>
+  <footer>ApartGEMSDOE3 · Machine-readable current feed: <a href="data/feed.json">feed.json</a> · Release status card: <a href="../run_card.json">run_card.json</a> · Recheck notes: <a href="repo-review-2026-10-28.md">review report</a> · <a href="research/repo-review-20261028.md">comprehensive research/audit review</a> · <a href="index.html">Home</a></footer>
+</main></body></html>

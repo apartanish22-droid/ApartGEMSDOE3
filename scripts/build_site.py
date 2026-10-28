@@ -721,8 +721,8 @@ def _submission_instructions_html(card: dict) -> str:
     </li>
     <li>
       <strong>Open the DrivenData Submission Portal:</strong> Go to
-      <a href="https://www.drivendata.org/competitions/309/competition-us-doe-gems/submissions/" target="_blank" rel="noopener">
-        https://www.drivendata.org/competitions/309/competition-us-doe-gems/submissions/
+      <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/" target="_blank" rel="noopener">
+        https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/
       </a>
       and upload the <code>.tif</code> file directly (or <code>docs/downloads/gemsdoe32-apart3-bhgc-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.zip</code> if your browser prefers a compressed archive).
     </li>
@@ -1223,14 +1223,14 @@ def build_sources_page(card: dict, prefix: str = "") -> str:
       <ul style="line-height:1.9;">
         <li>
           <strong>DrivenData DOE GEMS Competition Portal &amp; Problem Description:</strong>
-          <a href="https://www.drivendata.org/competitions/309/competition-us-doe-gems/page/955/" target="_blank" rel="noopener">
-            https://www.drivendata.org/competitions/309/competition-us-doe-gems/page/955/
+          <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/955/" target="_blank" rel="noopener">
+            https://www.drivendata.org/competitions/306/competition-doe-gems/page/955/
           </a>
         </li>
         <li>
           <strong>DrivenData DOE GEMS Public Leaderboard (Top <code>0.4413</code>, Reference <code>0.3195</code>, <code>0.2778</code>):</strong>
-          <a href="https://www.drivendata.org/competitions/309/competition-us-doe-gems/leaderboard/" target="_blank" rel="noopener">
-            https://www.drivendata.org/competitions/309/competition-us-doe-gems/leaderboard/
+          <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" target="_blank" rel="noopener">
+            https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/
           </a>
         </li>
         <li>
@@ -1283,6 +1283,19 @@ def build_sources_page(card: dict, prefix: str = "") -> str:
 
 
 def main() -> None:
+    # Fail closed: the legacy templates below are frozen around a prior BHGC-3
+    # promotion. Do not regenerate them from an unauthorised or negative run card.
+    release_card = _load_json("run_card.json")
+    if release_card.get("verdict") != "promote" or release_card.get("ok_to_submit") is not True:
+        print(
+            "[build_site] Release is negative / unauthorized. Refusing to regenerate legacy "
+            "pages with stale promotion claims; docs/release-status.html is the current page."
+        )
+        return
+    if release_card.get("slot_authorized") is not True:
+        print("[build_site] No separate weekly-slot selector authorization; refusing promotion CTA.")
+        return
+
     card = _load_json("run_card.json")
     nine_audit = _load_json("evidence/nine_site_refreshed_audit_20261027.json")
     exp_data = _load_json("evidence/bhgc_experiments.json")
