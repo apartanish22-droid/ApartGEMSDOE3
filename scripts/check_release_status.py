@@ -23,6 +23,8 @@ def check(card):
 def main():
     card = json.loads((ROOT/'run_card.json').read_text())
     check(card)
+    if card.get('correlation_vs_registry', {}).get('literal_all_rasters_final_passed') is False and card['release_gate_decision']['gates'].get('final') is not False:
+        raise SystemExit('Inconsistent failed release gates')
     artifact = ROOT/card['download_files']['primary_download_path']
     if hashlib.sha256(artifact.read_bytes()).hexdigest() != card['raster_sha256']:
         raise ValueError('Artifact hash mismatch')
@@ -31,7 +33,7 @@ def main():
             if 'DO NOT SUBMIT' not in (ROOT/'docs'/name).read_text():
                 raise ValueError('Missing negative release warning')
     print(f"PASS: consistent {card['verdict']} verdict; artifact hash verified; no slot used")
-    return 0
+    return None
 
 if __name__ == '__main__':
     raise SystemExit(main())

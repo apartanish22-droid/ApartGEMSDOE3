@@ -27,6 +27,9 @@ python -m venv .venv
 ```
 The pinned lattice source is in `registry/data_manifest.json`; exact recheck results are in `evidence/session_literal_review_20261028.json`. The portal is published via the existing GitHub Pages workflow after tests pass. Historical README claims are retained in [the superseded snapshot](docs/research/pre-review-readme-20261028.md), not current recommendations.
 
+## Concurrent review preserved
+The main-branch review also flags Band 6 total count being interpreted as magnetic tilt in inherited features (`IR-CTHG-BAND6-TC-02`). See [its scientific review](docs/repo-review-2026-10-28.md) and [additional hypothesis backlog](docs/research/next-hypotheses-20261028.md). Verify semantics and invalidate dependent caches before further training. This session did not repair that scientific mapping.
+
 ## Limitations and next work
 No uniquely assigned method paragraph was supplied. Direct DrivenData/USGS/Dropbox access is restricted in this environment. Pinned GitHub mirrors are not organizer authentication. No current leaderboard, organizer score receipt or weekly cap was verified. Only this site's executive summary can be updated here, not the other owners' websites. Stop-on-duplicate prevents further generation in this run. See the review for three ranked conditional research hypotheses and next-session prerequisites.
 

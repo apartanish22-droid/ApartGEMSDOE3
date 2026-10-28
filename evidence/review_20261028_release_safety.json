@@ -1,0 +1,14 @@
+{
+  "hypothesis": "No experiment: assigned method paragraph was absent; do not invent a lane.",
+  "mechanism": null,
+  "named_non_fault_process": null,
+  "holdout_dti": null,
+  "correlation_overlap_vs_registry": "No new comparison. Prior CSHD card records a 0.997583 final-dot overlap against a registry lattice and a failed literal final gate; full rasters are not restored in this checkout.",
+  "raster_sha256": null,
+  "validator_output": "No new raster. Existing CSHD and CTHG artifacts passed strict format and range checks against a hash-pinned owner mirror, not an organizer-authenticated template.",
+  "submission_name": null,
+  "submission_note": null,
+  "verdict": "negative",
+  "experiments_used": 0,
+  "slot_used": false
+}
