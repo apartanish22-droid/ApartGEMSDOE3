@@ -1,0 +1,53 @@
+{
+  "schema_version": "gems-parallel-runcard-v3",
+  "reviewed_utc_date": "2026-10-28",
+  "session_branch": "arena/e7422e50-apartgemsdoe3",
+  "review_type": "repository review and fail-closed release audit; no new experiment; zero weekly slots used",
+  "hypothesis": "No experiment: the prompt does not identify the assigned method paragraph, and the required feature stack and full registry are absent from this checkout.",
+  "mechanism": null,
+  "named_non_fault_mimic_process": "A registered space-filling calibration lattice can place most candidate dots within the required 3-pixel buffer regardless of geological meaning; it is a geometry confounder of literal uniqueness, not evidence of fault prediction.",
+  "holdout_dti": null,
+  "holdout_dti_note": "No new HOLDOUT-DTI was measured. Prior reported metrics remain in historical experiment cards and are not new results or leaderboard-score estimates.",
+  "correlation_overlap_vs_registry": {
+    "new_surface_comparison": "not_run",
+    "new_final_dot_comparison": "not_run",
+    "historical_cshd_surface_max_abs_spearman": 0.238194,
+    "historical_cshd_literal_all_registry_gate": "failed",
+    "historical_cshd_calibration_lattice_within_3px_fraction": 0.997583,
+    "source": "run_card.json; historical result, not recomputed in this review"
+  },
+  "artifact_path": "docs/downloads/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif",
+  "raster_sha256": "65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38",
+  "validator_output": {
+    "artifact_role": "historical audit-only CSHD raster; not authorized for upload",
+    "format_check": "PASS against hash-pinned owner-mirror sample_submission.tif; not organizer-authenticated",
+    "single_band_float32": true,
+    "no_nan_inside_footprint": true,
+    "whole_array_finite": true,
+    "whole_array_values_in_0_1": true,
+    "crs": "EPSG:32611",
+    "shape": [3730, 3292],
+    "transform_matches_owner_mirror_template": true,
+    "scientific_integrity_gate": false,
+    "literal_all_registry_uniqueness_gate": false
+  },
+  "submission_name": "APARTGEMSDOE3-CSHD-37B32D5B",
+  "submission_note": "Audit only; literal registry overlap fails and promotion is withdrawn. DO NOT SUBMIT.",
+  "download_ok_for_audit_only": true,
+  "ok_to_submit": false,
+  "selector_required": true,
+  "weekly_slots_used": 0,
+  "new_unique_submission_tif_generated": false,
+  "verdict": "negative",
+  "experiments_used": 0,
+  "experiment_budget_cap": 3,
+  "elapsed_time_budget_status": "No experiment run; two-hour experiment budget not consumed by modeling.",
+  "automated_tests": {
+    "pytest_passed": 101,
+    "pytest_skipped": 2,
+    "pytest_failed": 0,
+    "release_status_check": "PASS",
+    "strict_geotiff_format_check": "PASS"
+  },
+  "review_report": "docs/repo-review-current-session-2026-10-28.md"
+}

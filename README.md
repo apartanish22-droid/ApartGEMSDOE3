@@ -1,26 +1,50 @@
 # ApartGEMSDOE3 — research and submission review
 
-> **DO NOT SUBMIT: no candidate has cleared the required gates.** No new experiment or competition slot was used in this review. The historical CSHD promotion is withdrawn: its recorded final-dot overlap exceeds the literal all-registry limit and it inherits a scientifically misidentified feature. Format validity is not submission authorization.
+> **Current decision: DO NOT SUBMIT.** No artifact has passed every release gate and received separate selector authorization. A format-valid GeoTIFF is not necessarily scientifically sound, unique, or competition-ready. No weekly slot has been used in this review.
 
-The standing project prompt and operating protocol are summarized in [the project charter](docs/PROJECT_CHARTER.md); read it before every session. The full repeated prompt was not preserved verbatim in this repository; the charter is not a substitute for reading current user instructions.
+## Persistent project brief — read before every session
 
-[Executive summary and nine-site audit](docs/executive-summary.html) · [Review and limitations](docs/repo-review-2026-10-28.md) · [New research proposals](docs/research/next-hypotheses-20261028.md) · [Current run card](run_card.json)
+Build an auditable research and submission system for the DOE GEMS fault-mapping competition, with the goal of improving the probability of a defensible leaderboard result. **Core values: Maximize P(Win) and Own the Outcome**—make evidence-led tradeoffs, treat failures as information, and own the end-to-end result. Work autonomously where evidence and tools permit; never invent evidence, live scores, data availability, or scientific certainty.
 
-The historic artifact [apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif](docs/downloads/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif) (SHA-256 `65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38`; historical name `APARTGEMSDOE3-CSHD-37B32D5B`) is **for audit only**. It passes local format/range checks against an owner-mirrored sample, not organizer-authenticated data. Its historical holdout values are not verified leaderboard predictions. Its original promotion card is archived under `evidence/cshd_historical_promotion_card_20261028.json`.
+**Research priorities:** analyze the supplied best artifacts for GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, and 36; develop distinct geologic hypotheses for unmapped faults; validate them with spatially blocked, buffered hide-and-recover tests before considering any competition slot; keep a dated, source-linked research and score ledger. Do not copy prior submissions as candidates. The scores supplied by the user are `OWNER-REPORT` unless a submission-page receipt ties a score to exact raster bytes. Do not convert holdout results into a leaderboard projection without a validated calibration study.
 
-The checkout does not include the cached feature stack or full registry raster set. The supplied protocol refers to a lane paragraph that is absent, and the literal overlap gate also flags a space-filling calibration grid. These are blockers to a compliant new raster, not reasons to silently relax the gate. Band 6 was treated as magnetic tilt in BHGC and CTHG although previous forensic evidence identifies radiometric total count; cached derivatives and dependent results require rebuilding after source metadata is verified. Competing prompt leaderboard claims are not independently confirmed. Site scores are owner reports, not organizer-confirmed receipts.
+**Parallel-run and release protocol:**
 
-## Reproduce checks
+1. Define the one assigned method lane before any experiment. Compare the surface before placement and the final dots against every registry raster: stop and log a duplicate if absolute rank correlation exceeds `0.90` or over `70%` of candidate dots lie within `3 px` of any one registered raster. Apply the literal rule; do not silently exempt calibration rasters.
+2. Reuse the shared cached feature stack, `scripts/evaluate_holdout.py`, and `scripts/submission_writer.py`. Hold out whole fault segments with a buffer; derive every catalogue-based feature only from visible faults and mask visible faults pixel-exactly. Use pooled DTI (`alpha=0.2`, `beta=0.8`, `300 m` triangular kernel). Fix shared-tool defects centrally.
+3. Test each feature alone on holdout. Treat AUC above `0.90` as leakage until proven otherwise. Compare to a matching incumbent using the same evaluator and paired spatial confidence intervals.
+4. Label each score `HOLDOUT-DTI` (evaluator version, withheld-positive count, 95% CI), `ORGANIZER-CONFIRMED` (from an organizer receipt), or `OWNER-REPORT`. A projection is never a score.
+5. End each experiment with a JSON run card: hypothesis, mechanism, named non-fault mimic, holdout DTI + CI, correlation/overlap versus registry, raster SHA-256, validator output, submission name/note (note <=140 characters), and `promote` or `negative` verdict.
+6. Stop at three experiments or two hours. A positive experiment is not authorization: the slot selector is separate and must honor the current weekly cap.
+7. Validate the exact saved single-band GeoTIFF against the competition template: CRS, shape, affine transform, finite full-array values in `[0,1]` (including outside the footprint). Only show a submit/download CTA for a candidate that has also passed scientific, uniqueness, and selector gates.
+
+The user-supplied prompt refers to a single assigned method paragraph, but that paragraph is not present in this checkout. Until it is supplied, do not infer or invent the lane. See the [project charter](docs/PROJECT_CHARTER.md) for the fuller durable protocol and [current-session review](docs/repo-review-current-session-2026-10-28.md) for this checkout's blockers.
+
+## Current executive status
+
+- [Executive summary and nine-site comparison](docs/executive-summary.html): no new submission is authorized; estimate for a new raster is **not estimable**. The listed historical scores are owner-reported, not confirmed receipts.
+- [Why GEMSDOE32's reported 0.2778 is not explained causally](knowledge/03_why_02778_and_the_anatomy_of_the_family.md): the nested pruning sequence is consistent with removing low-credit false-positive mass, but does not prove why the score changed or predict a new score.
+- [Current session repository review](docs/repo-review-current-session-2026-10-28.md) · [four-candidate research shortlist](docs/research/next-hypotheses-review-20261028.md) · [current negative run card](evidence/session_review_20261028.json).
+- Historical CSHD artifact [apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif](docs/downloads/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif), named `APARTGEMSDOE3-CSHD-37B32D5B` (SHA-256 `65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38`), is **for audit/education only**. Its original promotion claim is withdrawn. Its local format pass against an owner mirror is not submission authorization; literal registry overlap and a scientific band-mapping error fail release.
+
+## Reproduce automated checks
+
+Use an isolated environment; installing dependencies into the OS Python may be blocked by PEP 668.
 
 ```bash
-python -m venv .venv
-.venv/bin/pip install -r requirements.txt
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
 .venv/bin/python scripts/restore_data.py --group core --manifest registry/ci_format_manifest.json
-.venv/bin/python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite submission/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif
 .venv/bin/python scripts/check_release_status.py
+.venv/bin/python scripts/build_review_site.py
 .venv/bin/python -m pytest -q
+.venv/bin/python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite submission/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif
 ```
 
-Restored samples are hash-pinned third-party mirrors, not organizer-authenticated. `scripts/build_review_site.py` builds the fail-closed portal; old portal builders are disabled because they could republish an invalid promotion claim. Research download links are not a submission recommendation.
+The format inputs are hash-pinned owner mirrors, **not organizer-authenticated**. This review restored only the small format/label inputs needed for tests; it did not restore the large 19-band training-feature raster or cached feature stack. Therefore this environment cannot run a compliant new holdout experiment. `data/` remains the documented location for restored inputs; large files are ignored by Git.
 
-Official starting points: [competition overview](https://www.drivendata.org/competitions/306/competition-doe-gems/), [problem description](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/), [data page](https://www.drivendata.org/competitions/306/competition-doe-gems/data/), [reference solution](https://github.com/drivendataorg/gems-prize-reference-solution), and [USGS GeoDAWN](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and). Access and current content were not independently verified in this sandbox.
+## Official reference links
+
+- [Competition overview](https://www.drivendata.org/competitions/306/competition-doe-gems/), [problem description](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/), [data page](https://www.drivendata.org/competitions/306/competition-doe-gems/data/) (login required), and [public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/).
+- [DrivenData reference solution](https://github.com/drivendataorg/gems-prize-reference-solution), [USGS GeoDAWN survey](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and), [USGS 3DEP](https://www.usgs.gov/3d-elevation-program), [INGENIOUS project](https://gbcge.org/current-projects/ingenious/), [GDR submission 1391](https://gdr.openei.org/submissions/1391), and [EPSG:32611](https://epsg.io/32611).
+- Links are pointers for review, not claims that those sites or source files were reachable or revalidated in this restricted session. See `registry/sources.json` for recorded provenance and access status.
