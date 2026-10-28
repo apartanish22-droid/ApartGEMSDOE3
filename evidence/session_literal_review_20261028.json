@@ -1,0 +1,59 @@
+{
+  "scope": "one pinned registry raster, not a full uniqueness scan",
+  "results": [
+    {
+      "candidate": "docs/downloads/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif",
+      "candidate_sha256": "65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38",
+      "candidate_dots": 37654,
+      "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+      "registry_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "registry_dots": 206895,
+      "directional_within_3px": 0.9975832580867903,
+      "literal_dot_gate_passed": false,
+      "format": {
+        "file_path": "docs/downloads/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif",
+        "sha256": "65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38",
+        "passed": true,
+        "checks": [
+          {
+            "name": "dimensions",
+            "passed": true,
+            "detail": "shape (3730, 3292) (expected (3730, 3292))"
+          },
+          {
+            "name": "band_count",
+            "passed": true,
+            "detail": "bands: 1 (expected 1)"
+          },
+          {
+            "name": "crs",
+            "passed": true,
+            "detail": "CRS: EPSG:32611 (expected EPSG:32611)"
+          },
+          {
+            "name": "transform",
+            "passed": true,
+            "detail": "transform matched template"
+          },
+          {
+            "name": "dtype",
+            "passed": true,
+            "detail": "dtype: float32 (expected float32)"
+          },
+          {
+            "name": "in_footprint_range",
+            "passed": true,
+            "detail": "in-footprint range [0.0000, 1.0000], all finite"
+          },
+          {
+            "name": "portal_safe_whole_array",
+            "passed": true,
+            "detail": "whole-array range [0.0000, 1.0000], finite=True"
+          }
+        ]
+      },
+      "ok_to_submit": false,
+      "reason": "Partial registry check only; not a complete release or slot authorization."
+    }
+  ]
+}
