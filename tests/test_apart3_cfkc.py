@@ -130,8 +130,9 @@ def test_run_card_and_html_links_integrity() -> None:
     assert docs_rc_path.exists()
     rc = json.loads(rc_path.read_text())
 
-    assert rc["verdict"] == "promote"  # historical experiment result; not current release authorization
-    assert rc["ok_to_submit"] is True  # legacy field, superseded by the literal all-registry gate
+    assert rc["verdict"] == "negative"
+    assert rc["ok_to_submit"] is False
+    assert rc["submission_eligibility"]["ok_to_submit"] is False
     current = json.loads((ROOT / "run_card.json").read_text())
     assert current["verdict"] == "negative"
     assert current["ok_to_submit"] is False

@@ -369,23 +369,25 @@ tr.row-highlight td {
 }
 </style>
 </head>
-<body><div role="alert" style="background:#381b25;border-bottom:2px solid #ff746e;color:#ffe4e1;padding:12px 18px;text-align:center;font:700 15px/1.45 system-ui,sans-serif;position:relative;z-index:1000">CURRENT RELEASE: NO FILE IS AUTHORIZED TO SUBMIT. Latest candidate fails literal registry uniqueness (99.8513% of dots within 3 px of a registered calibration lattice; protocol limit 70%). <a style="color:#a9dcff" href="release-status.html">Read current release status</a>. Historical page content and all numeric results below are archived values; they have not been rerun for this review and are not leaderboard scores unless separately labeled. Projections are not observed scores. This is not a release recommendation.</div>
+<body>
+  <aside role="alert" style="margin:1rem auto;max-width:1380px;padding:1rem 1.25rem;border:2px solid #fb7185;border-radius:12px;background:#3b101b;color:#ffe4e6;font:700 1rem/1.55 system-ui,sans-serif">CURRENT RELEASE DECISION: DO NOT SUBMIT. NO FILE AUTHORIZED. The downloadable BHGC and CFKC rasters are format-valid research artifacts but fail literal uniqueness: 99.7450% and 99.8513% of dots, respectively, fall within 3 px of a hash-pinned registry raster (limit 70%). The green/positive release labels in earlier archived analysis are superseded. <a style="color:#bae6fd" href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/docs/research/repo-review-20261028.md">Read the 2026-10-28 review</a>.</aside>
   
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">
-      <span class="brand-badge">APARTGEMSDOE3 · NO SUBMISSION AUTHORIZED</span>
+      <span class="brand-badge">APARTGEMSDOE3 · AUDIT HOLD</span>
       <span>DOE GEMS Fault Detection · H-APART-1 (BHGC-3)</span>
     </div>
     <nav class="nav-links">
-      <a href="index.html" class="">Overview & Download</a><a href="executive-summary.html" class="">Executive Summary (9-Site Audit)</a><a href="research.html" class="">Why 0.2778 Won & 0.3195 Anatomy</a><a href="hypotheses.html" class="active">4 Hypotheses & 3 Ablations</a><a href="leaderboard.html" class="">524-Raster Uniqueness & Leaderboard</a><a href="sources.html" class="">Official Sources & Run Card</a><a href="release-status.html" class="nav-cta">NO SUBMISSION AUTHORIZED</a>
+      <a href="index.html" class="">Overview & Download</a><a href="executive-summary.html" class="">Executive Summary (9-Site Audit)</a><a href="research.html" class="">Reported Scores & 0.2778 Owner-Report Analysis</a><a href="hypotheses.html" class="active">4 Hypotheses & 3 Ablations</a><a href="leaderboard.html" class="">Historical Registry Scan & Leaderboard</a><a href="sources.html" class="">Official Sources & Run Card</a><a href="downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif" class="nav-cta" download>⬇ Research-only .TIF — DO NOT SUBMIT</a>
     </nav>
   </div>
 </header>
 
   <main class="container">
     <div class="section">
-      <h2>Controlled 3-Experiment Ablation Ledger (Strictly Labeled <code>HOLDOUT-DTI</code>)</h2>
+      <h2>Archived Controlled 3-Experiment Ablation Ledger (Strictly Labeled <code>HOLDOUT-DTI</code>)</h2>
+      <p><strong>Historical diagnostics only:</strong> this documents a prior BHGC run, not a currently assigned method lane or a new experiment. The prompt's referenced method paragraph was not identified. The local `HOLDOUT-DTI` results below are historical observations with their listed evaluator/sample/interval; they are not leaderboard score projections, and point estimates do not establish improvement when paired intervals cross zero. Both current research TIFFs also fail the literal pinned-lattice uniqueness check. See <a href="release-status.html">current release status</a>, the <a href="research/repo-review-20261028.md">dated review</a>, and the <a href="review.html">four untested qualitative research hypotheses</a>.</p>
       <p>
         Evaluated via <code>src/gems32/evaluate_holdout.py</code> across all 8 fold-models (<code>draws 20, 21 &times; folds 0..3</code>, <code>n = 22,232</code> withheld catalogue fault pixels) and the untouched USGS SGMC structural geology benchmark (<code>n = 62,703</code> withheld fault pixels).
       </p>
@@ -444,7 +446,7 @@ tr.row-highlight td {
         
             
         <tr class="row-highlight">
-          <td><strong>EXP-3: H-APART-1 (BHGC-3) [HISTORICAL; NOT CURRENT RELEASE]</strong></td>
+          <td><strong>EXP-3: H-APART-1 (BHGC-3) [RESEARCH ONLY — STRICT GATE FAILED]</strong></td>
           <td><code>0.101735</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.088171, 0.114724]</span></td>
           <td><code>0.095807</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.081047, 0.110344]</span></td>
           <td><code>0.070897</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.063401, 0.077404]</span></td>
@@ -531,9 +533,9 @@ tr.row-highlight td {
           <p><strong>Exact Competition Layers &amp; External Priors Used:</strong> <code>Band 18 (iso_grav_anom_grad1, dx), Band 11 (iso_grav_anom_grad2, dy), Band 5 (iso_grav_anom_slope), Band 0 (iso_grav_anom), Band 1 (cba), Band 15 (depth_to_base), Band 6 (tc), Band 3 (tmi_hg), Band 9 (tmi_vg), Band 2 (rtp), Band 12 (det_elev), Band 19 (det_elev_slope), Band 17 (cond_surf), Band 14 (temp_2m), Bands 4, 7, 8 (geod_2nd_inv, geod_dil, geod_max_shear), Bands 10, 16 (earthquake_density, reloc_eq_density), USGS GeoDAWN 214Bi/208Tl/40K + 3DEP 1m LiDAR (10.5066/P93LGLVQ), DOE GDR #1391 INGENIOUS wells/springs/sinter (10.15121/1881483), US Census TIGER/Line roads (tl_2023_32_prisecroads, tl_2023_32001_roads)</code></p>
           <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Directly resolves three distinct classes of unmapped faults missed by surface-scarp detectors: (1) buried intrabasin horst-bounding faults beneath 50-400 m of quaternary fill via Laplace-harmonic gravity divergence and magnetic tilt zero-crossings; (2) blind transtensional step-overs and accommodation zones (600 m - 2.2 km from mapped faults) where 75% of Great Basin geothermal systems occur (Faulds et al. 2011); and (3) far-field (&gt;1.5 km) range-front piedmont and bedrock faults including inside the 24.63% 1 m LiDAR gap.</p>
           <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Pleistocene Lake Lahontan wave-cut shorelines (~1,330 m Sehoo and ~1,235 m Fallon highstands); US Census TIGER/Line highway/railroad embankments and irrigation canal prisms; 4-contractor GeoDAWN airborne radiometric survey seam steps (Blocks A, B, C, E); Deep flat playa/evaporite depocenters (depth_to_base &gt; 320 m, slope &lt; 1.6 deg) with non-tectonic saline MT conductivity</code></p>
-          <p><strong>How It Differs from Existing Repo Implementations:</strong> First pipeline in the GEMSDOE registry to exploit the native pre-computed horizontal gravity gradient vector (Band 18, Band 11) via Laplace&#x27;s equation div(g_H) = -d^2g/dz^2, and the first to pair an 89-ch/76-ch Dual-Cover OOF classifier with a 3-zone radial bi-population transfer function and axial d=3.22 px CELF that beats the 0.2778 Champion on Hide-and-Recover, Detached &gt;=600m, AND Off-Catalogue SGMC simultaneously while remaining &lt;=70% overlap against all 495 genuine discrete rasters.</p>
-          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Expected +0.0025 to +0.0070 HOLDOUT-DTI across both Hide-and-Recover and Off-Catalogue SGMC benchmarks; runtime ~410 s on CPU (&lt;4.2 GB RSS).</code></p>
-          <p><strong>Status in Protocol Budget:</strong> <code>HISTORICAL EXPERIMENT — CURRENT RELEASE STATUS IS NEGATIVE</code></p>
+          <p><strong>How It Differs from Existing Repo Implementations:</strong> The historical implementation used the native pre-computed gravity-gradient bands and an 89-ch/76-ch Dual-Cover OOF classifier. It did not establish a reliable win over the OWNER-REPORT 0.2778 reference: paired intervals cross zero on key holdouts, and the off-catalogue diagnostic trails the reference. Its prior genuine-only uniqueness summary is superseded by the literal pinned-lattice failure. No novelty or release clearance is claimed.</p>
+          <p><strong>Quantitative expectation:</strong> <code>No prospective HOLDOUT-DTI or leaderboard-score estimate is claimed. Historical runtime and results are not a forecast.</code></p>
+          <p><strong>Historical protocol status:</strong> <code>Previously implemented; not an active lane in this review; release blocked by strict audit</code></p>
         </div>
         
         <div class="section">
@@ -546,8 +548,8 @@ tr.row-highlight td {
           <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Horsetail splay relays, overlapping step-overs, and accommodation zones fragment surface rupture across multiple small sub-resolution fractures that lack a single continuous LiDAR scarp, but concentrate active transtensional shear strain and relocated microseismic swarms.</p>
           <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Long-wavelength GPS station interpolation halos (~15-30 km); Anthropogenic geothermal injection seismicity clusters at Dixie Valley / Brady / Desert Peak</code></p>
           <p><strong>How It Differs from Existing Repo Implementations:</strong> Replaces isotropic earthquake density smoothing with the relocated-vs-raw seismic clustering contrast gated by structural strike coherence and geodetic shear*dilatation.</p>
-          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Highest single-feature holdout AUC (0.565243) among the 6 new BHGC channels; +0.0015 HOLDOUT-DTI on Detached &gt;= 600 m segments.</code></p>
-          <p><strong>Status in Protocol Budget:</strong> <code>INTEGRATED AS CHANNEL 86 (transtensional_accommodation_bridge, single-feature AUC=0.5652)</code></p>
+          <p><strong>Quantitative expectation:</strong> <code>No prospective HOLDOUT-DTI or leaderboard-score estimate is claimed. The recorded single-feature canary and detached-segment measurements are historical diagnostics, not an independent validation or forecast.</code></p>
+          <p><strong>Historical protocol status:</strong> <code>Previously integrated; not an active lane or new experiment</code></p>
         </div>
         
         <div class="section">
@@ -560,8 +562,8 @@ tr.row-highlight td {
           <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Hydrothermal alteration converts competent fault-scarp bedrock into soft argillic clay (smectite/illite/chlorite), erasing topographic relief while creating a sharp lateral MT conductivity boundary, a magnetic destruction trough, and an active 222Rn -&gt; 214Bi gas degassing chimney.</p>
           <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Saline evaporite playas in the Carson Sink and Humboldt Sink (high Band 17 conductivity and evaporite K/U in flat basins); Airborne gamma-ray contractor block boundaries (Blocks A, B, C, E)</code></p>
           <p><strong>How It Differs from Existing Repo Implementations:</strong> Uses lateral gradient ||grad_H(Band 17)||_2 rather than raw conductivity magnitude and applies strict playa suppression (depth &gt; 320 m, slope &lt; 1.6 deg) plus 4-block radiometric seam de-confounding.</p>
-          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Single-feature holdout AUC = 0.545390; +0.0012 HOLDOUT-DTI on hydrothermally altered blind fault segments.</code></p>
-          <p><strong>Status in Protocol Budget:</strong> <code>INTEGRATED AS CHANNEL 87 (hydrothermal_claycap_radon_vent, single-feature AUC=0.5454)</code></p>
+          <p><strong>Quantitative expectation:</strong> <code>No prospective HOLDOUT-DTI or leaderboard-score estimate is claimed. The recorded single-feature canary and segment measurements are historical diagnostics, not an independent validation or forecast.</code></p>
+          <p><strong>Historical protocol status:</strong> <code>Previously integrated; not an active lane or new experiment</code></p>
         </div>
         
         <div class="section">
@@ -574,8 +576,8 @@ tr.row-highlight td {
           <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Detects subtle low-amplitude flexural scarps and antithetic intrabasin graben steps whose absolute relief is &lt; 0.5 m.</p>
           <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Eolian sand dune trains and braided alluvial distributor channels; 100 m DEM grid resampling moire artifacts</code></p>
           <p><strong>How It Differs from Existing Repo Implementations:</strong> Amplitude-invariant frequency-domain phase congruency rather than spatial Gaussian second derivatives.</p>
-          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Expected +0.0008 HOLDOUT-DTI, high FFT compute cost (~25 min across 6 scales x 6 orientations); deferred per 3-experiment budget rule.</code></p>
-          <p><strong>Status in Protocol Budget:</strong> <code>PRE-REGISTERED CANDIDATE (RESERVED BEYOND 3-EXPERIMENT BUDGET CAP)</code></p>
+          <p><strong>Quantitative expectation:</strong> <code>No prospective HOLDOUT-DTI or leaderboard-score estimate is claimed; this proposal remains untested in this review.</code></p>
+          <p><strong>Historical protocol status:</strong> <code>Previously deferred; not assigned in this review and not implemented</code></p>
         </div>
         
   </main>

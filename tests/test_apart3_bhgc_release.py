@@ -26,8 +26,10 @@ def test_literal_calibration_lattice_overlap_blocks_candidate() -> None:
     lattice = scan["literal_5px_calibration_lattice_probe"]
     assert lattice["within_3px_fraction"] > 0.70
     assert raw["release_gate_decision"]["selector_required"] is True
-    # The historical candidate's promote flag is retained in evidence but superseded.
-    assert raw["verdict"] == "promote"
+    assert raw["verdict"] == "negative"
+    assert raw["ok_to_submit"] is False
+    assert raw["release_gate_decision"]["verdict"] == "negative"
+    assert raw["release_gate_decision"]["slot_used"] is False
     assert "DO NOT SUBMIT" in json.loads((ROOT / "run_card.json").read_text())["reason"]
 
 
