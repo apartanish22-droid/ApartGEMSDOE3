@@ -10,6 +10,8 @@ The previous README gave the wrong transform for BHGC. The mirror and both check
 
 Prior CFKC run card says its fold-specific HOLDOUT-DTI on `GEMSDOE32-HIDE-RECOVER-v3.0`, n=22,232 is 0.114452 [0.100521, 0.128472]. Its static-raster receipt under the same evaluator reports 0.005325 [0.004509, 0.006199]. These are different evaluation objects: a static final raster depends on the full visible catalogue and is not a substitute for fold-local predictions. Neither is an estimated official leaderboard score. The prior BHGC card's paired CI versus the champion includes zero. We did not independently reproduce the earlier fold-local model, feature canaries, or holdout values.
 
+The other 2026-10-28 review identified unresolved template provenance: `vendor/README.md` references a missing `registry/shared_template.json` and a different source repository from `vendor/PROVENANCE.json`; the local evaluator wrapper calls `gems32.holdout`, whose equivalence to the pinned shared evaluator is not established. Resolve this before a new experiment.
+
 Previous runners are disabled pending repair: they exempt dense registry rasters and can create a misleading promote result. The pinned shared template remains unchanged; no private evaluator patch is claimed. GitHub Pages is generated from a new fail-closed summary, while historical evidence remains available as historical claims rather than release authority.
 
 ## Pre-implementation hypothesis shortlist (not validated, no novelty guarantee)

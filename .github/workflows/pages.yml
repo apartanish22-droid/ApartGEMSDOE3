@@ -25,24 +25,10 @@ jobs:
         run: |
           python -m pip install -r requirements.txt
           python -m pip install -e . --no-build-isolation --no-deps
-      - name: Restore pinned owner-mirror template and labels for tests
+      - name: Restore pinned owner-mirror format inputs (not organizer authenticated)
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          python - <<'PYCODE'
-          import json, sys
-          from pathlib import Path
-          sys.path.insert(0, 'scripts')
-          from restore_data import restore_entry
-          manifest = json.loads(Path('registry/data_manifest.json').read_text())
-          needed = {'sample_submission', 'labels'}
-          for entry in manifest['files']:
-              if entry['id'] in needed:
-                  restore_entry(entry, Path('.cache/gems_data'))
-                  needed.remove(entry['id'])
-          if needed:
-              raise SystemExit(f'missing mirror entries: {sorted(needed)}')
-          PYCODE
+        run: python scripts/restore_data.py --group core --manifest registry/ci_format_manifest.json
       - name: Run automated tests and strict GeoTIFF check
         run: |
           python -m pytest -q
