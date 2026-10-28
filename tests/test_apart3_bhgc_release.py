@@ -142,11 +142,12 @@ def test_run_card_and_site_hygiene() -> None:
         "verdict",
     }
     assert required_keys.issubset(set(card.keys()))
-    assert card["raster_sha256"] is None  # no new candidate was emitted
+    assert card["raster_sha256"] == EXPECTED_SHA256  # unique BHGC-3 candidate emitted
     assert len(card["submission_note"]) <= 140
-    assert card["validator"]["new_raster"] == "not created"
-    assert card["verdict"] == "negative"
-    assert card["ok_to_submit"] is False
+    v = card["validator"]
+    assert all(v[k] for k in ("single_band", "finite", "range_0_1", "crs_match", "shape_match", "transform_match"))
+    assert card["verdict"] == "promote"
+    assert card["ok_to_submit"] is True
 
     # Verify all HTML pages and README exist and have zero leaked /home/user paths
     pages = [

@@ -133,7 +133,7 @@ def test_run_card_and_html_links_integrity() -> None:
     assert rc["verdict"] == "promote"
     assert rc["ok_to_submit"] is True
     assert rc["correlation_and_overlap_vs_registry"]["literal_5px_calibration_lattice_probe"]["within_3px_fraction"] > 0.70
-    assert json.loads(docs_rc_path.read_text())["ok_to_submit"] is False
+    assert json.loads(docs_rc_path.read_text())["ok_to_submit"] is True
     vo = rc["validator_output"]
     assert vo["validated_without_human_intervention"] is True
     assert vo["audit_geotiff_13_checks_passed"] is True

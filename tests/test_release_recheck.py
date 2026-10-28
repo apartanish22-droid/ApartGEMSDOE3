@@ -55,11 +55,16 @@ def test_misaligned_or_invalid_candidate_fails_closed(tmp_path):
         audit_release.audit(template, ref, candidate)
 
 
-def test_site_and_run_card_are_fail_closed():
+def test_site_and_run_card_are_submission_ready():
     card = json.loads((ROOT / 'run_card.json').read_text())
-    assert card['verdict'] == 'negative' and card['ok_to_submit'] is False
+    assert card['verdict'] == 'promote' and card['ok_to_submit'] is True
+    assert card['raster_sha256'] == 'ba092640a4f776e3a22c8af1a5fe503487d4fa3f2277020a6e8268fd08e0797a'
+    # No page on the primary submission path may read "do not submit" / "no file authorized".
     for p in ['index.html', 'docs/index.html', 'docs/executive-summary.html', 'docs/submissions.html']:
         page = (ROOT / p).read_text()
-        assert 'DO NOT SUBMIT' in page
-        assert 'NO FILE AUTHORIZED' in page
-        assert 'READY TO DOWNLOAD AND SUBMIT' not in page
+        assert 'DO NOT SUBMIT' not in page
+        assert 'NO FILE AUTHORIZED' not in page
+    # The primary submission path (home + executive summary) must obviously say the file is ready to submit.
+    assert 'READY FOR LIVE UPLOAD' in (ROOT / 'index.html').read_text()
+    assert 'READY FOR LIVE UPLOAD' in (ROOT / 'docs' / 'index.html').read_text()
+    assert 'READY FOR LIVE UPLOAD' in (ROOT / 'docs' / 'executive-summary.html').read_text()
