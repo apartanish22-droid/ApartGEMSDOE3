@@ -606,6 +606,7 @@ def render_diagnostic_figure(
 
 
 def main() -> int:
+    raise SystemExit("DISABLED: legacy runner exempts registered rasters and cannot authorize a release; see evidence/release_recheck_20261028.json")
     t0 = time.time()
     ddir = data_dir()
     wdir = work_dir()

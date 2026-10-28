@@ -25,10 +25,14 @@ jobs:
         run: |
           python -m pip install -r requirements.txt
           python -m pip install -e . --no-build-isolation --no-deps
-      - name: Run automated test suite and strict GeoTIFF check
+      - name: Restore pinned owner-mirror format inputs (not organizer authenticated)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/restore_data.py --group core --manifest registry/ci_format_manifest.json
+      - name: Run automated tests and strict GeoTIFF check
         run: |
           python -m pytest -q
-          python scripts/check_submission.py --strict-finite docs/downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif
+          python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif
 
   publish:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'

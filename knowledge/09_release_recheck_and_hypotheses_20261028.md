@@ -1,0 +1,37 @@
+# Release recheck and candidate research, 2026-10-28
+
+## Method and findings
+
+This is an independent recheck of saved files, **not a new model experiment**. The [pinned sample mirror](../registry/data_manifest.json) and registered [calibration lattice](https://github.com/buffedlizard55-lab/GEMSDOE24/blob/07345ea0604953d7efb858d9cfbc21e20c7aca0b/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif) were restored from the manifest and verified against their pinned SHA-256 hashes. A mirror hash demonstrates consistency with the mirror, not that the bytes are organizer-authenticated. `scripts/audit_release.py` measures candidate-to-registry distance in pixels with a Euclidean distance transform and validates saved bytes against that mirror. [Recorded output](../evidence/release_recheck_20261028.json).
+
+Both BHGC and CFKC are single-band, finite and in [0,1] throughout and match the mirror grid. This does not guarantee acceptance by the organizer. Both **fail** the literal all-registry final-dot rule: BHGC 99.7450%, CFKC 99.8513% within 3 pixels of the lattice, exceeding 70%. The prior CFKC run card itself records the latter while claiming promotion; the prior BHGC scan records the former. Dense grids predictably inflate directional overlap, so this stop need not imply geological or byte-level equivalence; the protocol provides no exemption. Other dense previously submitted rasters can independently cause the same problem. No fresh full-registry or surface scan was run. Don't infer uniqueness from a hash alone.
+
+The previous README gave the wrong transform for BHGC. The mirror and both checked rasters have transform `(100, 0, 243350, 0, -100, 4508550)` and CRS EPSG:32611. Historical materials also mix reported scores with organizer confirmation. No receipt tying the historical best to a hash was located in this checkout; treat those entries as **user-reported**, not organizer-confirmed. The published leaderboard is not reachable from this sandbox; conflicting 0.3195/0.4413 claims and the older repository snapshot are not a current verified leaderboard.
+
+Prior CFKC run card says its fold-specific HOLDOUT-DTI on `GEMSDOE32-HIDE-RECOVER-v3.0`, n=22,232 is 0.114452 [0.100521, 0.128472]. Its static-raster receipt under the same evaluator reports 0.005325 [0.004509, 0.006199]. These are different evaluation objects: a static final raster depends on the full visible catalogue and is not a substitute for fold-local predictions. Neither is an estimated official leaderboard score. The prior BHGC card's paired CI versus the champion includes zero. We did not independently reproduce the earlier fold-local model, feature canaries, or holdout values.
+
+The other 2026-10-28 review identified unresolved template provenance: `vendor/README.md` references a missing `registry/shared_template.json` and a different source repository from `vendor/PROVENANCE.json`; the local evaluator wrapper calls `gems32.holdout`, whose equivalence to the pinned shared evaluator is not established. Resolve this before a new experiment.
+
+Previous runners are disabled pending repair: they exempt dense registry rasters and can create a misleading promote result. The pinned shared template remains unchanged; no private evaluator patch is claimed. GitHub Pages is generated from a new fail-closed summary, while historical evidence remains available as historical claims rather than release authority.
+
+## Pre-implementation hypothesis shortlist (not validated, no novelty guarantee)
+
+These are ideas to investigate, not a permitted lane selection. The request refers to a single method paragraph but does not identify one. Rank is qualitative judgment, not a DTI estimate; no new external dataset has been checked obtainable. None is ready for a weekly slot. Compare thoroughly against code and all peer lanes before declaring novelty.
+
+| Rank / cost | Layers and signature | Why a hidden fault might be found | Difference to investigate; confounder |
+|---|---|---|---|
+| 1 / medium | Existing 10 m DEM derivative where available: signed cross-profile step fit versus smooth slope, coherent across scales. | Weak buried or eroded range-front scarps could survive as aligned offsets even without catalogue traces. | Unlike magnitude-only curvature, a signed step-model residual has a specific morphology; `src/gems32/cfkc.py` and prior step-profile work must be compared. Shorelines and cuts are mimics. |
+| 2 / medium | Existing gravity and RTP magnetic bands: local phase-congruence alignment of edges at different upward-continuation scales. | A subsurface contact with little surface relief might align across fields. | Unlike raw gradient amplitude, phase consensus discounts magnitude, but `fbgr.py` and prior multiscale work may overlap. Lithologic contacts also align. |
+| 3 / high | Existing radiometric K, eTh, eU, 10 m DEM: local multivariate robust residual and directional persistence after lithology/topographic controls. | Alteration associated with permeable faults could create a corridor off catalogue. | Unlike single-band radon zonation, tests a multivariate residual conditional on terrain; compare `trhv.py` and `fbgr.py`. Soil and survey seams mimic it. |
+| 4 / high | Existing DEM, hydrology: matched paired drainage-basin asymmetry and cross-divide elevation contrast along a candidate front. | Persistent tectonic tilt can influence drainage asymmetry beyond obvious surface scarps. | Different from CFKC knickpoint channels if explicitly paired across divides; compare carefully. Lithology and climate gradients also bias drainage. |
+
+Sources for context, not proof of these hypotheses: [USGS GeoDAWN release](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and), [DrivenData reference solution](https://github.com/drivendataorg/gems-prize-reference-solution), [GDR submission 1391](https://gdr.openei.org/submissions/1391), [USGS 3DEP](https://www.usgs.gov/3d-elevation-program). Only GitHub reference README was directly accessible in this sandbox during this review; other hosts could not be revalidated here. The 10 m DEM and other feature caches are not restored here; availability of complete coverage and license/source details still need verification.
+
+## Next actions
+
+1. Resolve the lane and literal registry policy in the shared protocol; don't quietly exempt a calibration or dense raster. Restore and hash-check the complete registry, including new peer submissions.
+2. Restore the necessary competition/template data and feature cache, verify licensing/provenance and organizer template. Compare the proposed step model with existing implementations.
+3. Preregister up to three experiments; run each feature-only leakage canary and fold-local buffered hide-and-recover using the pinned shared evaluator/writer. Compare to the same-evaluator best with paired spatial confidence intervals. Recompute catalogue features from each fold's visible faults, and mask visible faults exactly.
+4. For a candidate passing pre-placement and final all-registry checks, validate saved bytes, produce the run card and wait for the separate slot selector. Do not equate holdout performance with an official score.
+
+The full user prompt was not archived verbatim in this session; the README contains an operational charter instead. This limitation should not be mistaken for completion of that request.
