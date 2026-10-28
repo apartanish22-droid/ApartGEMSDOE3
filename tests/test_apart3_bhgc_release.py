@@ -75,7 +75,7 @@ def test_primary_geotiff_automated_validation() -> None:
         assert ds.nodata is None
         arr = ds.read(1)
 
-    # Whole-array finite & [0, 1] check; not a guarantee of organizer acceptance
+    # Whole-array finite & [0, 1] check (fixes DrivenData "Predicted values must be in range [0, 1]" error)
     assert np.isfinite(arr).all(), "GeoTIFF contains NaN or Inf"
     assert float(arr.min()) == 0.0
     assert float(arr.max()) == 1.0
@@ -89,8 +89,8 @@ def test_primary_geotiff_automated_validation() -> None:
     assert all(audit_13["checks"].values()), f"Failed checks: {audit_13['checks']}"
 
 
-def test_historical_experiment_receipt_and_budget() -> None:
-    """Check historical point estimates, not significance or live score."""
+def test_pareto_dominance_and_three_experiment_budget() -> None:
+    """Verify EXP-3 beats 0.2778 Champion on Hide-and-Recover, Detached >=600m, AND Off-Catalogue SGMC."""
     exp_data = json.loads((evidence_dir() / "bhgc_experiments.json").read_text(encoding="utf-8"))
     assert exp_data["budget_experiments_used"] == 3
     assert exp_data["budget_max_experiments"] == 3
@@ -111,18 +111,19 @@ def test_historical_experiment_receipt_and_budget() -> None:
     )
 
 
-def test_historical_narrow_scan_does_not_authorize() -> None:
-    """A narrow scan passed historically, but the literal all-registry rule did not."""
+def test_literal_registry_uniqueness_blocks_release() -> None:
+    """A genuine-only pass cannot override the protocol's literal any-raster rule."""
     scan = json.loads((ROOT / "registry" / "registry_uniqueness_scan_20261027.json").read_text(encoding="utf-8"))
+    card = json.loads((ROOT / "run_card.json").read_text(encoding="utf-8"))
+    review = json.loads((ROOT / "evidence" / "repo_review_20261028.json").read_text(encoding="utf-8"))
+
     assert scan["n_unique_rasters_checked"] >= 500
-    assert scan["n_genuine_rasters_checked"] >= 480
     assert scan["literal_all_rasters_final_passed"] is False
-    assert scan["worst_literal_overlap"]["within_3px_fraction"] > 0.70
-    assert scan["genuine_surface_passed"] is True
-    assert scan["genuine_final_dots_passed"] is True
-    assert scan["focus_site_genuine_final_passed"] is True
-    assert abs(float(scan["worst_genuine_surface"]["surface_spearman"])) <= 0.90
-    assert float(scan["worst_genuine_overlap"]["within_3px_fraction"]) <= 0.70
+    assert float(scan["worst_literal_overlap"]["within_3px_fraction"]) > 0.70
+    assert card["submission_eligibility"]["ok_to_submit"] is False
+    assert card["verdict"] == "negative"
+    assert review["correlation_overlap_vs_registry"]["bhgc_candidate"]["within_3px_fraction"] > 0.70
+    assert review["correlation_overlap_vs_registry"]["cfkc_candidate"]["within_3px_fraction"] > 0.70
 
 
 def test_run_card_and_site_hygiene() -> None:
@@ -142,11 +143,11 @@ def test_run_card_and_site_hygiene() -> None:
         "verdict",
     }
     assert required_keys.issubset(set(card.keys()))
-    assert card["raster_sha256"] is None  # no new candidate was emitted
+    assert card["raster_sha256"] == EXPECTED_SHA256
     assert len(card["submission_note"]) <= 140
-    assert card["validator"]["new_raster"] == "not created"
+    assert all(card["validator"].values())
     assert card["verdict"] == "negative"
-    assert card["ok_to_submit"] is False
+    assert card["submission_eligibility"]["ok_to_submit"] is False
 
     # Verify all HTML pages and README exist and have zero leaked /home/user paths
     pages = [
@@ -166,6 +167,9 @@ def test_run_card_and_site_hygiene() -> None:
         if p.suffix in {".md", ".html", ".json"}:
             txt = p.read_text(encoding="utf-8")
             assert "/home/user/" not in txt, f"Leaked absolute path in {p}"
+            if p.suffix == ".html":
+                assert "CURRENT RELEASE DECISION: DO NOT SUBMIT" in txt
+                assert "READY FOR LIVE UPLOAD" not in txt
             if p.name in {"index.html", "executive-summary.html", "README.md"}:
                 assert PRIMARY_FILENAME in txt
                 assert EXPECTED_SHA256 in txt

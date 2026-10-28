@@ -129,11 +129,9 @@ def test_run_card_and_html_links_integrity() -> None:
     assert docs_rc_path.exists()
     rc = json.loads(rc_path.read_text())
 
-    # Preserve the historical claim as evidence of the contradiction, never as authorization.
-    assert rc["verdict"] == "promote"
-    assert rc["ok_to_submit"] is True
-    assert rc["correlation_and_overlap_vs_registry"]["literal_5px_calibration_lattice_probe"]["within_3px_fraction"] > 0.70
-    assert json.loads(docs_rc_path.read_text())["ok_to_submit"] is False
+    assert rc["verdict"] == "negative"
+    assert rc["ok_to_submit"] is False
+    assert rc["submission_eligibility"]["ok_to_submit"] is False
     vo = rc["validator_output"]
     assert vo["validated_without_human_intervention"] is True
     assert vo["audit_geotiff_13_checks_passed"] is True
@@ -152,6 +150,8 @@ def test_run_card_and_html_links_integrity() -> None:
     assert reg["max_abs_surface_spearman"] < 0.90
     assert reg["max_genuine_3px_dot_overlap"] < 0.70
     assert reg["max_focus_site_3px_dot_overlap"] < 0.70
+    assert reg["literal_all_rasters_final_passed"] is False
+    assert reg["literal_lattice_overlap_recomputed_20261028"] > 0.70
     assert len(rc["submission_note"]) <= 140
 
     for html_rel, base_dir in [
