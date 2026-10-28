@@ -682,6 +682,19 @@
    "severity": "medium (documented in cross-org uniqueness scan 2026-10-27)",
    "statement": "Expanding uniqueness verification to sibling orgs (WBGGEMSDOE1..3, KANLERGEMSDOE1..3) uncovered two continuous non-zero probability surfaces in WBGGEMSDOE1 (wbg-c1-commutator-research-surface, 5,106,385 positive px = 98.82% of footprint) and WBGGEMSDOE2 (wbg-h1-blind-conduit-breach, 5,167,373 positive px = 100.00% of footprint). Treating arr > 0 on continuous surfaces as discrete dot masks yields trivial 100% 3-px overlap for any candidate.",
    "mitigation": "scripts/run_h48_fbgr.py evaluates continuous surfaces (>500k positive px) via Spearman rank correlation (max |rho| = 0.6315 <= 0.90), verifies discrete submissions <=100k dots across all orgs via <=3-px dot overlap (max 68.82% <= 70.0%; focus sites max 65.94% <= 70.0%), and keeps literal unexempted release_gate.compare_registry fail-closed (verdict='negative')."
+  },
+  {
+   "id": "IR-CTHG-BAND6-TC-02",
+   "severity": "critical",
+   "status": "open; candidate research artifact invalid for scientific promotion",
+   "statement": "The CTHG-DHC implementation describes CTHG channel 0 as a magnetic tilt-phase wall but computes `mag_tilt` from `base_mm[:, :, 5]`, i.e. Band 6 (`tc`). The repository already records IR-A8A-BAND6-TC-01 and IR-32-BAND-02: Band 6 is airborne gamma-ray radiometric Total Count, not magnetic tilt. The CTHG ch0 magnetic tilt interpretation is therefore unsupported; the exported artifact was generated using this flawed feature. Existing BHGC ch1 also inherits the same Band 6 interpretation, so the 103-channel model includes this prior feature.",
+   "evidence": [
+    "src/gems32/cthg.py::build_cthg_extra_stack, CTHG Ch 0 reads base_mm[:, :, 5] as mag_tilt",
+    "src/gems32/bhgc.py::build_bhgc_extra_stack, BHGC Ch 1 reads base channel 5 as tc_band and labels it tilt",
+    "registry/irregularities.json::IR-A8A-BAND6-TC-01 documents Band 6 as radiometric Total Count and points to MDRC true-tilt construction"
+   ],
+   "impact": "Invalidates the claimed magnetic-tilt mechanism and prevents scientific promotion of the current artifact, independent of format validation and holdout statistics.",
+   "mitigation": "Before another experiment, correct the shared feature builder to derive true TMI/RTP tilt from documented magnetic fields (e.g. the approach in src/gems32/mdrc.py), version/invalidate cached BHGC/CTHG stacks and OOF caches, update the preregistration, rerun one allowed experiment only if budget permits, and repeat the full literal registry gate. Do not submit the current TIFF."
   }
  ],
  "updated_utc": "2026-10-27T19:20:00Z"

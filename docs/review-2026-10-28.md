@@ -1,0 +1,45 @@
+# Repository review — 2026-10-28
+
+## Decision: negative / research only / do not submit
+
+The new CTHG-DHC raster is available to download for audit, but **is not unique under the literal registry rule and is not authorized for upload**. The competition slot selector was not run and no slot was used.
+
+- GeoTIFF: [`docs/downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif`](downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif)
+- SHA-256: `9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112`
+- Submission name/note: `APARTGEMSDOE3-CTHG-DHC-5D4D0085` / `ApartGEMSDOE3 H-APART3-2 CTHG-DHC 37654d B2 d3.24 | HR=0.0997 Det=0.0960 SGMC=0.0824`
+- Run card: [`run_card.json`](../run_card.json); detailed evidence in `evidence/apart3_cthg_dhc_*`.
+
+## Verified in this checkout
+
+1. **GeoTIFF format/range:** strict local checker passes: one-band float32, EPSG:32611, shape 3730×3292, transform matches the pinned owner-mirror template, finite full array in `[0,1]`, no NaNs, 37,654 positive pixels. Hashes in the run card were recomputed. These files are mirrored from GitHub, not organizer-authenticated downloads.
+2. **Three named pipeline arms:** final runner reports 3 arms and uses cached stacks plus shared local holdout/writer modules. `pytest -q`: **91 passed**. Strict CLI GeoTIFF check passed.
+3. **Local HOLDOUT-DTI diagnostics (not leaderboard predictions):**
+   - `GEMSDOE32-HIDE-RECOVER-v3.0`, n=22,232, 95% CI: 0.099651 [0.087243, 0.111947]. The matched paired difference versus the 0.2778 reference diagnostic is +0.000571 [−0.006306, +0.007311], so an improvement on this suite is **not established**.
+   - Detached ≥600 m, n=15,504, 95% CI: 0.096026 [0.083270, 0.109782]. Paired CI also includes zero.
+   - `GEMSDOE32-SGMC-CAL-v3.0`, n=62,703, 95% CI: 0.082363 [0.074316, 0.088893]. Paired difference versus the reference diagnostic is +0.017968 [+0.009255, +0.027192]. This is a local off-catalogue diagnostic; it is not a calibrated projection of live contest score.
+4. **Surface rank correlation:** max absolute Spearman over the scanned registry is 0.212714 (under the 0.90 surface limit).
+5. **Literal final-dot uniqueness fails:** max overlap is 99.8035% against the registered 5-px calibration lattice; further registered rasters exceed the 70% overlap ceiling (GEMSDOE3 `pindrop-v4-nodes`: 75.9043%; GEMSDOE67 `ovtr-ml-cover`: 72.2526%). The prompt explicitly gives no density or lattice exemption. The candidate must therefore be logged as a duplicate and cannot be submitted. The limited “genuine discrete ≤100k” subset passes at 69.1321%, but that subset does **not** override the literal rule.
+6. **Nine focus-site audit:** the exact artifacts and pairwise overlaps are recorded in `evidence/nine_site_best_files_audit.json`. The supplied scores are OWNER-REPORTS, not receipt-confirmed. The selected files are duplicate-family variants among the nine sites; do not resubmit them.
+
+## Critical irregularities
+
+- **Missing lane assignment:** the prompt refers to a “single method paragraph” assigning a lane, but none was supplied. The CTHG-DHC work cannot be represented as an assigned parallel lane.
+- **Budget/accounting:** the final pipeline contains three named arms, but exploratory placement/holdout sweeps occurred before it and a total experiment/time ledger was not retained. Overall compliance with the 3-experiment / 2-hour cap is therefore **not claimed**.
+- **Scientific input mapping error — `IR-CTHG-BAND6-TC-02`:** CTHG ch0 and inherited BHGC ch1 treat Band 6 (`tc`) as magnetic tilt. The repository's own prior `IR-A8A-BAND6-TC-01` forensic record identifies Band 6 as airborne radiometric Total Count, not magnetic tilt. This invalidates the claimed tilt-phase interpretation and scientific promotion of this artifact. The output is preserved only to audit the flawed implementation.
+- **Competition identity:** the supplied primary link uses competition 306; older pages in the repository contain `/309/` URLs. Portal identity must be checked before any future submission.
+- **Leaderboard status:** the prompt cites both 0.3195 and 0.4413 as current highs. This conflict was not independently checked; neither number is treated as verified. No organizer submission receipt or actual live score was obtained in this session.
+
+## Next work (not performed here)
+
+1. Resolve the lane assignment and establish a fresh experiment/time budget before more runs.
+2. Correct the shared feature implementation to use verified magnetic products/derived tilt rather than Band 6; include a versioned receipt and invalidate/rebuild dependent BHGC/CTHG/features and fold-model caches. Confirm band semantics against a trustworthy source/metadata.
+3. Before training, run single-feature leakage canaries on the corrected stack. Then run at most the authorized experiment budget with fold-local segment hiding and visible-only catalogue features.
+4. Reconcile the uniqueness protocol: either keep literal “any registry raster” (in which case the calibration lattice makes the current candidate fail) or obtain explicit authorization for a clearly justified registry exclusion. Do not silently exempt dense rasters.
+5. Rebuild and audit a new artifact only if budgets permit; validate exact bytes and all registry rasters both before and after placement. Keep the weekly-slot selector separate and require its approval.
+6. Obtain organizer receipts and verify the correct competition-306 portal. Do not call a holdout result an estimated live leaderboard score without a validated calibration study.
+
+## Run card decision
+
+```json
+{"hypothesis":"H-APART3-2 CTHG-DHC; science mapping invalidated by IR-CTHG-BAND6-TC-02","holdout_dti":"reported with evaluator, n, and CI in run_card.json; diagnostic only","correlation_overlap_vs_registry":"surface passes; final literal overlap fails (>70%)","validator_output":"format/range/CRS/shape/transform pass against owner-mirrored template","raster_sha256":"9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112","submission_name":"APARTGEMSDOE3-CTHG-DHC-5D4D0085","submission_note":"ApartGEMSDOE3 H-APART3-2 CTHG-DHC 37654d B2 d3.24 | HR=0.0997 Det=0.0960 SGMC=0.0824","download_ok":true,"ok_to_submit":false,"selector_required":true,"verdict":"negative"}
+```

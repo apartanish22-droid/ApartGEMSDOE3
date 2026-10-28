@@ -1,0 +1,139 @@
+{
+  "candidate_id": "H-APART3-2-CTHG-DHC",
+  "slug": "apart3-h-apart3-2-cthg-dhc-37654",
+  "content_digest8": "5d4d0085",
+  "description": "H-APART3-2 CTHG-DHC research artifact. DO NOT SUBMIT: literal registry uniqueness fails and the claimed Band-6 magnetic-tilt mechanism is invalidated by IR-CTHG-BAND6-TC-02.",
+  "submission_note_zeros": "ApartGEMSDOE3 H-APART3-2 CTHG-DHC 37654d B2 d3.24 | HR=0.0997 Det=0.0960 SGMC=0.0824",
+  "submission_note_nan": "ApartGEMSDOE3 H-APART3-2 CTHG-DHC 37654d B2 d3.24 | HR=0.0997 Det=0.0960 SGMC=0.0824",
+  "zeros_tif": {
+    "filename": "gemsdoe32-apart3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif",
+    "size_bytes": 219267,
+    "sha256": "9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112",
+    "mode": "zeros",
+    "geometry_reference": "owner-mirrored sample_submission.tif (SHA-256 pinned in registry/ci_format_manifest.json; not organizer-authenticated)",
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "shape": [
+      3730,
+      3292
+    ],
+    "dtype": "float32",
+    "nodata": null,
+    "nodata_repr": "None",
+    "emitted_positive_pixels": 37654,
+    "footprint_fraction": 0.007287,
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_finite_pixels": 5167373,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "full_grid_finite_pixels": 12279160,
+    "checks": {
+      "exact_reference_grid_match": true,
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_zero_nan": true,
+      "in_footprint_zero_inf": true,
+      "in_footprint_zero_sentinel": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_compliant": true,
+      "zero_on_catalogue_leakage": true,
+      "validator_range_0_1_guaranteed": true
+    },
+    "all_checks_passed": true
+  },
+  "nan_tif": {
+    "filename": "gemsdoe32-apart3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-nan.tif",
+    "size_bytes": 355092,
+    "sha256": "b6ac6220167c59cdf0ca82902dbe62c6908de13948913824884179cf4a20182c",
+    "mode": "nan",
+    "geometry_reference": "owner-mirrored sample_submission.tif (SHA-256 pinned in registry/ci_format_manifest.json; not organizer-authenticated)",
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "shape": [
+      3730,
+      3292
+    ],
+    "dtype": "float32",
+    "nodata": null,
+    "nodata_repr": "nan",
+    "emitted_positive_pixels": 37654,
+    "footprint_fraction": 0.007287,
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_finite_pixels": 5167373,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "full_grid_finite_pixels": 5167373,
+    "checks": {
+      "exact_reference_grid_match": true,
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_zero_nan": true,
+      "in_footprint_zero_inf": true,
+      "in_footprint_zero_sentinel": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_compliant": true,
+      "zero_on_catalogue_leakage": true,
+      "validator_range_0_1_guaranteed": true
+    },
+    "all_checks_passed": true
+  },
+  "holdout_metrics": {
+    "score_label": "HOLDOUT-DTI; local diagnostics only, not a live score or projection",
+    "hide_and_recover": {
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "dti": 0.099651,
+      "ci95": [
+        0.087243,
+        0.111947
+      ]
+    },
+    "detached_600m": {
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0-detached-600m",
+      "n_withheld_positives": 15504,
+      "dti": 0.096026,
+      "ci95": [
+        0.08327,
+        0.109782
+      ]
+    },
+    "off_catalogue_sgmc_cal": {
+      "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+      "n_withheld_positives": 62703,
+      "dti": 0.082363,
+      "ci95": [
+        0.074316,
+        0.088893
+      ]
+    },
+    "predicted_leaderboard_score": null,
+    "slot_decision": "NEGATIVE-RESEARCH-ONLY-DO-NOT-SUBMIT"
+  },
+  "upload_authorization": {
+    "ok_to_download_for_research": true,
+    "ok_to_submit": false,
+    "selector_required": true,
+    "literal_registry_uniqueness_passed": false,
+    "scientific_integrity_passed": false
+  }
+}

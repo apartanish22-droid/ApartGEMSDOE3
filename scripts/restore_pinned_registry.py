@@ -59,6 +59,11 @@ SIBLING_REPOS = [
     ("ginnymcfiner23-ux", "GINNYGEMSDOE1"),
     ("ginnymcfiner23-ux", "GINNYGEMSDOE2"),
     ("ginnymcfiner23-ux", "GINNYGEMSDOE3"),
+    ("sassnarep3-star", "GEMSDOESASS1"),
+    ("sassnarep3-star", "GEMSDOESASS2"),
+    ("sassnarep3-star", "GEMSDOESASS3"),
+    ("buffedlizard55-lab", "GEMSDOE91"),
+    ("buffedlizard55-lab", "GEMSDOE92"),
 ]
 PREFIXES = ("docs/", "inputs/", "archive/", "evidence/", "submission/", "submissions/", "outputs/")
 MAX_BYTES = 8_000_000
