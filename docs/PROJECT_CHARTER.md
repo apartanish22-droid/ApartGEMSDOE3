@@ -21,7 +21,7 @@ This charter is the durable starting point for project work. It captures the use
 
 ## Repository operating rules
 
-- Review `README.md`, this charter, current `run_card.json`, and `registry/current_status.json` before modeling work.
+- Review `README.md`, this charter, `registry/current_status.json`, and the current candidate card named there before modeling work. `run_card.json` is an older fail-closed CSHD archive; do not treat it as the latest candidate card.
 - Maintain an auditable source register and distinguish official sources from owner-provided repositories, score claims, and local model outputs.
 - Never copy a prior submission as a candidate. Prior rasters can be used for audit/education only.
 - The README and site landing page must state whether an artifact is actually OK to submit and give clear reasons when not.
