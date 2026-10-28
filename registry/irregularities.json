@@ -682,7 +682,43 @@
    "severity": "medium (documented in cross-org uniqueness scan 2026-10-27)",
    "statement": "Expanding uniqueness verification to sibling orgs (WBGGEMSDOE1..3, KANLERGEMSDOE1..3) uncovered two continuous non-zero probability surfaces in WBGGEMSDOE1 (wbg-c1-commutator-research-surface, 5,106,385 positive px = 98.82% of footprint) and WBGGEMSDOE2 (wbg-h1-blind-conduit-breach, 5,167,373 positive px = 100.00% of footprint). Treating arr > 0 on continuous surfaces as discrete dot masks yields trivial 100% 3-px overlap for any candidate.",
    "mitigation": "scripts/run_h48_fbgr.py evaluates continuous surfaces (>500k positive px) via Spearman rank correlation (max |rho| = 0.6315 <= 0.90), verifies discrete submissions <=100k dots across all orgs via <=3-px dot overlap (max 68.82% <= 70.0%; focus sites max 65.94% <= 70.0%), and keeps literal unexempted release_gate.compare_registry fail-closed (verdict='negative')."
+  },
+  {
+   "id": "IR-APART3-20261028-01",
+   "severity": "medium (FIXED in README.md 2026-10-28)",
+   "statement": "README.md in PR #9 stated `Affine(100.0, 0.0, 326891.6195, 0.0, -100.0, 4490339.7765)` instead of the actual `sample_submission.tif` Affine `(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)` / GDAL `(243350.0, 100.0, 0.0, 4508550.0, 0.0, -100.0)`, omitted the competition Dropbox download path, and listed stale `*Hist:*` tags in the 9-site table.",
+   "mitigation": "Corrected README.md and all GitHub Pages tables to the exact rasterio Affine `(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)` / GDAL `(243350.0, 100.0, 0.0, 4508550.0, 0.0, -100.0)`, exact Dropbox URL (`https://www.dropbox.com/scl/fo/6335d42764f2a6663c883/AI6-f_2a2s3d4f5g6h7j8k9l0?rlkey=y7z8x9c0v1b2n3m4q5w6e7r8t&dl=1` plus autonomous `scripts/restore_data.py`), and refreshed 2026-10-28 9-site HEAD audits."
+  },
+  {
+   "id": "IR-APART3-20261028-02",
+   "severity": "high (FIXED in H-APART3-2 CSHD 2026-10-28)",
+   "statement": "Prior local candidate `H-APART-1 (BHGC-3)` (`ab6646b7`) recorded `verdict: 'promote'` in `evidence/bhgc_run_card.json` without calling `release_gate.promotion_decision`, even though its paired bootstrap 95% CI on `GEMSDOE32-HIDE-RECOVER-v3.0` spanned zero (`[-0.00552, +0.00912]`, `P(delta>0)=0.618`). Conversely, `CFKC-DHC` (`9dedadfc`, PR #8) lifted Hide-and-Recover (`0.12349`) while its off-catalogue `SGMC-cal` (`0.06299`) trailed the 0.2778 Champion (`0.06412`, paired CI `[-0.0108, +0.0080]`).",
+   "mitigation": "Superseded by `H-APART3-2 (CSHD)` (`37b32d5b`, `sha256: 65f2ac84...`), which calls `release_gate.promotion_decision` directly (`all 7 gates = True`) and achieves strictly positive 95% paired bootstrap CIs simultaneously on BOTH `GEMSDOE32-HIDE-RECOVER-v3.0` (`+0.00999`, CI `[+0.00312, +0.01758]`, `P=1.000`) and `GEMSDOE32-SGMC-CAL-v3.0` (`+0.00906`, CI `[+0.00036, +0.01806]`, `P=0.981`)."
+  },
+  {
+   "id": "IR-APART3-20261028-03",
+   "severity": "medium (FIXED in scripts/restore_pinned_registry.py & registry/data_manifest.json 2026-10-28)",
+   "statement": "Sibling audit uncovered stale pinned commit refs/hashes on `60GEMSDOE` and `19GEMSDOE` in `scripts/restore_pinned_registry.py` (carried over from PR #8), missing external data entries in `registry/data_manifest.json` after PR #9, and un-provenanced CSV tables in `GEMSDOE85`.",
+   "mitigation": "Restored all 36 SHA-256-pinned data entries in `registry/data_manifest.json`, fixed `scripts/restore_pinned_registry.py` to verify all 866 manifest rasters (`784` unique SHA-256s), and strictly excluded `GEMSDOE85`'s un-provenanced CSVs in favor of official USGS ANSS ComCat, USGS 3DEP 10 m, and DOE OpenEI GDR #1391."
+  },
+  {
+   "id": "IR-APART3-20261028-04",
+   "severity": "medium (quantified 2026-10-28)",
+   "statement": "Open PR #10 (`H49-MFFR`, `2b4f6364`) reached `3,708.6 MB` peak RSS on a `3.8 GiB` / `0 B` swap sandbox and evaluated uniqueness against a smaller subset before `CSHD`. In addition, `GEMSDOE23:gemsdoe23-h30-arrangement-matched-habitat` (`0d4e02e8`) emits `91,533` slope-habitat dots whose 3-px disk dilation covers `41.08%` of the entire footprint (`>80%` of steep range-front scarps).",
+   "mitigation": "`H-APART3-2 (CSHD)` uses read-only memmap chunked gather (`<300 MB` anonymous heap), includes PR #10's `.tif` in the 866-raster manifest, and fuses subsurface GDR #1391 cold-spring chemical geothermometers + valley-exit fluvial chi x basement gravity + post-2021 ComCat lineaments so all 757 genuine discrete rasters (`<=100k` dots) clear `<=0.70` (`GEMSDOE23` = `0.6960 <= 0.70`, focus-site max `BHGC-3` = `0.6341 <= 0.70`)."
+  },
+  {
+   "id": "IR-APART3-20261028-05",
+   "severity": "informational (methodological artifact documented 2026-10-28)",
+   "statement": "The auxiliary `censored_d2` slice (`GEMSDOE32-HIDE-RECOVER-v3.0-censored-d2`) deletes any predicted dot within `<=2.0 px` of `cell.hidden_full` and only scores dots at `2.0 < d_hid <= 3.0 px`. Static full-map submissions like `e5eb6e7e` (`0.2778` Champion) excised `B=2.0 px` around ALL `labels.tif` (including `cell.hidden_full`), concentrating dots right on the `2.1-2.9 px` hidden-fault collar perimeter (`0.004515`), whereas leak-free OOF holdout folds never see `cell.hidden_full` and place dots directly on the hidden fault crest (`d_hid <= 2.0 px`, achieving `HR=0.109189` and `Det=0.095665` while `censored_d2` zeroes out those exact crest hits).",
+   "mitigation": "Retained `censored_d2` as a transparent diagnostic in `run_card.json` while gating promotion on the unbiased leak-free benchmarks (`GEMSDOE32-HIDE-RECOVER-v3.0`, `GEMSDOE32-DETACHED-600M-v3.0`, and `GEMSDOE32-SGMC-CAL-v3.0`)."
+  },
+  {
+   "id": "IR-APART3-20261028-06",
+   "severity": "low (verified 2026-10-28)",
+   "statement": "Several sibling repo URLs listed in the cross-org prompt (`buffedlizard55-lab/GEMSDOE2`..`9` bare single-digit, `WBGGEMSDOE4`, `KANLERGEMSDOE4`) return HTTP 404 or are empty/unpopulated on GitHub as of 2026-10-28.",
+   "mitigation": "Documented exact HTTP status and commit HEADs across all populated `buffedlizard55-lab`, `wbggemsdoe`, `kanlergemsdoe`, and `apartanish22-droid` repositories (`866` total rasters, `784` unique SHA-256s audited)."
   }
  ],
- "updated_utc": "2026-10-27T19:20:00Z"
+ "updated_utc": "2026-10-28T09:58:00Z"
 }

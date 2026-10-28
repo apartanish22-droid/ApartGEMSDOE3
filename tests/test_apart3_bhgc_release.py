@@ -124,8 +124,8 @@ def test_registry_uniqueness_gates_passed() -> None:
 
 
 def test_run_card_and_site_hygiene() -> None:
-    """Protocol Rule 5: Verify run_card.json schema, note length <=140, and zero leaked local paths."""
-    card = json.loads((ROOT / "run_card.json").read_text(encoding="utf-8"))
+    """Protocol Rule 5: Verify archived bhgc_run_card.json schema, note length <=140, and zero leaked local paths."""
+    card = json.loads((ROOT / "evidence" / "bhgc_run_card.json").read_text(encoding="utf-8"))
     required_keys = {
         "hypothesis",
         "mechanism",

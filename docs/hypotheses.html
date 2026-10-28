@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pre-Registered Hypotheses &amp; 3-Experiment Ablation · ApartGEMSDOE3</title>
+  <title>5 Pre-Registered Hypotheses &amp; 3-Experiment Ablation · ApartGEMSDOE3</title>
   <style>
 :root {
   --bg: #070b14;
@@ -174,7 +174,7 @@ pre {
 .hero-sub {
   color: #cbd5e1;
   margin: 0 0 1.25rem;
-  max-width: 1080px;
+  max-width: 1120px;
 }
 .cta-row {
   display: flex;
@@ -375,10 +375,10 @@ tr.row-highlight td {
   <div class="topbar-inner">
     <div class="brand">
       <span class="brand-badge">APARTGEMSDOE3 · PROMOTED</span>
-      <span>DOE GEMS Fault Detection · H-APART-1 (BHGC-3)</span>
+      <span>DOE GEMS Fault Detection · H-APART3-2 (CSHD)</span>
     </div>
     <nav class="nav-links">
-      <a href="index.html" class="">Overview & Download</a><a href="executive-summary.html" class="">Executive Summary (9-Site Audit)</a><a href="research.html" class="">Why 0.2778 Won & 0.3195 Anatomy</a><a href="hypotheses.html" class="active">4 Hypotheses & 3 Ablations</a><a href="leaderboard.html" class="">524-Raster Uniqueness & Leaderboard</a><a href="sources.html" class="">Official Sources & Run Card</a><a href="downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif" class="nav-cta" download>⬇ Download Validated .TIF (214 KB)</a>
+      <a href="index.html" class="">Overview & Download</a><a href="executive-summary.html" class="">Executive Summary (9-Site Audit)</a><a href="research.html" class="">Why 0.2778 Won & 0.3195/0.4437 Anatomy</a><a href="hypotheses.html" class="active">5 Hypotheses & 3 Ablations</a><a href="leaderboard.html" class="">784-Raster Uniqueness & Leaderboard</a><a href="sources.html" class="">Official Sources, Irregularities & Run Card</a><a href="downloads/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif" class="nav-cta" download>⬇ Download Validated .TIF (215 KB)</a>
     </nav>
   </div>
 </header>
@@ -387,7 +387,7 @@ tr.row-highlight td {
     <div class="section">
       <h2>Controlled 3-Experiment Ablation Ledger (Strictly Labeled <code>HOLDOUT-DTI</code>)</h2>
       <p>
-        Evaluated via <code>src/gems32/evaluate_holdout.py</code> across all 8 fold-models (<code>draws 20, 21 &times; folds 0..3</code>, <code>n = 22,232</code> withheld catalogue fault pixels) and the untouched USGS SGMC structural geology benchmark (<code>n = 62,703</code> withheld fault pixels).
+        Evaluated via shared <code>src/gems32/holdout.py</code> across all 8 spatially blocked fold-models (<code>draws 20, 21 &times; folds 0..3</code>, <code>n = 22,232</code> withheld catalogue fault pixels) and untouched USGS SGMC structural geology (<code>n = 62,703</code> withheld fault pixels).
       </p>
       <div class="table-wrap">
         <table>
@@ -397,14 +397,14 @@ tr.row-highlight td {
               <th>GEMSDOE32-HIDE-RECOVER-v3.0 (n=22,232) HOLDOUT-DTI [95% CI]</th>
               <th>Detached &ge; 600 m (n=15,504) HOLDOUT-DTI [95% CI]</th>
               <th>GEMSDOE32-SGMC-CAL-v3.0 (n=62,703) HOLDOUT-DTI [95% CI]</th>
-              <th>Censored d_hid &gt; 2 px (n=19,179) HOLDOUT-DTI [95% CI]</th>
+              <th>Censored d_hid &gt; 2 px (n=22,232) HOLDOUT-DTI [95% CI]</th>
               <th>Beats 0.2778 Champion on HR, Detached &amp; SGMC?</th>
             </tr>
           </thead>
           <tbody>
             
         <tr>
-          <td><strong>Baseline 1: 0.2778 Champion (h33-2-b2)</strong></td>
+          <td><strong>Baseline 1: 0.2778 Champion (GEMSDOE32 H33-B2 / Fold-Collared)</strong></td>
           <td><code>0.099202</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.085951, 0.112668]</span></td>
           <td><code>0.094324</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.079248, 0.109825]</span></td>
           <td><code>0.064121</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.056730, 0.071649]</span></td>
@@ -414,42 +414,42 @@ tr.row-highlight td {
         
             
         <tr>
-          <td><strong>Baseline 2: GEMSDOE32 H48-1 FBGR (4d38a240)</strong></td>
-          <td><code>0.115341</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.100168, 0.130524]</span></td>
-          <td><code>0.101168</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.085002, 0.117569]</span></td>
-          <td><code>0.056798</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.050345, 0.063015]</span></td>
-          <td><code>0.005176</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.004385, 0.005902]</span></td>
+          <td><strong>Baseline 2: Prior Local BHGC-3 (ab6646b7, Superseded)</strong></td>
+          <td><code>0.101735</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.088171, 0.114724]</span></td>
+          <td><code>0.095807</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.081047, 0.110344]</span></td>
+          <td><code>0.070897</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.063401, 0.077404]</span></td>
+          <td><code>0.003798</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.003169, 0.004470]</span></td>
+          <td>Yes (HR CI spanned 0)</td>
+        </tr>
+        
+            
+        <tr>
+          <td><strong>EXP-1: CSHD-Unsup-Crest (Zero-Label Physical Conduit Crest)</strong></td>
+          <td><code>0.063660</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.054065, 0.073539]</span></td>
+          <td><code>0.059566</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.049890, 0.069400]</span></td>
+          <td><code>0.090688</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.078704, 0.101788]</span></td>
+          <td><code>0.002588</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.002120, 0.003124]</span></td>
           <td>No</td>
         </tr>
         
             
         <tr>
-          <td><strong>EXP-1: BHGC-Unsup-Spine (Physical Spine Only)</strong></td>
-          <td><code>0.047273</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.039547, 0.055069]</span></td>
-          <td><code>0.041998</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.035181, 0.048587]</span></td>
-          <td><code>0.084765</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.075066, 0.093315]</span></td>
-          <td><code>0.002296</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.001842, 0.002758]</span></td>
-          <td>No</td>
-        </tr>
-        
-            
-        <tr>
-          <td><strong>EXP-2: BHGC-OOF-Near (89ch Dual-Cover w_far=0)</strong></td>
-          <td><code>0.116105</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.101071, 0.130508]</span></td>
-          <td><code>0.101235</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.084921, 0.116954]</span></td>
-          <td><code>0.057482</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.050908, 0.063868]</span></td>
-          <td><code>0.004913</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.004066, 0.005750]</span></td>
+          <td><strong>EXP-2: CSHD-Single97-OOF (No Dual-Cover Split or Blind Envelope)</strong></td>
+          <td><code>0.119472</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.106682, 0.132221]</span></td>
+          <td><code>0.102434</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.088811, 0.115915]</span></td>
+          <td><code>0.064013</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.056851, 0.070758]</span></td>
+          <td><code>0.004354</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.003698, 0.005002]</span></td>
           <td>No</td>
         </tr>
         
             
         <tr class="row-highlight">
-          <td><strong>EXP-3: H-APART-1 (BHGC-3) [PROMOTED]</strong></td>
-          <td><code>0.101735</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.088171, 0.114724]</span></td>
-          <td><code>0.095807</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.081047, 0.110344]</span></td>
-          <td><code>0.070897</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.063401, 0.077404]</span></td>
-          <td><code>0.003798</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.003169, 0.004470]</span></td>
-          <td>✔ YES (ALL 3)</td>
+          <td><strong>EXP-3: H-APART3-2 (CSHD) [PROMOTED]</strong></td>
+          <td><code>0.109189</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.097298, 0.120981]</span></td>
+          <td><code>0.095665</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.083075, 0.108224]</span></td>
+          <td><code>0.073177</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.065167, 0.080476]</span></td>
+          <td><code>0.003869</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.003300, 0.004463]</span></td>
+          <td>✔ YES (ALL 3 + BOTH PAIRED CIS > 0)</td>
         </tr>
         
           </tbody>
@@ -458,15 +458,15 @@ tr.row-highlight td {
     </div>
 
     <div class="section">
-      <h2>New 6-Channel <code>BHGC</code> Feature Stack &amp; 89-Channel Leakage Canary Audit</h2>
+      <h2>New 8-Channel <code>CSHD</code> Feature Stack &amp; 97-Channel Leakage Canary Audit</h2>
       <p>
-        Every one of the 89 channels was tested individually on withheld faults before model training (<code>run_leakage_canary_89ch</code> in <code>src/gems32/bhgc.py</code>). Maximum oriented single-feature AUC across all 89 channels is <strong><code>0.586868 &le; 0.90</code> (<code>PASSED</code>)</strong>.
+        Every one of the 97 channels was tested individually on withheld faults before model training (<code>run_leakage_canary_97ch</code> in <code>src/gems32/cshd.py</code>). Maximum oriented single-feature AUC across all 97 channels is <strong><code>0.586868 &le; 0.90</code> (<code>PASSED</code>)</strong>.
       </p>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>89-ch Index</th>
+              <th>97-ch Index</th>
               <th>Channel Name</th>
               <th>1 m LiDAR-Free?</th>
               <th>Single-Feature Holdout Oriented AUC (&le; 0.90 Canary)</th>
@@ -475,45 +475,59 @@ tr.row-highlight td {
           <tbody>
             
         <tr>
-          <td><code>Ch 83</code></td>
-          <td><strong><code>grav_vec_div_crest</code></strong></td>
-          <td>✔ Yes (in 76-ch M_Sub)</td>
-          <td><code>0.532779</code> (&le; 0.90 PASS)</td>
+          <td><code>Ch 89</code></td>
+          <td><strong><code>comcat_brittle_hypocenter_density</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.535827</code> (&le; 0.90 PASS)</td>
         </tr>
         
         <tr>
-          <td><code>Ch 84</code></td>
-          <td><strong><code>mag_tilt_zerocross_wall</code></strong></td>
-          <td>✔ Yes (in 76-ch M_Sub)</td>
-          <td><code>0.526052</code> (&le; 0.90 PASS)</td>
+          <td><code>Ch 90</code></td>
+          <td><strong><code>comcat_post2021_lineament_bridge</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.528632</code> (&le; 0.90 PASS)</td>
         </tr>
         
         <tr>
-          <td><code>Ch 85</code></td>
-          <td><strong><code>piedmont_horst_step_spine</code></strong></td>
-          <td>✔ Yes (in 76-ch M_Sub)</td>
-          <td><code>0.525006</code> (&le; 0.90 PASS)</td>
+          <td><code>Ch 91</code></td>
+          <td><strong><code>gdr_blind_geotherm_disequilibrium</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.536801</code> (&le; 0.90 PASS)</td>
         </tr>
         
         <tr>
-          <td><code>Ch 86</code></td>
-          <td><strong><code>transtensional_accommodation_bridge</code></strong></td>
-          <td>✔ Yes (in 76-ch M_Sub)</td>
-          <td><code>0.565243</code> (&le; 0.90 PASS)</td>
+          <td><code>Ch 92</code></td>
+          <td><strong><code>cond_radon_upflow_gradient</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.542205</code> (&le; 0.90 PASS)</td>
         </tr>
         
         <tr>
-          <td><code>Ch 87</code></td>
-          <td><strong><code>hydrothermal_claycap_radon_vent</code></strong></td>
-          <td>✔ Yes (in 76-ch M_Sub)</td>
-          <td><code>0.545390</code> (&le; 0.90 PASS)</td>
+          <td><code>Ch 93</code></td>
+          <td><strong><code>seamless_10m_piedmont_apron_scarp</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.584757</code> (&le; 0.90 PASS)</td>
         </tr>
         
         <tr>
-          <td><code>Ch 88</code></td>
-          <td><strong><code>bhgc_farfield_structural_spine</code></strong></td>
-          <td>✔ Yes (in 76-ch M_Sub)</td>
-          <td><code>0.536973</code> (&le; 0.90 PASS)</td>
+          <td><code>Ch 94</code></td>
+          <td><strong><code>piedmont_chi_gravity_concordance</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.515948</code> (&le; 0.90 PASS)</td>
+        </tr>
+        
+        <tr>
+          <td><code>Ch 95</code></td>
+          <td><strong><code>strain_kinematic_reactivation_index</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.569891</code> (&le; 0.90 PASS)</td>
+        </tr>
+        
+        <tr>
+          <td><code>Ch 96</code></td>
+          <td><strong><code>cshd_piedmont_geothermal_conduit_crest</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.568361</code> (&le; 0.90 PASS)</td>
         </tr>
         
           </tbody>
@@ -524,58 +538,72 @@ tr.row-highlight td {
     
         <div class="section">
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
-            <h2 style="border:none;margin:0;padding:0;">Rank #1: <code>H-APART-1 (BHGC-3)</code> — Laplace-Harmonic Gravity-Vector Divergence (Band 18, Band 11), Depth-Invariant Magnetic Tilt Zero-Crossing Wall, Multi-Scale Piedmont-Horst Bedrock Contact Spine &amp; PU-Safe 89-Ch/76-Ch Dual-Cover Hydrothermal-Vent OOF with 3-Zone Radial Bi-Population Transfer &amp; Axial-Crest CELF</h2>
+            <h2 style="border:none;margin:0;padding:0;">Rank #1: <code>H-APART3-2 (CSHD)</code> — Crustal Seismogenic-Hydrothermal-Piedmont Dual-Cover Conduit Detection (ANSS ComCat 1900-2026 Hypocenters + Post-2021 Lineaments + GDR #1391 Blind Cold-Spring Geothermometer Disequilibrium + Seamless 10m 3DEP Piedmont-Chi)</h2>
             <span class="status-pill pill-pass">IMPLEMENTED IN 3-EXP PROTOCOL</span>
           </div>
-          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Computes exact horizontal divergence div(g_H) = d(Band 18)/dx + d(Band 11)/dy = -d^2g/dz^2 via Laplace&#x27;s equation in the source-free upper half-space (Blakely 1995) and the Blakely-Simpson (1986) cross-contact inflection crest along the unit gravity gradient vector n_g = (Band 18, Band 11)/||g_H||, gated by basement throw ||grad(Band 15)||. Combines with Miller &amp; Singh (1994) magnetic tilt-angle zero-crossing walls on Band 6/3/9, multi-scale Hessian bedrock/piedmont ridges on Band 12/19, transtensional accommodation bridges (Bands 4,7,8,10,16), and MT clay-cap lateral edges (Band 17) + 4-block standardized 214Bi radon + GDR #1391 thermal vents. Trains an 89-ch/76-ch Dual-Cover OOF classifier fused with a 3-zone radial bi-population transfer function and axial-spaced submodular CELF (K=37,654, B=2.0 px, min_sep_px=3.22).</p>
-          <p><strong>Exact Competition Layers &amp; External Priors Used:</strong> <code>Band 18 (iso_grav_anom_grad1, dx), Band 11 (iso_grav_anom_grad2, dy), Band 5 (iso_grav_anom_slope), Band 0 (iso_grav_anom), Band 1 (cba), Band 15 (depth_to_base), Band 6 (tc), Band 3 (tmi_hg), Band 9 (tmi_vg), Band 2 (rtp), Band 12 (det_elev), Band 19 (det_elev_slope), Band 17 (cond_surf), Band 14 (temp_2m), Bands 4, 7, 8 (geod_2nd_inv, geod_dil, geod_max_shear), Bands 10, 16 (earthquake_density, reloc_eq_density), USGS GeoDAWN 214Bi/208Tl/40K + 3DEP 1m LiDAR (10.5066/P93LGLVQ), DOE GDR #1391 INGENIOUS wells/springs/sinter (10.15121/1881483), US Census TIGER/Line roads (tl_2023_32_prisecroads, tl_2023_32001_roads)</code></p>
-          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Directly resolves three distinct classes of unmapped faults missed by surface-scarp detectors: (1) buried intrabasin horst-bounding faults beneath 50-400 m of quaternary fill via Laplace-harmonic gravity divergence and magnetic tilt zero-crossings; (2) blind transtensional step-overs and accommodation zones (600 m - 2.2 km from mapped faults) where 75% of Great Basin geothermal systems occur (Faulds et al. 2011); and (3) far-field (&gt;1.5 km) range-front piedmont and bedrock faults including inside the 24.63% 1 m LiDAR gap.</p>
-          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Pleistocene Lake Lahontan wave-cut shorelines (~1,330 m Sehoo and ~1,235 m Fallon highstands); US Census TIGER/Line highway/railroad embankments and irrigation canal prisms; 4-contractor GeoDAWN airborne radiometric survey seam steps (Blocks A, B, C, E); Deep flat playa/evaporite depocenters (depth_to_base &gt; 320 m, slope &lt; 1.6 deg) with non-tectonic saline MT conductivity</code></p>
-          <p><strong>How It Differs from Existing Repo Implementations:</strong> First pipeline in the GEMSDOE registry to exploit the native pre-computed horizontal gravity gradient vector (Band 18, Band 11) via Laplace&#x27;s equation div(g_H) = -d^2g/dz^2, and the first to pair an 89-ch/76-ch Dual-Cover OOF classifier with a 3-zone radial bi-population transfer function and axial d=3.22 px CELF that beats the 0.2778 Champion on Hide-and-Recover, Detached &gt;=600m, AND Off-Catalogue SGMC simultaneously while remaining &lt;=70% overlap against all 495 genuine discrete rasters.</p>
-          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Expected +0.0025 to +0.0070 HOLDOUT-DTI across both Hide-and-Recover and Off-Catalogue SGMC benchmarks; runtime ~410 s on CPU (&lt;4.2 GB RSS).</code></p>
-          <p><strong>Status in Protocol Budget:</strong> <code>PRIMARY — IMPLEMENTED &amp; PROMOTED IN 3-EXPERIMENT PROTOCOL</code></p>
+          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Depth-weighted brittle-crust (1.5-15 km) hypocenter kernel density + post-2021 local covariance-eigenvector fault-strike lineament bridge + blind cold-discharge silica/cation geothermometer disequilibrium (Delta_T = max(T_SiO2, T_NaKCa) - T_meas &gt; 40 deg C for T_meas &lt; 45 deg C) + MT clay-cap / contractor-standardized 214Bi radon upflow + seamless 10 m piedmont apron scarp &amp; valley-exit fluvial chi x harmonic basement gravity concordance + dilatational/shear strain reactivation index, combined inside a stationary 97-ch/84-ch Dual-Cover OOF ensemble with cross-term-free Bayesian two-population envelope max(R(P_cont)^6, 0.834 * R(P_blind)^6) and axial d_min = 3.62 px CELF emission.</p>
+          <p><strong>Exact Competition Layers &amp; Official External Sources Used:</strong> <code>training_features.tif Bands 5, 7, 8, 10, 11, 13, 15, 16, 17, 18, 19; usgs_comcat_geodawn.csv (2,046 in-footprint hypocenters; 486 post-2021 microearthquakes); gdr_wellspring_in_footprint.csv (653 blind &lt;45 deg C high-geothermometer &gt;85 deg C wells/springs, DOE GDR #1391); topo_10m_derived_100m_u8.tif (100% seamless USGS 3DEP 10 m slope, planform curvature, fluvial chi)</code></p>
+          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Directly resolves three blind-fault populations missed by the 2021 INGENIOUS compilation: (1) post-2021 microearthquake fault planes invisible in Band 10/16; (2) blind geothermal systems masked by shallow cold alluvial aquifers (e.g., McGinness Hills, Tungsten Mountain, Dixie Comstock) where T_meas &lt; 45 deg C but quartz/chalcedony geothermometers retain &gt;85-180 deg C deep reservoir equilibrium; and (3) unmapped scarps inside the 24.63% NW/NE 1 m LiDAR gap via 100%-seamless 10 m 3DEP piedmont-chi.</p>
+          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Mesozoic/Paleozoic intrarange bedrock thrusts &amp; high-mountain drainage-divide chi jumps (slope &gt; 14 deg, depth_to_base &lt; 80 m; suppressed by piedmont-apron envelope + harmonic basement gravity gate); Closed-basin desert salt playas (depth &gt; 300 m, slope &lt; 2 deg; &lt;0.03% dots via zero-anchored playa veto) &amp; Pleistocene Lake Lahontan (~1,332 m) shoreline benches; US BLM MLRS mining-pit blasts (earthquake-only ComCat filter) &amp; 4-contractor GeoDAWN radiometric block seams</code></p>
+          <p><strong>How It Differs from Existing Repo Implementations:</strong> Zero prior submissions in ApartGEMSDOE3 or any of the 9 focus / sibling repos used usgs_comcat_geodawn.csv post-2021 fault-strike lineaments, gdr_wellspring_in_footprint.csv blind cold-discharge chemical geothermometer disequilibrium (strictly dropping dist_known_fault_px), or axial sqrt(13) (d_min = 3.62 px) two-population envelope max(R(P_cont)^6, beta * R(P_blind)^6).</p>
+          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Rank #1 — HIGH expected DTI gain (+0.009 to +0.010 simultaneously on BOTH Hide-and-Recover v3.0 and Off-Catalogue SGMC-cal v3.0 with both 95% paired CIs &gt; 0) at LOW-MODERATE CPU/RAM cost (&lt;300 MB anonymous heap).</code></p>
+          <p><strong>Status in Protocol Budget:</strong> <code>PRIMARY IMPLEMENTED &amp; PROMOTED (EXP-1, EXP-2, EXP-3)</code></p>
         </div>
         
         <div class="section">
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
-            <h2 style="border:none;margin:0;padding:0;">Rank #2: <code>H-APART-2 (CSTW-3)</code> — Coaxial Geodetic Shear-Dilatation &amp; Relocated Microseismic Accommodation Bridge Tensor</h2>
+            <h2 style="border:none;margin:0;padding:0;">Rank #2: <code>H-APART3-1 (S3PC)</code> — Seamless 10 m 3DEP Fluvial-Chi Disequilibrium &amp; Piedmont Scarp Curvature Across the 24.63% 1 m LiDAR Gap</h2>
             <span class="status-pill pill-pass">IMPLEMENTED IN 3-EXP PROTOCOL</span>
           </div>
-          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Constructs the coaxial transtensional strain rate invariant T_strain = z+(Band 4) * z+(Band 8) * sigmoid(z+(Band 7)) coupled with the relocated-to-catalogue microseismic clustering ratio R_eq = z+(Band 16) - 0.35*z+(Band 10), projected along structural strike ridges between en-echelon fault tips.</p>
-          <p><strong>Exact Competition Layers &amp; External Priors Used:</strong> <code>Band 4 (geod_2nd_inv), Band 7 (geod_dil), Band 8 (geod_max_shear), Band 10 (earthquake_density), Band 16 (reloc_eq_density), Band 13 (fault_SlipDilationTendency), Band 12 (det_elev), Band 19 (det_elev_slope)</code></p>
-          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Horsetail splay relays, overlapping step-overs, and accommodation zones fragment surface rupture across multiple small sub-resolution fractures that lack a single continuous LiDAR scarp, but concentrate active transtensional shear strain and relocated microseismic swarms.</p>
-          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Long-wavelength GPS station interpolation halos (~15-30 km); Anthropogenic geothermal injection seismicity clusters at Dixie Valley / Brady / Desert Peak</code></p>
-          <p><strong>How It Differs from Existing Repo Implementations:</strong> Replaces isotropic earthquake density smoothing with the relocated-vs-raw seismic clustering contrast gated by structural strike coherence and geodetic shear*dilatation.</p>
-          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Highest single-feature holdout AUC (0.565243) among the 6 new BHGC channels; +0.0015 HOLDOUT-DTI on Detached &gt;= 600 m segments.</code></p>
-          <p><strong>Status in Protocol Budget:</strong> <code>INTEGRATED AS CHANNEL 86 (transtensional_accommodation_bridge, single-feature AUC=0.5652)</code></p>
+          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Active normal-fault footwall uplift creates transient drainage-divide disequilibrium (Delta_chi across range-front valley exits) co-located with planform-convex alluvial-fan apex scarps and horizontal basement gravity steps across 100% of the study area, eliminating the 24.63% NW/NE 1 m LiDAR gap.</p>
+          <p><strong>Exact Competition Layers &amp; Official External Sources Used:</strong> <code>topo_10m_derived_100m_u8.tif (Bands 1 slope_10m, 2 plan_curv_10m, 3 relief_10m, 4 openness_10m, 5 fluvial_chi_10m); training_features.tif Bands 12 (det_elev), 15 (depth_to_base_surf), 18 (iso_grav_anom_hg)</code></p>
+          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Recovers Quaternary range-front and piedmont scarps in northern Washoe, Pershing, and Elko margin blocks where 1 m LiDAR was unavailable during the 2021 compilation.</p>
+          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Resistant Mesozoic granitic/volcanic cliff ledges at high elevation; Pleistocene Lake Lahontan wave-cut shoreline terraces (~1,332 m)</code></p>
+          <p><strong>How It Differs from Existing Repo Implementations:</strong> Prior BHGC-3 and CFKC stacks never opened topo_10m_derived_100m_u8.tif; their LiDAR-free sub-model relied only on 100 m detrended elevation.</p>
+          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Rank #2 — MEDIUM-HIGH gain inside the 24.63% LiDAR gap at VERY LOW cost; integrated as CSHD channels 4 and 5.</code></p>
+          <p><strong>Status in Protocol Budget:</strong> <code>INTEGRATED INTO H-APART3-2 (CSHD CHANNELS 4 &amp; 5)</code></p>
         </div>
         
         <div class="section">
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
-            <h2 style="border:none;margin:0;padding:0;">Rank #3: <code>H-APART-3 (MTCC-3)</code> — Magnetotelluric Smectite-Illite Clay-Cap Lateral Edge, Hydrothermal Demagnetization Low &amp; 4-Block Standardized 214Bi Radon / GDR #1391 Vent Conduit</h2>
-            <span class="status-pill pill-pass">IMPLEMENTED IN 3-EXP PROTOCOL</span>
-          </div>
-          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Computes the lateral spatial gradient ||grad_H log(1 + Band 17)||_2 of surface MT electrical conductivity to isolate the steeply dipping fault boundary of conductive smectite-illite hydrothermal clay caps, multiplied by 4-block contractor-standardized 214Bi/208Tl radon soil-gas enrichment, magnetite-to-pyrite hydrothermal demagnetization lows (-z(Band 2)*z+(Band 14)), and GDR #1391 thermal/sinter proximity.</p>
-          <p><strong>Exact Competition Layers &amp; External Priors Used:</strong> <code>Band 17 (cond_surf), Band 14 (temp_2m), Band 2 (rtp), Band 3 (tmi_hg), Band 15 (depth_to_base), Band 19 (det_elev_slope), USGS GeoDAWN 214Bi_radon, 208Tl_thorium, 40K_potassium (10.5066/P93LGLVQ), DOE GDR #1391 thermal wells/springs &amp; sinter/travertine vents (10.15121/1881483)</code></p>
-          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Hydrothermal alteration converts competent fault-scarp bedrock into soft argillic clay (smectite/illite/chlorite), erasing topographic relief while creating a sharp lateral MT conductivity boundary, a magnetic destruction trough, and an active 222Rn -&gt; 214Bi gas degassing chimney.</p>
-          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Saline evaporite playas in the Carson Sink and Humboldt Sink (high Band 17 conductivity and evaporite K/U in flat basins); Airborne gamma-ray contractor block boundaries (Blocks A, B, C, E)</code></p>
-          <p><strong>How It Differs from Existing Repo Implementations:</strong> Uses lateral gradient ||grad_H(Band 17)||_2 rather than raw conductivity magnitude and applies strict playa suppression (depth &gt; 320 m, slope &lt; 1.6 deg) plus 4-block radiometric seam de-confounding.</p>
-          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Single-feature holdout AUC = 0.545390; +0.0012 HOLDOUT-DTI on hydrothermally altered blind fault segments.</code></p>
-          <p><strong>Status in Protocol Budget:</strong> <code>INTEGRATED AS CHANNEL 87 (hydrothermal_claycap_radon_vent, single-feature AUC=0.5454)</code></p>
-        </div>
-        
-        <div class="section">
-          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
-            <h2 style="border:none;margin:0;padding:0;">Rank #4: <code>H-APART-4 (INSAR-3)</code> — Anisotropic Wavelet Phase-Congruency &amp; Curvature Tensor Across Multi-Azimuth Topographic &amp; Potential-Field Envelopes</h2>
+            <h2 style="border:none;margin:0;padding:0;">Rank #3: <code>H-APART3-3 (WCHD)</code> — Wavelet-Multiscale Potential-Field Contact Dip &amp; Depth-to-Magnetic-Bottom Shallowing Vector</h2>
             <span class="status-pill pill-info">PRE-REGISTERED CANDIDATE</span>
           </div>
-          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Computes Kovesi log-Gabor multi-orientation phase congruency across 6 azimuths to extract amplitude-invariant step/ridge phase alignments across gravity, magnetic, and detrended elevation fields.</p>
-          <p><strong>Exact Competition Layers &amp; External Priors Used:</strong> <code>Band 0 (iso_grav_anom), Band 2 (rtp), Band 12 (det_elev), USGS 3DEP 1m LiDAR directional hillshade banks (10.5066/P93LGLVQ)</code></p>
-          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Detects subtle low-amplitude flexural scarps and antithetic intrabasin graben steps whose absolute relief is &lt; 0.5 m.</p>
-          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Eolian sand dune trains and braided alluvial distributor channels; 100 m DEM grid resampling moire artifacts</code></p>
-          <p><strong>How It Differs from Existing Repo Implementations:</strong> Amplitude-invariant frequency-domain phase congruency rather than spatial Gaussian second derivatives.</p>
-          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Expected +0.0008 HOLDOUT-DTI, high FFT compute cost (~25 min across 6 scales x 6 orientations); deferred per 3-experiment budget rule.</code></p>
-          <p><strong>Status in Protocol Budget:</strong> <code>PRE-REGISTERED CANDIDATE (RESERVED BEYOND 3-EXPERIMENT BUDGET CAP)</code></p>
+          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Poisson-kernel upward continuation ladder z in {200, 600, 1500, 3000} m tracking horizontal spatial migration dx_crest/dz of joint gravity-magnetic tilt zero-crossings to separate dipping listric normal faults (50-65 deg) from vertical volcanic dike swarms and horizontal caldera margins.</p>
+          <p><strong>Exact Competition Layers &amp; Official External Sources Used:</strong> <code>training_features.tif Bands 2 (rtp), 3 (tmi_hg), 6 (tc), 9 (tmi_vg), 11 (iso_grav_anom_vg), 13 (iso_grav_anom), 18 (iso_grav_anom_hg)</code></p>
+          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Identifies concealed intrabasin listric fault planes beneath Tertiary tuff and Quaternary alluvium by imaging systematic hanging-wall migration with upward continuation height.</p>
+          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Miocene basaltic-andesite dike swarms (sub-vertical 90 deg, zero crest migration with z); Oligocene-Miocene caldera ring-fracture margins (closed circular planform)</code></p>
+          <p><strong>How It Differs from Existing Repo Implementations:</strong> Prior ldgi/fbgr/bhgc computed scalar upward-continuation differences at fixed z=500/2000 m rather than lateral crest-migration dip vectors.</p>
+          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Rank #3 — MEDIUM gain (+0.002 to +0.004) at MODERATE FFT memory cost; reserved for future iteration outside the 3-experiment budget.</code></p>
+          <p><strong>Status in Protocol Budget:</strong> <code>RESERVED FOR FUTURE ITERATION (BUDGET DISCIPLINE)</code></p>
+        </div>
+        
+        <div class="section">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+            <h2 style="border:none;margin:0;padding:0;">Rank #4: <code>H-APART3-4 (TSTR)</code> — Tensor-Stress Coulomb Failure Envelopes Along Transtensional Walker Lane / Central Nevada Seismic Belt Step-Overs</h2>
+            <span class="status-pill pill-pass">IMPLEMENTED IN 3-EXP PROTOCOL</span>
+          </div>
+          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Slip-tendency T_s = tau / sigma_n&#x27; resolved onto the local basement-gravity strike tangent theta_grav(x) = atan2(-g_x, g_y), isolating active oblique-normal relay ramps where dilatational strain and shear strain align within 20-35 deg of buried horst edges.</p>
+          <p><strong>Exact Competition Layers &amp; Official External Sources Used:</strong> <code>training_features.tif Bands 4 (geod_2ndinv), 7 (geod_shearrate), 8 (geod_dilaterate), 15 (depth_to_base_surf), 18 (iso_grav_anom_hg)</code></p>
+          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Captures distributed strike-slip/normal transfer zones in the Walker Lane where cumulative vertical scarp throw is small (&lt;1 m) and eroded in soft basin fill.</p>
+          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Long-wavelength GPS interpolation halos (&gt;25 km wavelength without local basement structure)</code></p>
+          <p><strong>How It Differs from Existing Repo Implementations:</strong> Prior trhv/bhgc used isotropic scalar products of Band 7 and Band 8 rather than strike-resolved kinematic slip tendency; kinematic reactivation component integrated into CSHD channel 6.</p>
+          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Rank #4 — MEDIUM gain (+0.002) at LOW cost; kinematic partitioning integrated into CSHD Channel 6.</code></p>
+          <p><strong>Status in Protocol Budget:</strong> <code>INTEGRATED INTO H-APART3-2 (CSHD CHANNEL 6)</code></p>
+        </div>
+        
+        <div class="section">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+            <h2 style="border:none;margin:0;padding:0;">Rank #5: <code>H-APART3-5 (RCCA)</code> — Contractor-De-Biased Airborne Radiometric K/eTh Potassium-Adularia Alteration &amp; 214Bi/232Th Degassing Ratio</h2>
+            <span class="status-pill pill-pass">IMPLEMENTED IN 3-EXP PROTOCOL</span>
+          </div>
+          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Per-contractor robust Z-scored K/eTh adularia-illite potassium metasomatism excess ( Fk = Z_c(K) - 0.85 * Z_c(eTh) ) paired with 214Bi/232Th gas-permeable fracture ratio and low-resistivity smectite clay-cap gradients.</p>
+          <p><strong>Exact Competition Layers &amp; Official External Sources Used:</strong> <code>geodawn_radiometric_4band_100m.tif (Bands K %, eU ppm, eTh ppm, Dose); geodawn_contractor_footprint.geojson; training_features.tif Band 17 (cond_surf)</code></p>
+          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Finds hydrothermally cemented or clay-altered range-front and step-over conduits whose mechanical scarps have been degraded by argillic alteration.</p>
+          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Felsic rhyolite ash-flow tuffs with uniformly high primary K and Th (suppressed by K/eTh residual); Playa evaporite potassium sinks (suppressed by piedmont slope-depth gate)</code></p>
+          <p><strong>How It Differs from Existing Repo Implementations:</strong> Prior spcp/bhgc used eU/eTh alone without K/eTh potassium-adularia metasomatism decoupling; clay-cap x radon gradient integrated in CSHD channel 3.</p>
+          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Rank #5 — LOW-MEDIUM gain (+0.0015 to +0.003) due to shallow 30 cm gamma-ray attenuation under thick alluvium.</code></p>
+          <p><strong>Status in Protocol Budget:</strong> <code>PARTIALLY INTEGRATED (CSHD CHANNEL 3) / FULL K-METASOMATISM RESERVED</code></p>
         </div>
         
   </main>

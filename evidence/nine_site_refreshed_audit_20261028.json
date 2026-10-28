@@ -1,0 +1,287 @@
+{
+  "generated_utc": "2026-10-28T09:53:53Z",
+  "total_manifest_rasters": 442,
+  "refs": {
+    "GEMSDOE24": "a73f9ffba29260cc7708e8e0557c84c5bea7d47b",
+    "GEMSDOE25": "19b219f629440b9975b093f459c74e21a42476ca",
+    "GEMSDOE27": "4f34228a9f39e99da592aa34fd835c96d1b693f5",
+    "GEMSDOE28": "4955e29c7b66503ba2178b25d356d713dc1bc534",
+    "GEMSDOE30": "d21ddd9502f3c3911e8d77b8f1e6abfaadffc876",
+    "GEMSDOE31": "88ec212955353f7590e94b8ef2a9763ffa035d45",
+    "GEMSDOE32": "73485f27cf230af770167397c2b72cb9ce3b3f25",
+    "GEMSDOE33": "844f514819041c7be9efd345a24cf5cd70263f00",
+    "GEMSDOE36": "7edcc9b58e6ad0f88c6e6f5ee9218761a391769d"
+  },
+  "sites": [
+    {
+      "repo": "GEMSDOE24",
+      "head_ref": "a73f9ffba292",
+      "total_rasters_in_repo": 69,
+      "published_scored_artifact": {
+        "path": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+        "sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+        "user_reported_live_dti": 0.2477,
+        "live_score_provenance": "OWNER-REPORT (user-reported DrivenData portal score; no raw screenshot receipt in repo per IR-32-SCORE-01)",
+        "emitted_dots": 60069,
+        "whole_array_finite": false,
+        "fold_collared_hide_recover_dti": 0.097204,
+        "sgmc_calibrated_dti": 0.057932,
+        "within_3px_of_02778_champion": 0.8848,
+        "within_3px_of_apart3_cshd": 0.5311
+      },
+      "latest_repo_candidate": {
+        "path": "docs/downloads/24gems-blind-upwelling-20261026T162611Z-a23f2207f2c0-zeros.tif",
+        "sha256": "a59b772423a42676fadbdaf6bdc556e350e51c0f13a560b96d40821822550122",
+        "emitted_dots": 37722,
+        "on_catalogue_dots": 0,
+        "whole_array_finite": true,
+        "range_0_1": true,
+        "nodata_tag": null,
+        "static_hide_recover_dti": 0.04087,
+        "sgmc_calibrated_dti": 0.057266,
+        "within_3px_of_02778_champion": 0.177,
+        "within_3px_of_apart3_cshd": 0.3022
+      }
+    },
+    {
+      "repo": "GEMSDOE25",
+      "head_ref": "19b219f62944",
+      "total_rasters_in_repo": 59,
+      "published_scored_artifact": {
+        "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+        "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+        "user_reported_live_dti": 0.26,
+        "live_score_provenance": "OWNER-REPORT (user-reported DrivenData portal score; no raw screenshot receipt in repo per IR-32-SCORE-01)",
+        "emitted_dots": 44090,
+        "whole_array_finite": false,
+        "fold_collared_hide_recover_dti": 0.099202,
+        "sgmc_calibrated_dti": 0.060592,
+        "within_3px_of_02778_champion": 0.8817,
+        "within_3px_of_apart3_cshd": 0.5184
+      },
+      "latest_repo_candidate": {
+        "path": "docs/downloads/gems25-apfl-piedmont-flexure-s3p0-k3p5-20261026-8aebdab87158-zeros.tif",
+        "sha256": "6648cbebcf724f82f18682632d1770084bc293a1db63d1394bb42871de5279fc",
+        "emitted_dots": 43798,
+        "on_catalogue_dots": 0,
+        "whole_array_finite": true,
+        "range_0_1": true,
+        "nodata_tag": null,
+        "static_hide_recover_dti": 0.002758,
+        "sgmc_calibrated_dti": 0.084317,
+        "within_3px_of_02778_champion": 0.2221,
+        "within_3px_of_apart3_cshd": 0.315
+      }
+    },
+    {
+      "repo": "GEMSDOE27",
+      "head_ref": "4f34228a9f39",
+      "total_rasters_in_repo": 42,
+      "published_scored_artifact": {
+        "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+        "sha256": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d",
+        "user_reported_live_dti": 0.2449,
+        "live_score_provenance": "OWNER-REPORT (user-reported DrivenData portal score; no raw screenshot receipt in repo per IR-32-SCORE-01)",
+        "emitted_dots": 61328,
+        "whole_array_finite": false,
+        "fold_collared_hide_recover_dti": 0.096778,
+        "sgmc_calibrated_dti": 0.058262,
+        "within_3px_of_02778_champion": 0.8672,
+        "within_3px_of_apart3_cshd": 0.5247
+      },
+      "latest_repo_candidate": {
+        "path": "docs/downloads/gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite.tif",
+        "sha256": "2c002b02792419864bd3b29a218e543cb41e3f07b3b57c29ef35c6e39e184bfe",
+        "emitted_dots": 37654,
+        "on_catalogue_dots": 0,
+        "whole_array_finite": true,
+        "range_0_1": true,
+        "nodata_tag": null,
+        "static_hide_recover_dti": 0.01434,
+        "sgmc_calibrated_dti": 0.060466,
+        "within_3px_of_02778_champion": 0.5023,
+        "within_3px_of_apart3_cshd": 0.5938
+      }
+    },
+    {
+      "repo": "GEMSDOE28",
+      "head_ref": "4955e29c7b66",
+      "total_rasters_in_repo": 51,
+      "published_scored_artifact": {
+        "path": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+        "sha256": "5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641",
+        "user_reported_live_dti": 0.271,
+        "live_score_provenance": "OWNER-REPORT (user-reported DrivenData portal score; no raw screenshot receipt in repo per IR-32-SCORE-01)",
+        "emitted_dots": 37660,
+        "whole_array_finite": false,
+        "fold_collared_hide_recover_dti": 0.028932,
+        "sgmc_calibrated_dti": 0.062967,
+        "within_3px_of_02778_champion": 0.9547,
+        "within_3px_of_apart3_cshd": 0.5414
+      },
+      "latest_repo_candidate": {
+        "path": "docs/downloads/gems28-s22-ctxhgb-20261026-e23dabcec6e2-allfinite.tif",
+        "sha256": "77934be607d48a4daec5b046009cdabf61d3fdee210aadc75be82ac70f3beb2e",
+        "emitted_dots": 37654,
+        "on_catalogue_dots": 0,
+        "whole_array_finite": true,
+        "range_0_1": true,
+        "nodata_tag": null,
+        "static_hide_recover_dti": 0.017036,
+        "sgmc_calibrated_dti": 0.050532,
+        "within_3px_of_02778_champion": 0.4205,
+        "within_3px_of_apart3_cshd": 0.4599
+      }
+    },
+    {
+      "repo": "GEMSDOE30",
+      "head_ref": "d21ddd9502f3",
+      "total_rasters_in_repo": 30,
+      "published_scored_artifact": {
+        "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+        "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+        "user_reported_live_dti": 0.26,
+        "live_score_provenance": "OWNER-REPORT (user-reported DrivenData portal score; no raw screenshot receipt in repo per IR-32-SCORE-01)",
+        "emitted_dots": 44090,
+        "whole_array_finite": true,
+        "fold_collared_hide_recover_dti": 0.099202,
+        "sgmc_calibrated_dti": 0.060592,
+        "within_3px_of_02778_champion": 0.8817,
+        "within_3px_of_apart3_cshd": 0.5184
+      },
+      "latest_repo_candidate": {
+        "path": "docs/research/2026-10-26-gdx/gems30-GDX1-44090-20261026-2992ee3619f5.tif",
+        "sha256": "3d569d47f5e62e6e62586ddf940140b113d826ab85a5dc4a1642cb8f882c26ac",
+        "emitted_dots": 44090,
+        "on_catalogue_dots": 0,
+        "whole_array_finite": false,
+        "range_0_1": true,
+        "nodata_tag": "NaN",
+        "static_hide_recover_dti": 0.011998,
+        "sgmc_calibrated_dti": 0.060921,
+        "within_3px_of_02778_champion": 0.3321,
+        "within_3px_of_apart3_cshd": 0.422
+      }
+    },
+    {
+      "repo": "GEMSDOE31",
+      "head_ref": "88ec21295535",
+      "total_rasters_in_repo": 60,
+      "published_scored_artifact": {
+        "path": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+        "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+        "user_reported_live_dti": 0.2708,
+        "live_score_provenance": "OWNER-REPORT (user-reported DrivenData portal score; no raw screenshot receipt in repo per IR-32-SCORE-01)",
+        "emitted_dots": 40199,
+        "whole_array_finite": false,
+        "fold_collared_hide_recover_dti": 0.030057,
+        "sgmc_calibrated_dti": 0.06301,
+        "within_3px_of_02778_champion": 0.9539,
+        "within_3px_of_apart3_cshd": 0.5449
+      },
+      "latest_repo_candidate": {
+        "path": "docs/downloads/gemsdoe31-h31u-strainseis-corrob-37654-20261026-a02579ff-zeros.tif",
+        "sha256": "e9befc533069ad98b1c44764c89161398c61c3109560173ce96ba296040fe3b0",
+        "emitted_dots": 37654,
+        "on_catalogue_dots": 0,
+        "whole_array_finite": true,
+        "range_0_1": true,
+        "nodata_tag": null,
+        "static_hide_recover_dti": 0.00572,
+        "sgmc_calibrated_dti": 0.046681,
+        "within_3px_of_02778_champion": 0.2647,
+        "within_3px_of_apart3_cshd": 0.3677
+      }
+    },
+    {
+      "repo": "GEMSDOE32",
+      "head_ref": "73485f27cf23",
+      "total_rasters_in_repo": 73,
+      "published_scored_artifact": {
+        "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+        "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+        "user_reported_live_dti": 0.2778,
+        "live_score_provenance": "OWNER-REPORT (user-reported DrivenData portal score; no raw screenshot receipt in repo per IR-32-SCORE-01)",
+        "emitted_dots": 37654,
+        "whole_array_finite": true,
+        "fold_collared_hide_recover_dti": 0.004515,
+        "sgmc_calibrated_dti": 0.064121,
+        "within_3px_of_02778_champion": 1.0,
+        "within_3px_of_apart3_cshd": 0.5472
+      },
+      "latest_repo_candidate": {
+        "path": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.tif",
+        "sha256": "4177f236b7c6a26fdf39d85f0896d1a83da745c9a36b04be7fe201a0076bf29f",
+        "emitted_dots": 37654,
+        "on_catalogue_dots": 0,
+        "whole_array_finite": true,
+        "range_0_1": true,
+        "nodata_tag": null,
+        "static_hide_recover_dti": 0.005664,
+        "sgmc_calibrated_dti": 0.056798,
+        "within_3px_of_02778_champion": 0.5262,
+        "within_3px_of_apart3_cshd": 0.7998
+      }
+    },
+    {
+      "repo": "GEMSDOE33",
+      "head_ref": "844f51481904",
+      "total_rasters_in_repo": 36,
+      "published_scored_artifact": {
+        "path": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+        "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
+        "user_reported_live_dti": 0.2632,
+        "live_score_provenance": "OWNER-REPORT (user-reported DrivenData portal score; no raw screenshot receipt in repo per IR-32-SCORE-01)",
+        "emitted_dots": 41865,
+        "whole_array_finite": true,
+        "fold_collared_hide_recover_dti": 0.05069,
+        "sgmc_calibrated_dti": 0.062551,
+        "within_3px_of_02778_champion": 0.9264,
+        "within_3px_of_apart3_cshd": 0.531
+      },
+      "latest_repo_candidate": {
+        "path": "archive/legacy_candidates/gems33-c0-scored-reference-20261004-89bf5b9a2fea.tif",
+        "sha256": "b64e198f99108b7678c2d0a78864d9677299206cf5b642388c831435c8272f33",
+        "emitted_dots": 40199,
+        "on_catalogue_dots": 0,
+        "whole_array_finite": true,
+        "range_0_1": true,
+        "nodata_tag": null,
+        "static_hide_recover_dti": 0.030516,
+        "sgmc_calibrated_dti": 0.06301,
+        "within_3px_of_02778_champion": 0.9539,
+        "within_3px_of_apart3_cshd": 0.5449
+      }
+    },
+    {
+      "repo": "GEMSDOE36",
+      "head_ref": "7edcc9b58e6a",
+      "total_rasters_in_repo": 22,
+      "published_scored_artifact": {
+        "path": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+        "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+        "user_reported_live_dti": 0.275,
+        "live_score_provenance": "OWNER-REPORT (user-reported DrivenData portal score; no raw screenshot receipt in repo per IR-32-SCORE-01)",
+        "emitted_dots": 38854,
+        "whole_array_finite": true,
+        "fold_collared_hide_recover_dti": 0.004577,
+        "sgmc_calibrated_dti": 0.064444,
+        "within_3px_of_02778_champion": 0.974,
+        "within_3px_of_apart3_cshd": 0.5389
+      },
+      "latest_repo_candidate": {
+        "path": "docs/downloads/gemsdoe36-tcd36-exp2-20261027-9970b80c6585-zeros.tif",
+        "sha256": "513a7378a96452fa31e524a002f467457c58fabcb0da896fa75830d0973f4037",
+        "emitted_dots": 37654,
+        "on_catalogue_dots": 0,
+        "whole_array_finite": true,
+        "range_0_1": true,
+        "nodata_tag": null,
+        "static_hide_recover_dti": 0.002931,
+        "sgmc_calibrated_dti": 0.057311,
+        "within_3px_of_02778_champion": 0.5699,
+        "within_3px_of_apart3_cshd": 0.5933
+      }
+    }
+  ]
+}
