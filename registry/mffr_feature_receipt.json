@@ -1,0 +1,21 @@
+{
+  "lane": "H49-1-MFFR",
+  "channels": [
+    "piedmont_inflection_pf_chord",
+    "multiscale_ridge_log_chord",
+    "cooper_theta_phase_contact",
+    "conjugate_relay_intersection_breach",
+    "hydrothermal_silica_cap_resistivity_step",
+    "mffr_farfield_struct_prior"
+  ],
+  "shape": [
+    3730,
+    3292,
+    6
+  ],
+  "dtype": "float32",
+  "strictly_label_free": true,
+  "uses_catalogue_faults": false,
+  "msub_pure_non_lidar_col_count": 76,
+  "elapsed_sec": 27.63
+}
