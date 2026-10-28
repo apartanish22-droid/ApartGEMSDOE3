@@ -1,0 +1,56 @@
+{
+  "schema_version": "gems-parallel-runcard-v3",
+  "reviewed_utc_date": "2026-10-28",
+  "session_branch": "arena/5c8e08bd-apartgemsdoe3",
+  "review_type": "repository review and fail-closed release audit; zero new experiments; zero weekly slots used",
+  "hypothesis": "The current BHGC and CFKC research candidates cannot be called unique under the literal registry rule because each has more than 70% final-dot overlap within 3 px of a hash-pinned calibration raster.",
+  "mechanism": "A documented 5-pixel lattice in the registry occupies nearly all of the footprint under a 3-pixel buffer. Direct nearest-dot distance checks show the candidate dots overlap that registered raster above the hard threshold. Format validation is a separate gate and cannot override uniqueness failure.",
+  "named_non_fault_mimic_process": "The lattice is a deliberately space-filling calibration pattern, not a geological fault signal; its near-universal buffered coverage makes it a confounder of the literal geometric-uniqueness test, not evidence that the candidate predicts faults.",
+  "holdout_dti": null,
+  "holdout_dti_note": "No new holdout experiment was run in this review. Historical values remain in prior run cards and are HOLDOUT-DTI, not leaderboard-score estimates. Stored paired 95% difference intervals for BHGC cross zero on its three reported comparisons.",
+  "correlation_overlap_vs_registry": {
+    "registry_raster": "GEMSDOE24:inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "registry_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "registry_positive_pixels": 206895,
+    "threshold_overlap_fraction": 0.7,
+    "bhgc_candidate": {
+      "raster_sha256": "ba092640a4f776e3a22c8af1a5fe503487d4fa3f2277020a6e8268fd08e0797a",
+      "positive_pixels": 37654,
+      "within_3px_fraction": 0.9974504700695809,
+      "passes_literal_final_dot_gate": false
+    },
+    "cfkc_candidate": {
+      "raster_sha256": "afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065",
+      "positive_pixels": 37654,
+      "within_3px_fraction": 0.9985127742072555,
+      "passes_literal_final_dot_gate": false
+    },
+    "preplacement_surface_gate": "Not independently recomputed in this review; prior run cards report filtered-registry surface correlations, which are not substitutes for the required literal all-registry test."
+  },
+  "raster_sha256": "ba092640a4f776e3a22c8af1a5fe503487d4fa3f2277020a6e8268fd08e0797a",
+  "validator_output": {
+    "candidate": "BHGC research artifact",
+    "single_band": true,
+    "finite_whole_grid": true,
+    "nan_inside_footprint": 0,
+    "inf_whole_grid": 0,
+    "values_in_0_1": true,
+    "crs": "EPSG:32611",
+    "shape": [3730, 3292],
+    "transform": [100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0],
+    "matches_hash_pinned_owner_mirror_template": true,
+    "organizer_authenticated_template": false,
+    "format_pass_is_not_submission_authorization": true
+  },
+  "submission_name": "APARTGEMSDOE3-BHGC3-AB6646B7",
+  "submission_note": "Research artifact only; literal registry overlap 99.745% exceeds 70% gate. DO NOT SUBMIT.",
+  "verdict": "negative",
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "experiments_used": 0,
+  "weekly_slots_used": 0,
+  "reports": [
+    "docs/research/repo-review-20261028.md",
+    "evidence/repo_review_20261028.json"
+  ]
+}

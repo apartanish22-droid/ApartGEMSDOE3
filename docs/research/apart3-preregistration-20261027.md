@@ -1,3 +1,5 @@
+> **Historical research record; not a current release decision. DO NOT SUBMIT.** Prior promotion and score claims below have not been independently verified. See the [current review](https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/knowledge/09_release_recheck_and_hypotheses_20261028.md).
+
 # Pre-Registration: ApartGEMSDOE3 (`H-APART-1: BHGC-3` through `H-APART-4: INSAR-3`)
 
 - **Date:** 2026-10-27 (UTC)

@@ -12,6 +12,8 @@
 
 The canonical machine-readable status is [`run_card.json`](run_card.json); detailed audit is in [`evidence/apart3_cthg_dhc_registry_uniqueness.json`](evidence/apart3_cthg_dhc_registry_uniqueness.json) and [`evidence/apart3_cthg_dhc_run_card.json`](evidence/apart3_cthg_dhc_run_card.json). The current site starts at [`docs/index.html`](docs/index.html), with a dedicated [executive summary](docs/executive-summary.html).
 
+**Session start:** read this README, the [persistent project charter](docs/PROJECT_CHARTER.md), the [current review](docs/review-2026-10-28.md), and the [current run card](run_card.json) before making changes.
+
 ## What was tested
 
 We recorded a research plan and ran three named pipeline arms for `H-APART3-2 (CTHG-DHC)`, reusing cached feature stacks, the local hide-and-recover evaluator, and submission writer. This was not a valid prospective preregistration: exploratory sweeps informed the final plan, and the cumulative experiment/time budget was not reconciled. More importantly, a post-run audit found `IR-CTHG-BAND6-TC-02`: the claimed magnetic tilt input is Band 6 (`tc`), while the repository's own earlier forensic work identifies Band 6 as airborne radiometric Total Count, not magnetic tilt. The physical interpretation is invalid until the shared feature builder and dependent caches are corrected. The stored results describe the flawed implementation and are retained as a negative research result. The full ledger is [`evidence/apart3_cthg_dhc_experiments.json`](evidence/apart3_cthg_dhc_experiments.json); preregistration is [`docs/research/h-apart3-2-cthg-dhc-preregistration-20261028.md`](docs/research/h-apart3-2-cthg-dhc-preregistration-20261028.md).

@@ -556,7 +556,9 @@
       "issue": "Band 6 tc was used as a magnetic tilt proxy, but prior repository forensics identify it as airborne gamma-ray Radiometric Total Count (IR-A8A-BAND6-TC-01).",
       "artifact_scientific_promotion_allowed": false,
       "action": "Do not submit. Correct/version shared feature builder and invalidate dependent caches in a future session; re-preregister and rerun only within an authorized budget."
-    }
+    },
+    "slot_used": false,
+    "slot_authorized": false
   },
   "nine_site_best_files_audit": {
     "schema_version": 1,

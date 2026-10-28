@@ -94,6 +94,8 @@ def resolve_head(owner: str, repo: str, branch: str = "main") -> str | None:
 
 
 def extract_repo_tifs(owner: str, repo: str, ref: str, dest_root: Path, wanted_paths: set[str] | None = None) -> list[dict]:
+    # Normalize before recording paths relative to ROOT; callers may pass a relative cache path.
+    dest_root = Path(dest_root).resolve()
     url = f"https://codeload.github.com/{owner}/{repo}/tar.gz/{ref}"
     extracted = []
     with urllib.request.urlopen(url, timeout=120) as resp, tarfile.open(fileobj=resp, mode="r|gz") as tf:
