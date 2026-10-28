@@ -35,15 +35,18 @@ def test_builder_creates_distinct_pages_with_clear_submission_status():
     assert "OWNER-REPORT 0.2778" in pages["executive-summary.html"]
     assert "Not estimable" in pages["executive-summary.html"]
     assert "Not estimable" in pages["leaderboard.html"]
+    assert pages["executive-summary.html"].count("NOT UNIQUE vs supplied nine") == 9
+    assert "paired HOLDOUT-DTI delta" in pages["executive-summary.html"]
     assert "DO NOT SUBMIT" in pages["executive-summary/index.html"]
-    assert 'href="../downloads/' in pages["executive-summary/index.html"]
+    assert 'href="downloads/' not in pages["executive-summary.html"]
+    assert 'href="../downloads/' not in pages["executive-summary/index.html"]
     assert 'href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/knowledge/' in pages[
         "executive-summary/index.html"
     ]
     assert "PROMOTE — DOWNLOAD" not in "".join(pages.values())
 
 
-def test_status_and_public_feed_point_to_current_negative_session_card():
+def test_status_and_public_feed_point_to_current_negative_candidate_card():
     import json
 
     review_site.sync_status_artifacts(ROOT)
@@ -51,21 +54,24 @@ def test_status_and_public_feed_point_to_current_negative_session_card():
     feed = json.loads((ROOT / "docs/data/feed.json").read_text())
     latest = json.loads((ROOT / "docs/data/latest-run-card.json").read_text())
     site_data = json.loads((ROOT / "docs/assets/site-data.json").read_text())
-    card_path = ROOT / status["current_review"]
-    assert card_path.is_file()
+    review_path = ROOT / status["current_review"]
+    candidate_card_path = ROOT / status["current_run_card"]
+    review_card = json.loads(review_path.read_text())
+    assert review_path.is_file() and candidate_card_path.is_file()
     assert status["any_file_ok_to_submit"] is False
     assert status["current_review"] == "evidence/session_review_20261028.json"
-    assert latest["holdout_dti"] is None
+    assert review_card["holdout_dti"] is None
+    assert latest["candidate_id"] == status["current_candidate"]["candidate_id"]
+    assert latest["candidate_id"] == "H-APART3-2-CTHG-DHC"
     assert len(latest["submission_note"]) <= 140
-    assert latest["new_unique_submission_tif_generated"] is False
     assert feed["current_candidate"]["run_card"] == status["current_run_card"]
     assert feed["current_candidate"]["verdict"] == "negative"
     assert feed["current_candidate"]["ok_to_submit"] is False
     assert feed["submission"]["ok_to_submit"] is False
     assert latest["verdict"] == "negative" and latest["ok_to_submit"] is False
-    assert latest["review_type"].startswith("repository review")
+    assert latest["session_branch"]
     assert site_data["run_card"]["ok_to_submit"] is False
-    assert site_data["run_card"]["session_branch"] == "arena/e7422e50-apartgemsdoe3"
+    assert site_data["run_card"]["candidate_id"] == status["current_candidate"]["candidate_id"]
 
 
 def test_builder_does_not_use_markdown_links_and_keeps_internal_links_valid():

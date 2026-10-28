@@ -1659,11 +1659,11 @@
   }
  ],
  "submission": {
-  "candidate_id": "NO-CURRENT-CANDIDATE (historical audit artifact only)",
-  "file": "docs/downloads/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif",
-  "sha256": "65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38",
-  "submission_name": "APARTGEMSDOE3-CSHD-37B32D5B",
-  "submission_note": "Audit only; literal registry overlap fails and promotion is withdrawn. DO NOT SUBMIT.",
+  "candidate_id": "H-APART3-2-CTHG-DHC",
+  "file": "docs/downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif",
+  "sha256": "9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112",
+  "submission_name": "APARTGEMSDOE3-CTHG-DHC-5D4D0085",
+  "submission_note": "ApartGEMSDOE3 H-APART3-2 CTHG-DHC 37654d B2 d3.24 | HR=0.0997 Det=0.0960 SGMC=0.0824",
   "download_ok_for_research": true,
   "ok_to_submit": false,
   "slot_used": false,
@@ -2600,9 +2600,9 @@
  "current_status": {
   "schema_version": 1,
   "updated_utc": "2026-10-28T22:52:48Z",
-  "single_source_of_truth": "Latest current-session review is evidence/session_review_20261028.json (no experiment; negative). Latest candidate experiment remains the CSHD artifact recorded in root run_card.json, but that card is negative/non-authorized; CTHG-DHC is a prior separately negative experiment in evidence/apart3_cthg_dhc_run_card.json. Do not infer a current promotion or score from old promotion cards.",
+  "single_source_of_truth": "Latest current-session review is evidence/session_review_20261028.json (no experiment; negative). Current recorded candidate is H-APART3-2-CTHG-DHC in evidence/apart3_cthg_dhc_run_card.json; it is negative and not authorized. The root run_card.json is a separate historical CSHD record and is also negative/non-authorized. Do not infer a current promotion or score from old promotion cards.",
   "any_file_ok_to_submit": false,
-  "headline": "DO NOT SUBMIT. Current-session review ran no experiment: the assigned method paragraph is missing, and the feature stack/full registry are absent. The latest candidate card (CSHD) is negative: the literal registry gate and scientific-integrity gate fail; its recorded format pass used an owner-mirror template only. CTHG-DHC is also negative. No slot was used; no new leaderboard-score estimate is supported.",
+  "headline": "DO NOT SUBMIT. This session ran no experiment. The latest recorded candidate is H-APART3-2-CTHG-DHC, and it is negative: literal registry overlap and scientific-integrity gates fail. No slot was used; no new leaderboard-score estimate is supported.",
   "gate_rule": "OK TO SUBMIT requires an explicitly assigned method lane; all feature-only leakage canaries <=0.90; a fold-local HOLDOUT-DTI win with paired 95% CI >0 against the current same-evaluator repo best; no SGMC-cal regression against the Champion; literal surface/final-dot uniqueness against every registry raster (Spearman <=0.90 and <=70% within 3 px); exact saved-byte format/range validation; and separate weekly-slot selector approval. No human inspection.",
   "best_scored": {
    "file": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
@@ -3784,7 +3784,7 @@
    "results_doc": "docs/research/h47-ldgi-results-and-nine-site-executive-summary-20261026.md"
   },
   "current_review": "evidence/session_review_20261028.json",
-  "current_run_card": "evidence/session_review_20261028.json",
+  "current_run_card": "evidence/apart3_cthg_dhc_run_card.json",
   "previous_newest_unique_H48": {
    "file": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.tif",
    "zip": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.zip",
@@ -4853,7 +4853,7 @@
   }
  },
  "current_candidate": {
-  "run_card": "evidence/session_review_20261028.json",
+  "run_card": "evidence/apart3_cthg_dhc_run_card.json",
   "experiments": null,
   "registry_audit": null,
   "verdict": "negative",

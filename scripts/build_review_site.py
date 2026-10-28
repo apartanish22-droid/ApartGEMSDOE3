@@ -55,6 +55,16 @@ def sync_status_artifacts(root: Path = ROOT) -> dict:
     if status.get("any_file_ok_to_submit") is not False:
         raise ValueError("Public status builder refuses a current status that authorizes a file")
 
+    current = status["current_candidate"]
+    if card.get("candidate_id") != current.get("candidate_id"):
+        raise ValueError("Current status candidate and current evidence card disagree")
+    artifact_path = card.get("artifact_path") or card.get("artifacts", {}).get("primary_zeros_tif")
+    raster_sha256 = card.get("raster_sha256") or card.get("artifacts", {}).get("primary_zeros_sha256")
+    if not artifact_path or raster_sha256 != current.get("sha256"):
+        raise ValueError("Current candidate artifact/hash is incomplete or inconsistent")
+
+    card["release_status"] = card.get("verdict", "negative")
+    card["ok_to_download_as_submission"] = False
     latest_path = root / "docs/data/latest-run-card.json"
     latest_path.write_text(json.dumps(card, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
@@ -75,14 +85,14 @@ def sync_status_artifacts(root: Path = ROOT) -> dict:
         "ok_to_submit": card["ok_to_submit"],
     }
     feed["submission"] = {
-        "candidate_id": "NO-CURRENT-CANDIDATE (historical audit artifact only)",
-        "file": card["artifact_path"],
-        "sha256": card["raster_sha256"],
+        "candidate_id": current["candidate_id"],
+        "file": artifact_path,
+        "sha256": raster_sha256,
         "submission_name": card["submission_name"],
         "submission_note": card["submission_note"],
-        "download_ok_for_research": card["download_ok_for_audit_only"],
+        "download_ok_for_research": card.get("download_for_research_ok", card.get("download_ok_for_audit_only", False)),
         "ok_to_submit": card["ok_to_submit"],
-        "slot_used": card["weekly_slots_used"] > 0,
+        "slot_used": card.get("slot_used", False),
         "selector_required": card["selector_required"],
         "verdict": card["verdict"],
     }
@@ -92,6 +102,10 @@ def sync_status_artifacts(root: Path = ROOT) -> dict:
 
 def build_pages(root: Path = ROOT) -> dict[str, str]:
     status = json.loads((root / "registry/current_status.json").read_text())
+    current_card = json.loads((root / status["current_run_card"]).read_text())
+    current = status["current_candidate"]
+    current_id = current["candidate_id"]
+    current_hash = current["sha256"]
     audit = json.loads((root / "evidence/nine_site_best_files_audit.json").read_text())
     research = root / "docs/research/next-hypotheses-review-20261028.md"
     review = root / "docs/repo-review-current-session-2026-10-28.md"
@@ -104,35 +118,47 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
     for item in sites:
         site = esc(item["site"])
         score = float(item["published_score_OWNER_REPORT"])
+        site_pairings = []
+        for pair in audit.get("pairwise", []):
+            if pair["a"] == item["site"]:
+                site_pairings.append((pair["b"], float(pair["a_dots_within_3px_of_b"]), abs(float(pair["spearman_footprint"]))))
+            elif pair["b"] == item["site"]:
+                site_pairings.append((pair["a"], float(pair["b_dots_within_3px_of_a"]), abs(float(pair["spearman_footprint"]))))
+        peer, overlap, rho = max(site_pairings, key=lambda row: row[1])
+        duplicate_status = f"NOT UNIQUE vs supplied nine: {overlap:.2%} within 3 px of {esc(peer)}; max |rho| {rho:.4f}; >70% gate FAIL"
         rows.append(
             "<tr>"
             f'<td><a href="https://github.com/buffedlizard55-lab/{site}">{site}</a></td>'
             f'<td><code>{esc(item["leaderboard_name"])}</code></td>'
             f"<td>OWNER-REPORT {score:.4f}</td>"
-            "<td>Not estimable</td><td>Historical; not authorized</td></tr>"
+            "<td>Not estimable</td>"
+            f"<td>{duplicate_status}</td></tr>"
         )
     table = (
         '<div class="scroll"><table><thead><tr><th>Site</th><th>Reported best artifact</th>'
-        '<th>Reported score</th><th>New score estimate</th><th>Decision</th></tr></thead><tbody>'
+        '<th>Reported score</th><th>New score estimate</th><th>Uniqueness vs these nine</th></tr></thead><tbody>'
         + "".join(rows)
         + "</tbody></table></div>"
     )
     warning = (
         '<section class="alert"><strong>DO NOT SUBMIT.</strong> No candidate has passed all '
         "required scientific, uniqueness, format, and selector gates. No weekly slot was used. "
-        "The historical files linked here are for audit and learning only.</section>"
+        f"Current negative candidate {esc(current_id)}; SHA-256 <code>{esc(current_hash)}</code>; "
+        f"submission name <code>{esc(current_card.get('submission_name', 'not recorded'))}</code>. "
+        "The historical files are audit/research records only; this site does not authorize downloads.</section>"
     )
-    artifact = "apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif"
+    artifact = current_card.get("artifacts", {}).get("primary_zeros_tif", current.get("artifact", ""))
+    artifact_name = current_card.get("submission_name", "not recorded")
 
     home = warning + f'''<section><h2>Decision at a glance</h2>
 <p>The highest result among these nine sites is <b>{esc(top['site'])}: OWNER-REPORT {float(top['published_score_OWNER_REPORT']):.4f}</b> for <code>{esc(top['leaderboard_name'])}</code>. This is an owner-supplied report, not an organizer receipt. It does not establish that the artifact's method caused the score or predict the score of a new raster.</p>
 <p><a href="executive-summary.html">Open the executive summary</a> for the site-by-site comparison and exact upload checklist.</p>
-<p>Historical audit artifact only: <a href="downloads/{esc(artifact)}">download the CSHD GeoTIFF</a> · SHA-256 <code>65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38</code> · submission name <code>APARTGEMSDOE3-CSHD-37B32D5B</code>. It passed local range/grid checks against an owner mirror but failed the literal registry gate; <b>DO NOT SUBMIT</b>.</p></section>
+<p>Current candidate record: <code>{esc(current_id)}</code>, file <code>{esc(artifact)}</code>, SHA-256 <code>{esc(current_hash)}</code>, submission name <code>{esc(artifact_name)}</code>. It is a negative research record; no download or upload is authorized. The associated literal-registry and scientific-integrity gates fail.</p></section>
 <section><h2>What blocks a new result?</h2><ul><li>The assigned method paragraph is missing.</li><li>The large feature raster, cached feature stack, and complete registry are not restored in this checkout.</li><li>Historical candidate audits found uniqueness/scientific-integrity failures; format validation alone is insufficient.</li></ul><p class="muted">Details: <a href="release-status.html">release status</a> · <a href="review.html">current repository review</a> · <a href="research.html">unrun research shortlist</a></p></section>'''
 
     exec_body = warning + f'''<section><h2>Nine-site comparison</h2>
 <p>All submitted-score entries below are <b>OWNER-REPORT</b> from the supplied/repository audit. None is organizer-confirmed here. The score estimate for a new submission is <b>not estimable</b>; a HOLDOUT-DTI result cannot be converted to a live score without a validated calibration study.</p>{table}
-<p>{esc(top['site'])} is the largest listed owner report ({float(top['published_score_OWNER_REPORT']):.4f}). Existing analysis says the reported nested pruning sequence is consistent with removing low-credit false-positive mass, but no hidden truth or receipt-linked evidence establishes causation. See <a href="{esc(repo_link('knowledge/03_why_02778_and_the_anatomy_of_the_family.md'))}">the evidence and limitations</a>.</p><p>Historical audit-only file: <a href="downloads/{esc(artifact)}">download CSHD GeoTIFF</a> (<code>APARTGEMSDOE3-CSHD-37B32D5B</code>, SHA-256 <code>65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38</code>). It is not authorized to submit; local format validity does not cure scientific or uniqueness failures.</p></section>
+<p>{esc(top['site'])} is the largest listed owner report ({float(top['published_score_OWNER_REPORT']):.4f}). Existing analysis says the reported nested pruning sequence is consistent with removing low-credit false-positive mass, but no hidden truth or receipt-linked evidence establishes causation. See <a href="{esc(repo_link('knowledge/03_why_02778_and_the_anatomy_of_the_family.md'))}">the evidence and limitations</a>.</p><p>There is no file currently OK to submit. The nine reported files are <b>NOT UNIQUE in this nine-site cohort</b> according to the repository overlap audit; scores remain OWNER-REPORT, not organizer receipts. The current candidate also overlaps registered rasters: GEMSDOE3 at <b>75.90%</b>, GEMSDOE67 at <b>72.25%</b>, and GEMSDOE24 at <b>99.8035%</b> within 3 px, exceeding the 70% literal threshold. Its HOLDOUT-DTI diagnostic is <b>{float(current_card['holdout_dti']['primary_hide_and_recover']['pooled_dti']):.6f}</b> (evaluator <code>{esc(current_card['holdout_dti']['primary_hide_and_recover']['evaluator_version'])}</code>, n={int(current_card['holdout_dti']['primary_hide_and_recover']['n_withheld_positives'])}, 95% CI {esc(current_card['holdout_dti']['primary_hide_and_recover']['ci95'])}); this is not a leaderboard score projection. The paired HOLDOUT-DTI delta versus the 0.2778 same-evaluator incumbent is +0.000571 (95% CI [-0.006306, +0.007311]), spanning zero; no improvement is established. The candidate's scientific-integrity audit flags the Band 6 interpretation, so it remains negative.</p><p>Current negative candidate: <code>{esc(current_id)}</code> · <code>{esc(artifact)}</code> · SHA-256 <code>{esc(current_hash)}</code>. Not authorized to download or submit; local format validity does not cure scientific or uniqueness failures.</p></section>
 <section><h2>How to submit when a candidate is authorized</h2><ol><li>Only after the separate selector authorizes a slot, download the exact hash-verified GeoTIFF linked by the release page.</li><li>Open the correct <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DOE GEMS competition</a> and select <b>New submission</b>.</li><li>Choose the single-band GeoTIFF (or a ZIP containing exactly one GeoTIFF) that passed the release checklist. Confirm its CRS, shape, geotransform, and all predicted values in [0, 1].</li><li>Enter the submission name and a short note (140 characters maximum) recorded in the run card. Do not use an estimated score as the note.</li><li>Submit and retain the organizer's receipt. Record the exact file SHA-256 and the receipt's score as <b>ORGANIZER-CONFIRMED</b>.</li></ol><p><b>Current decision: no file is authorized for submission.</b> Exact portal acceptance cannot be guaranteed by a local validator.</p></section>'''
 
     release = warning + f'''<section><h2>Current release gates</h2><p>{esc(status.get('headline', 'DO NOT SUBMIT'))}</p>
@@ -172,6 +198,12 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
     return docs
 
 
+def build_page(source: dict, audit: dict, status: dict) -> str:
+    """Compatibility API for the executive summary; inputs are repository audit records."""
+    del source, audit, status  # build_pages loads the same versioned records from ROOT.
+    return build_pages(ROOT)["executive-summary.html"]
+
+
 def main() -> None:
     sync_status_artifacts()
     pages = build_pages()
@@ -179,7 +211,23 @@ def main() -> None:
         target = ROOT / "docs" / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(content, encoding="utf-8")
-    print(f"Built {len(pages)} distinct fail-closed pages")
+    status = json.loads((ROOT / "registry/current_status.json").read_text())
+    current = status["current_candidate"]
+    current_card = json.loads((ROOT / status["current_run_card"]).read_text())
+    current_file = current_card.get("artifacts", {}).get("primary_zeros_tif", "")
+    current_name = current_card.get("submission_name", "not recorded")
+    gateway = (
+        '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+        '<meta http-equiv="refresh" content="0; url=docs/index.html">'
+        '<title>ApartGEMSDOE3 — DO NOT SUBMIT</title></head><body>'
+        '<h1>DO NOT SUBMIT</h1><p>Current negative candidate '
+        + esc(current["candidate_id"]) + ' · SHA-256 <code>' + esc(current["sha256"])
+        + '</code> · file <code>' + esc(current_file) + '</code> · submission name <code>'
+        + esc(current_name) + '</code>.</p><p><a href="docs/index.html">Open the fail-closed review portal</a>.'
+        '</p></body></html>\n'
+    )
+    (ROOT / "index.html").write_text(gateway, encoding="utf-8")
+    print(f"Built {len(pages)} distinct fail-closed pages and the root gateway")
 
 
 if __name__ == "__main__":
