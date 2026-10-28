@@ -25,3 +25,10 @@ def test_rechecked_bytes_are_bound_to_current_card():
     assert review['directional_within_3px']>.70
     assert review['literal_dot_gate_passed'] is False
     assert review['format']['passed'] is True
+
+def test_portal_builder_runs_and_keeps_negative_status():
+    import subprocess
+    import sys
+    subprocess.run([sys.executable,str(ROOT/'scripts/build_site.py')],check=True)
+    for rel in ['index.html','docs/index.html','docs/executive-summary.html']:
+        assert 'DO NOT SUBMIT' in (ROOT/rel).read_text()
