@@ -1,22 +1,16 @@
 {
-  "hypothesis": null,
-  "mechanism": "No assigned method lane; no experiment run.",
-  "named_non_fault_mimic_process": "Differential erosion can produce topographic lineaments (not tested).",
-  "holdout_dti": null,
-  "holdout_ci95": null,
-  "evaluator_version": null,
-  "withheld_positives": null,
-  "leakage_canary": null,
-  "correlation_vs_registry": null,
-  "overlap_vs_registry": null,
+  "hypothesis": "Signed DEM cross-profile step consistency could reveal unmapped range-front scarps; proposal only, no assigned method lane.",
+  "mechanism": "Contrast a signed cross-profile step with a smooth hillslope model, retaining coherent steps across scales.",
+  "named_non_fault_mimic_process": "Lake Lahontan shoreline terraces and road cuts can mimic scarps.",
+  "holdout_dti": {"status": "not run", "evaluator_version": null, "n_withheld_positives": null, "dti": null, "ci95": null},
+  "leakage_canary": {"status": "not run; no new features built"},
+  "correlation_vs_registry": {"surface": "not run", "final": "no new raster; prior candidates fail literal directional overlap against registered lattice", "evidence": "evidence/release_recheck_20261028.json"},
   "raster_sha256": null,
-  "validator": {
-    "new_raster_validated": false,
-    "no_nan_inside_footprint": null,
-    "values_in_0_1": null,
-    "crs_shape_transform_match": null
-  },
+  "validator": {"new_raster": "not created", "prior_files": "format checks passed against a pinned owner mirror; see evidence/release_recheck_20261028.json"},
   "submission_name": null,
-  "submission_note": "No submission: lane and complete reproducible evidence required.",
-  "verdict": "negative"
+  "submission_note": "Research only; no candidate authorized for submission.",
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "experiments_this_session": 0,
+  "weekly_slots_used": 0
 }
