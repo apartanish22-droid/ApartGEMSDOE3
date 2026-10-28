@@ -165,3 +165,6 @@ def test_run_card_and_site_hygiene() -> None:
             assert "/home/user/" not in txt, f"Leaked absolute path in {p}"
             if p.name in {"index.html", "executive-summary.html", "README.md"}:
                 assert "DO NOT SUBMIT" in txt
+    archived = (ROOT / "docs/research/pre-review-readme-20261028.md").read_text()
+    assert PRIMARY_FILENAME in archived
+    assert EXPECTED_SHA256 in archived
