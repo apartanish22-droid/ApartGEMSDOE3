@@ -31,7 +31,7 @@ The highest reported value in the nine-site cohort is GEMSDOE32's 0.2778 (OWNER-
 ### Pass 2 — verify and correct the issues
 
 - Restored the two small hash-pinned core format inputs using `scripts/restore_data.py --group core --manifest registry/ci_format_manifest.json`. Their source is an owner-maintained GitHub mirror; hashes matched. This does not authenticate the files with the competition organizer and did not restore the feature stack or full registry.
-- Updated `scripts/build_review_site.py` to source the latest negative CTHG card, keep the literal (not genuine-only) uniqueness result, build the nine-site table from pinned pairwise evidence, label score provenance, and synchronize `docs/data/latest-run-card.json` with a non-submit decision.
+- Updated `scripts/build_review_site.py` to source the latest negative CTHG card, keep the literal (not genuine-only) uniqueness result, build the nine-site table from pinned pairwise evidence, label score provenance, and synchronize `docs/data/latest-run-card.json` with a non-submit decision. Updated `scripts/build_site.py` so its negative-release path delegates to this same renderer instead of the stale CSHD portal builder.
 - Added regression tests for negative status, all nine rows, duplicate labels, source-card synchronization and deterministic portal content.
 - Updated README with the standing scientific/release protocol, mandatory session-start reading, active blockers and source labels.
 
@@ -46,7 +46,7 @@ The highest reported value in the nine-site cohort is GEMSDOE32's 0.2778 (OWNER-
 
 - `python scripts/build_review_site.py`: passed; regenerated the portal and latest negative candidate feed.
 - `python scripts/check_release_status.py`: passed; historical CSHD card remains negative, artifact hash matches, no slot used.
-- `.venv/bin/python -m pytest -q`: **101 passed, 2 skipped** after adding portal safety tests. Initial run before restoring the sample template had 2 expected failures from the missing ignored template; after restoring the pinned template, the suite passed.
+- `.venv/bin/python -m pytest -q`: **104 passed, 2 skipped** after integrating the updated main-branch release checks and portal safety tests. Initial run before restoring the sample template had 2 expected failures from the missing ignored template; after restoring the pinned template, the suite passed.
 - `git diff --check`: run before final review (rerun after edits in final verification).
 - `scripts/audit_nine_site_best.py`: could not be rerun because it requires every focus-site raster under `.cache/registry`; only the sample format template was restored. Existing archived pairwise results are therefore displayed as prior evidence, not newly measured results.
 

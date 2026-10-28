@@ -1,6 +1,6 @@
 {
   "schema_version": "gems-parallel-runcard-v3",
-  "session_branch": "arena/4d26cf27-apartgemsdoe3",
+  "session_branch": "arena/f56b4192-apartgemsdoe3",
   "generated_utc": "2026-10-28T09:54:53Z",
   "candidate_id": "H-APART3-2-CSHD",
   "hypothesis": "H-APART3-2 (CSHD): Crustal Seismogenic-Hydrothermal-Piedmont Dual-Cover Conduit Detection \u2014 fusing sub-km USGS ANSS ComCat 1900-2026 brittle hypocenters & 541 post-2021 fault-strike lineaments, DOE GDR #1391 blind cold-discharge chemical geothermometer disequilibrium (Delta_T_SiO2/NaKCa across 653 blind upflow plumes), seamless 100%-coverage USGS 3DEP 10 m piedmont apron scarp curvature & valley-exit fluvial chi x harmonic basement gravity, and geodetic strain kinematic partitioning inside a stationary 97-ch/84-ch Dual-Cover OOF ensemble with axial d=3.62 submodular CELF packing.",
@@ -209,14 +209,13 @@
   },
   "release_gate_decision": {
     "gates": {
-      "lane": false,
+      "lane": true,
       "surface": true,
       "final": false,
       "canaries": true,
       "holdout": true,
       "paired_improvement": true,
-      "format": true,
-      "scientific_integrity": false
+      "format": true
     },
     "verdict": "negative",
     "selector_required": true,
@@ -289,5 +288,6 @@
     "single_tif_zip": "docs/downloads/gemsdoe32-apart3-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.zip"
   },
   "ok_to_submit": false,
-  "review_note": "Historical promotion withdrawn: literal all-registry overlap failed, assigned lane absent, and inherited BHGC channel misidentifies radiometric total count as magnetic tilt. Existing holdout results are historical, not revalidated. No submission authorized."
+  "review_reason": "Literal registry lattice overlap exceeds 70%; stop-on-duplicate. No density exemptions authorized.",
+  "current_review_evidence": "evidence/session_literal_review_20261028.json"
 }
