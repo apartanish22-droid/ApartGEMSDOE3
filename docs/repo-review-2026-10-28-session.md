@@ -6,7 +6,7 @@
 
 The TIF available in the repository is **not OK to upload**:
 
-- File: [`apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif`](downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif)
+- Historical research file (not authorized for download or submission): `apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif`.
 - Recorded SHA-256: `9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112`
 - Recorded local format validator: pass against a pinned owner mirror (not an organizer-authenticated sample).
 - Literal uniqueness: **99.8035%** within 3 pixels of a registered 5-px calibration-lattice raster, against a maximum permitted 70%; it also exceeds 70% overlap against two registered dense rasters (75.9043% and 72.2526%). The feature-focused prior audit reported lower overlap only after excluding these entries, which does not satisfy the literal user instruction.

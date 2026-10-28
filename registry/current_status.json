@@ -1,9 +1,9 @@
 {
  "schema_version": 1,
- "updated_utc": "2026-10-28T10:15:00Z",
- "single_source_of_truth": "Current CTHG research candidate status is in registry/current_status.json and root run_card.json; evidence/release_recheck_20261028.json preserves the earlier one-raster fail-closed review, while evidence/apart3_cthg_dhc_registry_uniqueness.json and evidence/apart3_cthg_dhc_run_card.json document the current CTHG run.",
+ "updated_utc": "2026-10-28T23:10:00Z",
+ "single_source_of_truth": "Latest current-session review is evidence/session_review_20261028.json (no experiment run by this review). Current recorded candidate is H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS from evidence/H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS_run_card.json; it is negative and unauthorized. Earlier CTHG-DHC and root CSHD records are also negative. Do not infer a current promotion or score from prior promotion cards.",
  "any_file_ok_to_submit": false,
- "headline": "DO NOT SUBMIT. Current CTHG-DHC research artifact passes local owner-mirror format checks but fails literal all-registry uniqueness: 75.90% overlap with a registered dense raster, 72.25% with another, and 99.80% with a registered calibration lattice (limit 70%). Critical scientific irregularity IR-CTHG-BAND6-TC-02: Band 6 tc was used as magnetic tilt though repo forensic records identify it as radiometric Total Count. No assigned lane paragraph; exploratory budget accounting is incomplete; no selector or slot authorization.",
+ "headline": "DO NOT SUBMIT. No experiment was run in this review. The latest imported candidate, H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS, is negative: its HOLDOUT-DTI diagnostic is weak, single-feature canaries and full-registry uniqueness are unverified, and no lane or selector authorization exists. No weekly slot was used; no leaderboard-score estimate is supported.",
  "gate_rule": "OK TO SUBMIT requires an explicitly assigned method lane; all feature-only leakage canaries <=0.90; a fold-local HOLDOUT-DTI win with paired 95% CI >0 against the current same-evaluator repo best; no SGMC-cal regression against the Champion; literal surface/final-dot uniqueness against every registry raster (Spearman <=0.90 and <=70% within 3 px); exact saved-byte format/range validation; and separate weekly-slot selector approval. No human inspection.",
  "best_scored": {
   "file": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
@@ -510,14 +510,16 @@
  },
  "release_gates_latest": {
   "lane_explicitly_assigned": false,
-  "lane_note": "The prompt references a single method paragraph but no such paragraph is identified; no new experiment was selected.",
+  "lane_note": "The prompt references one method paragraph but does not identify it; no new experiment was selected.",
+  "new_surface_comparison": "not_run",
+  "new_final_dot_comparison": "not_run",
   "literal_all_registry_uniqueness": false,
-  "one_registry_lattice_overlap_cfkc": 0.9985127742072555,
-  "one_registry_lattice_overlap_bhgc": 0.9974504700695809,
-  "limit": 0.7,
+  "historical_cshd_literal_uniqueness": "failed",
   "format_against_owner_mirror": true,
+  "organizer_authenticated_template": false,
   "full_registry_scan_complete": false,
   "weekly_slot_selector": false,
+  "weekly_slot_used": false,
   "verdict": "negative"
  },
  "arena47_candidate": {
@@ -1182,8 +1184,8 @@
   ],
   "results_doc": "docs/research/h47-ldgi-results-and-nine-site-executive-summary-20261026.md"
  },
- "current_review": "evidence/release_recheck_20261028.json",
- "current_run_card": "run_card.json",
+ "current_review": "evidence/session_review_20261028.json",
+ "current_run_card": "evidence/H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS_run_card.json",
  "previous_newest_unique_H48": {
   "file": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.tif",
   "zip": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.zip",
@@ -1313,18 +1315,18 @@
   ]
  },
  "current_candidate": {
-  "candidate_id": "H-APART3-2-CTHG-DHC",
-  "recorded_utc": "2026-10-28T09:03:14Z",
-  "artifact": "docs/downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif",
-  "sha256": "9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112",
+  "candidate_id": "H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS",
+  "recorded_utc": "2026-10-28T22:50:09Z",
+  "artifact": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
+  "sha256": "8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd",
   "verdict": "negative",
-  "ok_to_download": true,
+  "ok_to_download": false,
   "ok_to_submit": false,
   "slot_used": false,
-  "literal_registry_max_overlap": 0.998035,
+  "literal_registry_max_overlap": null,
   "literal_overlap_limit": 0.7,
-  "scientific_integrity_irregularity": "IR-CTHG-BAND6-TC-02",
-  "source": "run_card.json; evidence/apart3_cthg_dhc_run_card.json; evidence/apart3_cthg_dhc_registry_uniqueness.json"
+  "scientific_integrity_irregularity": "IR-UNIQUE-OFFCATALOGUE-CANARY-01",
+  "source": "evidence/H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS_run_card.json; evidence/session_review_20261028.json"
  },
  "current_review_20261028": {
   "report": "evidence/repo_review_20261028.json",
@@ -1336,19 +1338,19 @@
  },
  "latest_comprehensive_review": "docs/review-2026-10-28.md; docs/repo-review-2026-10-28.md; evidence/repo_review_20261028.json",
  "latest_research_artifact": {
-  "file": "docs/downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif",
-  "sha256": "9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112",
-  "submission_name": "APARTGEMSDOE3-CTHG-DHC-5D4D0085",
-  "submission_note": "ApartGEMSDOE3 H-APART3-2 CTHG-DHC 37654d B2 d3.24 | HR=0.0997 Det=0.0960 SGMC=0.0824",
-  "download_ok": true,
+  "file": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
+  "sha256": "8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd",
+  "submission_name": "H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS",
+  "submission_note": "Unique off-catalogue geophysical-anomaly dots (tc leach + mag + gravity), 30k budget, [0,1] zeros TIF",
+  "download_ok": false,
   "ok_to_submit": false,
   "verdict": "negative",
   "reasons": [
-   "literal all-registry overlap >70%",
-   "Band 6 radiometric-total-count used as magnetic tilt; IR-CTHG-BAND6-TC-02",
+   "HOLDOUT-DTI diagnostic is weak and not a leaderboard score",
+   "feature-alone leakage canaries not computed",
+   "full-registry surface/final-dot comparison not run",
    "no assigned lane paragraph",
-   "exploratory run budget not reconciled",
-   "weekly selector not run"
+   "no selector authorization"
   ]
  },
  "protocol_compliance": {

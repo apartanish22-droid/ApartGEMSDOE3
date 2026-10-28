@@ -8,7 +8,7 @@
 
 The new CTHG-DHC raster is available to download for audit, but **is not unique under the literal registry rule and is not authorized for upload**. The competition slot selector was not run and no slot was used.
 
-- GeoTIFF: [`docs/downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif`](downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif)
+- Historical research GeoTIFF (not authorized for download or submission): `docs/downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif`
 - SHA-256: `9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112`
 - Submission name/note: `APARTGEMSDOE3-CTHG-DHC-5D4D0085` / `ApartGEMSDOE3 H-APART3-2 CTHG-DHC 37654d B2 d3.24 | HR=0.0997 Det=0.0960 SGMC=0.0824`
 - Run card: [`run_card.json`](../run_card.json); detailed evidence in `evidence/apart3_cthg_dhc_*`.
