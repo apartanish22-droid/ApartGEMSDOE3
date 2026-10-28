@@ -370,15 +370,16 @@ tr.row-highlight td {
 </style>
 </head>
 <body>
+  <aside role="alert" style="margin:1rem auto;max-width:1380px;padding:1rem 1.25rem;border:2px solid #fb7185;border-radius:12px;background:#3b101b;color:#ffe4e6;font:700 1rem/1.55 system-ui,sans-serif">CURRENT RELEASE DECISION: DO NOT SUBMIT. The downloadable BHGC and CFKC rasters are format-valid research artifacts but fail literal uniqueness: 99.7450% and 99.8513% of dots, respectively, fall within 3 px of a hash-pinned registry raster (limit 70%). The green/positive release labels in earlier archived analysis are superseded. <a style="color:#bae6fd" href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/docs/research/repo-review-20261028.md">Read the 2026-10-28 review</a>.</aside>
   
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">
-      <span class="brand-badge">APARTGEMSDOE3 · PROMOTED</span>
+      <span class="brand-badge">APARTGEMSDOE3 · AUDIT HOLD</span>
       <span>DOE GEMS Fault Detection · H-APART-1 (BHGC-3)</span>
     </div>
     <nav class="nav-links">
-      <a href="index.html" class="">Overview & Download</a><a href="executive-summary.html" class="">Executive Summary (9-Site Audit)</a><a href="research.html" class="">Why 0.2778 Won & 0.3195 Anatomy</a><a href="hypotheses.html" class="">4 Hypotheses & 3 Ablations</a><a href="leaderboard.html" class="">524-Raster Uniqueness & Leaderboard</a><a href="sources.html" class="active">Official Sources & Run Card</a><a href="downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif" class="nav-cta" download>⬇ Download Validated .TIF (214 KB)</a>
+      <a href="index.html" class="">Overview & Download</a><a href="executive-summary.html" class="">Executive Summary (9-Site Audit)</a><a href="research.html" class="">Reported Scores & 0.2778 Owner-Report Analysis</a><a href="hypotheses.html" class="">4 Hypotheses & 3 Ablations</a><a href="leaderboard.html" class="">524-Raster Uniqueness & Leaderboard</a><a href="sources.html" class="active">Official Sources & Run Card</a><a href="downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif" class="nav-cta" download>⬇ Research-only .TIF — DO NOT SUBMIT</a>
     </nav>
   </div>
 </header>
@@ -389,14 +390,14 @@ tr.row-highlight td {
       <ul style="line-height:1.9;">
         <li>
           <strong>DrivenData DOE GEMS Competition Portal &amp; Problem Description:</strong>
-          <a href="https://www.drivendata.org/competitions/309/competition-us-doe-gems/page/955/" target="_blank" rel="noopener">
-            https://www.drivendata.org/competitions/309/competition-us-doe-gems/page/955/
+          <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/" target="_blank" rel="noopener">
+            https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/
           </a>
         </li>
         <li>
-          <strong>DrivenData DOE GEMS Public Leaderboard (Top <code>0.4413</code>, Reference <code>0.3195</code>, <code>0.2778</code>):</strong>
-          <a href="https://www.drivendata.org/competitions/309/competition-us-doe-gems/leaderboard/" target="_blank" rel="noopener">
-            https://www.drivendata.org/competitions/309/competition-us-doe-gems/leaderboard/
+          <strong>User/owner-reported scores <code>0.4413</code>, <code>0.3195</code>, and <code>0.2778</code>; no current receipt linked here:</strong>
+          <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" target="_blank" rel="noopener">
+            https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/
           </a>
         </li>
         <li>
@@ -623,6 +624,14 @@ tr.row-highlight td {
       &quot;entry&quot;: &quot;GEMSDOE24:inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif&quot;,
       &quot;within_3px_fraction&quot;: 0.99745,
       &quot;explanation&quot;: &quot;13gems_20261001_r13-lattice-s5_v2_nan-outside.tif places 206,895 dots on a 5-px Cartesian grid covering 99.8713% of the 5,167,373-px footprint under a 3-px radius (Pigeonhole floor 82.3418% for any 37,654-dot raster).&quot;
+    },
+    &quot;literal_all_rasters_passed&quot;: false,
+    &quot;literal_worst_overlap&quot;: {
+      &quot;registry&quot;: &quot;GEMSDOE24:inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif&quot;,
+      &quot;registry_sha256&quot;: &quot;b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2&quot;,
+      &quot;within_3px_fraction&quot;: 0.9974504700695809,
+      &quot;threshold&quot;: 0.7,
+      &quot;passed&quot;: false
     }
   },
   &quot;spatial_allocation&quot;: {
@@ -681,7 +690,14 @@ tr.row-highlight td {
   },
   &quot;submission_name&quot;: &quot;APARTGEMSDOE3-BHGC3-AB6646B7&quot;,
   &quot;submission_note&quot;: &quot;Apart3 H-APART-1 BHGC-3 bipop d3.22 37654d B2 | HR=0.1017 SGMC=0.0709&quot;,
-  &quot;verdict&quot;: &quot;promote&quot;
+  &quot;verdict&quot;: &quot;negative&quot;,
+  &quot;submission_eligibility&quot;: {
+    &quot;status&quot;: &quot;negative&quot;,
+    &quot;ok_to_submit&quot;: false,
+    &quot;ok_to_download_for_research&quot;: true,
+    &quot;reason&quot;: &quot;Fails literal all-registry uniqueness: 99.7450% of final dots are within 3 px of the pinned 5-px lattice raster; the strict limit is 70%.&quot;,
+    &quot;review_evidence&quot;: &quot;evidence/repo_review_20261028.json&quot;
+  }
 }</pre>
     </div>
   </main>

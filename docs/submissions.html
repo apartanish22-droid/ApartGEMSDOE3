@@ -26,7 +26,7 @@
     .topbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-bottom: 16px; margin-bottom: 22px; border-bottom: 1px solid var(--border); }
     .brand { font-weight: 800; font-size: 1.25rem; display: flex; align-items: center; gap: 10px; }
     .badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; font-family: var(--mono); }
-    .badge-promote { background: var(--emerald-bg); color: #34d399; border: 1px solid #10b981; }
+    .badge-hold { background: var(--emerald-bg); color: #34d399; border: 1px solid #10b981; }
     .nav-links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.92rem; font-weight: 600; }
     .section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
     .section h1, .section h2 { margin-top: 0; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
@@ -39,11 +39,12 @@
   </style>
 </head>
 <body>
+  <aside role="alert" style="margin:1rem auto;max-width:1380px;padding:1rem 1.25rem;border:2px solid #fb7185;border-radius:12px;background:#3b101b;color:#ffe4e6;font:700 1rem/1.55 system-ui,sans-serif">CURRENT RELEASE DECISION: DO NOT SUBMIT. The downloadable BHGC and CFKC rasters are format-valid research artifacts but fail literal uniqueness: 99.7450% and 99.8513% of dots, respectively, fall within 3 px of a hash-pinned registry raster (limit 70%). The green/positive release labels in earlier archived analysis are superseded. <a style="color:#bae6fd" href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/docs/research/repo-review-20261028.md">Read the 2026-10-28 review</a>.</aside>
   <div class="container">
     <header class="topbar">
       <div class="brand">
         <span>ApartGEMSDOE3 — Submission Archive</span>
-        <span class="badge badge-promote">13/13 CHECKS PASSED</span>
+        <span class="badge badge-hold">FORMAT CHECKS PASS — NOT RELEASE-CLEARED</span>
       </div>
       <nav class="nav-links">
         <a href="index.html">&larr; Back to Main Hub</a>
@@ -71,35 +72,35 @@
             <td><strong>Primary Portal GeoTIFF</strong> (Zero-filled outside footprint, <code>nodata=None</code>, all <code>12,279,160</code> cells in <code>[0.0, 1.0]</code>)</td>
             <td><code>216,370</code></td>
             <td><code>afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065</code></td>
-            <td><span class="badge badge-promote">13/13 PASS</span></td>
+            <td><span class="badge badge-hold">FORMAT PASS ONLY</span></td>
           </tr>
           <tr>
             <td><a href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.zip" download><code>apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.zip</code></a></td>
             <td><strong>Zipped Primary GeoTIFF</strong> (Single-file ZIP archive)</td>
             <td><code>183,583</code></td>
             <td><code>b4799f207bc26d941f88f959c6aaa0a591f3d82ea8bb0f75c7ed1ada76a8b3a1</code></td>
-            <td><span class="badge badge-promote">VERIFIED</span></td>
+            <td><span class="badge badge-hold">FORMAT ARTIFACT ONLY</span></td>
           </tr>
           <tr>
             <td><a href="downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif" download><code>gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif</code></a></td>
             <td>Canonical <code>scripts/submission_writer.py</code> filename (byte-identical to primary <code>-zeros.tif</code>)</td>
             <td><code>216,370</code></td>
             <td><code>afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065</code></td>
-            <td><span class="badge badge-promote">13/13 PASS</span></td>
+            <td><span class="badge badge-hold">FORMAT PASS ONLY</span></td>
           </tr>
           <tr>
             <td><a href="downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-nan.tif" download><code>gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-nan.tif</code></a></td>
             <td>Companion NaN-outside GeoTIFF (<code>0</code> NaNs inside <code>5,167,373</code> footprint, <code>NaN</code> outside footprint)</td>
             <td><code>352,163</code></td>
             <td><code>b0855f1a0a8f7da8dc39c076d747e49d0601414e5e6e03fbfbcbc681f5610e88</code></td>
-            <td><span class="badge badge-promote">13/13 PASS</span></td>
+            <td><span class="badge badge-hold">FORMAT PASS ONLY</span></td>
           </tr>
           <tr>
             <td><a href="downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-audit.json" download><code>gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-audit.json</code></a></td>
             <td>Automated 13-Check GeoTIFF Audit Sidecar JSON</td>
             <td><code>3,690</code></td>
             <td>Sidecar Receipt</td>
-            <td><span class="badge badge-promote">VERIFIED</span></td>
+            <td><span class="badge badge-hold">FORMAT ARTIFACT ONLY</span></td>
           </tr>
         </tbody>
       </table>

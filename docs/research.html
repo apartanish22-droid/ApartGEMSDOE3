@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PhD Forensic Analysis · Why 0.2778 Won &amp; How to Beat 0.2778 / 0.3195</title>
+  <title>PhD Forensic Analysis · Why 0.2778 Won &amp; Review of unverified reported scores</title>
   <style>
 :root {
   --bg: #070b14;
@@ -370,15 +370,16 @@ tr.row-highlight td {
 </style>
 </head>
 <body>
+  <aside role="alert" style="margin:1rem auto;max-width:1380px;padding:1rem 1.25rem;border:2px solid #fb7185;border-radius:12px;background:#3b101b;color:#ffe4e6;font:700 1rem/1.55 system-ui,sans-serif">CURRENT RELEASE DECISION: DO NOT SUBMIT. The downloadable BHGC and CFKC rasters are format-valid research artifacts but fail literal uniqueness: 99.7450% and 99.8513% of dots, respectively, fall within 3 px of a hash-pinned registry raster (limit 70%). The green/positive release labels in earlier archived analysis are superseded. <a style="color:#bae6fd" href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/docs/research/repo-review-20261028.md">Read the 2026-10-28 review</a>.</aside>
   
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">
-      <span class="brand-badge">APARTGEMSDOE3 · PROMOTED</span>
+      <span class="brand-badge">APARTGEMSDOE3 · AUDIT HOLD</span>
       <span>DOE GEMS Fault Detection · H-APART-1 (BHGC-3)</span>
     </div>
     <nav class="nav-links">
-      <a href="index.html" class="">Overview & Download</a><a href="executive-summary.html" class="">Executive Summary (9-Site Audit)</a><a href="research.html" class="active">Why 0.2778 Won & 0.3195 Anatomy</a><a href="hypotheses.html" class="">4 Hypotheses & 3 Ablations</a><a href="leaderboard.html" class="">524-Raster Uniqueness & Leaderboard</a><a href="sources.html" class="">Official Sources & Run Card</a><a href="downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif" class="nav-cta" download>⬇ Download Validated .TIF (214 KB)</a>
+      <a href="index.html" class="">Overview & Download</a><a href="executive-summary.html" class="">Executive Summary (9-Site Audit)</a><a href="research.html" class="active">Reported Scores & 0.2778 Owner-Report Analysis</a><a href="hypotheses.html" class="">4 Hypotheses & 3 Ablations</a><a href="leaderboard.html" class="">524-Raster Uniqueness & Leaderboard</a><a href="sources.html" class="">Official Sources & Run Card</a><a href="downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif" class="nav-cta" download>⬇ Research-only .TIF — DO NOT SUBMIT</a>
     </nav>
   </div>
 </header>
@@ -445,7 +446,7 @@ tr.row-highlight td {
               <td><code>gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</code> (<code>GEMSDOE32</code>)</td>
               <td><code>37,654</code></td>
               <td>Prune <code>2,545</code> additional dots within <code>B = 2 px</code> (<code>200 m</code>) of <code>labels.tif</code> + zeros outside footprint</td>
-              <td><strong><code>0.2778</code></strong> (<code>ORGANIZER-CONFIRMED</code> / <code>OWNER-REPORT</code>)</td>
+              <td><strong><code>0.2778</code></strong> (<code>OWNER-REPORT (no linked organizer receipt)</code> / <code>OWNER-REPORT</code>)</td>
               <td><strong><code>+0.0070</code></strong></td>
             </tr>
           </tbody>
@@ -458,7 +459,7 @@ tr.row-highlight td {
     </div>
 
     <div class="section">
-      <h2>2. How the Public Leaderboard Reached <code>0.3195</code> (<code>0.4413</code> Top) &amp; Why Previous OOF Models Failed One Benchmark</h2>
+      <h2>2. What owner-reported leaderboard figures suggest (not independently verified): <code>0.3195</code> (<code>0.4413</code> Top) &amp; Why Previous OOF Models Failed One Benchmark</h2>
       <p>
         Forensic analysis of all 111 live-scored rasters (<code>evidence/livescore_forensics_20261027.json</code>) and the 111-raster Live-Ledger Inversion (<code>evidence/live_ledger_inversion.json</code>, LOO MAE <code>0.0219</code>, Spearman <code>0.927</code>) revealed four empirical laws:
       </p>
