@@ -25,10 +25,28 @@ jobs:
         run: |
           python -m pip install -r requirements.txt
           python -m pip install -e . --no-build-isolation --no-deps
-      - name: Run automated test suite and strict GeoTIFF check
+      - name: Restore pinned owner-mirror template and labels for tests
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PYCODE'
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0, 'scripts')
+          from restore_data import restore_entry
+          manifest = json.loads(Path('registry/data_manifest.json').read_text())
+          needed = {'sample_submission', 'labels'}
+          for entry in manifest['files']:
+              if entry['id'] in needed:
+                  restore_entry(entry, Path('.cache/gems_data'))
+                  needed.remove(entry['id'])
+          if needed:
+              raise SystemExit(f'missing mirror entries: {sorted(needed)}')
+          PYCODE
+      - name: Run automated tests and strict GeoTIFF check
         run: |
           python -m pytest -q
-          python scripts/check_submission.py --strict-finite docs/downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif
+          python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif
 
   publish:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'

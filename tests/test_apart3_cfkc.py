@@ -129,8 +129,11 @@ def test_run_card_and_html_links_integrity() -> None:
     assert docs_rc_path.exists()
     rc = json.loads(rc_path.read_text())
 
+    # Preserve the historical claim as evidence of the contradiction, never as authorization.
     assert rc["verdict"] == "promote"
     assert rc["ok_to_submit"] is True
+    assert rc["correlation_and_overlap_vs_registry"]["literal_5px_calibration_lattice_probe"]["within_3px_fraction"] > 0.70
+    assert json.loads(docs_rc_path.read_text())["ok_to_submit"] is False
     vo = rc["validator_output"]
     assert vo["validated_without_human_intervention"] is True
     assert vo["audit_geotiff_13_checks_passed"] is True

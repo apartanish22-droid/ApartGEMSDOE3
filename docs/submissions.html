@@ -1,120 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Submission Archive &amp; Validator Receipt — ApartGEMSDOE3</title>
-  <style>
-    :root {
-      --bg: #0b1120;
-      --bg-card: #111827;
-      --bg-elev: #1e293b;
-      --border: #334155;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --emerald: #10b981;
-      --emerald-bg: rgba(16, 185, 129, 0.14);
-      --mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
-      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-    * { box-sizing: border-box; }
-    body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 24px 20px 64px; }
-    .topbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-bottom: 16px; margin-bottom: 22px; border-bottom: 1px solid var(--border); }
-    .brand { font-weight: 800; font-size: 1.25rem; display: flex; align-items: center; gap: 10px; }
-    .badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; font-family: var(--mono); }
-    .badge-promote { background: var(--emerald-bg); color: #34d399; border: 1px solid #10b981; }
-    .nav-links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.92rem; font-weight: 600; }
-    .section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
-    .section h1, .section h2 { margin-top: 0; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
-    code, pre { font-family: var(--mono); font-size: 0.85rem; }
-    code { background: var(--bg-elev); padding: 2px 6px; border-radius: 4px; color: #7dd3fc; }
-    pre { background: #090d16; border: 1px solid var(--border); border-radius: 8px; padding: 14px; overflow-x: auto; color: #e2e8f0; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin-top: 12px; }
-    th, td { padding: 10px 12px; border-bottom: 1px solid var(--border); text-align: left; }
-    th { background: var(--bg-elev); color: #cbd5e1; font-weight: 700; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header class="topbar">
-      <div class="brand">
-        <span>ApartGEMSDOE3 — Submission Archive</span>
-        <span class="badge badge-promote">13/13 CHECKS PASSED</span>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">&larr; Back to Main Hub</a>
-        <a href="executive-summary.html">Executive Summary</a>
-        <a href="submissions.html">Submission Archive</a>
-        <a href="data/latest-run-card.json">Run Card JSON</a>
-      </nav>
-    </header>
-
-    <section class="section">
-      <h1>Downloadable Submission Bundle (<code>docs/downloads/</code>)</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Artifact Filename</th>
-            <th>Role &amp; Outside-Footprint Mode</th>
-            <th>Size (Bytes)</th>
-            <th>SHA-256 Checksum</th>
-            <th>Validation Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif" download><code>apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif</code></a></td>
-            <td><strong>Primary Portal GeoTIFF</strong> (Zero-filled outside footprint, <code>nodata=None</code>, all <code>12,279,160</code> cells in <code>[0.0, 1.0]</code>)</td>
-            <td><code>216,370</code></td>
-            <td><code>afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065</code></td>
-            <td><span class="badge badge-promote">13/13 PASS</span></td>
-          </tr>
-          <tr>
-            <td><a href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.zip" download><code>apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.zip</code></a></td>
-            <td><strong>Zipped Primary GeoTIFF</strong> (Single-file ZIP archive)</td>
-            <td><code>183,583</code></td>
-            <td><code>b4799f207bc26d941f88f959c6aaa0a591f3d82ea8bb0f75c7ed1ada76a8b3a1</code></td>
-            <td><span class="badge badge-promote">VERIFIED</span></td>
-          </tr>
-          <tr>
-            <td><a href="downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif" download><code>gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif</code></a></td>
-            <td>Canonical <code>scripts/submission_writer.py</code> filename (byte-identical to primary <code>-zeros.tif</code>)</td>
-            <td><code>216,370</code></td>
-            <td><code>afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065</code></td>
-            <td><span class="badge badge-promote">13/13 PASS</span></td>
-          </tr>
-          <tr>
-            <td><a href="downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-nan.tif" download><code>gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-nan.tif</code></a></td>
-            <td>Companion NaN-outside GeoTIFF (<code>0</code> NaNs inside <code>5,167,373</code> footprint, <code>NaN</code> outside footprint)</td>
-            <td><code>352,163</code></td>
-            <td><code>b0855f1a0a8f7da8dc39c076d747e49d0601414e5e6e03fbfbcbc681f5610e88</code></td>
-            <td><span class="badge badge-promote">13/13 PASS</span></td>
-          </tr>
-          <tr>
-            <td><a href="downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-audit.json" download><code>gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-audit.json</code></a></td>
-            <td>Automated 13-Check GeoTIFF Audit Sidecar JSON</td>
-            <td><code>3,690</code></td>
-            <td>Sidecar Receipt</td>
-            <td><span class="badge badge-promote">VERIFIED</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="section">
-      <h2>Automated Audit Sidecar JSON (<code>gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-audit.json</code>)</h2>
-      <pre id="audit-pre">Loading audit sidecar ...</pre>
-    </section>
-  </div>
-  <script>
-    fetch("downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-audit.json")
-      .then(r => r.json())
-      .then(d => { document.getElementById("audit-pre").textContent = JSON.stringify(d, null, 2); })
-      .catch(() => { document.getElementById("audit-pre").textContent = "See docs/downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-audit.json"; });
-  </script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Executive summary · ApartGEMSDOE3</title><style>
+:root{font-family:system-ui,-apple-system,sans-serif;color:#eaf1f6;background:#0b1620;line-height:1.6}
+*{box-sizing:border-box} body{margin:0} header{border-bottom:1px solid #354955;background:#0d1e2a}
+nav{max-width:1100px;margin:auto;padding:1rem 1.5rem;display:flex;gap:1.25rem;flex-wrap:wrap}
+main{max-width:1100px;margin:auto;padding:2rem 1.5rem 4rem} a{color:#83d8e6} h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.12}
+h2{margin-top:2.5rem} .eyebrow{color:#80d1c8;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.8rem}
+.alert{border:1px solid #e59680;background:#392320;border-radius:12px;padding:1.2rem 1.4rem} .tag{color:#ffd1bf;font-weight:800}
+.card{background:#142734;border:1px solid #324a56;border-radius:12px;padding:1rem 1.3rem;margin:1rem 0}
+.table-wrap{overflow-x:auto} table{width:100%;border-collapse:collapse} th,td{text-align:left;vertical-align:top;padding:.75rem;border-bottom:1px solid #364c57} th{color:#9fb9c2}
+small,.muted{color:#b7c7ce} code{overflow-wrap:anywhere;color:#f5d6a0} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+</style></head>
+<body><header><nav><strong>APART / GEMS</strong><a href="index.html">Overview</a><a href="executive-summary.html">Submission guide</a><a href="review.html">Research &amp; methods</a><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">Competition ↗</a></nav></header><main>
+<p class="eyebrow">Independent review · 28 October 2026</p><h1>Find faults.<br>Protect the submission.</h1>
+<div class="alert"><span class="tag">DO NOT SUBMIT — NO FILE AUTHORIZED</span><p>There is no new candidate that passes the specified full uniqueness, holdout and separate slot-selection gates. The files below are available for research only. Do not spend a weekly slot on them.</p></div>
+<div class="grid"><div class="card"><strong>Format rechecked</strong><p>Both files are finite and within [0,1] over the entire raster, and match a pinned owner-supplied template mirror. This is not proof of portal acceptance.</p></div><div class="card"><strong>Uniqueness failed</strong><p>Both exceed the literal 70% directional dot-overlap limit against a registered dense calibration grid. Density makes this test restrictive, but the supplied protocol provides no exemption.</p></div><div class="card"><strong>Score not estimable</strong><p>There is no organizer receipt linking the reported historical best to a file hash here. Local holdout values are not leaderboard predictions.</p></div></div>
+<h2>Research downloads</h2><p>These are prior artifacts, <strong>not new submissions</strong>. Format is distinct from authorization.</p>
+<div class="table-wrap"><table><thead><tr><th>File</th><th>Estimated official score</th><th>Uniqueness</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><a download href="downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif">BHGC research TIFF</a><br><small><code>apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif</code></small></td><td>Unknown</td><td>Fails literal overlap; 99.7450%</td><td><strong>DO NOT SUBMIT</strong></td></tr>
+<tr><td><a download href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif">CFKC research TIFF</a><br><small><code>apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif</code></small></td><td>Unknown</td><td>Fails literal overlap; 99.8513%</td><td><strong>DO NOT SUBMIT</strong></td></tr></tbody></table></div>
+<p class="muted">BHGC SHA-256: <code>ba092640a4f776e3a22c8af1a5fe503487d4fa3f2277020a6e8268fd08e0797a</code><br>CFKC SHA-256: <code>afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065</code></p>
+<h2>Nine-site historical comparison</h2><p>Scores and IDs below are <strong>user-reported, not organizer-confirmed</strong>. They are not estimated future scores; IDs are not independently verified download filenames. These are already-submitted historical results, not recommendations to upload. Within this supplied set GEMSDOE32 is the highest. We cannot verify the current public leaderboard from this environment.</p>
+<div class="table-wrap"><table><thead><tr><th>Site</th><th>Reported historical ID</th><th>User-reported score</th><th>Current eligibility</th></tr></thead><tbody><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE24/">GEMSDOE24</a></td><td><code>h25-1-dotted-h19-5-d1-5</code></td><td>0.2477</td><td>Historical · do not resubmit</td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE25/">GEMSDOE25</a></td><td><code>dotted-h19-5-d2-8</code></td><td>0.2600</td><td>Historical · do not resubmit</td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE27/">GEMSDOE27</a></td><td><code>topo-gap-closure-t-v2-on-d1-5</code></td><td>0.2449</td><td>Historical · do not resubmit</td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE28/">GEMSDOE28</a></td><td><code>h36-1-rung30-blind-r1</code></td><td>0.2710</td><td>Historical · do not resubmit</td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE30/">GEMSDOE30</a></td><td><code>d28-poisson300m-offcat-44090</code></td><td>0.2600</td><td>Historical · do not resubmit</td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE31/">GEMSDOE31</a></td><td><code>h27-4-solo-d28</code></td><td>0.2708</td><td>Historical · do not resubmit</td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE32/">GEMSDOE32</a></td><td><code>h33-h33-2-b2</code></td><td>0.2778</td><td>Historical · do not resubmit</td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE33/">GEMSDOE33</a></td><td><code>h33d-analog-tip-stepover-r30</code></td><td>0.2632</td><td>Historical · do not resubmit</td></tr><tr><td><a href="https://buffedlizard55-lab.github.io/GEMSDOE36/">GEMSDOE36</a></td><td><code>anderson-geothermal-pinn-38854</code></td><td>0.2750</td><td>Historical · do not resubmit</td></tr></tbody></table></div>
+<h2>Why the reported GEMSDOE32 result?</h2><p>The historical sequence is consistent with thinning densely spaced predictions and removing points near known faults: both can reduce redundant false-positive mass for a distance-weighted metric. That is a hypothesis about mechanism, not proof of causality or future leaderboard improvement. The reported number is not a validated estimate for a new raster.</p>
+<h2>How to submit once a candidate is approved</h2><ol><li>Confirm the current executive summary explicitly says a new file is authorized, with a unique filename, short note, full-registry and fold-local evidence, and selector approval.</li><li>Download that GeoTIFF and compare its SHA-256 with its run card. The validator must check saved bytes, a single band, finite values in [0,1], and the organizer template CRS, shape, and transform.</li><li>Visit the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">official competition</a>, sign in, open its submissions page, upload the approved file and enter the short note. Confirm the current weekly limit before using a slot.</li></ol><p><strong>These steps are future instructions, not permission to submit either research file above.</strong></p>
+<h2>Research shortlist</h2><p>Four untested proposals, ranked qualitatively; none has a verified expected DTI improvement or established uniqueness.</p><ol><li><strong>Medium cost:</strong> signed DEM cross-profile step versus smooth slope, testing weak range-front scarps. Shoreline terraces and road cuts can mimic the signature.</li><li><strong>Medium cost:</strong> gravity and magnetic multiscale phase-edge alignment, testing concealed basement contacts; unfaulted lithologic boundaries are a confounder.</li><li><strong>High cost:</strong> robust multivariate radiometric residuals conditional on terrain, testing alteration corridors; soil and survey seams are confounders.</li><li><strong>High cost:</strong> paired drainage asymmetry and cross-divide relief, testing long-lived tectonic tilt; lithology and climate can mimic it.</li></ol><p>Compare each against existing and peer methods before declaring novelty. The cache and source coverage are not yet verified. Full discussion: <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/knowledge/09_release_recheck_and_hypotheses_20261028.md">research report on GitHub</a>.</p>
+<h2>Sources and limitations</h2><p><a href="https://github.com/drivendataorg/gems-prize-reference-solution">DrivenData reference solution</a> · <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/">Official data</a> · <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN</a> · <a href="review.html">Audit and next steps</a></p><p class="muted">Competition authentication, official template provenance, full current registry, assigned lane and current slot allowance remain unverified. GitHub was accessible; official non-GitHub sources could not be refreshed from this sandbox.</p>
+</main></body></html>
