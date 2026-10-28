@@ -44,5 +44,5 @@ def test_release_check_rejects_inconsistent_gate(tmp_path, monkeypatch):
     card['release_gate_decision']['gates']['final'] = True
     (tmp_path / 'run_card.json').write_text(json.dumps(card))
     monkeypatch.setattr(module, 'ROOT', tmp_path)
-    with pytest.raises(SystemExit, match='failed release gates'):
+    with pytest.raises(SystemExit, match='final-dot uniqueness failure'):
         module.main()
