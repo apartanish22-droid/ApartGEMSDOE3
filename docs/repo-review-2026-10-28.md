@@ -1,4 +1,6 @@
-# Repository review — 2026-10-28
+# Repository review — 2026-10-28 (historical pass)
+
+**Superseded as the current session review by [repo-review-2026-10-28-session.md](repo-review-2026-10-28-session.md).** This earlier report documents a prior audit; its CTHG metrics and evidence should not be confused with a new experiment from this session.
 
 **Historical review note:** references below to `run_card.json` as the CTHG card are stale. CTHG evidence is in `evidence/apart3_cthg_dhc_run_card.json`; the current root card concerns CSHD and its earlier promotion is now withdrawn.
 

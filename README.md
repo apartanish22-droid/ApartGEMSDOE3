@@ -3,7 +3,7 @@
 > ## Current decision: **DO NOT SUBMIT**
 > No current candidate is both scientifically cleared and unique under the literal registry rule. The latest research GeoTIFF is downloadable for audit only; format validation is not authorization. No competition slot was used.
 
-This README is the durable starting brief. Read it, [`docs/PROJECT_CHARTER.md`](docs/PROJECT_CHARTER.md), [`registry/current_status.json`](registry/current_status.json), and the latest candidate card before every project session. Current review: [`docs/repo-review-session-2026-10-28.md`](docs/repo-review-session-2026-10-28.md). Executive summary: [`docs/executive-summary.html`](docs/executive-summary.html).
+This README is the durable starting brief. At the start of every session read it, [`docs/PROJECT_CHARTER.md`](docs/PROJECT_CHARTER.md), [`registry/current_status.json`](registry/current_status.json), and the latest candidate card, then reread the full current user prompt for any newly assigned lane or constraints. Current three-pass review: [`docs/repo-review-2026-10-28-session.md`](docs/repo-review-2026-10-28-session.md); independent concurrent review: [`docs/repo-review-session-2026-10-28.md`](docs/repo-review-session-2026-10-28.md). Executive summary: [`docs/executive-summary.html`](docs/executive-summary.html).
 
 ## Project objective and decision principles
 

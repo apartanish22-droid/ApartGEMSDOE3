@@ -557,5 +557,9 @@
     "action": "Do not submit. Correct/version shared feature builder and invalidate dependent caches in a future session; re-preregister and rerun only within an authorized budget."
   },
   "slot_used": false,
-  "slot_authorized": false
+  "slot_authorized": false,
+  "portal_generated_utc": "2026-10-28T09:03:14Z",
+  "release_status": "negative",
+  "ok_to_download_as_submission": false,
+  "download_note": "Audit artifact only; do not upload."
 }
