@@ -124,8 +124,9 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
                 site_pairings.append((pair["b"], float(pair["a_dots_within_3px_of_b"]), abs(float(pair["spearman_footprint"]))))
             elif pair["b"] == item["site"]:
                 site_pairings.append((pair["a"], float(pair["b_dots_within_3px_of_a"]), abs(float(pair["spearman_footprint"]))))
-        peer, overlap, rho = max(site_pairings, key=lambda row: row[1])
-        duplicate_status = f"NOT UNIQUE vs supplied nine: {overlap:.2%} within 3 px of {esc(peer)}; max |rho| {rho:.4f}; >70% gate FAIL"
+        peer, overlap, _ = max(site_pairings, key=lambda row: row[1])
+        max_rho = max(row[2] for row in site_pairings)
+        duplicate_status = f"NOT UNIQUE vs supplied nine: {overlap:.2%} within 3 px of {esc(peer)}; max |rho| {max_rho:.4f}; >70% gate FAIL"
         rows.append(
             "<tr>"
             f'<td><a href="https://github.com/buffedlizard55-lab/{site}">{site}</a></td>'
@@ -149,6 +150,24 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
     )
     artifact = current_card.get("artifacts", {}).get("primary_zeros_tif", current.get("artifact", ""))
     artifact_name = current_card.get("submission_name", "not recorded")
+    holdout_data = current_card.get("holdout_dti") or {}
+    holdout = holdout_data.get("primary_hide_and_recover", holdout_data)
+    paired = holdout_data.get("paired_delta_vs_02778_champion")
+    if paired:
+        paired_note = (
+            f"Paired delta vs 0.2778 incumbent: {float(paired['mean_boot_delta']):+.6f} "
+            f"(95% CI {paired['ci95']}); this does not establish a positive improvement."
+        )
+    else:
+        paired_note = "No paired same-evaluator comparison to the incumbent is recorded; improvement is not established."
+    if current_id == "H-APART3-2-CTHG-DHC":
+        current_registry_note = "This CTHG-DHC card reports registered-raster overlap examples of 75.90%, 72.25%, and 99.8035% within 3 px; its literal gate fails."
+    else:
+        current_registry_note = "For this current candidate, the full-registry surface and final-dot comparison was not run; off-catalogue masking is not a uniqueness pass."
+    if current_card.get("scientific_integrity_gate", {}).get("issue"):
+        science_note = esc(current_card["scientific_integrity_gate"]["issue"])
+    else:
+        science_note = "Feature-alone leakage canaries were not computed, and the assigned lane is absent; physical mimics remain unresolved."
 
     home = warning + f'''<section><h2>Decision at a glance</h2>
 <p>The highest result among these nine sites is <b>{esc(top['site'])}: OWNER-REPORT {float(top['published_score_OWNER_REPORT']):.4f}</b> for <code>{esc(top['leaderboard_name'])}</code>. This is an owner-supplied report, not an organizer receipt. It does not establish that the artifact's method caused the score or predict the score of a new raster.</p>
@@ -158,7 +177,7 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
 
     exec_body = warning + f'''<section><h2>Nine-site comparison</h2>
 <p>All submitted-score entries below are <b>OWNER-REPORT</b> from the supplied/repository audit. None is organizer-confirmed here. The score estimate for a new submission is <b>not estimable</b>; a HOLDOUT-DTI result cannot be converted to a live score without a validated calibration study.</p>{table}
-<p>{esc(top['site'])} is the largest listed owner report ({float(top['published_score_OWNER_REPORT']):.4f}). Existing analysis says the reported nested pruning sequence is consistent with removing low-credit false-positive mass, but no hidden truth or receipt-linked evidence establishes causation. See <a href="{esc(repo_link('knowledge/03_why_02778_and_the_anatomy_of_the_family.md'))}">the evidence and limitations</a>.</p><p>There is no file currently OK to submit. The nine reported files are <b>NOT UNIQUE in this nine-site cohort</b> according to the repository overlap audit; scores remain OWNER-REPORT, not organizer receipts. The current candidate also overlaps registered rasters: GEMSDOE3 at <b>75.90%</b>, GEMSDOE67 at <b>72.25%</b>, and GEMSDOE24 at <b>99.8035%</b> within 3 px, exceeding the 70% literal threshold. Its HOLDOUT-DTI diagnostic is <b>{float(current_card['holdout_dti']['primary_hide_and_recover']['pooled_dti']):.6f}</b> (evaluator <code>{esc(current_card['holdout_dti']['primary_hide_and_recover']['evaluator_version'])}</code>, n={int(current_card['holdout_dti']['primary_hide_and_recover']['n_withheld_positives'])}, 95% CI {esc(current_card['holdout_dti']['primary_hide_and_recover']['ci95'])}); this is not a leaderboard score projection. The paired HOLDOUT-DTI delta versus the 0.2778 same-evaluator incumbent is +0.000571 (95% CI [-0.006306, +0.007311]), spanning zero; no improvement is established. The candidate's scientific-integrity audit flags the Band 6 interpretation, so it remains negative.</p><p>Current negative candidate: <code>{esc(current_id)}</code> · <code>{esc(artifact)}</code> · SHA-256 <code>{esc(current_hash)}</code>. Not authorized to download or submit; local format validity does not cure scientific or uniqueness failures.</p></section>
+<p>{esc(top['site'])} is the largest listed owner report ({float(top['published_score_OWNER_REPORT']):.4f}). Existing analysis says the reported nested pruning sequence is consistent with removing low-credit false-positive mass, but no hidden truth or receipt-linked evidence establishes causation. See <a href="{esc(repo_link('knowledge/03_why_02778_and_the_anatomy_of_the_family.md'))}">the evidence and limitations</a>.</p><p>There is no file currently OK to submit. The nine reported files are <b>NOT UNIQUE in this nine-site cohort</b> according to the repository overlap audit; scores remain OWNER-REPORT, not organizer receipts. {current_registry_note} Earlier `H-APART3-2-CTHG-DHC` (`apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif`) had recorded overlaps of 75.90%, 72.25%, and 99.8035% within 3 px and a Band 6 interpretation issue; its paired HOLDOUT-DTI delta versus the 0.2778 incumbent was +0.000571 (95% CI [-0.006306, +0.007311]), spanning zero. For the current candidate, HOLDOUT-DTI diagnostic is <b>{float(holdout.get('pooled_dti', 0.0)):.6f}</b> (evaluator <code>{esc(holdout.get('evaluator_version', 'not recorded'))}</code>, n={int(holdout.get('n_withheld_positives', 0))}, 95% CI {esc(holdout.get('ci95', []))}); it is not a leaderboard score projection. {paired_note} Scientific-integrity review: {science_note}</p><p>Current negative candidate: <code>{esc(current_id)}</code> · <code>{esc(artifact)}</code> · SHA-256 <code>{esc(current_hash)}</code>. Not authorized to download or submit; local format validity does not cure scientific or uniqueness failures.</p></section>
 <section><h2>How to submit when a candidate is authorized</h2><ol><li>Only after the separate selector authorizes a slot, download the exact hash-verified GeoTIFF linked by the release page.</li><li>Open the correct <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DOE GEMS competition</a> and select <b>New submission</b>.</li><li>Choose the single-band GeoTIFF (or a ZIP containing exactly one GeoTIFF) that passed the release checklist. Confirm its CRS, shape, geotransform, and all predicted values in [0, 1].</li><li>Enter the submission name and a short note (140 characters maximum) recorded in the run card. Do not use an estimated score as the note.</li><li>Submit and retain the organizer's receipt. Record the exact file SHA-256 and the receipt's score as <b>ORGANIZER-CONFIRMED</b>.</li></ol><p><b>Current decision: no file is authorized for submission.</b> Exact portal acceptance cannot be guaranteed by a local validator.</p></section>'''
 
     release = warning + f'''<section><h2>Current release gates</h2><p>{esc(status.get('headline', 'DO NOT SUBMIT'))}</p>

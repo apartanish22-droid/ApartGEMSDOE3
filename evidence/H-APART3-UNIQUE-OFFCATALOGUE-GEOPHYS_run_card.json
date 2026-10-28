@@ -1,0 +1,121 @@
+{
+  "schema_version": "gems-parallel-runcard-v3",
+  "generated_utc": "20261028T225009Z",
+  "session_branch": "arena/61ccce6b-apartgemsdoe3",
+  "candidate_id": "H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS",
+  "hypothesis": "Blind geothermal conduits missing from the USGS/INGENIOUS catalogue are marked by coincident label-free physical-property anomalies: radiometric total-count depletion (band 6 tc, hydrothermal clay leaching), magnetic-anomaly magnitude (band 1 mag_anom), and gravity-anomaly magnitude (band 13 iso_grav_anom). The three percentile-ranked anomaly bands are averaged into a [0,1] propensity surface; catalogue faults plus a 200 m collar are excluded so every dot is off-catalogue; dots are Poisson-disk thinned at 2.8 px to a ~30k budget.",
+  "mechanism": "Percentile-rank anomaly surface (mag |dev|, tc |dev|, gravity |dev|) -> high-quantile support -> remove catalogue + 200 m collar -> raster-order Poisson-disk thinning -> boolean dot mask -> float32 [0,1] GeoTIFF, 0.0 outside footprint, NaN-free, EPSG:32611 3730x3292 100 m, matching sample_submission.tif.",
+  "named_non_fault_mimic_process": "Bedrock intrusive contacts, lithologic boundaries, and sedimentary basin edges can produce magnetic/gravity/radiometric anomalies without a fault; arid-surface radiometric variations and DEM artifacts can mimic alteration. Mitigated by requiring coincidence of all three anomaly bands and excluding the catalogue collar.",
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "GEMSDOE32-HOLDOUT-v3-visible-gated",
+    "n_withheld_positives": 22232,
+    "pooled_dti": 0.002126183625061087,
+    "ci95": [
+      0.0015672104763193918,
+      0.0026055455469204056
+    ],
+    "mean_cell_dti": 0.0021133259665520434,
+    "total_emitted_across_cells": 62278
+  },
+  "sgmc_off_catalogue": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+    "n_withheld_positives": 62703,
+    "raw_pooled_dti": 0.0683939453435478,
+    "raw_ci95": [
+      0.04117707068343054,
+      0.09277225997595842
+    ],
+    "prevalence_calibrated_dti": 0.04719680088708336
+  },
+  "leakage_canary": {
+    "note": "Surface uses no catalogue-derived features; catalogue pixels are excluded (collar) so no label leakage into the propensity. Single-feature canaries not yet computed for this new surface."
+  },
+  "correlation_vs_registry": {
+    "note": "Off-catalogue by construction: 0 dots on catalogue labels after writer masking; full registry raster comparison requires the cached registry set (absent from this checkout).",
+    "literal_all_rasters_final_passed": false,
+    "final_dots_literal_gate_passed": false,
+    "surface_gate_passed": false,
+    "full_registry_comparison": "not_run"
+  },
+  "raster_sha256": "8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd",
+  "download_files": {
+    "primary_download_path": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
+    "submission_mirror_path": "submission/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
+    "audit_sidecar_path": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-audit.json",
+    "nan_variant": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-nan.tif"
+  },
+  "validator": {
+    "exact_reference_grid_match": true,
+    "single_band": true,
+    "dtype_float32": true,
+    "dimensions_3730x3292": true,
+    "crs_epsg_32611": true,
+    "in_footprint_all_finite": true,
+    "in_footprint_zero_nan": true,
+    "in_footprint_zero_inf": true,
+    "in_footprint_zero_sentinel": true,
+    "in_footprint_range_0_1": true,
+    "outside_footprint_compliant": true,
+    "zero_on_catalogue_leakage": true,
+    "validator_range_0_1_guaranteed": true
+  },
+  "submission_name": "H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS",
+  "submission_note": "Unique off-catalogue geophysical-anomaly dots (tc leach + mag + gravity), 30k budget, [0,1] zeros TIF",
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "review_note": "NEGATIVE / DO NOT SUBMIT. Imported research artifact from an earlier branch; this review did not rerun it. Format-valid against an owner mirror only. HOLDOUT-DTI is diagnostic, not a leaderboard score; feature canaries, full-registry uniqueness, lane assignment, organizer authorization, and selector approval are absent.",
+  "artifacts": {
+    "primary_zeros_tif": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
+    "primary_zeros_sha256": "8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd",
+    "primary_zeros_bytes": 149028,
+    "nan_companion_tif": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-nan.tif",
+    "audit_json": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-audit.json",
+    "submission_mirror_tif": "submission/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif"
+  },
+  "ok_to_download_as_submission": false,
+  "download_for_research_ok": false,
+  "selector_required": true,
+  "slot_used": false,
+  "slot_authorized": false,
+  "weekly_slots_used": 0,
+  "duplicate_gate_failure": {
+    "rule": "Reject if any registered raster has |Spearman| > 0.90 or >70% directional final-dot overlap within 3 px; no exemptions.",
+    "preplacement_surface_comparison_completed": false,
+    "final_dots_literal_gate_passed": false,
+    "reason": "Complete registry rasters are absent; the run card explicitly says the full registry comparison is required. Off-catalogue masking alone is not a registry uniqueness pass."
+  },
+  "scientific_integrity_gate": {
+    "passed": false,
+    "issue": "Single-feature leakage canaries were not computed, and the assigned method lane is not present in this checkout. Physical mimic processes are identified but not eliminated.",
+    "artifact_scientific_promotion_allowed": false,
+    "action": "Do not promote. Obtain lane assignment and feature-alone canaries; preregister and repeat only with complete shared data and within authorized budget."
+  },
+  "release_gate_decision": {
+    "verdict": "negative",
+    "gates": {
+      "holdout_against_current_incumbent": false,
+      "feature_canaries": false,
+      "full_registry_surface_and_final_dots": false,
+      "format": true,
+      "scientific_integrity": false,
+      "selector": false,
+      "final": false
+    },
+    "reason": "No comparable paired improvement is established; the absolute diagnostic is very low, feature canaries and complete registry checks are missing, and no selector authorization exists."
+  },
+  "experiment_count_for_this_candidate": 1,
+  "experiment_budget_cap": 3,
+  "protocol_compliance": {
+    "assigned_method_lane": "missing",
+    "feature_only_leakage_canaries": "not_run",
+    "buffered_visible_only_holdout": "recorded in upstream card; no matched paired promotion result",
+    "preplacement_surface_registry_gate": "not_run; full registry unavailable",
+    "final_dot_registry_gate": "not_run; full registry unavailable",
+    "selector_authorization": false,
+    "submission_slot_used": false,
+    "overall": "negative / compliance not claimed"
+  },
+  "upload_authorization": false
+}
