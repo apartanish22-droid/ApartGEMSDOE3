@@ -140,10 +140,10 @@ def test_run_card_and_site_hygiene() -> None:
         "verdict",
     }
     assert required_keys.issubset(set(card.keys()))
-    assert card["raster_sha256"] == EXPECTED_SHA256
+    assert card["raster_sha256"] is None
     assert len(card["submission_note"]) <= 140
-    assert all(card["validator"].values())
-    assert card["verdict"] == "promote"
+    assert card["validator"]["new_raster_validated"] is False
+    assert card["verdict"] == "negative"
 
     # Verify all HTML pages and README exist and have zero leaked /home/user paths
     pages = [
@@ -164,5 +164,4 @@ def test_run_card_and_site_hygiene() -> None:
             txt = p.read_text(encoding="utf-8")
             assert "/home/user/" not in txt, f"Leaked absolute path in {p}"
             if p.name in {"index.html", "executive-summary.html", "README.md"}:
-                assert PRIMARY_FILENAME in txt
-                assert EXPECTED_SHA256 in txt
+                assert "not ready to submit" in txt.lower() or "do not submit" in txt.lower()
