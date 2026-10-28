@@ -463,7 +463,8 @@ def audit_nine_focus_sites_20261027(ctx: holdout.HoldoutContext, champ_mask: np.
                 "total_rasters_in_repo": len(by_repo.get(repo, [])),
                 "inspected_path": rec["path"],
                 "sha256": rec["sha256"],
-                "organizer_confirmed_dti": live_score,
+                "owner_reported_live_dti": live_score,
+                "score_evidence_class": "OWNER-REPORT (no submission-page receipt tied to this file hash in this checkout)",
                 "emitted_dots": n_dots,
                 "on_catalogue_dots": on_cat,
                 "whole_array_finite": whole_finite,
@@ -606,6 +607,7 @@ def render_diagnostic_figure(
 
 
 def main() -> int:
+    raise SystemExit("DISABLED: legacy runner exempts registered rasters and cannot authorize a release; see evidence/release_recheck_20261028.json")
     t0 = time.time()
     ddir = data_dir()
     wdir = work_dir()

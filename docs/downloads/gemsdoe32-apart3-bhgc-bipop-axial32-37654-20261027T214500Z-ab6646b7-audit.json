@@ -111,5 +111,15 @@
     "predicted_leaderboard_dti": null,
     "ei_drift_corrected": null,
     "slot_decision": "PROMOTE-VALIDATED-UNIQUE"
-  }
+  },
+  "submission_eligibility": {
+    "status": "negative",
+    "ok_to_submit": false,
+    "ok_to_download_for_research": true,
+    "reason": "Fails literal all-registry uniqueness: 99.7450% of final dots are within 3 px of the pinned 5-px lattice raster; the strict limit is 70%.",
+    "review_evidence": "evidence/repo_review_20261028.json"
+  },
+  "format_validation_scope": "Format/grid/range only; does not establish uniqueness, score, organizer acceptance, or slot approval.",
+  "verdict": "negative",
+  "ok_to_submit": false
 }

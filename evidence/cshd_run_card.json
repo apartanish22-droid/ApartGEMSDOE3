@@ -203,7 +203,9 @@
       "entry": "GEMSDOE24:inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
       "within_3px_fraction": 0.997583,
       "explanation": "13gems_20261001_r13-lattice-s5_v2_nan-outside.tif places 206,895 dots on a 5-px Cartesian grid covering 99.8713% of the 5,167,373-px footprint under a 3-px radius (Pigeonhole floor 82.3418% for any 37,654-dot raster)."
-    }
+    },
+    "within_3px_vs_cthg_5d4d0085": 0.585489,
+    "literal_all_rasters_final_passed": false
   },
   "release_gate_decision": {
     "gates": {
@@ -276,5 +278,13 @@
   },
   "submission_name": "APARTGEMSDOE3-CSHD-37B32D5B",
   "submission_note": "Apart3 H-APART3-2 CSHD 97/84ch d3.62 37654d B2 | HR=0.1092 SGMC=0.0732",
-  "verdict": "promote"
+  "verdict": "promote",
+  "selector_required": true,
+  "slot_used": false,
+  "artifacts": {
+    "primary_zeros_tif": "docs/downloads/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif",
+    "submission_mirror_tif": "submission/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif",
+    "canonical_zeros_tif": "docs/downloads/gemsdoe32-apart3-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif",
+    "single_tif_zip": "docs/downloads/gemsdoe32-apart3-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.zip"
+  }
 }

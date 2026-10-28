@@ -5,6 +5,7 @@ import re
 from pathlib import Path
 
 import numpy as np
+import pytest
 import rasterio
 
 from gems32 import fbgr, ldgi, mdrc, spcp, trhv
@@ -99,7 +100,7 @@ def test_supporting_physical_modules_spcp_trhv_ldgi_fbgr_mdrc() -> None:
     assert np.isfinite(crest).all()
 
 
-def test_promoted_geotiff_passes_13_checks_and_strict_finite() -> None:
+def test_cfkc_geotiff_is_research_artifact_not_authorized_submission() -> None:
     tif_main = ROOT / "docs/downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif"
     tif_canon = ROOT / "docs/downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif"
     zip_main = ROOT / "docs/downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.zip"
@@ -129,8 +130,13 @@ def test_run_card_and_html_links_integrity() -> None:
     assert docs_rc_path.exists()
     rc = json.loads(rc_path.read_text())
 
-    assert rc["verdict"] == "promote"
-    assert rc["ok_to_submit"] is True
+    assert rc["verdict"] == "negative"
+    assert rc["ok_to_submit"] is False
+    assert rc["submission_eligibility"]["ok_to_submit"] is False
+    current = json.loads((ROOT / "run_card.json").read_text())
+    assert current["selector_required"] is True
+    assert current["slot_used"] is False
+    assert current["correlation_vs_registry"]["literal_all_rasters_final_passed"] is False
     vo = rc["validator_output"]
     assert vo["validated_without_human_intervention"] is True
     assert vo["audit_geotiff_13_checks_passed"] is True

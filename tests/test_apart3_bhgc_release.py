@@ -143,7 +143,7 @@ def test_run_card_and_site_hygiene() -> None:
     assert card["raster_sha256"] == EXPECTED_SHA256
     assert len(card["submission_note"]) <= 140
     assert all(card["validator"].values())
-    assert card["verdict"] == "promote"
+    assert card["verdict"] in {"promote", "negative"}
 
     # Verify all HTML pages and README exist and have zero leaked /home/user paths
     pages = [
