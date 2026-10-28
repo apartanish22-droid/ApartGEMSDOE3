@@ -1353,7 +1353,7 @@ def _apply_current_review_gate() -> None:
         '<aside role="alert" style="margin:1rem auto;max-width:1380px;padding:1rem 1.25rem;'
         'border:2px solid #fb7185;border-radius:12px;background:#3b101b;color:#ffe4e6;'
         'font:700 1rem/1.55 system-ui,sans-serif">'
-        'CURRENT RELEASE DECISION: DO NOT SUBMIT. The downloadable BHGC and CFKC rasters are '
+        'CURRENT RELEASE DECISION: DO NOT SUBMIT. NO FILE AUTHORIZED. The downloadable BHGC and CFKC rasters are '
         'format-valid research artifacts but fail literal uniqueness: 99.7450% and 99.8513% '
         'of dots, respectively, fall within 3 px of a hash-pinned registry raster (limit 70%). '
         'The green/positive release labels in earlier archived analysis are superseded. '
@@ -1373,6 +1373,8 @@ def _apply_current_review_gate() -> None:
             text = text.replace("</style>", ".badge-hold { background: rgba(244,63,94,0.16); color: #fda4af; border: 1px solid #f43f5e; }</style>", 1)
         if "CURRENT RELEASE DECISION: DO NOT SUBMIT" not in text and "<body>" in text:
             text = text.replace("<body>", "<body>\n  " + warning, 1)
+        elif "CURRENT RELEASE DECISION: DO NOT SUBMIT" in text and "NO FILE AUTHORIZED" not in text:
+            text = text.replace("CURRENT RELEASE DECISION: DO NOT SUBMIT.", "CURRENT RELEASE DECISION: DO NOT SUBMIT. NO FILE AUTHORIZED.", 1)
         path.write_text(text, encoding="utf-8")
 
 

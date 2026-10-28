@@ -1,3 +1,5 @@
+> **Historical research record; not a current release decision. DO NOT SUBMIT.** Prior promotion and score claims below have not been independently verified. See the [current review](https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/knowledge/09_release_recheck_and_hypotheses_20261028.md).
+
 # ApartGEMSDOE3 Technical Report: Why `0.2778` Won, the Anatomy of `0.3195` / `0.4413`, and Dual-Population Pareto Dominance via `H-APART-1 (BHGC-3)`
 
 - **Date:** 2026-10-27 (UTC)

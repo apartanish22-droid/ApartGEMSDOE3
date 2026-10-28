@@ -17,8 +17,9 @@ from gems32.holdout import (
 
 def _ddir() -> Path:
     d = data_dir()
-    if not (d / "sample_submission.tif").exists():
-        pytest.skip("local data cache absent")
+    required = ("sample_submission.tif", "labels.tif", "external/derived_sgmc_faults_100m_u8.tif")
+    if not all((d / name).is_file() for name in required):
+        pytest.skip("local holdout data cache incomplete")
     return d
 
 
