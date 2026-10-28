@@ -59,9 +59,14 @@ SIBLING_REPOS = [
     ("ginnymcfiner23-ux", "GINNYGEMSDOE1"),
     ("ginnymcfiner23-ux", "GINNYGEMSDOE2"),
     ("ginnymcfiner23-ux", "GINNYGEMSDOE3"),
-    ("sassnarep3-star", "GEMSDOESASS1"),
-    ("sassnarep3-star", "GEMSDOESASS2"),
-    ("sassnarep3-star", "GEMSDOESASS3"),
+    ("sassasfras46-hue", "GEMSDOESASS1"),
+    ("sassasfras46-hue", "GEMSDOESASS2"),
+    ("sassasfras46-hue", "GEMSDOESASS3"),
+    ("buffedlizard55-lab", "GEMSDOE49"),
+    ("buffedlizard55-lab", "GEMSDOE63"),
+    ("buffedlizard55-lab", "GEMSDOE70"),
+    ("buffedlizard55-lab", "GEMSDOE76"),
+    ("buffedlizard55-lab", "GEMSDOE85"),
     ("buffedlizard55-lab", "GEMSDOE91"),
     ("buffedlizard55-lab", "GEMSDOE92"),
 ]
@@ -94,8 +99,6 @@ def resolve_head(owner: str, repo: str, branch: str = "main") -> str | None:
 
 
 def extract_repo_tifs(owner: str, repo: str, ref: str, dest_root: Path, wanted_paths: set[str] | None = None) -> list[dict]:
-    # Normalize before recording paths relative to ROOT; callers may pass a relative cache path.
-    dest_root = Path(dest_root).resolve()
     url = f"https://codeload.github.com/{owner}/{repo}/tar.gz/{ref}"
     extracted = []
     with urllib.request.urlopen(url, timeout=120) as resp, tarfile.open(fileobj=resp, mode="r|gz") as tf:

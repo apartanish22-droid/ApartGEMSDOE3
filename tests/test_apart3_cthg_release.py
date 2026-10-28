@@ -78,7 +78,7 @@ def test_cthg_candidate_format_and_fail_closed_upload_status() -> None:
         assert float(a.min()) >= 0.0 and float(a.max()) <= 1.0
         assert int((a > 0.5).sum()) == 37654
 
-    card = json.loads((ROOT / "run_card.json").read_text())
+    card = json.loads((ROOT / "evidence" / "apart3_cthg_dhc_run_card.json").read_text())
     assert card["raster_sha256"] == SHA256
     assert card["validator"]["finite"] is True
     assert card["validator"]["range_0_1"] is True

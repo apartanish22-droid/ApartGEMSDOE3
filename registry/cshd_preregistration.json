@@ -1,0 +1,110 @@
+{
+  "preregistration_id": "APARTGEMSDOE3-PREREG-20261028",
+  "date_utc": "2026-10-28T06:00:00Z",
+  "repository": "apartanish22-droid/ApartGEMSDOE3",
+  "branch": "arena/4d26cf27-apartgemsdoe3",
+  "evaluator_versions": [
+    "GEMSDOE32-HIDE-RECOVER-v3.0 (n=22,232 withheld positives)",
+    "GEMSDOE32-HIDE-RECOVER-v3.0-detached-600m (n=15,504 withheld positives)",
+    "GEMSDOE32-SGMC-CAL-v3.0 (n=62,703 untouched USGS SGMC fault pixels)"
+  ],
+  "max_experiments": 3,
+  "ranked_hypotheses": [
+    {
+      "rank": 1,
+      "id": "H-APART3-2 (CSHD)",
+      "title": "Crustal Seismogenic-Hydrothermal-Piedmont Dual-Cover Conduit Detection (ANSS ComCat 1900-2026 Hypocenters + Post-2021 Lineaments + GDR #1391 Blind Cold-Spring Geothermometer Disequilibrium + Seamless 10m 3DEP Piedmont-Chi)",
+      "exact_layers": [
+        "training_features.tif Bands 5, 7, 8, 10, 11, 13, 15, 16, 17, 18, 19",
+        "usgs_comcat_geodawn.csv (2,046 in-footprint hypocenters; 486 post-2021 microearthquakes)",
+        "gdr_wellspring_in_footprint.csv (653 blind <45 deg C high-geothermometer >85 deg C wells/springs, DOE GDR #1391)",
+        "topo_10m_derived_100m_u8.tif (100% seamless USGS 3DEP 10 m slope, planform curvature, fluvial chi)"
+      ],
+      "physical_signature_and_transform": "Depth-weighted brittle-crust (1.5-15 km) hypocenter kernel density + post-2021 local covariance-eigenvector fault-strike lineament bridge + blind cold-discharge silica/cation geothermometer disequilibrium (Delta_T = max(T_SiO2, T_NaKCa) - T_meas > 40 deg C for T_meas < 45 deg C) + MT clay-cap / contractor-standardized 214Bi radon upflow + seamless 10 m piedmont apron scarp & valley-exit fluvial chi x harmonic basement gravity concordance + dilatational/shear strain reactivation index, combined inside a stationary 97-ch/84-ch Dual-Cover OOF ensemble with cross-term-free Bayesian two-population envelope max(R(P_cont)^6, 0.834 * R(P_blind)^6) and axial d_min = 3.62 px CELF emission.",
+      "why_catches_missing_faults": "Directly resolves three blind-fault populations missed by the 2021 INGENIOUS compilation: (1) post-2021 microearthquake fault planes invisible in Band 10/16; (2) blind geothermal systems masked by shallow cold alluvial aquifers (e.g., McGinness Hills, Tungsten Mountain, Dixie Comstock) where T_meas < 45 deg C but quartz/chalcedony geothermometers retain >85-180 deg C deep reservoir equilibrium; and (3) unmapped scarps inside the 24.63% NW/NE 1 m LiDAR gap via 100%-seamless 10 m 3DEP piedmont-chi.",
+      "named_non_fault_mimics": [
+        "Mesozoic/Paleozoic intrarange bedrock thrusts & high-mountain drainage-divide chi jumps (slope > 14 deg, depth_to_base < 80 m; suppressed by piedmont-apron envelope + harmonic basement gravity gate)",
+        "Closed-basin desert salt playas (depth > 300 m, slope < 2 deg; <0.03% dots via zero-anchored playa veto) & Pleistocene Lake Lahontan (~1,332 m) shoreline benches",
+        "US BLM MLRS mining-pit blasts (earthquake-only ComCat filter) & 4-contractor GeoDAWN radiometric block seams"
+      ],
+      "differs_from_existing_repo": "Zero prior submissions in ApartGEMSDOE3 or any of the 9 focus / sibling repos used usgs_comcat_geodawn.csv post-2021 fault-strike lineaments, gdr_wellspring_in_footprint.csv blind cold-discharge chemical geothermometer disequilibrium (strictly dropping dist_known_fault_px), or axial sqrt(13) (d_min = 3.62 px) two-population envelope max(R(P_cont)^6, beta * R(P_blind)^6).",
+      "expected_dti_gain_vs_cost": "Rank #1 — HIGH expected DTI gain (+0.009 to +0.010 simultaneously on BOTH Hide-and-Recover v3.0 and Off-Catalogue SGMC-cal v3.0 with both 95% paired CIs > 0) at LOW-MODERATE CPU/RAM cost (<300 MB anonymous heap).",
+      "status": "PRIMARY IMPLEMENTED & PROMOTED (EXP-1, EXP-2, EXP-3)"
+    },
+    {
+      "rank": 2,
+      "id": "H-APART3-1 (S3PC)",
+      "title": "Seamless 10 m 3DEP Fluvial-Chi Disequilibrium & Piedmont Scarp Curvature Across the 24.63% 1 m LiDAR Gap",
+      "exact_layers": [
+        "topo_10m_derived_100m_u8.tif (Bands 1 slope_10m, 2 plan_curv_10m, 3 relief_10m, 4 openness_10m, 5 fluvial_chi_10m)",
+        "training_features.tif Bands 12 (det_elev), 15 (depth_to_base_surf), 18 (iso_grav_anom_hg)"
+      ],
+      "physical_signature_and_transform": "Active normal-fault footwall uplift creates transient drainage-divide disequilibrium (Delta_chi across range-front valley exits) co-located with planform-convex alluvial-fan apex scarps and horizontal basement gravity steps across 100% of the study area, eliminating the 24.63% NW/NE 1 m LiDAR gap.",
+      "why_catches_missing_faults": "Recovers Quaternary range-front and piedmont scarps in northern Washoe, Pershing, and Elko margin blocks where 1 m LiDAR was unavailable during the 2021 compilation.",
+      "named_non_fault_mimics": [
+        "Resistant Mesozoic granitic/volcanic cliff ledges at high elevation",
+        "Pleistocene Lake Lahontan wave-cut shoreline terraces (~1,332 m)"
+      ],
+      "differs_from_existing_repo": "Prior BHGC-3 and CFKC stacks never opened topo_10m_derived_100m_u8.tif; their LiDAR-free sub-model relied only on 100 m detrended elevation.",
+      "expected_dti_gain_vs_cost": "Rank #2 — MEDIUM-HIGH gain inside the 24.63% LiDAR gap at VERY LOW cost; integrated as CSHD channels 4 and 5.",
+      "status": "INTEGRATED INTO H-APART3-2 (CSHD CHANNELS 4 & 5)"
+    },
+    {
+      "rank": 3,
+      "id": "H-APART3-3 (WCHD)",
+      "title": "Wavelet-Multiscale Potential-Field Contact Dip & Depth-to-Magnetic-Bottom Shallowing Vector",
+      "exact_layers": [
+        "training_features.tif Bands 2 (rtp), 3 (tmi_hg), 6 (tc), 9 (tmi_vg), 11 (iso_grav_anom_vg), 13 (iso_grav_anom), 18 (iso_grav_anom_hg)"
+      ],
+      "physical_signature_and_transform": "Poisson-kernel upward continuation ladder z in {200, 600, 1500, 3000} m tracking horizontal spatial migration dx_crest/dz of joint gravity-magnetic tilt zero-crossings to separate dipping listric normal faults (50-65 deg) from vertical volcanic dike swarms and horizontal caldera margins.",
+      "why_catches_missing_faults": "Identifies concealed intrabasin listric fault planes beneath Tertiary tuff and Quaternary alluvium by imaging systematic hanging-wall migration with upward continuation height.",
+      "named_non_fault_mimics": [
+        "Miocene basaltic-andesite dike swarms (sub-vertical 90 deg, zero crest migration with z)",
+        "Oligocene-Miocene caldera ring-fracture margins (closed circular planform)"
+      ],
+      "differs_from_existing_repo": "Prior ldgi/fbgr/bhgc computed scalar upward-continuation differences at fixed z=500/2000 m rather than lateral crest-migration dip vectors.",
+      "expected_dti_gain_vs_cost": "Rank #3 — MEDIUM gain (+0.002 to +0.004) at MODERATE FFT memory cost; reserved for future iteration outside the 3-experiment budget.",
+      "status": "RESERVED FOR FUTURE ITERATION (BUDGET DISCIPLINE)"
+    },
+    {
+      "rank": 4,
+      "id": "H-APART3-4 (TSTR)",
+      "title": "Tensor-Stress Coulomb Failure Envelopes Along Transtensional Walker Lane / Central Nevada Seismic Belt Step-Overs",
+      "exact_layers": [
+        "training_features.tif Bands 4 (geod_2ndinv), 7 (geod_shearrate), 8 (geod_dilaterate), 15 (depth_to_base_surf), 18 (iso_grav_anom_hg)"
+      ],
+      "physical_signature_and_transform": "Slip-tendency T_s = tau / sigma_n' resolved onto the local basement-gravity strike tangent theta_grav(x) = atan2(-g_x, g_y), isolating active oblique-normal relay ramps where dilatational strain and shear strain align within 20-35 deg of buried horst edges.",
+      "why_catches_missing_faults": "Captures distributed strike-slip/normal transfer zones in the Walker Lane where cumulative vertical scarp throw is small (<1 m) and eroded in soft basin fill.",
+      "named_non_fault_mimics": [
+        "Long-wavelength GPS interpolation halos (>25 km wavelength without local basement structure)"
+      ],
+      "differs_from_existing_repo": "Prior trhv/bhgc used isotropic scalar products of Band 7 and Band 8 rather than strike-resolved kinematic slip tendency; kinematic reactivation component integrated into CSHD channel 6.",
+      "expected_dti_gain_vs_cost": "Rank #4 — MEDIUM gain (+0.002) at LOW cost; kinematic partitioning integrated into CSHD Channel 6.",
+      "status": "INTEGRATED INTO H-APART3-2 (CSHD CHANNEL 6)"
+    },
+    {
+      "rank": 5,
+      "id": "H-APART3-5 (RCCA)",
+      "title": "Contractor-De-Biased Airborne Radiometric K/eTh Potassium-Adularia Alteration & 214Bi/232Th Degassing Ratio",
+      "exact_layers": [
+        "geodawn_radiometric_4band_100m.tif (Bands K %, eU ppm, eTh ppm, Dose)",
+        "geodawn_contractor_footprint.geojson",
+        "training_features.tif Band 17 (cond_surf)"
+      ],
+      "physical_signature_and_transform": "Per-contractor robust Z-scored K/eTh adularia-illite potassium metasomatism excess ( Fk = Z_c(K) - 0.85 * Z_c(eTh) ) paired with 214Bi/232Th gas-permeable fracture ratio and low-resistivity smectite clay-cap gradients.",
+      "why_catches_missing_faults": "Finds hydrothermally cemented or clay-altered range-front and step-over conduits whose mechanical scarps have been degraded by argillic alteration.",
+      "named_non_fault_mimics": [
+        "Felsic rhyolite ash-flow tuffs with uniformly high primary K and Th (suppressed by K/eTh residual)",
+        "Playa evaporite potassium sinks (suppressed by piedmont slope-depth gate)"
+      ],
+      "differs_from_existing_repo": "Prior spcp/bhgc used eU/eTh alone without K/eTh potassium-adularia metasomatism decoupling; clay-cap x radon gradient integrated in CSHD channel 3.",
+      "expected_dti_gain_vs_cost": "Rank #5 — LOW-MEDIUM gain (+0.0015 to +0.003) due to shallow 30 cm gamma-ray attenuation under thick alluvium.",
+      "status": "PARTIALLY INTEGRATED (CSHD CHANNEL 3) / FULL K-METASOMATISM RESERVED"
+    }
+  ],
+  "planned_experiments": [
+    "EXP1_CSHD_UNSUP_CREST: Zero-label physical CSHD piedmont-conduit crest + visible tip relay",
+    "EXP2_CSHD_SINGLE97_OOF: Single-cover 97-ch OOF classifier without Dual-Cover split or two-population blind envelope",
+    "EXP3_CSHD_DUAL97_FULL: Full stationary 97-ch/84-ch Dual-Cover + two-population CSHD envelope with axial d_min = 3.62 px CELF packing"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "module": "gems32.cshd",
+  "hypothesis": "H-APART3-2 (CSHD)",
+  "channels": [
+    "comcat_brittle_hypocenter_density",
+    "comcat_post2021_lineament_bridge",
+    "gdr_blind_geotherm_disequilibrium",
+    "cond_radon_upflow_gradient",
+    "seamless_10m_piedmont_apron_scarp",
+    "piedmont_chi_gravity_concordance",
+    "strain_kinematic_reactivation_index",
+    "cshd_piedmont_geothermal_conduit_crest"
+  ],
+  "n_channels": 8,
+  "total_unified_channels": 97,
+  "msub_pure_non_lidar_col_count": 84,
+  "all_cshd_channels_lidar1m_free": true,
+  "zero_catalogue_label_inputs": true,
+  "comcat_in_bbox_events": 3907,
+  "comcat_in_footprint_events": 2046,
+  "comcat_post2021_in_bbox_events": 608,
+  "comcat_post2021_in_footprint_events": 486,
+  "gdr_wellspring_rows": 27092,
+  "gdr_blind_cold_high_geotherm_count": 653,
+  "gdr_blind_median_diseq_c": 87.55,
+  "seamless_10m_valid_in_footprint_fraction": 1.0,
+  "piedmont_chi_p95_in_footprint": 0.38937
+}

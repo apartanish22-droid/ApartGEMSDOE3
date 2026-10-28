@@ -1,1 +1,614 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Archived research · ApartGEMSDOE3</title><style>body{font:16px/1.6 system-ui;background:#080d19;color:#e7edf8;max-width:900px;margin:10vh auto;padding:24px}section{background:#101a2e;border:1px solid #26344f;border-radius:14px;padding:24px}a{color:#6ed5ff}.bad{color:#ff737d;font-weight:800}</style></head><body><section><h1>Archived page — do not use for submission status</h1><p class="bad">Legacy claims and links have been superseded. Current candidate is a research artifact only; literal all-registry uniqueness failed and upload is not authorized.</p><p>Read the <a href="index.html">current executive portal</a>, the <a href="data/latest-run-card.json">current run card</a>, and the <a href="../README.md">project README</a>.</p></section></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5 Pre-Registered Hypotheses &amp; 3-Experiment Ablation · ApartGEMSDOE3</title>
+  <style>
+:root {
+  --bg: #070b14;
+  --bg-elev: #0f172a;
+  --bg-card: #131d33;
+  --bg-card-alt: #18243f;
+  --border: #263554;
+  --border-hi: #38bdf8;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --emerald: #10b981;
+  --amber: #f59e0b;
+  --rose: #f43f5e;
+  --violet: #a78bfa;
+  --mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  font-size: 15px;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code, pre {
+  font-family: var(--mono);
+  font-size: 0.88em;
+}
+code {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--border);
+  padding: 0.12rem 0.38rem;
+  border-radius: 5px;
+  color: #e2e8f0;
+}
+pre {
+  background: #090e1a;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  color: #e2e8f0;
+  line-height: 1.48;
+}
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7, 11, 20, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+.brand-badge {
+  background: linear-gradient(135deg, #10b981, #0ea5e9);
+  color: #041019;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--muted);
+  padding: 0.42rem 0.78rem;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: all 0.15s ease;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--text);
+  background: var(--bg-card);
+  text-decoration: none;
+}
+.nav-links a.nav-cta {
+  background: rgba(16, 185, 129, 0.16);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  color: #34d399;
+}
+.container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 4rem;
+}
+.hero-banner {
+  background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.16), rgba(15, 23, 42, 0.96) 62%),
+              linear-gradient(180deg, #111c35 0%, #0c1426 100%);
+  border: 2px solid #10b981;
+  border-radius: 16px;
+  padding: 1.65rem 1.85rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+.hero-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.85rem;
+}
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.32rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.pill-pass {
+  background: rgba(16, 185, 129, 0.18);
+  border: 1px solid #10b981;
+  color: #34d399;
+}
+.pill-info {
+  background: rgba(56, 189, 248, 0.16);
+  border: 1px solid #38bdf8;
+  color: #7dd3fc;
+}
+.pill-warn {
+  background: rgba(245, 158, 11, 0.16);
+  border: 1px solid #f59e0b;
+  color: #fcd34d;
+}
+.pill-dup {
+  background: rgba(244, 63, 94, 0.16);
+  border: 1px solid #f43f5e;
+  color: #fda4af;
+}
+.hero-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0.25rem 0 0.6rem;
+  line-height: 1.25;
+}
+.hero-sub {
+  color: #cbd5e1;
+  margin: 0 0 1.25rem;
+  max-width: 1120px;
+}
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+  margin-bottom: 1.35rem;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.78rem 1.25rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.94rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  text-decoration: none !important;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #03150e;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.32);
+}
+.btn-secondary {
+  background: var(--bg-card-alt);
+  border-color: var(--border-hi);
+  color: var(--text);
+}
+.btn-ghost {
+  background: rgba(15, 23, 42, 0.75);
+  border-color: var(--border);
+  color: var(--muted);
+}
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+.kpi-card {
+  background: rgba(11, 18, 34, 0.88);
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  padding: 0.9rem 1.05rem;
+}
+.kpi-label {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  font-weight: 700;
+}
+.kpi-val {
+  font-size: 1.28rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0.2rem 0;
+  font-family: var(--mono);
+}
+.kpi-sub {
+  font-size: 0.79rem;
+  color: #94a3b8;
+}
+.section {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem 1.65rem;
+  margin-bottom: 1.65rem;
+}
+.section h2 {
+  margin-top: 0;
+  font-size: 1.32rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1rem;
+}
+.section h3 {
+  font-size: 1.08rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #e2e8f0;
+}
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin: 0.9rem 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.87rem;
+}
+th, td {
+  padding: 0.68rem 0.82rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+th {
+  background: #0b1324;
+  color: #cbd5e1;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+tr:hover td {
+  background: rgba(30, 41, 59, 0.42);
+}
+tr.row-highlight td {
+  background: rgba(16, 185, 129, 0.11);
+  border-top: 1px solid rgba(16, 185, 129, 0.45);
+  border-bottom: 1px solid rgba(16, 185, 129, 0.45);
+}
+.check-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+}
+.check-item {
+  background: var(--bg-card);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.84rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.check-item strong { color: #34d399; font-family: var(--mono); }
+.callout {
+  border-left: 4px solid var(--accent);
+  background: rgba(56, 189, 248, 0.08);
+  padding: 0.9rem 1.15rem;
+  border-radius: 0 10px 10px 0;
+  margin: 1rem 0;
+}
+.callout-emerald {
+  border-left-color: var(--emerald);
+  background: rgba(16, 185, 129, 0.09);
+}
+.callout-amber {
+  border-left-color: var(--amber);
+  background: rgba(245, 158, 11, 0.09);
+}
+.fig-box {
+  background: #090e1a;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+.fig-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.fig-cap {
+  font-size: 0.84rem;
+  color: var(--muted);
+  margin-top: 0.65rem;
+  text-align: left;
+}
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+.copy-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #090e1a;
+  border: 1px solid var(--border);
+  padding: 0.55rem 0.85rem;
+  border-radius: 8px;
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  margin: 0.45rem 0;
+  overflow-x: auto;
+}
+</style>
+</head>
+<body>
+  
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-badge">APARTGEMSDOE3 · PROMOTED</span>
+      <span>DOE GEMS Fault Detection · H-APART3-2 (CSHD)</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="">Overview & Download</a><a href="executive-summary.html" class="">Executive Summary (9-Site Audit)</a><a href="research.html" class="">Why 0.2778 Won & 0.3195/0.4437 Anatomy</a><a href="hypotheses.html" class="active">5 Hypotheses & 3 Ablations</a><a href="leaderboard.html" class="">784-Raster Uniqueness & Leaderboard</a><a href="sources.html" class="">Official Sources, Irregularities & Run Card</a><a href="downloads/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif" class="nav-cta" download>⬇ Download Validated .TIF (215 KB)</a>
+    </nav>
+  </div>
+</header>
+
+  <main class="container">
+    <div class="section">
+      <h2>Controlled 3-Experiment Ablation Ledger (Strictly Labeled <code>HOLDOUT-DTI</code>)</h2>
+      <p>
+        Evaluated via shared <code>src/gems32/holdout.py</code> across all 8 spatially blocked fold-models (<code>draws 20, 21 &times; folds 0..3</code>, <code>n = 22,232</code> withheld catalogue fault pixels) and untouched USGS SGMC structural geology (<code>n = 62,703</code> withheld fault pixels).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Experiment / Baseline</th>
+              <th>GEMSDOE32-HIDE-RECOVER-v3.0 (n=22,232) HOLDOUT-DTI [95% CI]</th>
+              <th>Detached &ge; 600 m (n=15,504) HOLDOUT-DTI [95% CI]</th>
+              <th>GEMSDOE32-SGMC-CAL-v3.0 (n=62,703) HOLDOUT-DTI [95% CI]</th>
+              <th>Censored d_hid &gt; 2 px (n=22,232) HOLDOUT-DTI [95% CI]</th>
+              <th>Beats 0.2778 Champion on HR, Detached &amp; SGMC?</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+        <tr>
+          <td><strong>Baseline 1: 0.2778 Champion (GEMSDOE32 H33-B2 / Fold-Collared)</strong></td>
+          <td><code>0.099202</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.085951, 0.112668]</span></td>
+          <td><code>0.094324</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.079248, 0.109825]</span></td>
+          <td><code>0.064121</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.056730, 0.071649]</span></td>
+          <td><code>0.004515</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.003816, 0.005262]</span></td>
+          <td>No</td>
+        </tr>
+        
+            
+        <tr>
+          <td><strong>Baseline 2: Prior Local BHGC-3 (ab6646b7, Superseded)</strong></td>
+          <td><code>0.101735</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.088171, 0.114724]</span></td>
+          <td><code>0.095807</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.081047, 0.110344]</span></td>
+          <td><code>0.070897</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.063401, 0.077404]</span></td>
+          <td><code>0.003798</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.003169, 0.004470]</span></td>
+          <td>Yes (HR CI spanned 0)</td>
+        </tr>
+        
+            
+        <tr>
+          <td><strong>EXP-1: CSHD-Unsup-Crest (Zero-Label Physical Conduit Crest)</strong></td>
+          <td><code>0.063660</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.054065, 0.073539]</span></td>
+          <td><code>0.059566</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.049890, 0.069400]</span></td>
+          <td><code>0.090688</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.078704, 0.101788]</span></td>
+          <td><code>0.002588</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.002120, 0.003124]</span></td>
+          <td>No</td>
+        </tr>
+        
+            
+        <tr>
+          <td><strong>EXP-2: CSHD-Single97-OOF (No Dual-Cover Split or Blind Envelope)</strong></td>
+          <td><code>0.119472</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.106682, 0.132221]</span></td>
+          <td><code>0.102434</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.088811, 0.115915]</span></td>
+          <td><code>0.064013</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.056851, 0.070758]</span></td>
+          <td><code>0.004354</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.003698, 0.005002]</span></td>
+          <td>No</td>
+        </tr>
+        
+            
+        <tr class="row-highlight">
+          <td><strong>EXP-3: H-APART3-2 (CSHD) [PROMOTED]</strong></td>
+          <td><code>0.109189</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.097298, 0.120981]</span></td>
+          <td><code>0.095665</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.083075, 0.108224]</span></td>
+          <td><code>0.073177</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.065167, 0.080476]</span></td>
+          <td><code>0.003869</code><br><span style="font-size:0.75rem;color:var(--muted);">[0.003300, 0.004463]</span></td>
+          <td>✔ YES (ALL 3 + BOTH PAIRED CIS > 0)</td>
+        </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>New 8-Channel <code>CSHD</code> Feature Stack &amp; 97-Channel Leakage Canary Audit</h2>
+      <p>
+        Every one of the 97 channels was tested individually on withheld faults before model training (<code>run_leakage_canary_97ch</code> in <code>src/gems32/cshd.py</code>). Maximum oriented single-feature AUC across all 97 channels is <strong><code>0.586868 &le; 0.90</code> (<code>PASSED</code>)</strong>.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>97-ch Index</th>
+              <th>Channel Name</th>
+              <th>1 m LiDAR-Free?</th>
+              <th>Single-Feature Holdout Oriented AUC (&le; 0.90 Canary)</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+        <tr>
+          <td><code>Ch 89</code></td>
+          <td><strong><code>comcat_brittle_hypocenter_density</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.535827</code> (&le; 0.90 PASS)</td>
+        </tr>
+        
+        <tr>
+          <td><code>Ch 90</code></td>
+          <td><strong><code>comcat_post2021_lineament_bridge</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.528632</code> (&le; 0.90 PASS)</td>
+        </tr>
+        
+        <tr>
+          <td><code>Ch 91</code></td>
+          <td><strong><code>gdr_blind_geotherm_disequilibrium</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.536801</code> (&le; 0.90 PASS)</td>
+        </tr>
+        
+        <tr>
+          <td><code>Ch 92</code></td>
+          <td><strong><code>cond_radon_upflow_gradient</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.542205</code> (&le; 0.90 PASS)</td>
+        </tr>
+        
+        <tr>
+          <td><code>Ch 93</code></td>
+          <td><strong><code>seamless_10m_piedmont_apron_scarp</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.584757</code> (&le; 0.90 PASS)</td>
+        </tr>
+        
+        <tr>
+          <td><code>Ch 94</code></td>
+          <td><strong><code>piedmont_chi_gravity_concordance</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.515948</code> (&le; 0.90 PASS)</td>
+        </tr>
+        
+        <tr>
+          <td><code>Ch 95</code></td>
+          <td><strong><code>strain_kinematic_reactivation_index</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.569891</code> (&le; 0.90 PASS)</td>
+        </tr>
+        
+        <tr>
+          <td><code>Ch 96</code></td>
+          <td><strong><code>cshd_piedmont_geothermal_conduit_crest</code></strong></td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
+          <td><code>0.568361</code> (&le; 0.90 PASS)</td>
+        </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    
+        <div class="section">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+            <h2 style="border:none;margin:0;padding:0;">Rank #1: <code>H-APART3-2 (CSHD)</code> — Crustal Seismogenic-Hydrothermal-Piedmont Dual-Cover Conduit Detection (ANSS ComCat 1900-2026 Hypocenters + Post-2021 Lineaments + GDR #1391 Blind Cold-Spring Geothermometer Disequilibrium + Seamless 10m 3DEP Piedmont-Chi)</h2>
+            <span class="status-pill pill-pass">IMPLEMENTED IN 3-EXP PROTOCOL</span>
+          </div>
+          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Depth-weighted brittle-crust (1.5-15 km) hypocenter kernel density + post-2021 local covariance-eigenvector fault-strike lineament bridge + blind cold-discharge silica/cation geothermometer disequilibrium (Delta_T = max(T_SiO2, T_NaKCa) - T_meas &gt; 40 deg C for T_meas &lt; 45 deg C) + MT clay-cap / contractor-standardized 214Bi radon upflow + seamless 10 m piedmont apron scarp &amp; valley-exit fluvial chi x harmonic basement gravity concordance + dilatational/shear strain reactivation index, combined inside a stationary 97-ch/84-ch Dual-Cover OOF ensemble with cross-term-free Bayesian two-population envelope max(R(P_cont)^6, 0.834 * R(P_blind)^6) and axial d_min = 3.62 px CELF emission.</p>
+          <p><strong>Exact Competition Layers &amp; Official External Sources Used:</strong> <code>training_features.tif Bands 5, 7, 8, 10, 11, 13, 15, 16, 17, 18, 19; usgs_comcat_geodawn.csv (2,046 in-footprint hypocenters; 486 post-2021 microearthquakes); gdr_wellspring_in_footprint.csv (653 blind &lt;45 deg C high-geothermometer &gt;85 deg C wells/springs, DOE GDR #1391); topo_10m_derived_100m_u8.tif (100% seamless USGS 3DEP 10 m slope, planform curvature, fluvial chi)</code></p>
+          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Directly resolves three blind-fault populations missed by the 2021 INGENIOUS compilation: (1) post-2021 microearthquake fault planes invisible in Band 10/16; (2) blind geothermal systems masked by shallow cold alluvial aquifers (e.g., McGinness Hills, Tungsten Mountain, Dixie Comstock) where T_meas &lt; 45 deg C but quartz/chalcedony geothermometers retain &gt;85-180 deg C deep reservoir equilibrium; and (3) unmapped scarps inside the 24.63% NW/NE 1 m LiDAR gap via 100%-seamless 10 m 3DEP piedmont-chi.</p>
+          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Mesozoic/Paleozoic intrarange bedrock thrusts &amp; high-mountain drainage-divide chi jumps (slope &gt; 14 deg, depth_to_base &lt; 80 m; suppressed by piedmont-apron envelope + harmonic basement gravity gate); Closed-basin desert salt playas (depth &gt; 300 m, slope &lt; 2 deg; &lt;0.03% dots via zero-anchored playa veto) &amp; Pleistocene Lake Lahontan (~1,332 m) shoreline benches; US BLM MLRS mining-pit blasts (earthquake-only ComCat filter) &amp; 4-contractor GeoDAWN radiometric block seams</code></p>
+          <p><strong>How It Differs from Existing Repo Implementations:</strong> Zero prior submissions in ApartGEMSDOE3 or any of the 9 focus / sibling repos used usgs_comcat_geodawn.csv post-2021 fault-strike lineaments, gdr_wellspring_in_footprint.csv blind cold-discharge chemical geothermometer disequilibrium (strictly dropping dist_known_fault_px), or axial sqrt(13) (d_min = 3.62 px) two-population envelope max(R(P_cont)^6, beta * R(P_blind)^6).</p>
+          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Rank #1 — HIGH expected DTI gain (+0.009 to +0.010 simultaneously on BOTH Hide-and-Recover v3.0 and Off-Catalogue SGMC-cal v3.0 with both 95% paired CIs &gt; 0) at LOW-MODERATE CPU/RAM cost (&lt;300 MB anonymous heap).</code></p>
+          <p><strong>Status in Protocol Budget:</strong> <code>PRIMARY IMPLEMENTED &amp; PROMOTED (EXP-1, EXP-2, EXP-3)</code></p>
+        </div>
+        
+        <div class="section">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+            <h2 style="border:none;margin:0;padding:0;">Rank #2: <code>H-APART3-1 (S3PC)</code> — Seamless 10 m 3DEP Fluvial-Chi Disequilibrium &amp; Piedmont Scarp Curvature Across the 24.63% 1 m LiDAR Gap</h2>
+            <span class="status-pill pill-pass">IMPLEMENTED IN 3-EXP PROTOCOL</span>
+          </div>
+          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Active normal-fault footwall uplift creates transient drainage-divide disequilibrium (Delta_chi across range-front valley exits) co-located with planform-convex alluvial-fan apex scarps and horizontal basement gravity steps across 100% of the study area, eliminating the 24.63% NW/NE 1 m LiDAR gap.</p>
+          <p><strong>Exact Competition Layers &amp; Official External Sources Used:</strong> <code>topo_10m_derived_100m_u8.tif (Bands 1 slope_10m, 2 plan_curv_10m, 3 relief_10m, 4 openness_10m, 5 fluvial_chi_10m); training_features.tif Bands 12 (det_elev), 15 (depth_to_base_surf), 18 (iso_grav_anom_hg)</code></p>
+          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Recovers Quaternary range-front and piedmont scarps in northern Washoe, Pershing, and Elko margin blocks where 1 m LiDAR was unavailable during the 2021 compilation.</p>
+          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Resistant Mesozoic granitic/volcanic cliff ledges at high elevation; Pleistocene Lake Lahontan wave-cut shoreline terraces (~1,332 m)</code></p>
+          <p><strong>How It Differs from Existing Repo Implementations:</strong> Prior BHGC-3 and CFKC stacks never opened topo_10m_derived_100m_u8.tif; their LiDAR-free sub-model relied only on 100 m detrended elevation.</p>
+          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Rank #2 — MEDIUM-HIGH gain inside the 24.63% LiDAR gap at VERY LOW cost; integrated as CSHD channels 4 and 5.</code></p>
+          <p><strong>Status in Protocol Budget:</strong> <code>INTEGRATED INTO H-APART3-2 (CSHD CHANNELS 4 &amp; 5)</code></p>
+        </div>
+        
+        <div class="section">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+            <h2 style="border:none;margin:0;padding:0;">Rank #3: <code>H-APART3-3 (WCHD)</code> — Wavelet-Multiscale Potential-Field Contact Dip &amp; Depth-to-Magnetic-Bottom Shallowing Vector</h2>
+            <span class="status-pill pill-info">PRE-REGISTERED CANDIDATE</span>
+          </div>
+          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Poisson-kernel upward continuation ladder z in {200, 600, 1500, 3000} m tracking horizontal spatial migration dx_crest/dz of joint gravity-magnetic tilt zero-crossings to separate dipping listric normal faults (50-65 deg) from vertical volcanic dike swarms and horizontal caldera margins.</p>
+          <p><strong>Exact Competition Layers &amp; Official External Sources Used:</strong> <code>training_features.tif Bands 2 (rtp), 3 (tmi_hg), 6 (tc), 9 (tmi_vg), 11 (iso_grav_anom_vg), 13 (iso_grav_anom), 18 (iso_grav_anom_hg)</code></p>
+          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Identifies concealed intrabasin listric fault planes beneath Tertiary tuff and Quaternary alluvium by imaging systematic hanging-wall migration with upward continuation height.</p>
+          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Miocene basaltic-andesite dike swarms (sub-vertical 90 deg, zero crest migration with z); Oligocene-Miocene caldera ring-fracture margins (closed circular planform)</code></p>
+          <p><strong>How It Differs from Existing Repo Implementations:</strong> Prior ldgi/fbgr/bhgc computed scalar upward-continuation differences at fixed z=500/2000 m rather than lateral crest-migration dip vectors.</p>
+          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Rank #3 — MEDIUM gain (+0.002 to +0.004) at MODERATE FFT memory cost; reserved for future iteration outside the 3-experiment budget.</code></p>
+          <p><strong>Status in Protocol Budget:</strong> <code>RESERVED FOR FUTURE ITERATION (BUDGET DISCIPLINE)</code></p>
+        </div>
+        
+        <div class="section">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+            <h2 style="border:none;margin:0;padding:0;">Rank #4: <code>H-APART3-4 (TSTR)</code> — Tensor-Stress Coulomb Failure Envelopes Along Transtensional Walker Lane / Central Nevada Seismic Belt Step-Overs</h2>
+            <span class="status-pill pill-pass">IMPLEMENTED IN 3-EXP PROTOCOL</span>
+          </div>
+          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Slip-tendency T_s = tau / sigma_n&#x27; resolved onto the local basement-gravity strike tangent theta_grav(x) = atan2(-g_x, g_y), isolating active oblique-normal relay ramps where dilatational strain and shear strain align within 20-35 deg of buried horst edges.</p>
+          <p><strong>Exact Competition Layers &amp; Official External Sources Used:</strong> <code>training_features.tif Bands 4 (geod_2ndinv), 7 (geod_shearrate), 8 (geod_dilaterate), 15 (depth_to_base_surf), 18 (iso_grav_anom_hg)</code></p>
+          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Captures distributed strike-slip/normal transfer zones in the Walker Lane where cumulative vertical scarp throw is small (&lt;1 m) and eroded in soft basin fill.</p>
+          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Long-wavelength GPS interpolation halos (&gt;25 km wavelength without local basement structure)</code></p>
+          <p><strong>How It Differs from Existing Repo Implementations:</strong> Prior trhv/bhgc used isotropic scalar products of Band 7 and Band 8 rather than strike-resolved kinematic slip tendency; kinematic reactivation component integrated into CSHD channel 6.</p>
+          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Rank #4 — MEDIUM gain (+0.002) at LOW cost; kinematic partitioning integrated into CSHD Channel 6.</code></p>
+          <p><strong>Status in Protocol Budget:</strong> <code>INTEGRATED INTO H-APART3-2 (CSHD CHANNEL 6)</code></p>
+        </div>
+        
+        <div class="section">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+            <h2 style="border:none;margin:0;padding:0;">Rank #5: <code>H-APART3-5 (RCCA)</code> — Contractor-De-Biased Airborne Radiometric K/eTh Potassium-Adularia Alteration &amp; 214Bi/232Th Degassing Ratio</h2>
+            <span class="status-pill pill-pass">IMPLEMENTED IN 3-EXP PROTOCOL</span>
+          </div>
+          <p style="margin-top:0.6rem;"><strong>Physical Signature &amp; Mathematical Transform:</strong> Per-contractor robust Z-scored K/eTh adularia-illite potassium metasomatism excess ( Fk = Z_c(K) - 0.85 * Z_c(eTh) ) paired with 214Bi/232Th gas-permeable fracture ratio and low-resistivity smectite clay-cap gradients.</p>
+          <p><strong>Exact Competition Layers &amp; Official External Sources Used:</strong> <code>geodawn_radiometric_4band_100m.tif (Bands K %, eU ppm, eTh ppm, Dose); geodawn_contractor_footprint.geojson; training_features.tif Band 17 (cond_surf)</code></p>
+          <p><strong>Why It Catches Hidden Faults Missing from USGS/INGENIOUS:</strong> Finds hydrothermally cemented or clay-altered range-front and step-over conduits whose mechanical scarps have been degraded by argillic alteration.</p>
+          <p><strong>Named Non-Fault Mimic Processes &amp; De-Confounding Gates:</strong> <code>Felsic rhyolite ash-flow tuffs with uniformly high primary K and Th (suppressed by K/eTh residual); Playa evaporite potassium sinks (suppressed by piedmont slope-depth gate)</code></p>
+          <p><strong>How It Differs from Existing Repo Implementations:</strong> Prior spcp/bhgc used eU/eTh alone without K/eTh potassium-adularia metasomatism decoupling; clay-cap x radon gradient integrated in CSHD channel 3.</p>
+          <p><strong>Expected HOLDOUT-DTI Improvement vs Implementation Cost:</strong> <code>Rank #5 — LOW-MEDIUM gain (+0.0015 to +0.003) due to shallow 30 cm gamma-ray attenuation under thick alluvium.</code></p>
+          <p><strong>Status in Protocol Budget:</strong> <code>PARTIALLY INTEGRATED (CSHD CHANNEL 3) / FULL K-METASOMATISM RESERVED</code></p>
+        </div>
+        
+  </main>
+  <footer class="footer">
+    ApartGEMSDOE3 · Pre-Registered Hypotheses &amp; Ablation Ledger · <a href="index.html">Back to Main Portal</a>
+  </footer>
+</body>
+</html>

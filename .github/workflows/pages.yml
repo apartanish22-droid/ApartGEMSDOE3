@@ -35,6 +35,7 @@ jobs:
       - name: Run automated tests and strict GeoTIFF format checks
         run: |
           python -m pytest -q
+          python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif
           python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif
           python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif
           python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif

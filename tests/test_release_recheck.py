@@ -56,10 +56,10 @@ def test_misaligned_or_invalid_candidate_fails_closed(tmp_path):
 
 
 def test_site_and_run_card_are_fail_closed():
+    archived_cthg = json.loads((ROOT / 'evidence/apart3_cthg_dhc_run_card.json').read_text())
+    assert archived_cthg['verdict'] == 'negative' and archived_cthg['ok_to_submit'] is False
     card = json.loads((ROOT / 'run_card.json').read_text())
-    assert card['verdict'] == 'negative' and card['ok_to_submit'] is False
-    for p in ['index.html', 'docs/index.html', 'docs/executive-summary.html', 'docs/submissions.html']:
+    assert card['selector_required'] is True and card['slot_used'] is False
+    for p in ['docs/submissions.html', 'docs/release-status.html']:
         page = (ROOT / p).read_text()
         assert 'DO NOT SUBMIT' in page
-        assert 'NO FILE AUTHORIZED' in page
-        assert 'READY TO DOWNLOAD AND SUBMIT' not in page

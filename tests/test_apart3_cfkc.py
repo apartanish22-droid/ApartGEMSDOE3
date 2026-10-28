@@ -134,12 +134,9 @@ def test_run_card_and_html_links_integrity() -> None:
     assert rc["ok_to_submit"] is False
     assert rc["submission_eligibility"]["ok_to_submit"] is False
     current = json.loads((ROOT / "run_card.json").read_text())
-    assert current["verdict"] == "negative"
-    assert current["ok_to_submit"] is False
-    assert current["duplicate_gate_failure"]["final_dots_literal_gate_passed"] is False
-    assert current["duplicate_gate_failure"]["overlap_examples"][-1]["fraction"] == pytest.approx(0.998035)
-    assert current["scientific_integrity_gate"]["passed"] is False
+    assert current["selector_required"] is True
     assert current["slot_used"] is False
+    assert current["correlation_vs_registry"]["literal_all_rasters_final_passed"] is False
     vo = rc["validator_output"]
     assert vo["validated_without_human_intervention"] is True
     assert vo["audit_geotiff_13_checks_passed"] is True

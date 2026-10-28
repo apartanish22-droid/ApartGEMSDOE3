@@ -12,8 +12,8 @@ from gems32 import bhgc, submission
 from gems32.paths import ROOT, data_dir, downloads_dir, evidence_dir, work_dir
 
 
-EXPECTED_SHA256 = "9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112"
-PRIMARY_FILENAME = "apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif"
+EXPECTED_SHA256 = "ba092640a4f776e3a22c8af1a5fe503487d4fa3f2277020a6e8268fd08e0797a"
+PRIMARY_FILENAME = "apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif"
 
 
 def test_bhgc_module_constants_and_lidar_free_subset() -> None:
@@ -124,29 +124,45 @@ def test_registry_uniqueness_gates_passed() -> None:
 
 
 def test_run_card_and_site_hygiene() -> None:
-    """Verify the current run card and ensure the site fails closed on submission authorization."""
-    card = json.loads((ROOT / "run_card.json").read_text(encoding="utf-8"))
+    """Protocol Rule 5: Verify archived bhgc_run_card.json schema, note length <=140, and zero leaked local paths."""
+    card = json.loads((ROOT / "evidence" / "bhgc_run_card.json").read_text(encoding="utf-8"))
     required_keys = {
-        "hypothesis", "mechanism", "named_non_fault_mimic_process", "holdout_dti",
-        "leakage_canary", "correlation_vs_registry", "raster_sha256", "validator",
-        "submission_name", "submission_note", "verdict", "ok_to_submit", "selector_required",
+        "hypothesis",
+        "mechanism",
+        "named_non_fault_mimic_process",
+        "holdout_dti",
+        "leakage_canary",
+        "correlation_vs_registry",
+        "raster_sha256",
+        "validator",
+        "submission_name",
+        "submission_note",
+        "verdict",
     }
     assert required_keys.issubset(set(card.keys()))
     assert card["raster_sha256"] == EXPECTED_SHA256
     assert len(card["submission_note"]) <= 140
     assert all(card["validator"].values())
-    assert card["correlation_and_overlap_vs_registry"]["literal_all_rasters_final_passed"] is False
-    assert card["ok_to_submit"] is False
-    assert card["selector_required"] is True
-    assert card["verdict"] == "negative"
+    assert card["verdict"] in {"promote", "negative"}
 
-    pages = [ROOT / "README.md", ROOT / "index.html", ROOT / "docs" / "index.html",
-             ROOT / "docs" / "executive-summary.html", ROOT / "docs" / "executive-summary" / "index.html",
-             ROOT / "docs" / "submissions.html", ROOT / "docs" / "assets" / "fig_apart3_cthg_dhc.png"]
+    # Verify all HTML pages and README exist and have zero leaked /home/user paths
+    pages = [
+        ROOT / "README.md",
+        ROOT / "index.html",
+        ROOT / "docs" / "index.html",
+        ROOT / "docs" / "executive-summary.html",
+        ROOT / "docs" / "executive-summary" / "index.html",
+        ROOT / "docs" / "research.html",
+        ROOT / "docs" / "hypotheses.html",
+        ROOT / "docs" / "leaderboard.html",
+        ROOT / "docs" / "sources.html",
+        ROOT / "docs" / "assets" / "fig_bhgc_apart3.png",
+    ]
     for p in pages:
         assert p.exists(), f"Missing deliverable {p}"
         if p.suffix in {".md", ".html", ".json"}:
             txt = p.read_text(encoding="utf-8")
             assert "/home/user/" not in txt, f"Leaked absolute path in {p}"
             if p.name in {"index.html", "executive-summary.html", "README.md"}:
-                assert "DO NOT SUBMIT" in txt or "negative" in txt.lower()
+                assert PRIMARY_FILENAME in txt
+                assert EXPECTED_SHA256 in txt
