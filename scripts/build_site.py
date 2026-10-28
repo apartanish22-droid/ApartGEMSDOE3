@@ -1396,6 +1396,7 @@ def build_sources_page(card: dict, irreg: dict, prefix: str = "") -> str:
 
 
 def main() -> None:
+    raise SystemExit("Historical portal builder disabled: it can publish an unsafe release claim. Use scripts/build_review_site.py.")
     card = _load_json("run_card.json")
     nine_audit = _load_json("evidence/nine_site_refreshed_audit_20261028.json")
     exp_data = _load_json("evidence/cshd_experiments.json")

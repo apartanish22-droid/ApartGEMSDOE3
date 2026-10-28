@@ -1,5 +1,7 @@
 # Repository review — 2026-10-28
 
+**Historical review note:** references below to `run_card.json` as the CTHG card are stale. CTHG evidence is in `evidence/apart3_cthg_dhc_run_card.json`; the current root card concerns CSHD and its earlier promotion is now withdrawn.
+
 ## Decision: negative / research only / do not submit
 
 The new CTHG-DHC raster is available to download for audit, but **is not unique under the literal registry rule and is not authorized for upload**. The competition slot selector was not run and no slot was used.

@@ -96,9 +96,10 @@ def test_cshd_pareto_dominance_and_paired_cis_positive() -> None:
 
     assert card["candidate_id"] == "H-APART3-2-CSHD"
     assert card["experiments_used"] <= 3
-    assert card["verdict"] == "promote"
-    assert card["release_gate_decision"]["verdict"] == "promote"
-    assert all(card["release_gate_decision"]["gates"].values())
+    assert card["verdict"] == "negative"
+    assert card["release_gate_decision"]["verdict"] == "negative"
+    assert card["release_gate_decision"]["gates"]["final"] is False
+    assert card["ok_to_submit"] is False
 
     hr = card["holdout_dti"]["primary_hide_and_recover"]
     det = card["holdout_dti"]["detached_600m_blind_segments"]
