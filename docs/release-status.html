@@ -17,8 +17,9 @@
 
   <section class="stop" role="alert">
     <strong>DO NOT SUBMIT THE CURRENT TIF.</strong>
-    <p>The latest recorded candidate fails the literal registry duplicate rule: the experiment record reports <b>99.8513%</b> of its final dots within 3 px of a registered calibration-lattice raster. The allowed threshold is 70%. The candidate's older run card incorrectly labeled it “promote”; that label is superseded by the negative decision in <a href="../run_card.json">the current run card</a>.</p>
+    <p>The latest recorded candidate fails the literal registry duplicate rule: an independent one-raster audit measured <b>99.8513%</b> of CFKC final dots within 3 px of a registered calibration-lattice raster. The older BHGC artifact also fails at <b>99.7450%</b>. The allowed threshold is 70%. Both original experiment cards' “promote” labels are superseded by the negative decision in <a href="../run_card.json">the current run card</a>.</p>
     <p>Its recorded file-format checks are not a waiver of the duplicate stop, not an organizer validation receipt, and not permission to use a weekly submission slot. No current file is authorized to submit.</p>
+    <p>No new experiment or TIFF was generated in this review: the prompt refers to a single method paragraph but does not identify one, and the full training stack is absent. We did not guess a method lane or spend a weekly slot.</p>
   </section>
 
   <section class="card">
@@ -43,12 +44,19 @@
 
   <section class="card">
     <h2 style="margin-top:0">Latest local research artifact (not authorized)</h2>
-    <p>Candidate: <code>H-APART3-1-CFKC-DHC</code>; filename: <code>gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif</code>.</p>
+    <p>Latest local candidate: <code>H-APART3-1-CFKC-DHC</code>. The earlier BHGC artifact also failed the same literal lattice rule. Neither has an organizer-confirmed score estimate.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Research-only TIF</th><th>Score estimate</th><th>Literal uniqueness</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td><a href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif" download>CFKC-DHC candidate</a></td><td>Not estimable from available evidence; no organizer receipt</td><td>FAIL — 99.8513% within 3 px of a registered calibration raster</td><td><strong>DO NOT SUBMIT</strong></td></tr>
+        <tr><td><a href="downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif" download>BHGC-3 earlier candidate</a></td><td>Not estimable from available evidence; no organizer receipt</td><td>FAIL — 99.7450% within 3 px of the same raster</td><td><strong>DO NOT SUBMIT</strong></td></tr>
+      </tbody>
+    </table></div>
     <div class="kpis">
       <div class="kpi"><span>HOLDOUT-DTI · GEMSDOE32-HIDE-RECOVER-v3.0</span><b>0.114452</b><span class="note">22,232 withheld positives; 95% CI [0.100521, 0.128472]. Transcribed from historical local run card, not rerun in this review.</span></div>
       <div class="kpi"><span>HOLDOUT-DTI · GEMSDOE32-SGMC-CAL-v3.0</span><b>0.081407</b><span class="note">62,703 withheld positives; 95% CI [0.073738, 0.088249]. Prevalence-calibrated local diagnostic; not a live score.</span></div>
       <div class="kpi"><span>Registry duplicate gate</span><b style="color:var(--red)">FAIL</b><span class="note">99.8513% of dots within 3 px of the 5-px calibration lattice; limit 70%.</span></div>
-      <div class="kpi"><span>Historical format report</span><b style="color:var(--green)">PASS*</b><span class="note">Candidate run card reports single band, finite [0,1], EPSG:32611 and matching 3730×3292 grid. Not independently rerun in this review.</span></div>
+      <div class="kpi"><span>Format check vs pinned owner mirror</span><b style="color:var(--green)">PASS*</b><span class="note">Freshly rechecked: one float32 band, finite [0,1], EPSG:32611, matching 3730×3292 grid/transform. The mirror is not organizer-authenticated.</span></div>
     </div>
     <p>File SHA-256 in the historical candidate card: <code>afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065</code>. The artifact is retained for audit. <a class="button" href="downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif" download>Download research artifact only — NOT FOR SUBMISSION</a></p>
     <p class="note">*The local competition training/template raster and Python geospatial stack were unavailable during this repository review, so the format report is historical rather than freshly reproduced.</p>
@@ -69,6 +77,7 @@
       <li>Preregister a genuinely distinct lane, test every feature alone for leakage, and stop at three experiments or two hours.</li>
       <li>Only after all gates pass, use a separate weekly-slot selector. Obtain organizer receipts before reporting a competition score.</li>
     </ol>
+    <p>Four untested, qualitative research hypotheses and their confounds are documented in the <a href="review.html">research shortlist and independent review</a>. They are proposals, not tested score estimates; do not begin until the lane is assigned and required data/novelty checks are complete.</p>
     <p>Official review links: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">competition rules</a> · <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">leaderboard</a> · <a href="https://github.com/drivendataorg/gems-prize-reference-solution">reference solution</a> · <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN</a> · <a href="https://gbcge.org/current-projects/ingenious/">INGENIOUS</a> · <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">DOE/NLR technical report</a>.</p>
   </section>
   <footer>ApartGEMSDOE3 · Machine-readable current feed: <a href="data/feed.json">feed.json</a> · Release status card: <a href="../run_card.json">run_card.json</a> · Detailed repository review: <a href="repo-review-2026-10-28.md">review report</a> · <a href="index.html">Home</a></footer>

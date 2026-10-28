@@ -15,6 +15,7 @@ def test_current_run_card_is_negative_and_slot_is_not_authorized() -> None:
     assert card["verdict"] == "negative"
     assert card["ok_to_submit"] is False
     assert card["slot_used"] is False
+    assert card["slot_authorized"] is False
     assert card["correlation_vs_registry"]["status"].startswith("FAIL")
     assert card["correlation_vs_registry"]["candidate_dots_within_3px_fraction"] > 0.70
 

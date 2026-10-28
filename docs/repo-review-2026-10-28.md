@@ -4,7 +4,7 @@
 
 **No file is approved to submit in this release.** The candidate most recently recorded in the checkout is `H-APART3-1-CFKC-DHC`, with a TIF under `docs/downloads/`. It must remain an audit artifact: the candidate's own uniqueness report records **99.8513%** of final dots within 3 pixels of a registered calibration-lattice raster, exceeding the literal protocol limit of 70%. The candidate report's exclusion of that raster from the ordinary "genuine discrete" maximum does not waive the protocol's “any registry raster” criterion. A research result is not a weekly-slot selector decision.
 
-This review checks repository files, JSON consistency, file inventory and the applicable written protocol. It does not claim a new scientific experiment or independent geospatial validation.
+This review checks repository files, JSON consistency, file inventory and the applicable written protocol. No new scientific experiment or GeoTIFF was generated: the prompt refers to a single method paragraph but does not identify one, the full cached training stack is absent, and the existing candidates hit the literal duplicate stop. We therefore did not choose a new method lane or consume a competition slot.
 
 ## Findings (ordered by severity)
 
@@ -17,19 +17,19 @@ This review checks repository files, JSON consistency, file inventory and the ap
 
 ### P1 — Full pipeline cannot be independently reproduced in this checkout
 
-- `data/` contains manifests/logs only; required rasters such as `sample_submission.tif`, `labels.tif`, training features, and prepared feature arrays are absent. The competition-data page requires authenticated access, per the repository's prior access record.
-- The initial Python environment did not have the project dependencies. They were installed into an ignored local `.venv` from the declared requirements. The complete test suite then ran with `85 passed, 2 skipped`; the skips are data-dependent. The actual evaluator rerun and template comparison remain unavailable without competition rasters.
-- Existing candidate metadata states a local format pass, including finite `[0,1]` values, CRS `EPSG:32611`, shape `3730 × 3292`, and a matching transform. This review treats those as **historically reported checks**, not independently reproduced facts.
+- The competition labels and sample-submission grid were restored to ignored `.cache/gems_data/` from the hash-pinned owner mirror specified by `registry/ci_format_manifest.json`. Their hashes were verified, but the mirror is not organizer-authenticated. Training features and the full prepared stack remain absent.
+- The initial Python environment did not have the project dependencies. They were installed into an ignored local `.venv`; the suite then ran with `88 passed, 2 skipped`. The skips require prepared competition data. Full holdout/evaluator rerun and prediction rebuild remain unavailable without training features.
+- `scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite` was run on the existing CFKC and BHGC files. Both passed single-band float32, finite whole-array `[0,1]`, EPSG:32611, `3730 × 3292`, and transform checks against the owner mirror. This is not organizer validation, scientific validation, or release authorization.
 
-### P1 — CI points at a non-reproducible data-dependent pipeline
+### P1 — CI can validate format but cannot reproduce modeling
 
-- `.github/workflows/pages.yml` installs dependencies and executes tests plus a strict checker that requires competition data, but the workflow does not retrieve/restore those data. A fresh GitHub runner will not have ignored `.cache` contents. The workflow also validates a particular CFKC artifact while tests include hard-coded checks on other run records and files.
-- Recommendation: gate CI into (a) offline/unit tests with synthetic templates and no private data; and (b) an explicitly opt-in integration job that verifies documented inputs/checksums and fails with a clear “data missing” message. Never skip missing-data checks silently.
+- CI now restores the minimum labels/template files from an integrity-pinned owner mirror and validates saved candidate TIFs against that template. The source is explicitly not organizer-authenticated; the check establishes local format compatibility only.
+- CI does not restore the full training-feature stack or reproduce fold-local training/holdout metrics. A green format check must not be confused with a scientific or release pass. Preserve the data provenance label and fail clearly if either mirror hash changes.
 
 ### P1 — Site generator is stale and can recreate false release claims
 
 - `scripts/build_site.py` reads root `run_card.json`, but its templates hard-code the earlier BHGC-3 filename and positive status and load BHGC experiment data. Before this review, the generated pages and root README also presented BHGC-3 as promoted. The newer CFKC run record was not the page generator's source of truth.
-- Recommendation: refactor the builder to consume one versioned release manifest, derive CTA visibility solely from an explicit authorized status, and fail closed if any required literal uniqueness comparison or weekly selector field is missing. Add a generated-site consistency test.
+- This review adds a fail-closed guard that refuses to regenerate the old pages when the canonical card is negative or lacks separate slot authorization. The positive templates themselves remain legacy. Next, refactor the builder to consume one versioned release manifest, render current status without stale fields, and add a generated-site consistency test.
 
 ### P2 — Scores and scores-to-holdout mapping are not official receipts
 
@@ -40,7 +40,7 @@ This review checks repository files, JSON consistency, file inventory and the ap
 ### P2 — Submission artifacts and naming conventions are confusing
 
 - `docs/downloads/` contains multiple site-named, campaign-named, and historical TIFF/ZIP files. The visible landing page previously called more than one candidate "primary" and exposed direct download links without a current authorization gate.
-- Keep audit artifacts, but make their state machine explicit: `research artifact`, `format-valid`, `duplicate-stop`, `selector-authorized`, and `organizer-scored` must not collapse into one green “validated” label. This review's candidate state is `research artifact` + `format pass historically reported` + `duplicate-stop` + `not authorized`.
+- Keep audit artifacts, but make their state machine explicit: `research artifact`, `format-valid`, `duplicate-stop`, `selector-authorized`, and `organizer-scored` must not collapse into one green “validated” label. This review's candidate state is `research artifact` + `format-valid against owner mirror` + `duplicate-stop` + `not authorized`.
 
 ## Nine-site executive conclusion
 
@@ -54,16 +54,23 @@ The prior `0.3195` and `0.4413` values in the user prompt conflict with reposito
 - Listed tracked data, source, scripts, tests, evidence, and downloadable raster artifacts.
 - Inspected README, current-status/run-card records, CFKC and BHGC run cards, submission writer/checker, site builder, Pages workflow, and relevant tests.
 - Compared the recorded literal calibration-lattice overlap against the user-specified stop threshold and corrected the release verdict to negative.
-- Verified candidate file existence and reported checksum string against the current CFKC run card at the file/hash metadata level only. Full raster-content verification was blocked by the missing raster libraries and sample/template data.
-- Installed requirements in the ignored local `.venv` and ran `.venv/bin/python -m pytest -q`: **84 passed, 2 skipped**, with 22 Rasterio transform deprecation warnings. The skips require competition data, which is absent.
-- Ran `scripts/check_release_status.py`: passed the fail-closed status, candidate overlap threshold, slot-unused and metadata SHA-256 checks. This script explicitly does not validate the GeoTIFF against competition data.
+- Restored the pinned owner-mirror `labels.tif` and `sample_submission.tif` into ignored `.cache/gems_data/`, with exact SHA-256 checks. Provenance is owner mirror, not organizer authentication.
+- Restored the pinned GEMSDOE24 calibration-lattice raster from its pinned GitHub commit and verified its SHA-256; compared both candidate TIFs against that one registry raster using `scripts/audit_release.py`.
+- Independently measured directional 3-px overlap diagnostics (not scores): CFKC `0.9985127742`; BHGC `0.9974504701`. Both exceed the 0.70 protocol limit. This is a one-raster partial audit, not a full uniqueness scan.
+- Ran `scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite` on both candidates; each passed the listed byte-format checks against the owner-mirror template. This does not authorize submission.
+- Installed requirements in the ignored local `.venv` and ran `.venv/bin/python -m pytest -q`: **88 passed, 2 skipped**, with 32 Rasterio transform deprecation warnings after adding the independent recheck tests. The skips require the prepared feature cache.
+- Ran `scripts/check_release_status.py`: passed the fail-closed status, candidate overlap threshold, slot-unused and metadata SHA-256 checks. It does not replace the format audit above or the missing full-registry scan.
 - Ran the HTML parser over the landing/status/summary entry points and `git diff --check`; both completed without errors.
 - Ran `scripts/build_site.py`; it refused to regenerate legacy positive pages because the canonical release card is negative. This is an intentional safety guard, not a successful full-site build.
+
+## Deferred hypothesis shortlist (not experiments)
+
+Four qualitatively ranked, untested geological research directions—with layers, mechanisms, distinctiveness checks, confounds, and cost rank—are recorded in [`docs/review.html`](review.html) and [`docs/review-2026-10-28.md`](review-2026-10-28.md). They are proposals only: the prompt does not identify the assigned lane paragraph, complete feature stack, or full comparison registry. Their novelty and data coverage have not been verified; no expected DTI improvement is asserted. Official sources for possible inputs are listed there, with access/coverage still to verify.
 
 ## Next actions (no slot until all are green)
 
 1. Install the declared development dependencies and obtain the competition rasters through authorized access; record source, SHA-256, licensing/terms, and exact sample template provenance.
-2. Re-run the complete unit suite and strict saved-byte GeoTIFF validator against the official template; capture logs.
+2. Keep the owner-mirror format check distinct from the official template. Re-run strict saved-byte validation against an organizer-authenticated template if/when authorized competition data becomes available; capture both source provenance and logs.
 3. Fix the shared registry comparator to apply the literal protocol to all registered rasters, including calibration probes. Do not add an exemption without written protocol approval.
 4. Add tests that reject a candidate with any `>70%` 3-px overlap, and tests that prevent any website or generator from presenting an unauthorized candidate as ready.
 5. Re-run all 91 feature-only canaries and the spatially blocked hide-and-recover evaluator using visible-only catalogue-derived features, exact visible-trace masking, pooled DTI, and the specified uncertainty calculation. Audit whether the existing evaluator exactly implements the agreed 300 m triangular kernel and document its version/hash.

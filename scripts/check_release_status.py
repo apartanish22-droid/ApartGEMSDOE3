@@ -18,8 +18,8 @@ def main() -> int:
         raise SystemExit("This checker is specifically for the current known duplicate-stop release record.")
     if card.get("verdict") != "negative" or card.get("ok_to_submit") is not False:
         raise SystemExit("Unsafe release card: duplicate-stop is not marked negative / not-submittable")
-    if card.get("slot_used") is not False:
-        raise SystemExit("Unsafe release card: no slot must be recorded as unused")
+    if card.get("slot_used") is not False or card.get("slot_authorized") is not False:
+        raise SystemExit("Unsafe release card: slot must be unused and unauthorized")
     if not tif.is_file():
         raise SystemExit(f"Research artifact missing: {tif.relative_to(ROOT)}")
     actual_sha = hashlib.sha256(tif.read_bytes()).hexdigest()

@@ -1,9 +1,9 @@
 {
  "schema_version": 1,
- "updated_utc": "2026-10-28T05:47:09Z",
- "single_source_of_truth": "Current release decision is in root run_card.json and docs/release-status.html; older candidate records below are historical evidence and are not authorization.",
+ "updated_utc": "2026-10-28T05:55:23Z",
+ "single_source_of_truth": "Current fail-closed release decision: root run_card.json and evidence/release_recheck_20261028.json. Older run cards and candidate claims are historical, not authorization.",
  "any_file_ok_to_submit": false,
- "headline": "NO FILE IS AUTHORIZED TO SUBMIT. Latest recorded candidate H-APART3-1-CFKC-DHC has a literal registry duplicate stop: 99.8513% of its dots are within 3 px of the registered 5-px calibration lattice, above the 70% rule. Its historical run card says promote, but that conflicts with the literal protocol and is superseded by root run_card.json. No weekly slot has been used.",
+ "headline": "DO NOT SUBMIT: independent one-raster check finds both local research TIFs fail literal final-dot overlap against a registered 5-px lattice (CFKC 99.8513%; BHGC 99.7450%, threshold 70%). Format checks pass against an owner-supplied, integrity-pinned mirror only; no slot is authorized.",
  "gate_rule": "OK TO SUBMIT requires an explicitly assigned method lane; all feature-only leakage canaries <=0.90; a fold-local HOLDOUT-DTI win with paired 95% CI >0 against the current same-evaluator repo best; no SGMC-cal regression against the Champion; literal surface/final-dot uniqueness against every registry raster (Spearman <=0.90 and <=70% within 3 px); exact saved-byte format/range validation; and separate weekly-slot selector approval. No human inspection.",
  "best_scored": {
   "file": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
@@ -509,14 +509,16 @@
   }
  },
  "release_gates_latest": {
-  "candidate_id": "H-APART3-1-CFKC-DHC",
-  "decision": "negative",
-  "failed_gate": "literal all-registry dot overlap",
-  "overlap_fraction": 0.998513,
-  "threshold": 0.7,
-  "weekly_slot_authorized": false,
-  "format_check": "historically reported pass; not rerun in 2026-10-28 review",
-  "organizer_receipt_present": false
+  "lane_explicitly_assigned": false,
+  "lane_note": "The prompt references a single method paragraph but no such paragraph is identified; no new experiment was selected.",
+  "literal_all_registry_uniqueness": false,
+  "one_registry_lattice_overlap_cfkc": 0.9985127742072555,
+  "one_registry_lattice_overlap_bhgc": 0.9974504700695809,
+  "limit": 0.7,
+  "format_against_owner_mirror": true,
+  "full_registry_scan_complete": false,
+  "weekly_slot_selector": false,
+  "verdict": "negative"
  },
  "arena47_candidate": {
   "file": "docs/downloads/gemsdoe32-arena47-perturb-h38-unique-20261026T202108Z-9ab73056-zeros.tif",
@@ -1180,19 +1182,9 @@
   ],
   "results_doc": "docs/research/h47-ldgi-results-and-nine-site-executive-summary-20261026.md"
  },
- "current_candidate": {
-  "candidate_id": "H-APART3-1-CFKC-DHC",
-  "recorded_utc": "2026-10-27T22:52:55Z",
-  "artifact": "docs/downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif",
-  "sha256": "afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065",
-  "verdict": "negative",
-  "ok_to_submit": false,
-  "literal_registry_overlap_within_3px": 0.998513,
-  "limit": 0.7,
-  "slot_used": false,
-  "source_of_corrected_decision": "run_card.json; docs/repo-review-2026-10-28.md"
- },
- "previous_newest_unique_record_H48": {
+ "current_review": "evidence/release_recheck_20261028.json",
+ "current_run_card": "run_card.json",
+ "previous_newest_unique_H48": {
   "file": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.tif",
   "zip": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.zip",
   "receipt": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-audit.json",
@@ -1320,16 +1312,18 @@
    "Held fail-closed as DO NOT SUBMIT (verdict=negative, 0 weekly slots spent) because: (1) off-catalogue SGMC-cal v3.0 (0.056798) trails the 0.2778 Champion (0.064121) due to multiplicative OOF decay beyond 1.5 km; (2) literal unexempted release_gate.compare_registry hits the 206,895-dot r13-lattice-s5 calibration grid (99.78%, IR-51-LATTICE-01) and WBGGEMSDOE1/2 continuous 5.1M-pixel surfaces (IR-48-WBG-SURFACE-01); and (3) weekly slot promotion requires separate human selector approval."
   ]
  },
- "latest_candidate": {
+ "current_candidate": {
   "candidate_id": "H-APART3-1-CFKC-DHC",
   "recorded_utc": "2026-10-27T22:52:55Z",
-  "artifact": "docs/downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif",
+  "artifact": "docs/downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif",
   "sha256": "afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065",
   "verdict": "negative",
   "ok_to_submit": false,
-  "literal_registry_overlap_within_3px": 0.998513,
+  "literal_registry_overlap_within_3px": 0.9985127742072555,
   "limit": 0.7,
   "slot_used": false,
-  "source_of_corrected_decision": "run_card.json; docs/repo-review-2026-10-28.md"
+  "format_rechecked_against_owner_mirror": true,
+  "organizer_authenticated": false,
+  "source": "run_card.json; evidence/release_recheck_20261028.json"
  }
 }

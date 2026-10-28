@@ -9,7 +9,10 @@
     "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
     "n_withheld_positives": 22232,
     "dti": 0.114452,
-    "ci95": [0.100521, 0.128472],
+    "ci95": [
+      0.100521,
+      0.128472
+    ],
     "source": "evidence/apart3_cfkc_dhc_run_card.json; historical local run record, not rerun in this review"
   },
   "off_catalogue_holdout_dti": {
@@ -17,7 +20,10 @@
     "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
     "n_withheld_positives": 62703,
     "prevalence_calibrated_dti": 0.081407,
-    "ci95": [0.073738, 0.088249],
+    "ci95": [
+      0.073738,
+      0.088249
+    ],
     "source": "evidence/apart3_cfkc_dhc_run_card.json; historical local run record, not rerun in this review"
   },
   "leakage_canary": {
@@ -27,9 +33,9 @@
     "max_oriented_auc": 0.586868
   },
   "correlation_vs_registry": {
-    "status": "FAIL under the literal registry protocol",
+    "status": "FAIL: independent, directional comparison with one pinned registry calibration raster; full registry still not scanned in this review",
     "registry_raster": "GEMSDOE24:inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
-    "candidate_dots_within_3px_fraction": 0.998513,
+    "candidate_dots_within_3px_fraction": 0.9985127742072555,
     "limit": 0.7,
     "preplacement_surface_spearman_vs_that_raster": -0.000164,
     "other_genuine_raster_summary_reported": {
@@ -37,23 +43,46 @@
       "max_abs_surface_spearman": 0.244317,
       "max_3px_dot_overlap": 0.656265
     },
-    "explanation": "The candidate record excludes this calibration lattice from its ordinary genuine-discrete overlap maxima, but the supplied protocol says any registry raster. The literal threshold is exceeded, so this is a duplicate/stop result."
+    "explanation": "The candidate record excludes this calibration lattice from its ordinary genuine-discrete overlap maxima, but the supplied protocol says any registry raster. The literal threshold is exceeded, so this is a duplicate/stop result.",
+    "registry_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "preplacement_surface_spearman": -0.000164,
+    "scope": "one pinned registry raster; not a complete registry uniqueness scan"
   },
   "raster_sha256": "afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065",
   "validator": {
-    "status": "reported pass in historical run card; exact-byte validation was not rerun in this review because rasterio/template data are unavailable",
+    "status": "Freshly rechecked by scripts/check_submission.py --strict-finite against the hash-pinned owner mirror; not organizer-authenticated",
     "single_band": true,
     "finite": true,
     "range_0_1": true,
     "crs": "EPSG:32611",
-    "shape": [3730, 3292],
-    "transform": [100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0],
-    "format_checks_are_not_scientific_or_release_authorization": true
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "format_checks_are_not_scientific_or_release_authorization": true,
+    "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8d30a40454d35cbc",
+    "template_provenance": "owner-supplied mirror, integrity pinned, not organizer-authenticated",
+    "crs_match": true,
+    "shape_match": true,
+    "transform_match": true,
+    "nan_anywhere": 0,
+    "nan_inside_footprint": 0
   },
   "submission_name": "APARTGEMSDOE3-CFKC-DHC-9DEDADFC",
-  "submission_note": "ApartGEMSDOE3 H-APART3-1 CFKC-DHC 37654d B2 d2.8 | HR=0.1145 SGMC=0.0814",
+  "submission_note": "Research only: CFKC-DHC; duplicate gate failed; no slot authorized. DO NOT SUBMIT.",
   "verdict": "negative",
   "ok_to_submit": false,
   "slot_used": false,
-  "reason": "DO NOT SUBMIT: Literal duplicate gate fails: 99.8513% of candidate dots are within 3 px of the registered 5-px calibration lattice, above 70%. The candidate is available for audit only. No organizer receipt is present."
+  "reason": "DO NOT SUBMIT: independent literal overlap audit against one pinned registry calibration raster measures 99.8513% within 3 px, above the 70% limit. Full registry comparison and weekly selector approval are incomplete.",
+  "method_lane_status": "No method paragraph was identified in the prompt; no new lane was selected and no experiment was run in this review. The CFKC candidate below is a historical research artifact.",
+  "slot_authorized": false,
+  "related_candidate_recheck": "evidence/release_recheck_20261028.json (BHGC and CFKC, one pinned registry raster only)"
 }
