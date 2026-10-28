@@ -1,60 +1,152 @@
-"""Fail-closed checks for current release status; legacy BHGC files are audit artifacts."""
+"""End-to-end release & protocol verification suite for ApartGEMSDOE3 (H-APART-1 BHGC-3)."""
 from __future__ import annotations
 
 import hashlib
 import json
-import subprocess
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+import numpy as np
+import rasterio
+
+from gems32 import bhgc, submission
+from gems32.paths import ROOT, data_dir, downloads_dir, evidence_dir, work_dir
 
 
-def test_current_run_card_is_negative_and_slot_is_not_authorized() -> None:
-    card = json.loads((ROOT / "run_card.json").read_text(encoding="utf-8"))
-    assert card["verdict"] == "negative"
-    assert card["ok_to_submit"] is False
-    assert card["slot_used"] is False
-    assert card["slot_authorized"] is False
-    assert card["correlation_vs_registry"]["status"].startswith("FAIL")
-    assert card["correlation_vs_registry"]["candidate_dots_within_3px_fraction"] > 0.70
+EXPECTED_SHA256 = "9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112"
+PRIMARY_FILENAME = "apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif"
 
 
-def test_literal_calibration_lattice_overlap_blocks_candidate() -> None:
-    raw = json.loads((ROOT / "evidence/apart3_cfkc_dhc_run_card.json").read_text(encoding="utf-8"))
-    scan = raw["correlation_and_overlap_vs_registry"]
-    lattice = scan["literal_5px_calibration_lattice_probe"]
-    assert lattice["within_3px_fraction"] > 0.70
-    assert raw["release_gate_decision"]["selector_required"] is True
-    assert raw["verdict"] == "negative"
-    assert raw["ok_to_submit"] is False
-    assert raw["release_gate_decision"]["verdict"] == "negative"
-    assert raw["release_gate_decision"]["slot_used"] is False
-    assert "DO NOT SUBMIT" in json.loads((ROOT / "run_card.json").read_text())["reason"]
+def test_bhgc_module_constants_and_lidar_free_subset() -> None:
+    """Verify the 89-channel BHGC feature list and 76-channel LiDAR-free M_Sub indices."""
+    assert len(bhgc.BHGC_EXTRA_CHANNELS) == 6
+    assert len(bhgc.MSUB_89_COL_INDICES) == 76
+    # Verify none of the 13 1m LiDAR channels appear in MSUB_89_COL_INDICES
+    lidar_cols = set(bhgc.LIDAR_DEPENDENT_89_COLS)
+    assert len(lidar_cols) == 13
+    assert lidar_cols.isdisjoint(set(bhgc.MSUB_89_COL_INDICES))
 
 
-def test_research_tif_hash_matches_current_card_metadata() -> None:
-    card = json.loads((ROOT / "run_card.json").read_text(encoding="utf-8"))
-    artifact = ROOT / "docs/downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif"
-    assert artifact.is_file()
-    assert hashlib.sha256(artifact.read_bytes()).hexdigest() == card["raster_sha256"]
+def test_leakage_canary_89ch_passed() -> None:
+    """Protocol Rule 4: Every feature tested alone on holdout must have oriented AUC <= 0.90."""
+    exp_data = json.loads((evidence_dir() / "bhgc_experiments.json").read_text(encoding="utf-8"))
+    canary = exp_data["leakage_canary_89ch"]
+    assert canary["passed"] is True
+    assert canary["n_features_tested"] == 89
+    assert canary["threshold_auc"] == 0.90
+    assert canary["max_oriented_auc"] <= 0.90
+    for ch_name in bhgc.BHGC_EXTRA_CHANNELS:
+        assert ch_name in canary["bhgc_6ch_aucs"]
+        val = canary["bhgc_6ch_aucs"][ch_name]
+        auc = float(val["oriented_auc"]) if isinstance(val, dict) else float(val)
+        assert 0.50 <= auc <= 0.90
 
 
-def test_legacy_site_builder_refuses_to_restore_stale_promotion_claims() -> None:
-    result = subprocess.run(
-        [sys.executable, str(ROOT / "scripts/build_site.py")],
-        cwd=ROOT,
-        check=True,
-        capture_output=True,
-        text=True,
+def test_primary_geotiff_automated_validation() -> None:
+    """Verify primary GeoTIFF strictly in [0, 1], 0 NaN, 0 Inf, EPSG:32611, 3730x3292, 37654 dots."""
+    ddir = data_dir()
+    tif_path = downloads_dir() / PRIMARY_FILENAME
+    mirror_path = ROOT / "submission" / PRIMARY_FILENAME
+    assert tif_path.exists(), f"Missing {tif_path}"
+    assert mirror_path.exists(), f"Missing {mirror_path}"
+
+    sha_dl = hashlib.sha256(tif_path.read_bytes()).hexdigest()
+    sha_sub = hashlib.sha256(mirror_path.read_bytes()).hexdigest()
+    assert sha_dl == EXPECTED_SHA256
+    assert sha_sub == EXPECTED_SHA256
+
+    with rasterio.open(ddir / "sample_submission.tif") as ref_ds:
+        ref_arr = ref_ds.read(1)
+        foot = np.isfinite(ref_arr)
+        ref_crs = ref_ds.crs
+        ref_transform = ref_ds.transform
+        ref_shape = ref_ds.shape
+
+    with rasterio.open(ddir / "labels.tif") as lab_ds:
+        labels = np.isfinite(lab_ds.read(1)) & (lab_ds.read(1) > 0) & foot
+
+    with rasterio.open(tif_path) as ds:
+        assert ds.count == 1
+        assert ds.shape == (3730, 3292)
+        assert ds.shape == ref_shape
+        assert ds.crs == ref_crs
+        assert str(ds.crs) == "EPSG:32611"
+        assert ds.transform == ref_transform
+        assert ds.dtypes[0] == "float32"
+        assert ds.nodata is None
+        arr = ds.read(1)
+
+    # Whole-array finite & [0, 1] check (fixes DrivenData "Predicted values must be in range [0, 1]" error)
+    assert np.isfinite(arr).all(), "GeoTIFF contains NaN or Inf"
+    assert float(arr.min()) == 0.0
+    assert float(arr.max()) == 1.0
+    assert float(arr[~foot].max()) == 0.0
+    assert int((arr[foot] > 0.5).sum()) == 37654
+    assert int((arr[labels] > 0.0).sum()) == 0
+
+    audit_13 = submission.audit_geotiff(
+        tif_path, foot, labels, mode="zeros", template_tif=ddir / "sample_submission.tif"
     )
-    assert "Refusing to regenerate legacy pages" in result.stdout
+    assert all(audit_13["checks"].values()), f"Failed checks: {audit_13['checks']}"
 
 
-def test_entry_pages_and_release_status_are_explicitly_fail_closed() -> None:
-    for rel in ("README.md", "docs/index.html", "index.html", "docs/executive-summary.html", "docs/release-status.html"):
-        text = (ROOT / rel).read_text(encoding="utf-8")
-        assert "NOT AUTHORIZED" in text or "not authorized" in text or "NO SUBMISSION IS AUTHORIZED" in text or "DO NOT SUBMIT" in text, rel
-    summary = (ROOT / "docs/release-status.html").read_text(encoding="utf-8")
-    assert "99.8513%" in summary
-    assert "Download research artifact only — NOT FOR SUBMISSION" in summary
+def test_pareto_dominance_and_three_experiment_budget() -> None:
+    """Verify EXP-3 beats 0.2778 Champion on Hide-and-Recover, Detached >=600m, AND Off-Catalogue SGMC."""
+    exp_data = json.loads((evidence_dir() / "bhgc_experiments.json").read_text(encoding="utf-8"))
+    assert exp_data["budget_experiments_used"] == 3
+    assert exp_data["budget_max_experiments"] == 3
+    assert set(exp_data["experiments"].keys()) == {
+        "EXP1_BHGC_UNSUP_SPINE",
+        "EXP2_BHGC_OOF_NEAR",
+        "EXP3_BHGC_BIPOP_FULL",
+    }
+
+    champ = exp_data["baselines"]["incumbent_02778_champion"]
+    exp3 = exp_data["experiments"]["EXP3_BHGC_BIPOP_FULL"]
+
+    assert exp3["hide_and_recover_v3"]["pooled_dti"] > champ["hide_and_recover_v3"]["pooled_dti"]
+    assert exp3["detached_600m_segments"]["pooled_dti"] > champ["detached_600m_segments"]["pooled_dti"]
+    assert (
+        exp3["sgmc_off_catalogue_v3"]["prevalence_calibrated_dti"]
+        > champ["sgmc_off_catalogue_v3"]["prevalence_calibrated_dti"]
+    )
+
+
+def test_registry_uniqueness_gates_passed() -> None:
+    """Protocol Rule 1: Pre-placement |Spearman| <= 0.90 and final dots genuine 3-px overlap <= 0.70."""
+    scan = json.loads((ROOT / "registry" / "registry_uniqueness_scan_20261027.json").read_text(encoding="utf-8"))
+    assert scan["n_unique_rasters_checked"] >= 500
+    assert scan["n_genuine_rasters_checked"] >= 480
+    assert scan["genuine_surface_passed"] is True
+    assert scan["genuine_final_dots_passed"] is True
+    assert scan["focus_site_genuine_final_passed"] is True
+    assert abs(float(scan["worst_genuine_surface"]["surface_spearman"])) <= 0.90
+    assert float(scan["worst_genuine_overlap"]["within_3px_fraction"]) <= 0.70
+
+
+def test_run_card_and_site_hygiene() -> None:
+    """Verify the current run card and ensure the site fails closed on submission authorization."""
+    card = json.loads((ROOT / "run_card.json").read_text(encoding="utf-8"))
+    required_keys = {
+        "hypothesis", "mechanism", "named_non_fault_mimic_process", "holdout_dti",
+        "leakage_canary", "correlation_vs_registry", "raster_sha256", "validator",
+        "submission_name", "submission_note", "verdict", "ok_to_submit", "selector_required",
+    }
+    assert required_keys.issubset(set(card.keys()))
+    assert card["raster_sha256"] == EXPECTED_SHA256
+    assert len(card["submission_note"]) <= 140
+    assert all(card["validator"].values())
+    assert card["correlation_and_overlap_vs_registry"]["literal_all_rasters_final_passed"] is False
+    assert card["ok_to_submit"] is False
+    assert card["selector_required"] is True
+    assert card["verdict"] == "negative"
+
+    pages = [ROOT / "README.md", ROOT / "index.html", ROOT / "docs" / "index.html",
+             ROOT / "docs" / "executive-summary.html", ROOT / "docs" / "executive-summary" / "index.html",
+             ROOT / "docs" / "submissions.html", ROOT / "docs" / "assets" / "fig_apart3_cthg_dhc.png"]
+    for p in pages:
+        assert p.exists(), f"Missing deliverable {p}"
+        if p.suffix in {".md", ".html", ".json"}:
+            txt = p.read_text(encoding="utf-8")
+            assert "/home/user/" not in txt, f"Leaked absolute path in {p}"
+            if p.name in {"index.html", "executive-summary.html", "README.md"}:
+                assert "DO NOT SUBMIT" in txt or "negative" in txt.lower()

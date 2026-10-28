@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail-closed, data-independent check for current release authorization."""
+"""Data-independent regression check that current release authorization fails closed."""
 from __future__ import annotations
 
 import hashlib
@@ -11,28 +11,26 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> int:
     card = json.loads((ROOT / "run_card.json").read_text(encoding="utf-8"))
-    overlap = card["correlation_vs_registry"]["candidate_dots_within_3px_fraction"]
-    limit = card["correlation_vs_registry"]["limit"]
-    tif = ROOT / "docs/downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif"
-    if overlap <= limit:
-        raise SystemExit("This checker is specifically for the current known duplicate-stop release record.")
+    tif = ROOT / card["artifacts"]["primary_zeros_tif"]
     if card.get("verdict") != "negative" or card.get("ok_to_submit") is not False:
-        raise SystemExit("Unsafe release card: duplicate-stop is not marked negative / not-submittable")
-    if card.get("slot_used") is not False or card.get("slot_authorized") is not False:
-        raise SystemExit("Unsafe release card: slot must be unused and unauthorized")
+        raise SystemExit("Unsafe release card: candidate must be negative and not submittable")
+    if card.get("selector_required") is not True:
+        raise SystemExit("Unsafe release card: separate selector must be required")
+    if card.get("release_gate_decision", {}).get("slot_used") is not False:
+        raise SystemExit("Unsafe release card: no slot may be recorded as used")
+    if card.get("correlation_and_overlap_vs_registry", {}).get("literal_all_rasters_final_passed") is not False:
+        raise SystemExit("Unsafe release card: literal all-registry uniqueness failure must remain explicit")
+    if card.get("scientific_integrity_gate", {}).get("passed") is not False:
+        raise SystemExit("Unsafe release card: scientific-integrity issue must remain open")
     if not tif.is_file():
         raise SystemExit(f"Research artifact missing: {tif.relative_to(ROOT)}")
     actual_sha = hashlib.sha256(tif.read_bytes()).hexdigest()
     if actual_sha != card["raster_sha256"]:
         raise SystemExit(f"Research artifact SHA-256 mismatch: {actual_sha}")
     page = (ROOT / "docs/release-status.html").read_text(encoding="utf-8")
-    if "DO NOT SUBMIT THE CURRENT TIF" not in page or "NOT FOR SUBMISSION" not in page:
+    if "NO FILE AUTHORIZED" not in page or "DO NOT SUBMIT" not in page:
         raise SystemExit("Release page must clearly label the artifact as not for submission")
-    print(
-        "PASS: current card is negative, registry overlap exceeds the literal limit, "
-        "slot is unused, research TIF hash matches, and the release page warns not to submit. "
-        "This does not validate the GeoTIFF against competition data."
-    )
+    print("PASS: negative run card, selector required, literal uniqueness fails, scientific issue open, TIF hash matches, release page says DO NOT SUBMIT.")
     return 0
 
 

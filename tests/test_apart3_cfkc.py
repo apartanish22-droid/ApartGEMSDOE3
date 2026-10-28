@@ -136,8 +136,9 @@ def test_run_card_and_html_links_integrity() -> None:
     current = json.loads((ROOT / "run_card.json").read_text())
     assert current["verdict"] == "negative"
     assert current["ok_to_submit"] is False
-    assert current["correlation_vs_registry"]["candidate_dots_within_3px_fraction"] == pytest.approx(0.998513)
-    assert current["correlation_vs_registry"]["candidate_dots_within_3px_fraction"] > 0.70
+    assert current["duplicate_gate_failure"]["final_dots_literal_gate_passed"] is False
+    assert current["duplicate_gate_failure"]["overlap_examples"][-1]["fraction"] == pytest.approx(0.998035)
+    assert current["scientific_integrity_gate"]["passed"] is False
     assert current["slot_used"] is False
     vo = rc["validator_output"]
     assert vo["validated_without_human_intervention"] is True

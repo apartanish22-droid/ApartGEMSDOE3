@@ -1,9 +1,9 @@
 {
  "schema_version": 1,
- "updated_utc": "2026-10-28T05:55:23Z",
- "single_source_of_truth": "Fail-closed release status is recorded in registry/current_status.json and root run_card.json; one-raster recheck evidence is evidence/release_recheck_20261028.json, and the broader repository audit is evidence/repo_review_20261028.json. Historical run cards are not authorization.",
+ "updated_utc": "2026-10-28T10:15:00Z",
+ "single_source_of_truth": "Current CTHG research candidate status is in registry/current_status.json and root run_card.json; evidence/release_recheck_20261028.json preserves the earlier one-raster fail-closed review, while evidence/apart3_cthg_dhc_registry_uniqueness.json and evidence/apart3_cthg_dhc_run_card.json document the current CTHG run.",
  "any_file_ok_to_submit": false,
- "headline": "DO NOT SUBMIT: independent one-raster check finds both local research TIFs fail literal final-dot overlap against a registered 5-px lattice (CFKC 99.8513%; BHGC 99.7450%, threshold 70%). Format checks pass against an owner-supplied, integrity-pinned mirror only; no slot is authorized.",
+ "headline": "DO NOT SUBMIT. Current CTHG-DHC research artifact passes local owner-mirror format checks but fails literal all-registry uniqueness: 75.90% overlap with a registered dense raster, 72.25% with another, and 99.80% with a registered calibration lattice (limit 70%). Critical scientific irregularity IR-CTHG-BAND6-TC-02: Band 6 tc was used as magnetic tilt though repo forensic records identify it as radiometric Total Count. No assigned lane paragraph; exploratory budget accounting is incomplete; no selector or slot authorization.",
  "gate_rule": "OK TO SUBMIT requires an explicitly assigned method lane; all feature-only leakage canaries <=0.90; a fold-local HOLDOUT-DTI win with paired 95% CI >0 against the current same-evaluator repo best; no SGMC-cal regression against the Champion; literal surface/final-dot uniqueness against every registry raster (Spearman <=0.90 and <=70% within 3 px); exact saved-byte format/range validation; and separate weekly-slot selector approval. No human inspection.",
  "best_scored": {
   "file": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
@@ -1313,18 +1313,18 @@
   ]
  },
  "current_candidate": {
-  "candidate_id": "H-APART3-1-CFKC-DHC",
-  "recorded_utc": "2026-10-27T22:52:55Z",
-  "artifact": "docs/downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif",
-  "sha256": "afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065",
+  "candidate_id": "H-APART3-2-CTHG-DHC",
+  "recorded_utc": "2026-10-28T09:03:14Z",
+  "artifact": "docs/downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif",
+  "sha256": "9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112",
   "verdict": "negative",
+  "ok_to_download": true,
   "ok_to_submit": false,
-  "literal_registry_overlap_within_3px": 0.9985127742072555,
-  "limit": 0.7,
   "slot_used": false,
-  "format_rechecked_against_owner_mirror": true,
-  "organizer_authenticated": false,
-  "source": "run_card.json; evidence/release_recheck_20261028.json"
+  "literal_registry_max_overlap": 0.998035,
+  "literal_overlap_limit": 0.7,
+  "scientific_integrity_irregularity": "IR-CTHG-BAND6-TC-02",
+  "source": "run_card.json; evidence/apart3_cthg_dhc_run_card.json; evidence/apart3_cthg_dhc_registry_uniqueness.json"
  },
  "current_review_20261028": {
   "report": "evidence/repo_review_20261028.json",
@@ -1334,5 +1334,29 @@
   "threshold": 0.7,
   "passed": false
  },
- "latest_comprehensive_review": "docs/research/repo-review-20261028.md; evidence/repo_review_20261028.json"
+ "latest_comprehensive_review": "docs/review-2026-10-28.md; docs/repo-review-2026-10-28.md; evidence/repo_review_20261028.json",
+ "latest_research_artifact": {
+  "file": "docs/downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif",
+  "sha256": "9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112",
+  "submission_name": "APARTGEMSDOE3-CTHG-DHC-5D4D0085",
+  "submission_note": "ApartGEMSDOE3 H-APART3-2 CTHG-DHC 37654d B2 d3.24 | HR=0.0997 Det=0.0960 SGMC=0.0824",
+  "download_ok": true,
+  "ok_to_submit": false,
+  "verdict": "negative",
+  "reasons": [
+   "literal all-registry overlap >70%",
+   "Band 6 radiometric-total-count used as magnetic tilt; IR-CTHG-BAND6-TC-02",
+   "no assigned lane paragraph",
+   "exploratory run budget not reconciled",
+   "weekly selector not run"
+  ]
+ },
+ "protocol_compliance": {
+  "lane_assignment": "missing",
+  "final_named_pipeline_arms": 3,
+  "additional_exploratory_runs": true,
+  "total_experiment_count_reconciled": false,
+  "two_hour_global_budget_verified": false,
+  "overall": "negative / compliance not claimed"
+ }
 }
