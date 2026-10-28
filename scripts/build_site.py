@@ -1283,6 +1283,19 @@ def build_sources_page(card: dict, prefix: str = "") -> str:
 
 
 def main() -> None:
+    # Fail closed: the legacy templates below are frozen around a prior BHGC-3
+    # promotion. Do not regenerate them from an unauthorised or negative run card.
+    release_card = _load_json("run_card.json")
+    if release_card.get("verdict") != "promote" or release_card.get("ok_to_submit") is not True:
+        print(
+            "[build_site] Release is negative / unauthorized. Refusing to regenerate legacy "
+            "pages with stale promotion claims; docs/release-status.html is the current page."
+        )
+        return
+    if release_card.get("slot_authorized") is not True:
+        print("[build_site] No separate weekly-slot selector authorization; refusing promotion CTA.")
+        return
+
     card = _load_json("run_card.json")
     nine_audit = _load_json("evidence/nine_site_refreshed_audit_20261027.json")
     exp_data = _load_json("evidence/bhgc_experiments.json")

@@ -25,10 +25,10 @@ jobs:
         run: |
           python -m pip install -r requirements.txt
           python -m pip install -e . --no-build-isolation --no-deps
-      - name: Run automated test suite and strict GeoTIFF check
-        run: |
-          python -m pytest -q
-          python scripts/check_submission.py --strict-finite docs/downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif
+      - name: Check current release state (data-independent; not a GeoTIFF validation)
+        run: python scripts/check_release_status.py
+      - name: Run automated test suite
+        run: python -m pytest -q
 
   publish:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
@@ -50,7 +50,7 @@ jobs:
         run: |
           mkdir -p _site
           cp -r docs/* _site/
-          cp .nojekyll README.md _site/
+          cp .nojekyll README.md run_card.json _site/
           cp -r evidence registry _site/
       - name: Configure Pages
         uses: actions/configure-pages@v5
