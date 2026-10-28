@@ -1,9 +1,10 @@
 {
  "schema_version": 1,
  "updated_utc": "2026-10-28",
- "single_source_of_truth": "Current no-submit decision; earlier nested entries and older run cards are historical claims, not authorizations.",
+ "single_source_of_truth": "README top block and every site page render from this file; update it, never add a second banner",
  "any_file_ok_to_submit": false,
- "headline": "DO NOT SUBMIT: independent recheck found both local candidates fail literal final-dot overlap against a registered lattice. See evidence/release_recheck_20261028.json.",
+ "headline": "No file is authorized for upload. The 2026-10-28 audit directly measured 99.7450% and 99.8513% final-dot overlap for the BHGC and CFKC research TIFs against the pinned GEMSDOE24 5-px calibration raster. Both exceed the literal 70% rule. Format/range validation passed, but uniqueness failed; no new experiment or weekly slot was used.",
+ "current_review_20261028": {"report": "evidence/repo_review_20261028.json", "registry_raster_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2", "bhgc_within_3px_fraction": 0.9974504700695809, "cfkc_within_3px_fraction": 0.9985127742072555, "threshold": 0.7, "passed": false},
  "gate_rule": "OK TO SUBMIT requires an explicitly assigned method lane; all feature-only leakage canaries <=0.90; a fold-local HOLDOUT-DTI win with paired 95% CI >0 against the current same-evaluator repo best; no SGMC-cal regression against the Champion; literal surface/final-dot uniqueness against every registry raster (Spearman <=0.90 and <=70% within 3 px); exact saved-byte format/range validation; and separate weekly-slot selector approval. No human inspection.",
  "best_scored": {
   "file": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
@@ -1310,7 +1311,5 @@
    "Held fail-closed as DO NOT SUBMIT (verdict=negative, 0 weekly slots spent) because: (1) evidence/h38_run_card.json did not archive its 1,000 spatial-bootstrap draw vector so paired_delta_vs_repository_best_h38 is None; (2) the literal unexempted all-registry check hits the synthetic 5-px calibration lattice r13-lattice-s5 (99.615% > 70%, IR-32-PIGEONHOLE-01); and (3) spending a scarce weekly slot requires separate human selector approval."
   ],
   "results_doc": "docs/research/h47-ldgi-results-and-nine-site-executive-summary-20261026.md"
- },
- "current_review": "evidence/release_recheck_20261028.json",
- "current_run_card": "run_card.json"
+ }
 }

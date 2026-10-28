@@ -1939,5 +1939,6 @@
       ]
     }
   },
-  "verdict": "promote"
+  "verdict": "negative",
+  "release_gate_superseding_review": "evidence/repo_review_20261028.json"
 }
