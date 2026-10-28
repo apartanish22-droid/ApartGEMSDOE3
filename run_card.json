@@ -209,15 +209,16 @@
   },
   "release_gate_decision": {
     "gates": {
-      "lane": true,
+      "lane": false,
       "surface": true,
-      "final": true,
+      "final": false,
       "canaries": true,
       "holdout": true,
       "paired_improvement": true,
-      "format": true
+      "format": true,
+      "scientific_integrity": false
     },
-    "verdict": "promote",
+    "verdict": "negative",
     "selector_required": true,
     "slot_used": false
   },
@@ -278,7 +279,7 @@
   },
   "submission_name": "APARTGEMSDOE3-CSHD-37B32D5B",
   "submission_note": "Apart3 H-APART3-2 CSHD 97/84ch d3.62 37654d B2 | HR=0.1092 SGMC=0.0732",
-  "verdict": "promote",
+  "verdict": "negative",
   "selector_required": true,
   "slot_used": false,
   "artifacts": {
@@ -286,5 +287,7 @@
     "submission_mirror_tif": "submission/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif",
     "canonical_zeros_tif": "docs/downloads/gemsdoe32-apart3-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif",
     "single_tif_zip": "docs/downloads/gemsdoe32-apart3-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.zip"
-  }
+  },
+  "ok_to_submit": false,
+  "review_note": "Historical promotion withdrawn: literal all-registry overlap failed, assigned lane absent, and inherited BHGC channel misidentifies radiometric total count as magnetic tilt. Existing holdout results are historical, not revalidated. No submission authorized."
 }

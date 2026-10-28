@@ -21,6 +21,7 @@ def esc(value: object) -> str:
 
 
 def main() -> None:
+    raise SystemExit("Historical portal builder disabled: it can publish an unsafe release claim. Use scripts/build_review_site.py.")
     card = load("run_card.json")
     audit = load("evidence/nine_site_best_files_audit.json")
     nine_run = load("evidence/nine_site_refreshed_audit_20261028.json")
