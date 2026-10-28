@@ -1,41 +1,37 @@
 #!/usr/bin/env python3
-"""Data-independent regression check for current run_card.json & release portal integrity."""
-from __future__ import annotations
-
+"""Data-independent fail-closed release consistency check (negative is a valid result)."""
 import hashlib
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+def check(card):
+    gates = card.get('release_gate_decision', {}).get('gates', {})
+    literal = card.get('correlation_vs_registry', {}).get('literal_all_rasters_final_passed')
+    if card.get('selector_required') is not True or card.get('slot_used') is not False:
+        raise ValueError('Separate selector required; no slot may be used')
+    if card.get('verdict') == 'promote':
+        required = {'lane','surface','final','canaries','holdout','paired_improvement','format'}
+        if literal is not True or not required.issubset(gates) or not all(gates[k] is True for k in required):
+            raise ValueError('Promotion requires literal all-raster uniqueness and every gate')
+    elif card.get('verdict') != 'negative' or card.get('ok_to_submit') is not False:
+        raise ValueError('Negative result must explicitly prohibit submission')
+    if card['release_gate_decision']['verdict'] != card['verdict']:
+        raise ValueError('Conflicting gate and card verdicts')
 
-def main() -> int:
-    card = json.loads((ROOT / "run_card.json").read_text(encoding="utf-8"))
-    tif_rel = card.get("artifacts", {}).get("primary_zeros_tif") or card["download_files"]["primary_download_path"]
-    tif = ROOT / tif_rel
-    if card.get("verdict") != "promote":
-        raise SystemExit(f"Unexpected run_card verdict: {card.get('verdict')}")
-    if card.get("selector_required") is not True:
-        raise SystemExit("Unsafe release card: separate selector must be required")
-    if card.get("slot_used") is not False or card.get("release_gate_decision", {}).get("slot_used") is not False:
-        raise SystemExit("Unsafe release card: no slot may be recorded as used")
-    if not all(card.get("validator", {}).values()):
-        raise SystemExit("Validator flags must all be True")
-    if not all(card.get("release_gate_decision", {}).get("gates", {}).values()):
-        raise SystemExit("All 7 release_gate_decision gates must be True")
-    if card.get("correlation_vs_registry", {}).get("literal_all_rasters_final_passed") is not False:
-        raise SystemExit("IR-51-LATTICE-01 literal lattice probe status must remain explicitly documented")
-    if not tif.is_file():
-        raise SystemExit(f"Promoted artifact missing: {tif.relative_to(ROOT)}")
-    actual_sha = hashlib.sha256(tif.read_bytes()).hexdigest()
-    if actual_sha != card["raster_sha256"]:
-        raise SystemExit(f"Artifact SHA-256 mismatch: {actual_sha}")
-    page = (ROOT / "docs/release-status.html").read_text(encoding="utf-8")
-    if card["raster_sha256"][:16] not in page or "DO NOT SUBMIT" not in page:
-        raise SystemExit("Release status page must document primary SHA-256 and DO NOT SUBMIT on superseded files")
-    print("PASS: H-APART3-2 (CSHD) run card verified, selector_required=True, slot_used=False, SHA-256 matches.")
+def main():
+    card = json.loads((ROOT/'run_card.json').read_text())
+    check(card)
+    artifact = ROOT/card['download_files']['primary_download_path']
+    if hashlib.sha256(artifact.read_bytes()).hexdigest() != card['raster_sha256']:
+        raise ValueError('Artifact hash mismatch')
+    if card['verdict'] == 'negative':
+        for name in ['index.html','executive-summary.html','release-status.html','submissions.html']:
+            if 'DO NOT SUBMIT' not in (ROOT/'docs'/name).read_text():
+                raise ValueError('Missing negative release warning')
+    print(f"PASS: consistent {card['verdict']} verdict; artifact hash verified; no slot used")
     return 0
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     raise SystemExit(main())

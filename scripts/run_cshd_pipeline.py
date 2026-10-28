@@ -592,7 +592,8 @@ def main() -> int:
         f"({pre_scan['worst_genuine_surface']['name']})",
         flush=True,
     )
-    if not pre_scan["genuine_surface_passed"]:
+    if not pre_scan["release_gate_direct_surface"]["passed"]:
+        (evidence_dir() / "cshd_surface_duplicate_stop.json").write_text(json.dumps(pre_scan, indent=2) + "\n")
         raise SystemExit(f"STOP (Protocol Rule 1 Step A): Surface |Spearman| > 0.90: {pre_scan['worst_genuine_surface']}")
 
     # Now emit discrete 37,654 dots strictly outside B=2 px
@@ -625,8 +626,9 @@ def main() -> int:
         f"({final_scan['worst_focus_site_overlap']['name']})",
         flush=True,
     )
-    if not final_scan["genuine_final_dots_passed"]:
-        raise SystemExit(f"STOP (Protocol Rule 1 Step B): Final-dot 3-px overlap > 0.70: {final_scan['worst_genuine_overlap']}")
+    if not (final_scan["literal_all_rasters_final_passed"] and final_scan["release_gate_direct_final"]["passed"]):
+        (evidence_dir() / "cshd_final_duplicate_stop.json").write_text(json.dumps(final_scan, indent=2) + "\n")
+        raise SystemExit(f"STOP (Protocol Rule 1 Step B): Literal registry gate failed: {final_scan['worst_literal_overlap']}")
 
     # Write validated unique GeoTIFF bundle via canonical `scripts/submission_writer.py`
     ts_tag = "20261028T063000Z"
@@ -835,8 +837,8 @@ def main() -> int:
         "stage": "final",
         "rule": "literal rho>0.90 OR directional overlap>0.70 on genuine discrete registry submissions (<=100k dots)",
         "comparisons": rg_final_rows,
-        "passed": bool(rg_final_rows) and final_scan["genuine_final_dots_passed"] and all(r["measurable"] and not r["duplicate"] for r in rg_final_rows),
-        "stop": not final_scan["genuine_final_dots_passed"],
+        "passed": bool(rg_final_rows) and final_scan["literal_all_rasters_final_passed"] and all(r["measurable"] and not r["duplicate"] for r in rg_final_rows),
+        "stop": not final_scan["literal_all_rasters_final_passed"],
     }
 
     cand_holdout_rec = {
