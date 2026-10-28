@@ -1,0 +1,65 @@
+{
+  "schema_version": "gems-parallel-runcard-v3",
+  "generated_utc": "20261028T225009Z",
+  "session_branch": "arena/61ccce6b-apartgemsdoe3",
+  "candidate_id": "H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS",
+  "hypothesis": "Blind geothermal conduits missing from the USGS/INGENIOUS catalogue are marked by coincident label-free physical-property anomalies: radiometric total-count depletion (band 6 tc, hydrothermal clay leaching), magnetic-anomaly magnitude (band 1 mag_anom), and gravity-anomaly magnitude (band 13 iso_grav_anom). The three percentile-ranked anomaly bands are averaged into a [0,1] propensity surface; catalogue faults plus a 200 m collar are excluded so every dot is off-catalogue; dots are Poisson-disk thinned at 2.8 px to a ~30k budget.",
+  "mechanism": "Percentile-rank anomaly surface (mag |dev|, tc |dev|, gravity |dev|) -> high-quantile support -> remove catalogue + 200 m collar -> raster-order Poisson-disk thinning -> boolean dot mask -> float32 [0,1] GeoTIFF, 0.0 outside footprint, NaN-free, EPSG:32611 3730x3292 100 m, matching sample_submission.tif.",
+  "named_non_fault_mimic_process": "Bedrock intrusive contacts, lithologic boundaries, and sedimentary basin edges can produce magnetic/gravity/radiometric anomalies without a fault; arid-surface radiometric variations and DEM artifacts can mimic alteration. Mitigated by requiring coincidence of all three anomaly bands and excluding the catalogue collar.",
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "GEMSDOE32-HOLDOUT-v3-visible-gated",
+    "n_withheld_positives": 22232,
+    "pooled_dti": 0.002126183625061087,
+    "ci95": [
+      0.0015672104763193918,
+      0.0026055455469204056
+    ],
+    "mean_cell_dti": 0.0021133259665520434,
+    "total_emitted_across_cells": 62278
+  },
+  "sgmc_off_catalogue": {
+    "evidence_class": "HOLDOUT-DTI",
+    "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+    "n_withheld_positives": 62703,
+    "raw_pooled_dti": 0.0683939453435478,
+    "raw_ci95": [
+      0.04117707068343054,
+      0.09277225997595842
+    ],
+    "prevalence_calibrated_dti": 0.04719680088708336
+  },
+  "leakage_canary": {
+    "note": "Surface uses no catalogue-derived features; catalogue pixels are excluded (collar) so no label leakage into the propensity. Single-feature canaries not yet computed for this new surface."
+  },
+  "correlation_vs_registry": {
+    "note": "Off-catalogue by construction: 0 dots on catalogue labels after writer masking; full registry raster comparison requires the cached registry set (absent from this checkout)."
+  },
+  "raster_sha256": "8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd",
+  "download_files": {
+    "primary_download_path": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
+    "submission_mirror_path": "submission/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
+    "audit_sidecar_path": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-audit.json",
+    "nan_variant": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-nan.tif"
+  },
+  "validator": {
+    "exact_reference_grid_match": true,
+    "single_band": true,
+    "dtype_float32": true,
+    "dimensions_3730x3292": true,
+    "crs_epsg_32611": true,
+    "in_footprint_all_finite": true,
+    "in_footprint_zero_nan": true,
+    "in_footprint_zero_inf": true,
+    "in_footprint_zero_sentinel": true,
+    "in_footprint_range_0_1": true,
+    "outside_footprint_compliant": true,
+    "zero_on_catalogue_leakage": true,
+    "validator_range_0_1_guaranteed": true
+  },
+  "submission_name": "H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS",
+  "submission_note": "Unique off-catalogue geophysical-anomaly dots (tc leach + mag + gravity), 30k budget, [0,1] zeros TIF",
+  "verdict": "promote_if_holdout_better_than_incumbent",
+  "ok_to_submit": false,
+  "review_note": "FORMAT-VALID only: passes [0,1]/CRS/shape/transform/NaN checks. NOT organizer-authorized (no DrivenData auth). Leaderboard score unknown; holdout DTI is a proxy, not a live score. A weekly-slot selector decision is required before any submission."
+}
