@@ -18,6 +18,11 @@ PRIMARY_TIF = ROOT / "docs" / "downloads" / PRIMARY_FILENAME
 MIRROR_TIF = ROOT / "submission" / PRIMARY_FILENAME
 CANONICAL_ZEROS = ROOT / "docs" / "downloads" / "gemsdoe32-apart3-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif"
 EXPECTED_SHA256 = "65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38"
+CURRENT_STATUS = json.loads((ROOT / "registry" / "current_status.json").read_text(encoding="utf-8"))
+CURRENT_CANDIDATE = CURRENT_STATUS["current_candidate"]
+CURRENT_FILENAME = Path(CURRENT_CANDIDATE["artifact"]).name
+CURRENT_SHA256 = CURRENT_CANDIDATE["sha256"]
+CURRENT_SUBMISSION_NAME = CURRENT_STATUS["latest_research_artifact"]["submission_name"]
 
 
 def _strict_json_load(path: Path) -> dict:
@@ -170,6 +175,6 @@ def test_cshd_784_raster_uniqueness_and_rfc8259_json_hygiene() -> None:
             txt = p.read_text(encoding="utf-8")
             assert "/home/user/" not in txt, f"Leaked sandbox path in {p}"
             if p.name in {"index.html", "executive-summary.html", "README.md"}:
-                assert PRIMARY_FILENAME in txt
-                assert EXPECTED_SHA256 in txt
-                assert card["submission_name"] in txt
+                assert CURRENT_FILENAME in txt
+                assert CURRENT_SHA256 in txt
+                assert CURRENT_SUBMISSION_NAME in txt

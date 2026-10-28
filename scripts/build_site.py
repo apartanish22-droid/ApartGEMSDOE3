@@ -1398,8 +1398,10 @@ def build_sources_page(card: dict, irreg: dict, prefix: str = "") -> str:
 def main() -> None:
     card = _load_json("run_card.json")
     if card.get("verdict") != "promote" or card.get("correlation_vs_registry", {}).get("literal_all_rasters_final_passed") is not True:
-        from build_review_portal import build
-        build()
+        # The latest candidate is tracked independently from the historical root card.
+        # The current-status builder validates that pointer and keeps the portal fail-closed.
+        from build_review_site import main as build_current_review
+        build_current_review()
         return
     nine_audit = _load_json("evidence/nine_site_refreshed_audit_20261028.json")
     exp_data = _load_json("evidence/cshd_experiments.json")
