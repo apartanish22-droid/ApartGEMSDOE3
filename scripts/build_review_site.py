@@ -148,6 +148,25 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
         f"submission name <code>{esc(current_card.get('submission_name', 'not recorded'))}</code>. "
         "The historical files are audit/research records only; this site does not authorize downloads.</section>"
     )
+    # Additional exploratory artifact, kept separate from the current release record.
+    # The byte-level format pass is not a uniqueness or submission authorization.
+    wchd_card_path = root / "evidence/wchd_run_card.json"
+    if wchd_card_path.is_file():
+        wchd = json.loads(wchd_card_path.read_text(encoding="utf-8"))
+        if wchd.get("verdict") != "negative" or wchd.get("ok_to_submit") is not False:
+            raise ValueError("WCHD research artifact must remain fail-closed")
+        artifact_path = str(wchd["artifact"])
+        research_url = "https://github.com/apartanish22-droid/ApartGEMSDOE3/raw/main/" + artifact_path
+        warning += (
+            '<section class="alert"><h2>WCHD research artifact — DO NOT SUBMIT</h2>'
+            '<p>Format checks pass against an owner-mirrored template, but its final dots fail the literal '
+            'all-registry overlap rule (99.56% against the registered calibration lattice). '
+            'The assigned lane was missing and the run exceeded protocol limits; the result is exploratory, not a score estimate.</p>'
+            f'<p><a href="{esc(research_url)}">Download GeoTIFF for research only</a> · '
+            f'<a href="{esc(repo_link("evidence/wchd_run_card.json"))}">Negative run card</a> · '
+            f'<a href="{esc(repo_link("evidence/wchd_literal_recheck.json"))}">Format and overlap recheck</a></p>'
+            f'<p>SHA-256 <code>{esc(wchd["raster_sha256"])}</code></p></section>'
+        )
     artifact = current_card.get("artifacts", {}).get("primary_zeros_tif", current.get("artifact", ""))
     artifact_name = current_card.get("submission_name", "not recorded")
     holdout_data = current_card.get("holdout_dti") or {}

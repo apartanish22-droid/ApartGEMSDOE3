@@ -1,0 +1,38 @@
+{
+  "candidate_id": "H-APART3-3-WCHD",
+  "hypothesis": "Multiscale gravity and magnetic structure, terrain and hydrothermal proxy features might identify faults missed by the visible catalogue.",
+  "mechanism": "Exploratory potential-field continuation and feature fusion followed by sparse dot placement; implementation and parameter choices changed after observing results, so this is not a confirmatory test.",
+  "named_non_fault_mimic_process": "Lithologic contacts, volcanic dikes, survey seams and lake shorelines can mimic linear faults or alteration.",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI, exploratory and post-selection; not a leaderboard estimate",
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "n_withheld_positives": 22232,
+    "dti": 0.10722,
+    "ci95": [0.096299, 0.117788],
+    "caveat": "Reported by the local experimental runner in evidence/wchd_experiments.json; neither template equivalence nor an uncontaminated matched comparison with the current holdout best was established. Confidence interval does not account for selection and repeated tuning."
+  },
+  "correlation_vs_registry": {
+    "preplacement": "Historical subset scan reported max absolute correlation 0.238942; scan completeness and treatment of skipped/constant rasters not established.",
+    "final": "Fails literal 70% directional dot-overlap rule against registered calibration lattice; see evidence/wchd_literal_recheck.json.",
+    "within_3px_fraction_against_lattice": 0.9956445530355341,
+    "literal_all_rasters_final_passed": false
+  },
+  "raster_sha256": "11f698c3c3f342029a1aa44d805d49b366a6a7724c178025d09790b47152a9dc",
+  "artifact": "docs/downloads/apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif",
+  "validator": {
+    "single_band": true,
+    "finite_full_array": true,
+    "values_in_0_1": true,
+    "crs_shape_transform_match": true,
+    "reference": "SHA-256-pinned owner-mirrored sample, not independently authenticated organizer bytes",
+    "receipt": "evidence/wchd_literal_recheck.json"
+  },
+  "submission_name": "APARTGEMSDOE3-WCHD-B3DBC603",
+  "submission_note": "Exploratory WCHD; literal registry overlap failed; do not submit",
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "selector_required": true,
+  "slot_used": false,
+  "protocol_compliance": "Not compliant: no assigned method paragraph was supplied; multiple reruns/parameter revisions occurred and execution continued after a duplicate stop. Total work exceeded the two-hour limit. No further experiments were run after this review.",
+  "scientific_caveat": "The proposed Band 6 repair was not independently validated, did not establish correct gravity band semantics, and was withdrawn. Cached derived features and fitted models must not be reused without provenance and fold-local validation."
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_id": "H-APART3-3-WCHD",
+  "verdict": "negative",
+  "scope": "Retrospective correction to the session record. The experiment descriptions in evidence/wchd_experiments.json are exploratory, not a locked three-arm confirmatory study.",
+  "events": [
+    "A method was self-selected although the prompt referenced an assigned method paragraph that was absent.",
+    "Cached owner-mirrored competition and derived data were restored; they are not organizer-authenticated merely because their hashes match the repository manifest.",
+    "Multiple runner invocations, interrupted model-cache generation, changes to feature construction, placement spacing and carrier weights occurred after inspecting results; the final candidate is post-selected.",
+    "One intermediate variant exceeded the 70 percent overlap threshold against the prior CSHD raster. The protocol required stopping; subsequent variants were run anyway. The overall session exceeded the two-hour limit.",
+    "The final saved candidate was independently rechecked against the registered calibration lattice. Its directional overlap is 0.9956445530355341, exceeding the literal 0.70 threshold. No exemption was authorized. See evidence/wchd_literal_recheck.json.",
+    "An earlier card and portal incorrectly described a restricted discrete subset as the full registry and changed a negative verdict to promote; those claims are withdrawn. The unvalidated BHGC feature change and experimental WCHD runner were withdrawn rather than presented as a verified shared-template fix.",
+    "No DrivenData submission slot was used. The candidate is preserved for research only; do not submit it."
+  ],
+  "experiment_budget_compliant": false,
+  "slot_used": false
+}

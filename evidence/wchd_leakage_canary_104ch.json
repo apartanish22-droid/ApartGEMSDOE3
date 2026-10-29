@@ -1,0 +1,1063 @@
+{
+  "passed": true,
+  "threshold_auc": 0.9,
+  "n_features_tested": 104,
+  "excised_raw_col_84_verified": true,
+  "max_oriented_auc": 0.587571,
+  "worst_channel": "wchd_morris_dilation_slip_tendency",
+  "wchd_8ch_max_oriented_auc": 0.587571,
+  "wchd_8ch_aucs": {
+    "wchd_true_rtp_tmi_tilt_contact_wall": 0.521491,
+    "wchd_poisson_listric_updip_trace": 0.548986,
+    "wchd_joint_grav_rtp_phase_congruency": 0.526231,
+    "wchd_hydro_demag_kth_adularia_corridor": 0.506035,
+    "wchd_morris_dilation_slip_tendency": 0.587571,
+    "wchd_horst_cross_divide_tilt_footwall": 0.562285,
+    "wchd_updip_blind_geotherm_seismic_bridge": 0.543019,
+    "wchd_unified_updip_conduit_crest": 0.583537
+  },
+  "n_withheld_pos_tested": 11172,
+  "n_active_neg_sampled": 1207370,
+  "per_channel": [
+    {
+      "clean_index": 0,
+      "raw_index": 0,
+      "channel": "band01",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.474234,
+      "oriented_auc": 0.525766,
+      "passed": true
+    },
+    {
+      "clean_index": 1,
+      "raw_index": 1,
+      "channel": "band02",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.510115,
+      "oriented_auc": 0.510115,
+      "passed": true
+    },
+    {
+      "clean_index": 2,
+      "raw_index": 2,
+      "channel": "band03",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.521508,
+      "oriented_auc": 0.521508,
+      "passed": true
+    },
+    {
+      "clean_index": 3,
+      "raw_index": 3,
+      "channel": "band04",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.564476,
+      "oriented_auc": 0.564476,
+      "passed": true
+    },
+    {
+      "clean_index": 4,
+      "raw_index": 4,
+      "channel": "band05",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.531937,
+      "oriented_auc": 0.531937,
+      "passed": true
+    },
+    {
+      "clean_index": 5,
+      "raw_index": 5,
+      "channel": "band06",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.455312,
+      "oriented_auc": 0.544688,
+      "passed": true
+    },
+    {
+      "clean_index": 6,
+      "raw_index": 6,
+      "channel": "band07",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.569707,
+      "oriented_auc": 0.569707,
+      "passed": true
+    },
+    {
+      "clean_index": 7,
+      "raw_index": 7,
+      "channel": "band08",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.520376,
+      "oriented_auc": 0.520376,
+      "passed": true
+    },
+    {
+      "clean_index": 8,
+      "raw_index": 8,
+      "channel": "band09",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.498734,
+      "oriented_auc": 0.501266,
+      "passed": true
+    },
+    {
+      "clean_index": 9,
+      "raw_index": 9,
+      "channel": "band10",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.549414,
+      "oriented_auc": 0.549414,
+      "passed": true
+    },
+    {
+      "clean_index": 10,
+      "raw_index": 10,
+      "channel": "band11",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.511737,
+      "oriented_auc": 0.511737,
+      "passed": true
+    },
+    {
+      "clean_index": 11,
+      "raw_index": 11,
+      "channel": "band12",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.475446,
+      "oriented_auc": 0.524554,
+      "passed": true
+    },
+    {
+      "clean_index": 12,
+      "raw_index": 12,
+      "channel": "band13",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.471733,
+      "oriented_auc": 0.528267,
+      "passed": true
+    },
+    {
+      "clean_index": 13,
+      "raw_index": 13,
+      "channel": "band14",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.48382,
+      "oriented_auc": 0.51618,
+      "passed": true
+    },
+    {
+      "clean_index": 14,
+      "raw_index": 14,
+      "channel": "band15",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.496295,
+      "oriented_auc": 0.503705,
+      "passed": true
+    },
+    {
+      "clean_index": 15,
+      "raw_index": 15,
+      "channel": "band16",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.563879,
+      "oriented_auc": 0.563879,
+      "passed": true
+    },
+    {
+      "clean_index": 16,
+      "raw_index": 16,
+      "channel": "band17",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.483353,
+      "oriented_auc": 0.516647,
+      "passed": true
+    },
+    {
+      "clean_index": 17,
+      "raw_index": 17,
+      "channel": "band18",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.462594,
+      "oriented_auc": 0.537406,
+      "passed": true
+    },
+    {
+      "clean_index": 18,
+      "raw_index": 18,
+      "channel": "band19",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.552415,
+      "oriented_auc": 0.552415,
+      "passed": true
+    },
+    {
+      "clean_index": 19,
+      "raw_index": 19,
+      "channel": "curv_s1",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.568555,
+      "oriented_auc": 0.568555,
+      "passed": true
+    },
+    {
+      "clean_index": 20,
+      "raw_index": 20,
+      "channel": "curv_s2",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.586868,
+      "oriented_auc": 0.586868,
+      "passed": true
+    },
+    {
+      "clean_index": 21,
+      "raw_index": 21,
+      "channel": "ridge_s1",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.48698,
+      "oriented_auc": 0.51302,
+      "passed": true
+    },
+    {
+      "clean_index": 22,
+      "raw_index": 22,
+      "channel": "ridge_s2",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.489357,
+      "oriented_auc": 0.510643,
+      "passed": true
+    },
+    {
+      "clean_index": 23,
+      "raw_index": 23,
+      "channel": "ridge_s3",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.488031,
+      "oriented_auc": 0.511969,
+      "passed": true
+    },
+    {
+      "clean_index": 24,
+      "raw_index": 24,
+      "channel": "relief5",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.56143,
+      "oriented_auc": 0.56143,
+      "passed": true
+    },
+    {
+      "clean_index": 25,
+      "raw_index": 25,
+      "channel": "tophat2",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.473895,
+      "oriented_auc": 0.526105,
+      "passed": true
+    },
+    {
+      "clean_index": 26,
+      "raw_index": 26,
+      "channel": "tmi_edge",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.521606,
+      "oriented_auc": 0.521606,
+      "passed": true
+    },
+    {
+      "clean_index": 27,
+      "raw_index": 27,
+      "channel": "rtp_edge",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.526527,
+      "oriented_auc": 0.526527,
+      "passed": true
+    },
+    {
+      "clean_index": 28,
+      "raw_index": 28,
+      "channel": "grav_edge",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.536531,
+      "oriented_auc": 0.536531,
+      "passed": true
+    },
+    {
+      "clean_index": 29,
+      "raw_index": 29,
+      "channel": "cond_edge",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.497788,
+      "oriented_auc": 0.502212,
+      "passed": true
+    },
+    {
+      "clean_index": 30,
+      "raw_index": 30,
+      "channel": "depth_grad",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.526309,
+      "oriented_auc": 0.526309,
+      "passed": true
+    },
+    {
+      "clean_index": 31,
+      "raw_index": 31,
+      "channel": "coherence_s2",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.562821,
+      "oriented_auc": 0.562821,
+      "passed": true
+    },
+    {
+      "clean_index": 32,
+      "raw_index": 32,
+      "channel": "strike_cos",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.570776,
+      "oriented_auc": 0.570776,
+      "passed": true
+    },
+    {
+      "clean_index": 33,
+      "raw_index": 33,
+      "channel": "strike_sin",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.536999,
+      "oriented_auc": 0.536999,
+      "passed": true
+    },
+    {
+      "clean_index": 34,
+      "raw_index": 34,
+      "channel": "footprint",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.5,
+      "oriented_auc": 0.5,
+      "passed": true
+    },
+    {
+      "clean_index": 35,
+      "raw_index": 35,
+      "channel": "grav_hgrad_kneg_s12",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.530884,
+      "oriented_auc": 0.530884,
+      "passed": true
+    },
+    {
+      "clean_index": 36,
+      "raw_index": 36,
+      "channel": "grav_hgrad_kneg_s25",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.538,
+      "oriented_auc": 0.538,
+      "passed": true
+    },
+    {
+      "clean_index": 37,
+      "raw_index": 37,
+      "channel": "rtp_hgrad_kneg_s12",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.51675,
+      "oriented_auc": 0.51675,
+      "passed": true
+    },
+    {
+      "clean_index": 38,
+      "raw_index": 38,
+      "channel": "rtp_hgrad_kneg_s25",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.521966,
+      "oriented_auc": 0.521966,
+      "passed": true
+    },
+    {
+      "clean_index": 39,
+      "raw_index": 39,
+      "channel": "pf_curv_strike_concord",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.525406,
+      "oriented_auc": 0.525406,
+      "passed": true
+    },
+    {
+      "clean_index": 40,
+      "raw_index": 40,
+      "channel": "grav_saddle_polarity",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.550982,
+      "oriented_auc": 0.550982,
+      "passed": true
+    },
+    {
+      "clean_index": 41,
+      "raw_index": 41,
+      "channel": "roest_as_shallow_basin",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.512261,
+      "oriented_auc": 0.512261,
+      "passed": true
+    },
+    {
+      "clean_index": 42,
+      "raw_index": 42,
+      "channel": "mag_demag_trough",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.508691,
+      "oriented_auc": 0.508691,
+      "passed": true
+    },
+    {
+      "clean_index": 43,
+      "raw_index": 43,
+      "channel": "k_th_potassic_excess",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.459329,
+      "oriented_auc": 0.540671,
+      "passed": true
+    },
+    {
+      "clean_index": 44,
+      "raw_index": 44,
+      "channel": "cond_nuisance_resid_edge",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.566122,
+      "oriented_auc": 0.566122,
+      "passed": true
+    },
+    {
+      "clean_index": 45,
+      "raw_index": 45,
+      "channel": "gdr_geotherm_upflow",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.501292,
+      "oriented_auc": 0.501292,
+      "passed": true
+    },
+    {
+      "clean_index": 46,
+      "raw_index": 46,
+      "channel": "hydrothermal_breach_index",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.544183,
+      "oriented_auc": 0.544183,
+      "passed": true
+    },
+    {
+      "clean_index": 47,
+      "raw_index": 47,
+      "channel": "lidar_valid_flag",
+      "in_mgap_91": false,
+      "in_msubspace_34": false,
+      "raw_auc": 0.507621,
+      "oriented_auc": 0.507621,
+      "passed": true
+    },
+    {
+      "clean_index": 48,
+      "raw_index": 48,
+      "channel": "lidar_tectonic_dipole",
+      "in_mgap_91": false,
+      "in_msubspace_34": false,
+      "raw_auc": 0.530906,
+      "oriented_auc": 0.530906,
+      "passed": true
+    },
+    {
+      "clean_index": 49,
+      "raw_index": 49,
+      "channel": "lahontan_contour_orthog",
+      "in_mgap_91": false,
+      "in_msubspace_34": false,
+      "raw_auc": 0.543102,
+      "oriented_auc": 0.543102,
+      "passed": true
+    },
+    {
+      "clean_index": 50,
+      "raw_index": 50,
+      "channel": "lidar_lahontan_debiased",
+      "in_mgap_91": false,
+      "in_msubspace_34": false,
+      "raw_auc": 0.536129,
+      "oriented_auc": 0.536129,
+      "passed": true
+    },
+    {
+      "clean_index": 51,
+      "raw_index": 51,
+      "channel": "piedmont_burial_index",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.459884,
+      "oriented_auc": 0.540116,
+      "passed": true
+    },
+    {
+      "clean_index": 52,
+      "raw_index": 52,
+      "channel": "transtensional_obliquity",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.551195,
+      "oriented_auc": 0.551195,
+      "passed": true
+    },
+    {
+      "clean_index": 53,
+      "raw_index": 53,
+      "channel": "up150_basement_persistence",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.519281,
+      "oriented_auc": 0.519281,
+      "passed": true
+    },
+    {
+      "clean_index": 54,
+      "raw_index": 54,
+      "channel": "spcp_unsup_composite",
+      "in_mgap_91": false,
+      "in_msubspace_34": false,
+      "raw_auc": 0.535612,
+      "oriented_auc": 0.535612,
+      "passed": true
+    },
+    {
+      "clean_index": 55,
+      "raw_index": 55,
+      "channel": "gdr_2m_dab_plume",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.526869,
+      "oriented_auc": 0.526869,
+      "passed": true
+    },
+    {
+      "clean_index": 56,
+      "raw_index": 56,
+      "channel": "gdr_2m_vert_grad",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.522653,
+      "oriented_auc": 0.522653,
+      "passed": true
+    },
+    {
+      "clean_index": 57,
+      "raw_index": 57,
+      "channel": "gdr_paleo_sinter_vent",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.489891,
+      "oriented_auc": 0.510109,
+      "passed": true
+    },
+    {
+      "clean_index": 58,
+      "raw_index": 58,
+      "channel": "vent_conduit_coupling",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.564349,
+      "oriented_auc": 0.564349,
+      "passed": true
+    },
+    {
+      "clean_index": 59,
+      "raw_index": 59,
+      "channel": "tiger_road_clean_gate",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.483431,
+      "oriented_auc": 0.516569,
+      "passed": true
+    },
+    {
+      "clean_index": 60,
+      "raw_index": 60,
+      "channel": "lidar_tiger_lahontan_clean",
+      "in_mgap_91": false,
+      "in_msubspace_34": false,
+      "raw_auc": 0.526507,
+      "oriented_auc": 0.526507,
+      "passed": true
+    },
+    {
+      "clean_index": 61,
+      "raw_index": 61,
+      "channel": "mag_up150_contact_persist",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.520682,
+      "oriented_auc": 0.520682,
+      "passed": true
+    },
+    {
+      "clean_index": 62,
+      "raw_index": 62,
+      "channel": "geod_strain_pf_obliquity",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.535366,
+      "oriented_auc": 0.535366,
+      "passed": true
+    },
+    {
+      "clean_index": 63,
+      "raw_index": 63,
+      "channel": "lineament_density_multi_km_km2",
+      "in_mgap_91": false,
+      "in_msubspace_34": false,
+      "raw_auc": 0.521601,
+      "oriented_auc": 0.521601,
+      "passed": true
+    },
+    {
+      "clean_index": 64,
+      "raw_index": 64,
+      "channel": "lineament_intersection_relay",
+      "in_mgap_91": false,
+      "in_msubspace_34": false,
+      "raw_auc": 0.560984,
+      "oriented_auc": 0.560984,
+      "passed": true
+    },
+    {
+      "clean_index": 65,
+      "raw_index": 65,
+      "channel": "getis_ord_gi_star_r500_r1200",
+      "in_mgap_91": false,
+      "in_msubspace_34": false,
+      "raw_auc": 0.523285,
+      "oriented_auc": 0.523285,
+      "passed": true
+    },
+    {
+      "clean_index": 66,
+      "raw_index": 66,
+      "channel": "bivariate_moran_grav_topo",
+      "in_mgap_91": false,
+      "in_msubspace_34": false,
+      "raw_auc": 0.546911,
+      "oriented_auc": 0.546911,
+      "passed": true
+    },
+    {
+      "clean_index": 67,
+      "raw_index": 67,
+      "channel": "wavelet_ricker_multiscale_1_4km",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.506801,
+      "oriented_auc": 0.506801,
+      "passed": true
+    },
+    {
+      "clean_index": 68,
+      "raw_index": 68,
+      "channel": "bouguer_svd_inflection_wall",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.522906,
+      "oriented_auc": 0.522906,
+      "passed": true
+    },
+    {
+      "clean_index": 69,
+      "raw_index": 69,
+      "channel": "upward_crest_dip_vent_asymmetry",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.525846,
+      "oriented_auc": 0.525846,
+      "passed": true
+    },
+    {
+      "clean_index": 70,
+      "raw_index": 70,
+      "channel": "ldgi_corridor_unsup_composite",
+      "in_mgap_91": false,
+      "in_msubspace_34": false,
+      "raw_auc": 0.526924,
+      "oriented_auc": 0.526924,
+      "passed": true
+    },
+    {
+      "clean_index": 71,
+      "raw_index": 71,
+      "channel": "grav_uc500_2k_persist",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.521143,
+      "oriented_auc": 0.521143,
+      "passed": true
+    },
+    {
+      "clean_index": 72,
+      "raw_index": 72,
+      "channel": "rtp_uc500_2k_persist",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.516132,
+      "oriented_auc": 0.516132,
+      "passed": true
+    },
+    {
+      "clean_index": 73,
+      "raw_index": 73,
+      "channel": "basement_dip_shift_asymm",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.526059,
+      "oriented_auc": 0.526059,
+      "passed": true
+    },
+    {
+      "clean_index": 74,
+      "raw_index": 74,
+      "channel": "geodawn_blk_radon_crest",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.530412,
+      "oriented_auc": 0.530412,
+      "passed": true
+    },
+    {
+      "clean_index": 75,
+      "raw_index": 75,
+      "channel": "geodawn_blk_silica_potassic_dog",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.524904,
+      "oriented_auc": 0.524904,
+      "passed": true
+    },
+    {
+      "clean_index": 76,
+      "raw_index": 76,
+      "channel": "blm_epithermal_conduit_corrob",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.528595,
+      "oriented_auc": 0.528595,
+      "passed": true
+    },
+    {
+      "clean_index": 77,
+      "raw_index": 77,
+      "channel": "morris_slip_dilation_obliq",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.55675,
+      "oriented_auc": 0.55675,
+      "passed": true
+    },
+    {
+      "clean_index": 78,
+      "raw_index": 78,
+      "channel": "ctx_subsurf_aniso_500_1500m",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.536142,
+      "oriented_auc": 0.536142,
+      "passed": true
+    },
+    {
+      "clean_index": 79,
+      "raw_index": 79,
+      "channel": "ctx_subsurf_prominence_3km",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.539454,
+      "oriented_auc": 0.539454,
+      "passed": true
+    },
+    {
+      "clean_index": 80,
+      "raw_index": 80,
+      "channel": "ctx_multimodal_corrob_2km",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.535268,
+      "oriented_auc": 0.535268,
+      "passed": true
+    },
+    {
+      "clean_index": 81,
+      "raw_index": 81,
+      "channel": "ctx_lidar_aniso_chain_1km",
+      "in_mgap_91": false,
+      "in_msubspace_34": false,
+      "raw_auc": 0.537673,
+      "oriented_auc": 0.537673,
+      "passed": true
+    },
+    {
+      "clean_index": 82,
+      "raw_index": 82,
+      "channel": "fbgr_unsup_conduit_crest",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.537005,
+      "oriented_auc": 0.537005,
+      "passed": true
+    },
+    {
+      "clean_index": 83,
+      "raw_index": 83,
+      "channel": "grav_vec_div_crest",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.532779,
+      "oriented_auc": 0.532779,
+      "passed": true
+    },
+    {
+      "clean_index": 84,
+      "raw_index": 85,
+      "channel": "piedmont_horst_step_spine",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.525006,
+      "oriented_auc": 0.525006,
+      "passed": true
+    },
+    {
+      "clean_index": 85,
+      "raw_index": 86,
+      "channel": "transtensional_accommodation_bridge",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.564619,
+      "oriented_auc": 0.564619,
+      "passed": true
+    },
+    {
+      "clean_index": 86,
+      "raw_index": 87,
+      "channel": "hydrothermal_claycap_radon_vent",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.54539,
+      "oriented_auc": 0.54539,
+      "passed": true
+    },
+    {
+      "clean_index": 87,
+      "raw_index": 88,
+      "channel": "bhgc_farfield_structural_spine",
+      "in_mgap_91": false,
+      "in_msubspace_34": false,
+      "raw_auc": 0.536279,
+      "oriented_auc": 0.536279,
+      "passed": true
+    },
+    {
+      "clean_index": 88,
+      "raw_index": 89,
+      "channel": "comcat_brittle_hypocenter_density",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.535827,
+      "oriented_auc": 0.535827,
+      "passed": true
+    },
+    {
+      "clean_index": 89,
+      "raw_index": 90,
+      "channel": "comcat_post2021_lineament_bridge",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.528632,
+      "oriented_auc": 0.528632,
+      "passed": true
+    },
+    {
+      "clean_index": 90,
+      "raw_index": 91,
+      "channel": "gdr_blind_geotherm_disequilibrium",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.536801,
+      "oriented_auc": 0.536801,
+      "passed": true
+    },
+    {
+      "clean_index": 91,
+      "raw_index": 92,
+      "channel": "cond_radon_upflow_gradient",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.542205,
+      "oriented_auc": 0.542205,
+      "passed": true
+    },
+    {
+      "clean_index": 92,
+      "raw_index": 93,
+      "channel": "seamless_10m_piedmont_apron_scarp",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.584757,
+      "oriented_auc": 0.584757,
+      "passed": true
+    },
+    {
+      "clean_index": 93,
+      "raw_index": 94,
+      "channel": "piedmont_chi_gravity_concordance",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.515948,
+      "oriented_auc": 0.515948,
+      "passed": true
+    },
+    {
+      "clean_index": 94,
+      "raw_index": 95,
+      "channel": "strain_kinematic_reactivation_index",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.569891,
+      "oriented_auc": 0.569891,
+      "passed": true
+    },
+    {
+      "clean_index": 95,
+      "raw_index": 96,
+      "channel": "cshd_piedmont_geothermal_conduit_crest",
+      "in_mgap_91": true,
+      "in_msubspace_34": false,
+      "raw_auc": 0.568377,
+      "oriented_auc": 0.568377,
+      "passed": true
+    },
+    {
+      "clean_index": 96,
+      "raw_index": 97,
+      "channel": "wchd_true_rtp_tmi_tilt_contact_wall",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.521491,
+      "oriented_auc": 0.521491,
+      "passed": true
+    },
+    {
+      "clean_index": 97,
+      "raw_index": 98,
+      "channel": "wchd_poisson_listric_updip_trace",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.548986,
+      "oriented_auc": 0.548986,
+      "passed": true
+    },
+    {
+      "clean_index": 98,
+      "raw_index": 99,
+      "channel": "wchd_joint_grav_rtp_phase_congruency",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.526231,
+      "oriented_auc": 0.526231,
+      "passed": true
+    },
+    {
+      "clean_index": 99,
+      "raw_index": 100,
+      "channel": "wchd_hydro_demag_kth_adularia_corridor",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.493965,
+      "oriented_auc": 0.506035,
+      "passed": true
+    },
+    {
+      "clean_index": 100,
+      "raw_index": 101,
+      "channel": "wchd_morris_dilation_slip_tendency",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.587571,
+      "oriented_auc": 0.587571,
+      "passed": true
+    },
+    {
+      "clean_index": 101,
+      "raw_index": 102,
+      "channel": "wchd_horst_cross_divide_tilt_footwall",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.562285,
+      "oriented_auc": 0.562285,
+      "passed": true
+    },
+    {
+      "clean_index": 102,
+      "raw_index": 103,
+      "channel": "wchd_updip_blind_geotherm_seismic_bridge",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.543019,
+      "oriented_auc": 0.543019,
+      "passed": true
+    },
+    {
+      "clean_index": 103,
+      "raw_index": 104,
+      "channel": "wchd_unified_updip_conduit_crest",
+      "in_mgap_91": true,
+      "in_msubspace_34": true,
+      "raw_auc": 0.583537,
+      "oriented_auc": 0.583537,
+      "passed": true
+    }
+  ]
+}
