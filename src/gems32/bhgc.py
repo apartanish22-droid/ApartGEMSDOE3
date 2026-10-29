@@ -59,7 +59,7 @@ AXIAL_MIN_SEP_PX: float = 3.22
 
 BHGC_EXTRA_CHANNELS: tuple[str, ...] = (
     "grav_vec_div_crest",                 # 0 (global 83): Laplace-Harmonic div(Band18,Band11) = -d2g/dz2 + Blakely-Simpson crest
-    "mag_tilt_zerocross_wall",            # 1 (global 84): Miller-Singh Band 6 tilt zero-crossing x Band 3/9 magnetic wall
+    "mag_tilt_zerocross_wall",            # 1 (global 84): Miller-Singh Band 2/3/9 magnetic tilt zero-crossing wall (IR-BHGC-BAND6-01 fixed)
     "piedmont_horst_step_spine",          # 2 (global 85): Multi-scale Band 12/19 Hessian ridge + piedmont-toe step (Lahontan-vetoed)
     "transtensional_accommodation_bridge",# 3 (global 86): Geodetic shear/dilatation (Bands 4,7,8) x seismic swarm (Bands 10,16) bridge
     "hydrothermal_claycap_radon_vent",    # 4 (global 87): MT clay-cap edge (Band 17) + 4-block 214Bi radon + GDR 2m/sinter vent
@@ -106,9 +106,11 @@ def build_bhgc_extra_stack(
     receipt_path = out_path.with_suffix(".json")
 
     if out_path.exists() and receipt_path.exists() and not force:
-        mm = open_memmap(out_path, mode="r")
-        if mm.shape[2] == len(BHGC_EXTRA_CHANNELS):
-            return mm, json.loads(receipt_path.read_text())
+        rec_existing = json.loads(receipt_path.read_text())
+        if rec_existing.get("schema_version", 1) >= 2:
+            mm = open_memmap(out_path, mode="r")
+            if mm.shape[2] == len(BHGC_EXTRA_CHANNELS):
+                return mm, rec_existing
 
     with rasterio.open(ddir / "sample_submission.tif") as src:
         sample = src.read(1)
@@ -192,20 +194,20 @@ def build_bhgc_extra_stack(
     gc.collect()
     log("  [BHGC] ch 0 (Laplace-Harmonic gravity vector divergence + Blakely-Simpson crest) built")
 
-    # --- Ch 1: Miller-Singh / Verduzco Magnetic Tilt Zero-Crossing Contact Wall ---
-    tc_band = _clean_base(5)   # Band 06: tc (magnetic tilt/total curvature)
-    tmi_hg = _clean_base(2)    # Band 03: tmi_hg
-    tmi_vg = _clean_base(8)    # Band 09: tmi_vg
+    # --- Ch 1: Miller-Singh / Verduzco Magnetic Tilt Zero-Crossing Contact Wall (FIXED v2: Band 2/3/9, NO Band 6 tc) ---
+    rtp_band = _clean_base(1)  # Band 02: rtp (Reduced-to-Pole magnetic anomaly; replaces Band 6 radiometric TC per IR-CTHG-BAND6-TC-02)
+    tmi_hg = np.maximum(_clean_base(2), np.float32(0.0))  # Band 03: tmi_hg (verified r=+0.9877 with ||grad_h(TMI)||)
+    tmi_vg = _clean_base(8)    # Band 09: tmi_vg (verified r=+0.9323 with Fourier d(TMI)/dz)
     rtp_edge = np.asarray(base_mm[:, :, 27], dtype=np.float32)
 
-    tc_med = np.float32(np.median(tc_band[foot][::4]))
-    tc_mad = np.float32(max(float(np.median(np.abs(tc_band[foot][::4] - tc_med))) * 1.4826, 1.0))
-    # Zero-crossing wall of tilt + horizontal gradient of tilt
-    tc_gx, tc_gy = _sobel_xy_f32(tc_band, sigma=1.2)
-    u_tc_grad = spcp.robust_unit_f32(np.hypot(tc_gx, tc_gy), foot, pct=99.4)
-    del tc_gx, tc_gy
-    tc_zero_wall = np.exp(-np.abs(tc_band - tc_med) / (np.float32(0.75) * tc_mad)).astype(np.float32)
-    del tc_band
+    hg_med = np.float32(max(float(np.median(tmi_hg[foot][::4])), 1e-4))
+    vg_mad = np.float32(max(float(np.median(np.abs(tmi_vg[foot][::4] - np.median(tmi_vg[foot][::4])))) * 1.4826, 1e-4))
+    theta_mag = np.arctan2(tmi_vg / vg_mad, (tmi_hg / hg_med) + np.float32(0.12)).astype(np.float32)
+    tilt_gx, tilt_gy = _sobel_xy_f32(theta_mag, sigma=1.2)
+    u_tilt_grad = spcp.robust_unit_f32(np.hypot(tilt_gx, tilt_gy), foot, pct=99.4)
+    del tilt_gx, tilt_gy, rtp_band
+    tilt_zero_wall = (np.float32(1.0) / np.cosh(np.clip(theta_mag / np.float32(0.42), -8.0, 8.0)) ** 2).astype(np.float32)
+    del theta_mag
 
     u_tmi_hg = spcp.robust_unit_f32(tmi_hg, foot, pct=99.4)
     u_tmi_vg = spcp.robust_unit_f32(np.abs(tmi_vg), foot, pct=99.4)
@@ -219,15 +221,15 @@ def build_bhgc_extra_stack(
     del kneg_mag
 
     mag_tilt_wall = spcp.robust_unit_f32(
-        (np.float32(0.38) * u_tmi_hg + np.float32(0.28) * u_rtp_edge + np.float32(0.20) * u_kneg_mag + np.float32(0.14) * u_tc_grad)
-        * (np.float32(0.45) + np.float32(0.35) * tc_zero_wall + np.float32(0.20) * u_tmi_vg),
+        (np.float32(0.38) * u_tmi_hg + np.float32(0.28) * u_rtp_edge + np.float32(0.20) * u_kneg_mag + np.float32(0.14) * u_tilt_grad)
+        * (np.float32(0.45) + np.float32(0.35) * tilt_zero_wall + np.float32(0.20) * u_tmi_vg),
         foot,
         pct=99.5,
     )
     mm[:, :, 1] = mag_tilt_wall
-    del u_tmi_hg, u_tmi_vg, u_rtp_edge, u_kneg_mag, u_tc_grad, tc_zero_wall
+    del u_tmi_hg, u_tmi_vg, u_rtp_edge, u_kneg_mag, u_tilt_grad, tilt_zero_wall
     gc.collect()
-    log("  [BHGC] ch 1 (Miller-Singh magnetic tilt zero-crossing contact wall) built")
+    log("  [BHGC] ch 1 (Miller-Singh magnetic tilt zero-crossing contact wall — v2 Band 2/3/9, Band 6 tc removed) built")
 
     # --- Ch 2: Multi-Scale Piedmont-Horst Bedrock Contact Spine (100% 1m LiDAR-free) ---
     det_elev = _clean_base(11)    # Band 12: det_elev
@@ -411,15 +413,21 @@ def build_bhgc_extra_stack(
     gc.collect()
 
     meta: dict[str, Any] = {
+        "schema_version": 2,
+        "band6_tc_bug_fixed": True,
         "channels": list(BHGC_EXTRA_CHANNELS),
         "shape": [h, w, len(BHGC_EXTRA_CHANNELS)],
         "dtype": "float32",
         "label_free": True,
         "native_gravity_vector_bands": ["Band 18 (iso_grav_anom_hg = dg/dx)", "Band 11 (iso_grav_anom_vg = dg/dy)"],
+        "magnetic_tilt_bands": ["Band 9 (tmi_vg)", "Band 3 (tmi_hg)", "Band 2 (rtp)"],
         "total_channels_with_template": 89,
         "msub_pure_non_lidar_col_count": len(MSUB_89_COL_INDICES),
     }
     receipt_path.write_text(json.dumps(meta, indent=2) + "\n")
+    reg_rec_p = Path(__file__).resolve().parents[2] / "registry" / "bhgc_feature_receipt.json"
+    if reg_rec_p.parent.exists():
+        reg_rec_p.write_text(json.dumps(meta, indent=2) + "\n")
     log("  [BHGC] ch 5 (Unified Bi-Population Structural-Geothermal Far-Field Crest Spine) built")
     return open_memmap(out_path, mode="r"), meta
 

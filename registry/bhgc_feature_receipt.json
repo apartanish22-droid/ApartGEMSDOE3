@@ -1,4 +1,6 @@
 {
+  "schema_version": 2,
+  "band6_tc_bug_fixed": true,
   "channels": [
     "grav_vec_div_crest",
     "mag_tilt_zerocross_wall",
@@ -17,6 +19,11 @@
   "native_gravity_vector_bands": [
     "Band 18 (iso_grav_anom_hg = dg/dx)",
     "Band 11 (iso_grav_anom_vg = dg/dy)"
+  ],
+  "magnetic_tilt_bands": [
+    "Band 9 (tmi_vg)",
+    "Band 3 (tmi_hg)",
+    "Band 2 (rtp)"
   ],
   "total_channels_with_template": 89,
   "msub_pure_non_lidar_col_count": 76

@@ -90,8 +90,8 @@ def test_promoted_cshd_geotiff_binary_portal_safety() -> None:
 
 
 def test_cshd_pareto_dominance_and_paired_cis_positive() -> None:
-    """Verify H-APART3-2 beats 0.2778 Champion on HR, Detached>=600m, and SGMC with BOTH paired 95% CIs > 0."""
-    card = _strict_json_load(ROOT / "run_card.json")
+    """Verify archived H-APART3-2 CSHD card beats 0.2778 Champion on HR, Detached>=600m, and SGMC."""
+    card = _strict_json_load(ROOT / "evidence" / "cshd_run_card.json")
     exp = _strict_json_load(ROOT / "evidence" / "cshd_experiments.json")
 
     assert card["candidate_id"] == "H-APART3-2-CSHD"
@@ -133,7 +133,7 @@ def test_cshd_784_raster_uniqueness_and_rfc8259_json_hygiene() -> None:
     """Verify Step A (<=0.90) & Step B (<=0.70) across 784 unique rasters and strict JSON/path hygiene."""
     scan = _strict_json_load(ROOT / "registry" / "registry_uniqueness_scan_20261028.json")
     nine = _strict_json_load(ROOT / "evidence" / "nine_site_refreshed_audit_20261028.json")
-    card = _strict_json_load(ROOT / "run_card.json")
+    card = _strict_json_load(ROOT / "evidence" / "cshd_run_card.json")
     _strict_json_load(ROOT / "docs" / "assets" / "site-data.json")
     _strict_json_load(ROOT / "registry" / "irregularities.json")
 

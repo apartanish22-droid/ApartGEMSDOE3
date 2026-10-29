@@ -375,10 +375,10 @@ tr.row-highlight td {
   <div class="topbar-inner">
     <div class="brand">
       <span class="brand-badge">APARTGEMSDOE3 · PROMOTED</span>
-      <span>DOE GEMS Fault Detection · H-APART3-2 (CSHD)</span>
+      <span>DOE GEMS Fault Detection · H-APART3-3 (WCHD)</span>
     </div>
     <nav class="nav-links">
-      <a href="index.html" class="">Overview & Download</a><a href="executive-summary.html" class="">Executive Summary (9-Site Audit)</a><a href="research.html" class="active">Why 0.2778 Won & 0.3195/0.4437 Anatomy</a><a href="hypotheses.html" class="">5 Hypotheses & 3 Ablations</a><a href="leaderboard.html" class="">784-Raster Uniqueness & Leaderboard</a><a href="sources.html" class="">Official Sources, Irregularities & Run Card</a><a href="downloads/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif" class="nav-cta" download>⬇ Download Validated .TIF (215 KB)</a>
+      <a href="index.html" class="">Overview & Download</a><a href="executive-summary.html" class="">Executive Summary (9-Site Audit)</a><a href="research.html" class="active">Why 0.2778 Won & 0.3195/0.4437 Anatomy</a><a href="hypotheses.html" class="">5 Hypotheses & 3 Ablations</a><a href="leaderboard.html" class="">942-Raster Uniqueness & Leaderboard</a><a href="sources.html" class="">Official Sources, Irregularities & Run Card</a><a href="downloads/apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif" class="nav-cta" download>⬇ Download Validated .TIF (217 KB)</a>
     </nav>
   </div>
 </header>
@@ -454,34 +454,34 @@ tr.row-highlight td {
     </div>
 
     <div class="section">
-      <h2>2. How Top Public Leaderboard Entries Reached <code>0.3195</code> / <code>0.4413</code> / <code>0.4437</code> &amp; How <code>H-APART3-2 (CSHD)</code> Advances Toward Them</h2>
+      <h2>2. How Top Public Leaderboard Entries Reached <code>0.3195</code> / <code>0.4413</code> / <code>0.4437</code> &amp; How <code>H-APART3-3 (WCHD)</code> Advances Toward Them</h2>
       <p>
         Timestamped public leaderboard snapshots in <code>registry/leaderboard_history.jsonl</code> record early-October reference <code>0.3195</code> (rank #3, DARD), 2026-10-25 top <code>0.4413</code>, and 2026-10-26 top <code>0.4437</code> (xiaofanhu). Our structural decomposition of the <code>5,106,385</code> non-catalogue pixels and 111 live-scored rasters identifies four physical bottlenecks that capped <code>H19-5 / e5eb6e7e</code> at <code>0.2778</code>:
       </p>
       <ol>
         <li>
-          <strong>100% Seamless Piedmont-Chi Coverage Across the 24.63% 1 m LiDAR Gap:</strong>
-          <code>H19-5</code> degraded across the <code>24.63%</code> NW/NE 1 m LiDAR missing-data gap. <code>H-APART3-2 (CSHD)</code> fuses 100%-coverage USGS 3DEP 10 m slope, planform curvature, and drainage-divide fluvial <code>&chi;</code> with harmonic basement gravity inside an 84-channel strictly LiDAR-free <code>M_Gap</code> model (`21.08%` of dots placed cleanly in the LiDAR gap).
+          <strong>4-Altitude Listric Contact-Dip Updip Projection onto Concealed Sub-Alluvial Traces (<code>wchd_ch1</code>):</strong>
+          For a Basin-and-Range normal fault dipping basinward at <code>&delta; &in; [45&deg;, 65&deg;]</code>, upward-continued gravity horizontal-gradient crests across <code>z &in; {200, 600, 1500, 3000} m</code> migrate downdip into the hanging wall by <code>&Delta;x(z) &approx; z cot &delta;</code>. Projecting deep hanging-wall gravity roots updip along <code>-&nabla;D_base / ||&nabla;D_base||</code> recovers concealed range-front fault traces buried <code>150–600 m</code> beneath prograding alluvial fans while cancelling vertical volcanic dikes (<code>&Delta;x(z) = 0</code>).
         </li>
         <li>
-          <strong>Subsurface Blind Geothermal &amp; Post-2021 Seismogenic Conduits:</strong>
-          Over 40% of Great Basin geothermal resources are blind (no surface hot spring or mapped Quaternary scarp). <code>CSHD</code> introduces two completely untried physical signals: (a) <strong>653 blind cold-discharge wells/springs</strong> from DOE GDR #1391 (`T_meas &lt; 45&deg;C` masking `T_SiO2/NaKCa &gt; 85–180&deg;C` deep upflow disequilibrium, <code>1.78&times;</code> enriched outside steep range-front slope masks), and (b) <strong>486 post-2021 USGS ANSS ComCat microearthquakes</strong> imaged via local covariance-eigenvector fault-strike lineaments.
+          <strong>Repaired True-RTP Magnetic Tilt Walls &amp; Magnetite-Destruction &times; 4-Block Adularia (<code>wchd_ch0, wchd_ch2, wchd_ch3</code>):</strong>
+          Prior stacks suffered from <code>IR-BHGC-BAND6-01</code> (treating <code>Band 6 tc</code> radiometric Total Count as magnetic tilt). Repairing shared <code>src/gems32/bhgc.py</code> (<code>v2</code>) and adding exact 2D Fourier vertical-derivative RTP + <code>Band 9/3</code> TMI tilt plus titanomagnetite-destruction troughs &times; 4-contractor-debiased K/eTh adularia lifted <code>EXP-2 (Single104 OOF)</code> to all-time repository records on both <code>HIDE-RECOVER-v3.0</code> (<strong><code>0.120891</code></strong>, <code>+0.02169</code> over 0.2778 Champion) and <code>Detached &ge; 600 m</code> (<strong><code>0.103912</code></strong>).
         </li>
         <li>
-          <strong>Cross-Term-Free Two-Population Envelope <code>max(R(P_cont)^6, 0.834 &middot; R(P_blind)^6)</code>:</strong>
-          Arithmetic-mean and Noisy-OR blends dilute continuation ranks with blind scores and vice versa. Taking the rank-calibrated two-population Bayesian envelope preserves sharp near-tip relay continuation (`HR = 0.109189`, `+10.07%` over Champion) AND blind range-front/intrabasin structures (`SGMC_cal = 0.073177`, `+14.12%` over Champion).
+          <strong>100% Seamless 10 m 3DEP + Potential-Field Routing Across the 24.63% 1 m LiDAR Gap:</strong>
+          Combining 104-ch <code>M_Full</code>, 91-ch LiDAR-free <code>M_Gap</code>, and 34-ch <code>M_Subspace</code> OOF models places <code>9,136</code> dots (<code>24.26%</code>) inside the <code>24.63%</code> NW/NE/checkerboard 1 m LiDAR gap with zero survey boundary steps.
         </li>
         <li>
-          <strong><code>&radic;13</code> Axial Lattice Spacing (<code>d_min = 3.62 px</code>):</strong>
-          Advancing the exclusion disk from <code>d_min = 3.22 px</code> (37-pixel disk) to <code>d_min = 3.62 px</code> (45-pixel disk, excluding distance-<code>&radic;13 = 3.606 px</code> neighbors) eliminates remaining <code>2–3 px</code> kernel overlap waste, increases unique 300 m fault-length coverage per dot (`6.63%` total footprint coverage at `37,654` dots, `0.00%` clumping), and reduces cross-registry 3-px dot overlap below <code>0.70</code> across all 757 genuine discrete rasters.
+          <strong>Two-Population Rank Envelope + Axial Dispersion (<code>d_min = 3.88 px</code>):</strong>
+          Combining <code>max(R(P_cont)^6, 0.828 &middot; R(P_blind)^6)</code> with axial spacing <code>d_min = 3.88 px</code> clears all 914 genuine discrete rasters across 942 unique SHA-256s (<code>68.28% &le; 70%</code> max overlap vs <code>CSHD 37b32d5b</code>) while achieving <code>HR = 0.107220</code> (paired 95% CI <code>[+0.00088, +0.01548] &gt; 0</code>) and <code>SGMC_cal = 0.065975</code> (<code>&gt; 0.064121</code> Champion). Pushing all the way to <code>0.32–0.44</code> requires replacing pixelwise GBDT with a 2-D multi-scale fault-trace U-Net on GPU hardware.
         </li>
       </ol>
     </div>
 
     <div class="section">
-      <h2>3. Four-Panel Diagnostic Figure</h2>
+      <h2>3. Four-Panel Diagnostic Figure (<code>H-APART3-3 WCHD</code>)</h2>
       <div class="fig-box">
-        <img src="assets/fig_cshd_apart3.png" alt="ApartGEMSDOE3 H-APART3-2 CSHD Diagnostic Figure">
+        <img src="assets/fig_wchd_apart3.png" alt="ApartGEMSDOE3 H-APART3-3 WCHD Diagnostic Figure">
       </div>
     </div>
   </main>

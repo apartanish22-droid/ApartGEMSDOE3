@@ -731,7 +731,31 @@
    "severity": "low (verified 2026-10-28)",
    "statement": "Several sibling repo URLs listed in the cross-org prompt (`buffedlizard55-lab/GEMSDOE2`..`9` bare single-digit, `WBGGEMSDOE4`, `KANLERGEMSDOE4`) return HTTP 404 or are empty/unpopulated on GitHub as of 2026-10-28.",
    "mitigation": "Documented exact HTTP status and commit HEADs across all populated `buffedlizard55-lab`, `wbggemsdoe`, `kanlergemsdoe`, and `apartanish22-droid` repositories (`866` total rasters, `784` unique SHA-256s audited)."
+  },
+  {
+   "id": "IR-SASS-OWNER-01",
+   "severity": "medium (FIXED in scripts/restore_pinned_registry.py 2026-10-28)",
+   "statement": "`scripts/restore_pinned_registry.py` referenced non-existent owner `sassasfras46-hue` for `GEMSDOESASS1..3` and omitted the `swgb/` directory prefix where `GEMSDOESASS1` stores `swgb/downloads/gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif`.",
+   "mitigation": "Updated `SIBLING_ORGS` owner to `sassnarep3-star` (`7f87fc64`, `3b21e4e9`, `86874b72`) and added `swgb/`, `artifacts/`, and `releases/` to `PREFIXES`, expanding the live audited manifest to `1,033` entries (`471` focus + `37` extra-scored + `525` sibling-org rasters)."
+  },
+  {
+   "id": "IR-BHGC-BAND6-01",
+   "severity": "high (FIXED in shared src/gems32/bhgc.py v2 2026-10-28)",
+   "statement": "`src/gems32/bhgc.py` previously treated `training_features.tif` Band 6 (`tc`, GeoDAWN radiometric Total Count) as magnetic tilt in `bhgc_extra_6ch.npy` channel 1 (`mag_tilt_zero_wall`), which also flowed transitively into `bhgc` channel 5 (`unified_blind_hydro_spine`, 0.14 weight) and `cshd` channel 7 (`unified_blind_conduit_crest`, 0.13 weight).",
+   "mitigation": "Fixed once in shared `src/gems32/bhgc.py` (`schema_version=2`, `band6_tc_bug_fixed=True`), replacing Band 6 with true Miller-Singh magnetic tilt derived from Band 2 (`rtp` Fourier vertical derivative / horizontal gradient) fused with Band 9 / Band 3 (`tmi` vertical / horizontal gradient), and cleanly rebuilt `bhgc_extra_6ch.npy`, `cshd_extra_8ch.npy`, `wchd_extra_8ch.npy`, and all 24 `wchd` OOF caches."
+  },
+  {
+   "id": "IR-WCHD-BAND6-DROP-01",
+   "severity": "high (FIXED in H-APART3-3 WCHD 2026-10-28)",
+   "statement": "Global column 84 in `CSHD`'s 97-channel supervised matrix corresponded to `bhgc_extra_6ch.npy` channel 1 (`mag_tilt_zero_wall`, previously contaminated by Band 6 `tc`).",
+   "mitigation": "Both repaired shared `src/gems32/bhgc.py` (`v2`) AND excised global column 84 from `H-APART3-3 (WCHD)`'s `CLEAN_104_RAW_COLS` (`104`-ch `M_Full`, `91`-ch `M_Gap`, `34`-ch `M_Subspace`), replacing it with dedicated `wchd_ch0` (`wchd_true_rtp_tmi_tilt_contact_wall`) and `wchd_ch2` (`wchd_joint_grav_rtp_phase_congruency`)."
+  },
+  {
+   "id": "IR-WCHD-STEPB-01",
+   "severity": "low (automated fail-closed gate verified 2026-10-28)",
+   "statement": "An intermediate `WCHD` carrier variant applying `mtn_core_damp` (`depth < 35 m & slope > 14 deg`) suppressed bedrock potential-field/Morris responses and pushed `P_blind` onto the same piedmont aprons as `H-APART3-2 (CSHD)` (`37b32d5b`), tripping Protocol Rule 1 Step B at `0.702422` (`> 0.70`) 3-px dot overlap.",
+   "mitigation": "`scripts/run_wchd_pipeline.py` halted immediately (`exit_code=1`) before writing any GeoTIFF, logged the trip in `evidence/wchd_experiment_ledger.json`, and restored the pure `WCHD` potential-field/Morris/magnetite-destruction/updip carrier (`d_min=3.88`), reducing worst genuine 3-px overlap across all `942` unique rasters to `0.682823 <= 0.70` (`b3dbc603`)."
   }
  ],
- "updated_utc": "2026-10-28T10:15:00Z"
+ "updated_utc": "2026-10-29T01:45:00Z"
 }

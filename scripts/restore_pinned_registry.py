@@ -59,9 +59,9 @@ SIBLING_REPOS = [
     ("ginnymcfiner23-ux", "GINNYGEMSDOE1"),
     ("ginnymcfiner23-ux", "GINNYGEMSDOE2"),
     ("ginnymcfiner23-ux", "GINNYGEMSDOE3"),
-    ("sassasfras46-hue", "GEMSDOESASS1"),
-    ("sassasfras46-hue", "GEMSDOESASS2"),
-    ("sassasfras46-hue", "GEMSDOESASS3"),
+    ("sassnarep3-star", "GEMSDOESASS1"),
+    ("sassnarep3-star", "GEMSDOESASS2"),
+    ("sassnarep3-star", "GEMSDOESASS3"),
     ("buffedlizard55-lab", "GEMSDOE49"),
     ("buffedlizard55-lab", "GEMSDOE63"),
     ("buffedlizard55-lab", "GEMSDOE70"),
@@ -70,7 +70,7 @@ SIBLING_REPOS = [
     ("buffedlizard55-lab", "GEMSDOE91"),
     ("buffedlizard55-lab", "GEMSDOE92"),
 ]
-PREFIXES = ("docs/", "inputs/", "archive/", "evidence/", "submission/", "submissions/", "outputs/")
+PREFIXES = ("docs/", "inputs/", "archive/", "evidence/", "submission/", "submissions/", "outputs/", "swgb/", "artifacts/", "releases/")
 MAX_BYTES = 8_000_000
 
 
