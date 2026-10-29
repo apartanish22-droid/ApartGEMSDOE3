@@ -1,16 +1,16 @@
 {
-  "candidate_id": "H-APART3-3-WCHD",
-  "slug": "apart3-wchd-dual104-axial388-37654",
-  "content_digest8": "b3dbc603",
-  "description": "H-APART3-3 (WCHD) 4-Altitude Poisson Contact-Dip Updip Projection, Repaired Fourier RTP/TMI Tilt, Magnetite-Destruction x 4-Block K/eTh Adularia, Morris Dilation & 104/91/34ch Dual-Subspace CELF (37,654 dots, B=2, d=3.88)",
-  "submission_note_zeros": "Apart3 H-APART3-3 WCHD 104/91ch d3.88 37654d B2 | HR=0.1072 SGMC=0.0660",
-  "submission_note_nan": "Apart3 H-APART3-3 WCHD 104/91ch d3.88 37654d B2 | HR=0.1072 SGMC=0.0660",
+  "candidate_id": "H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS",
+  "slug": "apart3-unique-offcatalogue-geophys",
+  "content_digest8": "22727d79",
+  "description": "Unique off-catalogue geophysical-anomaly dots (tc leach + mag + gravity), 30k budget, [0,1] zeros TIF",
+  "submission_note_zeros": "Unique off-catalogue geophysical-anomaly dots (tc leach + mag + gravity), 30k budget, [0,1] zeros TIF",
+  "submission_note_nan": "Unique off-catalogue geophysical-anomaly dots (tc leach + mag + gravity), 30k budget, [0,1] zeros TIF",
   "zeros_tif": {
-    "filename": "gemsdoe32-apart3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif",
-    "size_bytes": 222539,
-    "sha256": "11f698c3c3f342029a1aa44d805d49b366a6a7724c178025d09790b47152a9dc",
+    "filename": "gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
+    "size_bytes": 149028,
+    "sha256": "8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd",
     "mode": "zeros",
-    "geometry_reference": ".cache/gems_data/sample_submission.tif",
+    "geometry_reference": "/home/user/ApartGEMSDOE3/.cache/gems_data/sample_submission.tif",
     "crs": "EPSG:32611",
     "transform": [
       100.0,
@@ -27,8 +27,8 @@
     "dtype": "float32",
     "nodata": null,
     "nodata_repr": "None",
-    "emitted_positive_pixels": 37654,
-    "footprint_fraction": 0.007287,
+    "emitted_positive_pixels": 32994,
+    "footprint_fraction": 0.006385,
     "on_catalogue_positive_pixels": 0,
     "in_footprint_finite_pixels": 5167373,
     "in_footprint_min": 0.0,
@@ -52,11 +52,11 @@
     "all_checks_passed": true
   },
   "nan_tif": {
-    "filename": "gemsdoe32-apart3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-nan.tif",
-    "size_bytes": 358974,
-    "sha256": "c6309b145df983204ad00130084cf3e62560f87704dcc49ea64cb4b9815e4c79",
+    "filename": "gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-nan.tif",
+    "size_bytes": 282058,
+    "sha256": "662f0e448c2d49d6f49ef60a253eb2c530a5cceffe3479a9d1e5e81282fbc952",
     "mode": "nan",
-    "geometry_reference": ".cache/gems_data/sample_submission.tif",
+    "geometry_reference": "/home/user/ApartGEMSDOE3/.cache/gems_data/sample_submission.tif",
     "crs": "EPSG:32611",
     "transform": [
       100.0,
@@ -73,8 +73,8 @@
     "dtype": "float32",
     "nodata": null,
     "nodata_repr": "nan",
-    "emitted_positive_pixels": 37654,
-    "footprint_fraction": 0.007287,
+    "emitted_positive_pixels": 32994,
+    "footprint_fraction": 0.006385,
     "on_catalogue_positive_pixels": 0,
     "in_footprint_finite_pixels": 5167373,
     "in_footprint_min": 0.0,
@@ -98,18 +98,13 @@
     "all_checks_passed": true
   },
   "holdout_metrics": {
-    "catalogue_hidden_mean": 0.10722,
-    "catalogue_hidden_per_quadrant": {
-      "NW": 0.11267,
-      "NE": 0.109337,
-      "SW": 0.081122,
-      "SE": 0.131344
-    },
-    "sgmc_prevalence_calibrated_dti": 0.065975,
-    "drift_corrected_holdout_mean": 0.0,
+    "catalogue_hidden_mean": null,
+    "catalogue_hidden_per_quadrant": {},
+    "sgmc_prevalence_calibrated_dti": null,
+    "drift_corrected_holdout_mean": null,
     "drift_corrected_per_quadrant": {},
     "predicted_leaderboard_dti": null,
     "ei_drift_corrected": null,
-    "slot_decision": "PROMOTE-VALIDATED-UNIQUE"
+    "slot_decision": "HOLD-PENDING-HOLDOUT-REVIEW"
   }
 }

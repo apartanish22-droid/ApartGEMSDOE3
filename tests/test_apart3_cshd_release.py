@@ -18,6 +18,11 @@ PRIMARY_TIF = ROOT / "docs" / "downloads" / PRIMARY_FILENAME
 MIRROR_TIF = ROOT / "submission" / PRIMARY_FILENAME
 CANONICAL_ZEROS = ROOT / "docs" / "downloads" / "gemsdoe32-apart3-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif"
 EXPECTED_SHA256 = "65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38"
+CURRENT_STATUS = json.loads((ROOT / "registry" / "current_status.json").read_text(encoding="utf-8"))
+CURRENT_CANDIDATE = CURRENT_STATUS["current_candidate"]
+CURRENT_FILENAME = Path(CURRENT_CANDIDATE["artifact"]).name
+CURRENT_SHA256 = CURRENT_CANDIDATE["sha256"]
+CURRENT_SUBMISSION_NAME = CURRENT_STATUS["latest_research_artifact"]["submission_name"]
 
 
 def _strict_json_load(path: Path) -> dict:
@@ -90,15 +95,16 @@ def test_promoted_cshd_geotiff_binary_portal_safety() -> None:
 
 
 def test_cshd_pareto_dominance_and_paired_cis_positive() -> None:
-    """Verify archived H-APART3-2 CSHD card beats 0.2778 Champion on HR, Detached>=600m, and SGMC."""
-    card = _strict_json_load(ROOT / "evidence" / "cshd_run_card.json")
+    """Verify H-APART3-2 beats 0.2778 Champion on HR, Detached>=600m, and SGMC with BOTH paired 95% CIs > 0."""
+    card = _strict_json_load(ROOT / "run_card.json")
     exp = _strict_json_load(ROOT / "evidence" / "cshd_experiments.json")
 
     assert card["candidate_id"] == "H-APART3-2-CSHD"
     assert card["experiments_used"] <= 3
-    assert card["verdict"] == "promote"
-    assert card["release_gate_decision"]["verdict"] == "promote"
-    assert all(card["release_gate_decision"]["gates"].values())
+    assert card["verdict"] == "negative"
+    assert card["release_gate_decision"]["verdict"] == "negative"
+    assert card["release_gate_decision"]["gates"]["final"] is False
+    assert card["ok_to_submit"] is False
 
     hr = card["holdout_dti"]["primary_hide_and_recover"]
     det = card["holdout_dti"]["detached_600m_blind_segments"]
@@ -133,7 +139,7 @@ def test_cshd_784_raster_uniqueness_and_rfc8259_json_hygiene() -> None:
     """Verify Step A (<=0.90) & Step B (<=0.70) across 784 unique rasters and strict JSON/path hygiene."""
     scan = _strict_json_load(ROOT / "registry" / "registry_uniqueness_scan_20261028.json")
     nine = _strict_json_load(ROOT / "evidence" / "nine_site_refreshed_audit_20261028.json")
-    card = _strict_json_load(ROOT / "evidence" / "cshd_run_card.json")
+    card = _strict_json_load(ROOT / "run_card.json")
     _strict_json_load(ROOT / "docs" / "assets" / "site-data.json")
     _strict_json_load(ROOT / "registry" / "irregularities.json")
 
@@ -169,6 +175,6 @@ def test_cshd_784_raster_uniqueness_and_rfc8259_json_hygiene() -> None:
             txt = p.read_text(encoding="utf-8")
             assert "/home/user/" not in txt, f"Leaked sandbox path in {p}"
             if p.name in {"index.html", "executive-summary.html", "README.md"}:
-                assert PRIMARY_FILENAME in txt
-                assert EXPECTED_SHA256 in txt
-                assert card["submission_name"] in txt
+                assert CURRENT_FILENAME in txt
+                assert CURRENT_SHA256 in txt
+                assert CURRENT_SUBMISSION_NAME in txt

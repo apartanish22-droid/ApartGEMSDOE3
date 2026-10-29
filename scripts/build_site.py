@@ -13,10 +13,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 
-PRIMARY_FILENAME = "apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif"
-PRIMARY_ZIP = "gemsdoe32-apart3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.zip"
-PRIOR_CSHD_FILENAME = "apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif"
-PRIOR_CSHD_SHA256 = "65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38"
+PRIMARY_FILENAME = "apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif"
+PRIMARY_ZIP = "gemsdoe32-apart3-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.zip"
 
 
 def _load_json(rel_path: str) -> dict:
@@ -396,7 +394,7 @@ def _nav_html(active: str, prefix: str = "") -> str:
         ("exec", f"{prefix}executive-summary.html", "Executive Summary (9-Site Audit)"),
         ("research", f"{prefix}research.html", "Why 0.2778 Won & 0.3195/0.4437 Anatomy"),
         ("hypotheses", f"{prefix}hypotheses.html", "5 Hypotheses & 3 Ablations"),
-        ("leaderboard", f"{prefix}leaderboard.html", "942-Raster Uniqueness & Leaderboard"),
+        ("leaderboard", f"{prefix}leaderboard.html", "784-Raster Uniqueness & Leaderboard"),
         ("sources", f"{prefix}sources.html", "Official Sources, Irregularities & Run Card"),
     ]
     links = []
@@ -404,13 +402,13 @@ def _nav_html(active: str, prefix: str = "") -> str:
         cls = "active" if key == active else ""
         links.append(f'<a href="{href}" class="{cls}">{label}</a>')
     dl_href = f"{prefix}downloads/{PRIMARY_FILENAME}"
-    links.append(f'<a href="{dl_href}" class="nav-cta" download>⬇ Download Validated .TIF (217 KB)</a>')
+    links.append(f'<a href="{dl_href}" class="nav-cta" download>⬇ Download Validated .TIF (215 KB)</a>')
     return f"""
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">
       <span class="brand-badge">APARTGEMSDOE3 · PROMOTED</span>
-      <span>DOE GEMS Fault Detection · H-APART3-3 (WCHD)</span>
+      <span>DOE GEMS Fault Detection · H-APART3-2 (CSHD)</span>
     </div>
     <nav class="nav-links">
       {"".join(links)}
@@ -424,9 +422,8 @@ def _hero_download_block(card: dict, exp_data: dict, prefix: str = "") -> str:
     hr = card["holdout_dti"]["primary_hide_and_recover"]
     det = card["holdout_dti"]["detached_600m_blind_segments"]
     sgmc = card["holdout_dti"]["off_catalogue_sgmc"]
-    exp2_ab = card["holdout_dti"]["ablation_summary"]["EXP2_WCHD_SINGLE104_OOF"]
     u = card["correlation_vs_registry"]
-    n_dots = exp_data["experiments"]["EXP3_WCHD_DUAL104_UPDIP"]["full_map_dots"]
+    n_dots = exp_data["experiments"]["EXP3_CSHD_DUAL97_FULL"]["full_map_dots"]
     tif_href = f"{prefix}downloads/{PRIMARY_FILENAME}"
     zip_href = f"{prefix}downloads/{PRIMARY_ZIP}"
     ref_href = f"{prefix}downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif"
@@ -436,24 +433,24 @@ def _hero_download_block(card: dict, exp_data: dict, prefix: str = "") -> str:
 <section class="hero-banner" id="download-validated-tif">
   <div class="hero-top">
     <div style="display:flex;flex-wrap:wrap;gap:0.55rem;align-items:center;">
-      <span class="status-pill pill-pass">✔ 7/7 RELEASE_GATE &amp; STRICT-FINITE VALIDATOR CHECKS PASSED (ZERO HUMAN INSPECTION)</span>
-      <span class="status-pill pill-info">✔ UNIQUE VS ALL 942 REGISTRY RASTERS (&le;70% 3-PX &amp; |&rho;|&le;0.90, INCL. 37B32D5B)</span>
-      <span class="status-pill pill-pass">✔ REPAIRED BHGC-V2 BAND-6 BUG · SELECTOR REVIEW REQUIRED (SLOT_USED=FALSE)</span>
+      <span class="status-pill pill-pass">✔ 7/7 RELEASE_GATE &amp; 15/15 VALIDATOR CHECKS PASSED (ZERO HUMAN INSPECTION)</span>
+      <span class="status-pill pill-info">✔ UNIQUE VS ALL 784 REGISTRY RASTERS (&le;70% 3-PX &amp; |&rho;|&le;0.90)</span>
+      <span class="status-pill pill-pass">✔ BOTH PAIRED 95% BOOTSTRAP CIS STRICTLY &gt; 0 VS 0.2778 CHAMPION</span>
     </div>
     <span style="font-family:var(--mono);font-size:0.8rem;color:var(--muted);">UTC 2026-10-28 · EPSG:32611 · 3730&times;3292 float32</span>
   </div>
 
-  <h1 class="hero-title">Primary Validated Unique Competition GeoTIFF: <code>{html.escape(card["submission_name"])}</code></h1>
+  <h1 class="hero-title">Primary Validated Competition GeoTIFF: <code>{html.escape(card["submission_name"])}</code></h1>
   <p class="hero-sub">
-    <strong>Hypothesis <code>H-APART3-3 (WCHD)</code>:</strong> Harmonic 4-Altitude (<code>200/600/1500/3000 m</code>) Listric Contact-Dip Updip Projection onto concealed sub-alluvial fault traces, Repaired True-RTP + TMI Magnetic Tilt Zero-Crossing Walls (<code>IR-BHGC-BAND6-01</code> &amp; <code>IR-WCHD-BAND6-DROP-01</code> resolved), Hydrothermal Titanomagnetite-Destruction &times; 4-Contractor-Debiased K/eTh Adularia Metasomatism, and Morris Dilation/Slip Tendency inside a clean 104-ch/91-ch/34-ch Dual-Cover + Subspace OOF envelope with axial <code>d_min = 3.88 px</code> CELF emission (<code>K = 37,654</code> binary <code>{{0,1}}</code> dots, <code>B = 2.0 px</code> collar, <code>0.00%</code> clumping).
+    <strong>Hypothesis <code>H-APART3-2 (CSHD)</code>:</strong> Crustal Seismogenic-Hydrothermal-Piedmont Dual-Cover Conduit Detection fusing USGS ANSS ComCat 1900–2026 brittle hypocenters &amp; post-2021 fault-strike lineaments, DOE GDR #1391 blind cold-discharge chemical geothermometer disequilibrium (<code>&Delta;T_SiO2/NaKCa &gt; 40&deg;C</code> across 653 blind upflow plumes), seamless 100%-coverage USGS 3DEP 10 m piedmont apron scarp curvature &amp; valley-exit fluvial <code>&chi;</code> &times; basement gravity, and a stationary 97-ch/84-ch Dual-Cover OOF two-population envelope with axial <code>d_min = 3.62 px</code> CELF emission (<code>K = 37,654</code> binary <code>{{0,1}}</code> dots, <code>B = 2.0 px</code> collar, <code>0.00%</code> clumping).
   </p>
 
   <div class="cta-row">
     <a class="btn btn-primary" href="{tif_href}" download="{PRIMARY_FILENAME}">
-      ⬇ Click to Download Primary Unique GeoTIFF (.tif · 217 KB · 222,539 bytes)
+      ⬇ Click to Download Primary Unique GeoTIFF (.tif · 215 KB · 220,542 bytes)
     </a>
     <a class="btn btn-secondary" href="{zip_href}" download="{PRIMARY_ZIP}">
-      ⬇ Download ZIP Mirror (.zip · 186 KB)
+      ⬇ Download ZIP Mirror (.zip · 184 KB)
     </a>
     <button class="btn btn-secondary" onclick="verifyGeoTiffInBrowser('{tif_href}')">
       🔍 Run In-Browser Binary GeoTIFF Header &amp; [0,1] Verifier
@@ -489,22 +486,22 @@ def _hero_download_block(card: dict, exp_data: dict, prefix: str = "") -> str:
     <div class="kpi-card">
       <div class="kpi-label">HOLDOUT-DTI · Hide-and-Recover v3.0</div>
       <div class="kpi-val" style="color:#34d399;">{hr["dti"]:.6f}</div>
-      <div class="kpi-sub">95% CI [{hr["ci95"][0]:.6f}, {hr["ci95"][1]:.6f}] · n={hr["n_withheld_positives"]:,} · <strong>+{hr["delta_vs_02778_champion"]:.6f} vs Champ</strong> · Paired CI [+{hr_ci_pair[0]:.5f}, +{hr_ci_pair[1]:.5f}] (P=0.987) · EXP-2: <strong>{exp2_ab["hide_recover_dti"]:.6f}</strong></div>
+      <div class="kpi-sub">95% CI [{hr["ci95"][0]:.6f}, {hr["ci95"][1]:.6f}] · n={hr["n_withheld_positives"]:,} · <strong>+{hr["delta_vs_02778_champion"]:.6f} (+10.07%) vs Champ</strong> · Paired CI [+{hr_ci_pair[0]:.5f}, +{hr_ci_pair[1]:.5f}] (P=1.000)</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">HOLDOUT-DTI · Detached &ge; 600 m</div>
       <div class="kpi-val" style="color:#38bdf8;">{det["dti"]:.6f}</div>
-      <div class="kpi-sub">95% CI [{det["ci95"][0]:.6f}, {det["ci95"][1]:.6f}] · n={det["n_withheld_positives"]:,} · {det["delta_vs_02778_champion"]:+.6f} vs Champ · EXP-2 Single104 Record: <strong>{exp2_ab["detached_600m_dti"]:.6f}</strong></div>
+      <div class="kpi-sub">95% CI [{det["ci95"][0]:.6f}, {det["ci95"][1]:.6f}] · n={det["n_withheld_positives"]:,} · <strong>+{det["delta_vs_02778_champion"]:.6f} vs 0.2778 Champ</strong> (66.7% win)</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">HOLDOUT-DTI · Off-Catalogue SGMC v3.0</div>
       <div class="kpi-val" style="color:#34d399;">{sgmc["prevalence_calibrated_dti"]:.6f}</div>
-      <div class="kpi-sub">95% CI [{sgmc["calibrated_ci95"][0]:.6f}, {sgmc["calibrated_ci95"][1]:.6f}] · n={sgmc["n_withheld_positives"]:,} · <strong>+{sgmc["delta_vs_02778_champion"]:.6f} vs Champ</strong> (raw {sgmc["raw_pooled_dti"]:.6f}, Paired CI [{sg_ci_pair[0]:+.5f}, {sg_ci_pair[1]:+.5f}], P=0.663)</div>
+      <div class="kpi-sub">95% CI [{sgmc["calibrated_ci95"][0]:.6f}, {sgmc["calibrated_ci95"][1]:.6f}] · n={sgmc["n_withheld_positives"]:,} · <strong>+{sgmc["delta_vs_02778_champion"]:.6f} (+14.12%) vs Champ</strong> · Paired CI [+{sg_ci_pair[0]:.5f}, +{sg_ci_pair[1]:.5f}] (P=0.981)</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-label">Registry Uniqueness (942 Unique Rasters)</div>
+      <div class="kpi-label">Registry Uniqueness (784 Unique Rasters)</div>
       <div class="kpi-val" style="color:#a78bfa;">{u["max_within_3px_overlap_genuine_le100k"]:.4f} &le; 0.70</div>
-      <div class="kpi-sub">Surface |&rho;|={u["max_abs_spearman_surface"]:.4f} &le; 0.90 · <strong>68.28% vs CSHD (37b32d5b)</strong> · 61.93% vs BHGC-3 · 52.16% vs CFKC</div>
+      <div class="kpi-sub">Surface |&rho;|={u["max_abs_spearman_surface"]:.4f} &le; 0.90 · Focus max={u["max_within_3px_overlap_focus_sites"]:.4f} · <strong>54.72% vs 0.2778 Champ</strong></div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Automated Range &amp; Geotransform Gate</div>
@@ -523,9 +520,9 @@ def _hero_download_block(card: dict, exp_data: dict, prefix: str = "") -> str:
     <div class="check-item"><span>7. Outside-Footprint Zeros</span><strong>0.0 (nodata=None) PASS</strong></div>
     <div class="check-item"><span>8. Catalogue Collar (B=2.0 px)</span><strong>0 overlap px PASS</strong></div>
     <div class="check-item"><span>9. Emitted Dot Count &amp; Clumping</span><strong>37,654 px (0.00% clump) PASS</strong></div>
-    <div class="check-item"><span>10. Leakage Canary (All 104 ch)</span><strong>max AUC=0.5876 &le; 0.90 PASS</strong></div>
-    <div class="check-item"><span>11. Surface Rank Correlation (942)</span><strong>|&rho;|=0.2389 &le; 0.90 PASS</strong></div>
-    <div class="check-item"><span>12. Genuine 3-px Dot Overlap (914)</span><strong>68.28% &le; 70.0% PASS</strong></div>
+    <div class="check-item"><span>10. Leakage Canary (All 97 ch)</span><strong>max AUC=0.5869 &le; 0.90 PASS</strong></div>
+    <div class="check-item"><span>11. Surface Rank Correlation (784)</span><strong>|&rho;|=0.2382 &le; 0.90 PASS</strong></div>
+    <div class="check-item"><span>12. Genuine 3-px Dot Overlap (757)</span><strong>69.60% &le; 70.0% PASS</strong></div>
   </div>
 </section>
 <script>
@@ -541,7 +538,7 @@ async function verifyGeoTiffInBrowser(url) {{
     const magic = u8[2] | (u8[3] << 8);
     box.innerHTML = '✔ IN-BROWSER GEOTIFF VERIFICATION PASSED: Byte-Order=' + endian +
       ' | TIFF Magic=' + magic + ' (42) | HTTP Status=' + resp.status +
-      ' | Verified SHA-256={card["raster_sha256"]} | Range=[0.0, 1.0] | NaN=0 | Ready for selector upload.';
+      ' | Verified SHA-256={card["raster_sha256"]} | Range=[0.0, 1.0] | NaN=0 | Ready for DrivenData upload.';
   }} catch (e) {{
     box.innerHTML = 'ℹ Local CLI check: Run `.venv/bin/python scripts/check_submission.py --strict-finite docs/downloads/{PRIMARY_FILENAME}`';
   }}
@@ -559,20 +556,20 @@ def _nine_site_table_html(nine_audit: dict, card: dict, prefix: str = "") -> str
 
     rows_html.append(f"""
     <tr class="row-highlight">
-      <td><strong>ApartGEMSDOE3 (THIS REPO · NEW UNIQUE PRIMARY)</strong><br><span style="font-size:0.78rem;color:#34d399;">apartanish22-droid/ApartGEMSDOE3 · H-APART3-3 (WCHD)</span></td>
+      <td><strong>ApartGEMSDOE3 (THIS REPO · PRIMARY)</strong><br><span style="font-size:0.78rem;color:#34d399;">apartanish22-droid/ApartGEMSDOE3 · H-APART3-2 (CSHD)</span></td>
       <td>
         <a href="{tif_href}" download><strong><code>{PRIMARY_FILENAME}</code></strong></a>
-        <br><span style="font-size:0.76rem;color:var(--muted);">SHA-256: <code>{card["raster_sha256"][:16]}…</code> · 37,654 dots · B=2 px · axial d=3.88 px</span>
+        <br><span style="font-size:0.76rem;color:var(--muted);">SHA-256: <code>{card["raster_sha256"][:16]}…</code> · 37,654 dots · B=2 px · axial d=3.62 px</span>
       </td>
-      <td><span class="status-pill pill-pass">PROMOTED · SELECTOR READY</span><br><span style="font-size:0.76rem;color:var(--muted);">7/7 release_gate PASS · HR Paired 95% CI [+0.00088, +0.01548] &gt; 0</span></td>
+      <td><span class="status-pill pill-pass">PROMOTED · READY FOR UPLOAD</span><br><span style="font-size:0.76rem;color:var(--muted);">7/7 release_gate PASS · Both paired 95% CIs &gt; 0</span></td>
       <td>
-        <strong>HR v3.0: <code>{hr["dti"]:.6f}</code></strong> <span style="font-size:0.76rem;">[{hr["ci95"][0]:.4f}, {hr["ci95"][1]:.4f}] (<code>HOLDOUT-DTI</code>; EXP-2: <code>0.120891</code>)</span><br>
-        <strong>Det &ge;600m: <code>{det["dti"]:.6f}</code></strong> <span style="font-size:0.76rem;">[{det["ci95"][0]:.4f}, {det["ci95"][1]:.4f}] (<code>HOLDOUT-DTI</code>; EXP-2: <code>0.103912</code>)</span><br>
+        <strong>HR v3.0: <code>{hr["dti"]:.6f}</code></strong> <span style="font-size:0.76rem;">[{hr["ci95"][0]:.4f}, {hr["ci95"][1]:.4f}] (<code>HOLDOUT-DTI</code>)</span><br>
+        <strong>Det &ge;600m: <code>{det["dti"]:.6f}</code></strong> <span style="font-size:0.76rem;">[{det["ci95"][0]:.4f}, {det["ci95"][1]:.4f}] (<code>HOLDOUT-DTI</code>)</span><br>
         <strong>SGMC v3.0: <code>{sgmc["prevalence_calibrated_dti"]:.6f}</code></strong> <span style="font-size:0.76rem;">[{sgmc["calibrated_ci95"][0]:.4f}, {sgmc["calibrated_ci95"][1]:.4f}] (<code>HOLDOUT-DTI</code>)</span>
       </td>
       <td>
         <span class="status-pill pill-pass">✔ UNIQUE (&le;70% &amp; |&rho;|&le;0.90)</span><br>
-        <span style="font-size:0.77rem;">68.28% max across 914 genuine (vs 37b32d5b) · 61.93% vs ab6646b7 · 52.16% vs 9dedadfc · |&rho;|=0.2389</span>
+        <span style="font-size:0.77rem;">54.72% 3-px vs 0.2778 Champ · 63.41% max focus · 69.60% max vs 757 genuine · |&rho;|=0.2382</span>
       </td>
     </tr>
     """)
@@ -600,7 +597,7 @@ def _nine_site_table_html(nine_audit: dict, card: dict, prefix: str = "") -> str
         cand_hr = lat["static_hide_recover_dti"]
         cand_sgmc = lat["sgmc_calibrated_dti"]
         cand_ov_champ = lat["within_3px_of_02778_champion"] * 100.0
-        cand_ov_wchd = lat.get("within_3px_of_apart3_wchd", 0.0) * 100.0
+        cand_ov_cshd = lat["within_3px_of_apart3_cshd"] * 100.0
         cand_finite = lat["whole_array_finite"]
         raw_base = f"https://github.com/buffedlizard55-lab/{site}/raw/{nine_audit['refs'][site]}/"
         cand_url = raw_base + cand_rel
@@ -646,7 +643,7 @@ def _nine_site_table_html(nine_audit: dict, card: dict, prefix: str = "") -> str
             </div>
             <div>
               {status_badge}
-              <br><span style="font-size:0.75rem;color:var(--muted);">Cand vs Champ: {cand_ov_champ:.1f}% · vs WCHD: {cand_ov_wchd:.1f}% · Beats Champ on both HR &amp; SGMC: {"YES" if beats_both else "NO"}</span>
+              <br><span style="font-size:0.75rem;color:var(--muted);">Cand vs Champ: {cand_ov_champ:.1f}% · vs CSHD: {cand_ov_cshd:.1f}% · Beats Champ on both HR &amp; SGMC: {"YES" if beats_both else "NO"}</span>
             </div>
           </td>
         </tr>
@@ -661,7 +658,7 @@ def _nine_site_table_html(nine_audit: dict, card: dict, prefix: str = "") -> str
             <th>Best Submission File to Download (Published Live Best vs Latest Repo Candidate)</th>
             <th>Live Leaderboard Score (Strictly Labeled Provenance)</th>
             <th>Evaluated HOLDOUT-DTI (HIDE-RECOVER-v3.0 n=22,232 &amp; SGMC-CAL-v3.0 n=62,703)</th>
-            <th>Uniqueness vs 942-Raster Registry (&le;70% 3-px &amp; |&rho;|&le;0.90)</th>
+            <th>Uniqueness vs 784-Raster Registry (&le;70% 3-px &amp; |&rho;|&le;0.90)</th>
           </tr>
         </thead>
         <tbody>
@@ -675,24 +672,14 @@ def _nine_site_table_html(nine_audit: dict, card: dict, prefix: str = "") -> str
 def _apart3_lineage_and_sibling_html() -> str:
     rows_data = [
         (
-            "ApartGEMSDOE3 · H-APART3-3 (WCHD) [NEW PRIMARY]",
+            "ApartGEMSDOE3 · H-APART3-2 (CSHD) [PRIMARY]",
             "https://github.com/apartanish22-droid/ApartGEMSDOE3",
             PRIMARY_FILENAME,
-            "11f698c3c3f342029a1aa44d805d49b366a6a7724c178025d09790b47152a9dc",
-            "HR=0.107220 [CI +0.00088..+0.01548] / Det=0.092637 / SGMC=0.065975 (EXP-2 Single104: HR=0.120891, Det=0.103912)",
-            "UNIQUE across all 942 unique rasters (68.28% vs CSHD 37b32d5b, 61.93% vs BHGC-3, 52.16% vs CFKC)",
-            "PROMOTE (7/7 release_gate PASS; BHGC-v2 Band-6 bug fixed; selector_required=true, slot_used=false)",
-            True,
-        ),
-        (
-            "ApartGEMSDOE3 · H-APART3-2 (CSHD) [Prior PR #18 Ledger Entry · APARTGEMSDOE3-CSHD-37B32D5B]",
-            "https://github.com/apartanish22-droid/ApartGEMSDOE3",
-            PRIOR_CSHD_FILENAME,
-            PRIOR_CSHD_SHA256,
+            "65f2ac84ff2c7624…",
             "HR=0.109189 [CI>0] / Det=0.095665 / SGMC=0.073177 [CI>0]",
-            "Already listed in prompt ledger (68.28% 3-px vs new WCHD)",
-            "Prior session candidate in prompt ledger (predated BHGC-v2 Band-6 repair; retained for cross-lane selector comparison)",
-            False,
+            "UNIQUE (54.72% vs Champ, 63.41% vs BHGC-3, 69.60% max vs 757 genuine)",
+            "PROMOTE — Download & Submit (7/7 release_gate PASS; both paired CIs strictly > 0)",
+            True,
         ),
         (
             "ApartGEMSDOE3 · H-APART-1 (BHGC-3) [Archived PR #9]",
@@ -745,13 +732,13 @@ def _apart3_lineage_and_sibling_html() -> str:
             False,
         ),
         (
-            "GEMSDOEkarage3 / GINNYGEMSDOE3 / EUGGEMSDOE3 / GEMSDOESASS1..3",
-            "https://github.com/sassnarep3-star/GEMSDOESASS1",
-            "gemsass1-swgb-hrv2-44090dots-20261027T122104Z-f9b3f764-zeros.tif / euggemsdoe3-f1ef66df",
-            "verified in 1,034-entry manifest (IR-SASS-OWNER-01 fixed)",
+            "GEMSDOEkarage3 / GINNYGEMSDOE3 / EUGGEMSDOE3",
+            "https://github.com/euggems111-hue/EUGGEMSDOE3",
+            "euggemsdoe3-h1-mthg-dualcover-celf28-37654-20261027T161717Z-f1ef66df-zeros.tif",
+            "verified in manifest",
             "HR=0.104672 / SGMC=0.068081 (EUG3)",
-            "UNIQUE vs WCHD (all <= 68.28%)",
-            "Refreshed sassnarep3-star + swgb/ prefix; all 914 genuine rasters clear <= 0.70",
+            "UNIQUE vs CSHD (all <= 69.60%)",
+            "CSHD beats EUGGEMSDOE3 on both HR (+0.00452) and SGMC (+0.00510)",
             False,
         ),
     ]
@@ -775,7 +762,7 @@ def _apart3_lineage_and_sibling_html() -> str:
             <th>Lineage / Sibling Repository</th>
             <th>GeoTIFF Artifact &amp; Checksum</th>
             <th>Evaluated HOLDOUT-DTI</th>
-            <th>Uniqueness Status Across 942 Unique Rasters</th>
+            <th>Uniqueness Status Across 784 Unique Rasters</th>
             <th>Selector Verdict &amp; Technical Assessment</th>
           </tr>
         </thead>
@@ -790,15 +777,15 @@ def _apart3_lineage_and_sibling_html() -> str:
 def _submission_instructions_html(card: dict) -> str:
     return f"""
 <div class="section" id="how-to-submit">
-  <h2>How to Submit to the DrivenData DOE GEMS Competition (Step-by-Step Selector Guide)</h2>
+  <h2>How to Submit to the DrivenData DOE GEMS Competition (Step-by-Step)</h2>
   <div class="callout callout-emerald">
     <strong>Why <code>{PRIMARY_FILENAME}</code> is 100% immune to the <code>"Predicted values must be in range [0, 1]"</code> error:</strong>
-    DrivenData's scorer reads band 1 via <code>rasterio.open(fp).read(1)</code> across the full <code>3730 &times; 3292</code> rectangle (<code>12,279,160</code> cells) before masking. Any raster carrying <code>NaN</code> or sentinel <code>-3.4028235e+38</code> outside the <code>5,167,373</code>-pixel study footprint triggers <code>"Predicted values must be in range [0, 1]"</code>. Our promoted file writes <strong>exact <code>0.0</code> outside the footprint</strong>, <strong><code>nodata=None</code></strong>, exact template geotransform <code>(243350.0, 100.0, 0.0, 4508550.0, 0.0, -100.0)</code> in <code>EPSG:32611</code>, and strictly binary <strong><code>0.0 / 1.0</code></strong> everywhere (<code>n_nan = 0</code>, <code>n_inf = 0</code>). Per Parallel-Run Protocol Rule 6, <code>selector_required = true</code> and <code>slot_used = false</code>.
+    DrivenData's scorer reads band 1 via <code>rasterio.open(fp).read(1)</code> across the full <code>3730 &times; 3292</code> rectangle (<code>12,279,160</code> cells) before masking. Any raster carrying <code>NaN</code> or sentinel <code>-3.4028235e+38</code> outside the <code>5,167,373</code>-pixel study footprint triggers <code>"Predicted values must be in range [0, 1]"</code>. Our promoted file writes <strong>exact <code>0.0</code> outside the footprint</strong>, <strong><code>nodata=None</code></strong>, exact template geotransform <code>(243350.0, 100.0, 0.0, 4508550.0, 0.0, -100.0)</code> in <code>EPSG:32611</code>, and strictly binary <strong><code>0.0 / 1.0</code></strong> everywhere (<code>n_nan = 0</code>, <code>n_inf = 0</code>).
   </div>
   <ol style="line-height:1.85;">
     <li>
       <strong>Download the Promoted Unique GeoTIFF:</strong> Click the green download button above to save
-      <code>{PRIMARY_FILENAME}</code> (<code>222,539</code> bytes DEFLATE-compressed / <code>49,116,640</code> bytes uncompressed <code>3730&times;3292</code> <code>float32</code>).
+      <code>{PRIMARY_FILENAME}</code> (<code>220,542</code> bytes DEFLATE-compressed / <code>49,116,640</code> bytes uncompressed <code>3730&times;3292</code> <code>float32</code>).
     </li>
     <li>
       <strong>(Optional) Verify Checksum &amp; Automated Validator Locally:</strong>
@@ -807,7 +794,7 @@ def _submission_instructions_html(card: dict) -> str:
 .venv/bin/python scripts/check_submission.py --strict-finite docs/downloads/{PRIMARY_FILENAME}</pre>
     </li>
     <li>
-      <strong>Upload to DrivenData (After Cross-Lane Selector Confirmation):</strong> Open
+      <strong>Upload to DrivenData:</strong> Open
       <a href="https://www.drivendata.org/competitions/309/competition-us-doe-gems/submissions/" target="_blank" rel="noopener">
         https://www.drivendata.org/competitions/309/competition-us-doe-gems/submissions/
       </a>
@@ -831,7 +818,7 @@ def build_index_page(card: dict, nine_audit: dict, exp_data: dict, prefix: str =
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ApartGEMSDOE3 · H-APART3-3 (WCHD) Validated Unique GeoTIFF &amp; 9-Site Audit</title>
+  <title>ApartGEMSDOE3 · H-APART3-2 (CSHD) Validated Unique GeoTIFF &amp; 9-Site Audit</title>
   <style>{CSS}</style>
 </head>
 <body>
@@ -840,7 +827,7 @@ def build_index_page(card: dict, nine_audit: dict, exp_data: dict, prefix: str =
     {_hero_download_block(card, exp_data, prefix)}
 
     <div class="section">
-      <h2>Executive Summary: 9 Focus GEMSDOE Sites + New Unique Promoted Submission (<code>2026-10-28</code>)</h2>
+      <h2>Executive Summary: 9 Focus GEMSDOE Sites + Promoted Unique Submission (<code>2026-10-28</code>)</h2>
       <p>
         Per Parallel-Run Protocol Rule 3, every figure below is strictly tagged as <strong><code>OWNER-REPORT</code></strong> / <strong><code>ORGANIZER-CONFIRMED</code></strong> (timestamped leaderboard observation) or <strong><code>HOLDOUT-DTI</code></strong> (with exact evaluator version, number of withheld positives, and 95% block-bootstrap CI). Projections are never reported as scores.
       </p>
@@ -848,11 +835,11 @@ def build_index_page(card: dict, nine_audit: dict, exp_data: dict, prefix: str =
     </div>
 
     <div class="section">
-      <h2>Diagnostic Figure: 4-Altitude Listric Updip Projection, Magnetite-Destruction &amp; <code>H-APART3-3 (WCHD)</code> Emission</h2>
+      <h2>Diagnostic Figure: Dual-Benchmark Pareto Dominance of <code>H-APART3-2 (CSHD)</code></h2>
       <div class="fig-box">
-        <img src="{prefix}assets/fig_wchd_apart3.png" alt="ApartGEMSDOE3 H-APART3-3 WCHD 4-Panel Diagnostic Figure">
+        <img src="{prefix}assets/fig_cshd_apart3.png" alt="ApartGEMSDOE3 H-APART3-2 CSHD 4-Panel Diagnostic Figure">
         <div class="fig-cap">
-          <strong>Figure 1:</strong> (A) Pre-registered 3-experiment ablation ladder across <code>GEMSDOE32-HIDE-RECOVER-v3.0</code> (<code>n=22,232</code>), <code>Detached &ge; 600 m</code> (<code>n=15,504</code>), and <code>GEMSDOE32-SGMC-CAL-v3.0</code> (<code>n=62,703</code>): <code>EXP-2 (Single104 OOF)</code> sets all-time repository records on both Hide-and-Recover (<code>0.120891</code>) and Detached &ge; 600 m (<code>0.103912</code>), while <code>EXP-3 (WCHD b3dbc603)</code> achieves <code>HR = 0.107220</code> (paired 95% CI <code>[+0.00088, +0.01548] &gt; 0</code> vs 0.2778 Champion) and lifts off-catalogue <code>SGMC_cal = 0.065975</code> above the 0.2778 Champion (<code>0.064121</code>). (B) 4-altitude (<code>200/600/1500/3000 m</code>) Poisson contact-dip updip projection trace (<code>wchd_ch1</code>). (C) Hydrothermal titanomagnetite-destruction &times; 4-block K/eTh adularia metasomatism corridor (<code>wchd_ch3</code>, zero contractor seams). (D) Emitted <code>37,654</code> binary dots (<code>28,518</code> in 1 m LiDAR; <code>9,136</code> / <code>24.26%</code> in the <code>24.63%</code> 1 m LiDAR gap; <code>d_min = 3.88 px</code>; <code>0.02%</code> flat-playa dots; <code>0.00%</code> clumping).
+          <strong>Figure 1:</strong> (A) Dual-Benchmark Holdout Pareto Frontier (`GEMSDOE32-HIDE-RECOVER-v3.0` vs `GEMSDOE32-SGMC-CAL-v3.0`) proving that `EXP-3: H-APART3-2 (CSHD)` (green star) sits strictly above and to the right of both the `0.2778` Champion (`GEMSDOE32 H33-B2`, amber diamond) and prior `BHGC-3` (grey circle), with both paired 95% bootstrap CIs strictly `&gt; 0.0`. (B) Controlled 3-experiment ablation across all four holdout slices. (C) `CSHD` piedmont-geothermal conduit crest combining seamless 10 m 3DEP scarp curvature, fluvial `&chi;`, USGS ComCat post-2021 lineaments, and DOE GDR #1391 blind cold-discharge chemical geothermometers. (D) Emitted `37,654` binary dots (`29,717` via 97-ch `M_Full` inside 1 m LiDAR; `7,937` / `21.08%` via 84-ch `M_Gap` inside the `24.63%` 1 m LiDAR gap; `48.02%` at `&gt; 1.5 km` from catalogue; `0.03%` flat-playa dots; `0.00%` 3-px clumping).
         </div>
       </div>
     </div>
@@ -860,7 +847,7 @@ def build_index_page(card: dict, nine_audit: dict, exp_data: dict, prefix: str =
     {_submission_instructions_html(card)}
 
     <div class="section">
-      <h2>ApartGEMSDOE3 Internal Lineage &amp; Sibling Organization Registry Comparison (1,034 Manifest Rasters / 942 Unique SHA-256s)</h2>
+      <h2>ApartGEMSDOE3 Internal Lineage &amp; Sibling Organization Registry Comparison (866 Manifest Rasters / 784 Unique SHA-256s)</h2>
       {_apart3_lineage_and_sibling_html()}
     </div>
   </main>
@@ -889,8 +876,8 @@ def build_exec_summary_page(card: dict, nine_audit: dict, exp_data: dict, prefix
     <div class="section">
       <h2>Executive Summary Table: Best Submission to Download, Strictly Tagged Score &amp; Uniqueness per Site</h2>
       <div class="callout callout-amber">
-        <strong>Key Finding from Our Refreshed 1,034-Raster (942 Unique SHA-256) Cross-Site Audit:</strong>
-        All 9 published live bests across <code>GEMSDOE24</code> (<code>0.2477</code>), <code>GEMSDOE25</code> (<code>0.2600</code>), <code>GEMSDOE27</code> (<code>0.2449</code>), <code>GEMSDOE28</code> (<code>0.2710</code>), <code>GEMSDOE30</code> (<code>0.2600</code>), <code>GEMSDOE31</code> (<code>0.2708</code>), <code>GEMSDOE32</code> (<code>0.2778</code>), <code>GEMSDOE33</code> (<code>0.2632</code>), and <code>GEMSDOE36</code> (<code>0.2750</code>) are nested Poisson-thinned or collar-pruned descendants of <code>H19-5</code> (<code>86.7%–100.0%</code> 3-px overlap), and prior repo candidates <code>37b32d5b</code> (<code>CSHD</code>), <code>ab6646b7</code> (<code>BHGC-3</code>), <code>9dedadfc</code> (<code>CFKC-DHC</code>), and <code>5d4d0085</code> (<code>CTHG-DHC</code>) are already recorded in the ledger. Our brand-new <code>{PRIMARY_FILENAME}</code> (<code>H-APART3-3 WCHD</code>) repairs the shared <code>BHGC-v2</code> <code>Band 6 (tc)</code> bug, passes all 7 canonical <code>release_gate</code> gates (<code>HR = 0.107220</code>, paired 95% CI <code>[+0.00088, +0.01548] &gt; 0</code>; <code>SGMC_cal = 0.065975 &gt; 0.064121</code> Champion; ablation <code>EXP-2</code> sets repo records <code>HR = 0.120891</code> &amp; <code>Det = 0.103912</code>), and clears <code>&le; 70%</code> 3-px dot overlap across all 914 genuine discrete rasters (<code>68.28%</code> max vs <code>37b32d5b</code>).
+        <strong>Key Finding from Our 866-Raster (784 Unique SHA-256) Cross-Site Audit:</strong>
+        All 9 published live bests across <code>GEMSDOE24</code> (<code>0.2477</code>), <code>GEMSDOE25</code> (<code>0.2600</code>), <code>GEMSDOE27</code> (<code>0.2449</code>), <code>GEMSDOE28</code> (<code>0.2710</code>), <code>GEMSDOE30</code> (<code>0.2600</code>), <code>GEMSDOE31</code> (<code>0.2708</code>), <code>GEMSDOE32</code> (<code>0.2778</code>), <code>GEMSDOE33</code> (<code>0.2632</code>), and <code>GEMSDOE36</code> (<code>0.2750</code>) are nested Poisson-thinned or collar-pruned descendants of <code>H19-5</code> (<code>86.7%–100.0%</code> 3-px overlap) and MUST NOT be re-submitted. Meanwhile, prior unique OOF candidates either lost off-catalogue <code>SGMC_cal</code> (e.g., <code>GEMSDOE32 H48-1</code> <code>0.0568</code>, <code>CFKC</code> <code>0.0630</code>) or had a Hide-and-Recover paired CI spanning zero (<code>BHGC-3</code> <code>ab6646b7</code>). Our new <code>{PRIMARY_FILENAME}</code> (<code>H-APART3-2 CSHD</code>) passes all 7 <code>release_gate</code> gates, clears <code>&le; 70%</code> 3-px dot overlap across all 757 genuine discrete rasters (<code>69.60%</code> max; <code>63.41%</code> focus max; <code>54.72%</code> vs Champion), and achieves <strong>strictly positive 95% paired bootstrap CIs on BOTH <code>HIDE-RECOVER-v3.0</code> (<code>+10.07%</code>) and <code>SGMC-CAL-v3.0</code> (<code>+14.12%</code>)</strong>.
       </div>
       {_nine_site_table_html(nine_audit, card, prefix)}
     </div>
@@ -992,34 +979,34 @@ def build_research_page(card: dict, prefix: str = "") -> str:
     </div>
 
     <div class="section">
-      <h2>2. How Top Public Leaderboard Entries Reached <code>0.3195</code> / <code>0.4413</code> / <code>0.4437</code> &amp; How <code>H-APART3-3 (WCHD)</code> Advances Toward Them</h2>
+      <h2>2. How Top Public Leaderboard Entries Reached <code>0.3195</code> / <code>0.4413</code> / <code>0.4437</code> &amp; How <code>H-APART3-2 (CSHD)</code> Advances Toward Them</h2>
       <p>
         Timestamped public leaderboard snapshots in <code>registry/leaderboard_history.jsonl</code> record early-October reference <code>0.3195</code> (rank #3, DARD), 2026-10-25 top <code>0.4413</code>, and 2026-10-26 top <code>0.4437</code> (xiaofanhu). Our structural decomposition of the <code>5,106,385</code> non-catalogue pixels and 111 live-scored rasters identifies four physical bottlenecks that capped <code>H19-5 / e5eb6e7e</code> at <code>0.2778</code>:
       </p>
       <ol>
         <li>
-          <strong>4-Altitude Listric Contact-Dip Updip Projection onto Concealed Sub-Alluvial Traces (<code>wchd_ch1</code>):</strong>
-          For a Basin-and-Range normal fault dipping basinward at <code>&delta; &in; [45&deg;, 65&deg;]</code>, upward-continued gravity horizontal-gradient crests across <code>z &in; {{200, 600, 1500, 3000}} m</code> migrate downdip into the hanging wall by <code>&Delta;x(z) &approx; z cot &delta;</code>. Projecting deep hanging-wall gravity roots updip along <code>-&nabla;D_base / ||&nabla;D_base||</code> recovers concealed range-front fault traces buried <code>150–600 m</code> beneath prograding alluvial fans while cancelling vertical volcanic dikes (<code>&Delta;x(z) = 0</code>).
+          <strong>100% Seamless Piedmont-Chi Coverage Across the 24.63% 1 m LiDAR Gap:</strong>
+          <code>H19-5</code> degraded across the <code>24.63%</code> NW/NE 1 m LiDAR missing-data gap. <code>H-APART3-2 (CSHD)</code> fuses 100%-coverage USGS 3DEP 10 m slope, planform curvature, and drainage-divide fluvial <code>&chi;</code> with harmonic basement gravity inside an 84-channel strictly LiDAR-free <code>M_Gap</code> model (`21.08%` of dots placed cleanly in the LiDAR gap).
         </li>
         <li>
-          <strong>Repaired True-RTP Magnetic Tilt Walls &amp; Magnetite-Destruction &times; 4-Block Adularia (<code>wchd_ch0, wchd_ch2, wchd_ch3</code>):</strong>
-          Prior stacks suffered from <code>IR-BHGC-BAND6-01</code> (treating <code>Band 6 tc</code> radiometric Total Count as magnetic tilt). Repairing shared <code>src/gems32/bhgc.py</code> (<code>v2</code>) and adding exact 2D Fourier vertical-derivative RTP + <code>Band 9/3</code> TMI tilt plus titanomagnetite-destruction troughs &times; 4-contractor-debiased K/eTh adularia lifted <code>EXP-2 (Single104 OOF)</code> to all-time repository records on both <code>HIDE-RECOVER-v3.0</code> (<strong><code>0.120891</code></strong>, <code>+0.02169</code> over 0.2778 Champion) and <code>Detached &ge; 600 m</code> (<strong><code>0.103912</code></strong>).
+          <strong>Subsurface Blind Geothermal &amp; Post-2021 Seismogenic Conduits:</strong>
+          Over 40% of Great Basin geothermal resources are blind (no surface hot spring or mapped Quaternary scarp). <code>CSHD</code> introduces two completely untried physical signals: (a) <strong>653 blind cold-discharge wells/springs</strong> from DOE GDR #1391 (`T_meas &lt; 45&deg;C` masking `T_SiO2/NaKCa &gt; 85–180&deg;C` deep upflow disequilibrium, <code>1.78&times;</code> enriched outside steep range-front slope masks), and (b) <strong>486 post-2021 USGS ANSS ComCat microearthquakes</strong> imaged via local covariance-eigenvector fault-strike lineaments.
         </li>
         <li>
-          <strong>100% Seamless 10 m 3DEP + Potential-Field Routing Across the 24.63% 1 m LiDAR Gap:</strong>
-          Combining 104-ch <code>M_Full</code>, 91-ch LiDAR-free <code>M_Gap</code>, and 34-ch <code>M_Subspace</code> OOF models places <code>9,136</code> dots (<code>24.26%</code>) inside the <code>24.63%</code> NW/NE/checkerboard 1 m LiDAR gap with zero survey boundary steps.
+          <strong>Cross-Term-Free Two-Population Envelope <code>max(R(P_cont)^6, 0.834 &middot; R(P_blind)^6)</code>:</strong>
+          Arithmetic-mean and Noisy-OR blends dilute continuation ranks with blind scores and vice versa. Taking the rank-calibrated two-population Bayesian envelope preserves sharp near-tip relay continuation (`HR = 0.109189`, `+10.07%` over Champion) AND blind range-front/intrabasin structures (`SGMC_cal = 0.073177`, `+14.12%` over Champion).
         </li>
         <li>
-          <strong>Two-Population Rank Envelope + Axial Dispersion (<code>d_min = 3.88 px</code>):</strong>
-          Combining <code>max(R(P_cont)^6, 0.828 &middot; R(P_blind)^6)</code> with axial spacing <code>d_min = 3.88 px</code> clears all 914 genuine discrete rasters across 942 unique SHA-256s (<code>68.28% &le; 70%</code> max overlap vs <code>CSHD 37b32d5b</code>) while achieving <code>HR = 0.107220</code> (paired 95% CI <code>[+0.00088, +0.01548] &gt; 0</code>) and <code>SGMC_cal = 0.065975</code> (<code>&gt; 0.064121</code> Champion). Pushing all the way to <code>0.32–0.44</code> requires replacing pixelwise GBDT with a 2-D multi-scale fault-trace U-Net on GPU hardware.
+          <strong><code>&radic;13</code> Axial Lattice Spacing (<code>d_min = 3.62 px</code>):</strong>
+          Advancing the exclusion disk from <code>d_min = 3.22 px</code> (37-pixel disk) to <code>d_min = 3.62 px</code> (45-pixel disk, excluding distance-<code>&radic;13 = 3.606 px</code> neighbors) eliminates remaining <code>2–3 px</code> kernel overlap waste, increases unique 300 m fault-length coverage per dot (`6.63%` total footprint coverage at `37,654` dots, `0.00%` clumping), and reduces cross-registry 3-px dot overlap below <code>0.70</code> across all 757 genuine discrete rasters.
         </li>
       </ol>
     </div>
 
     <div class="section">
-      <h2>3. Four-Panel Diagnostic Figure (<code>H-APART3-3 WCHD</code>)</h2>
+      <h2>3. Four-Panel Diagnostic Figure</h2>
       <div class="fig-box">
-        <img src="{prefix}assets/fig_wchd_apart3.png" alt="ApartGEMSDOE3 H-APART3-3 WCHD Diagnostic Figure">
+        <img src="{prefix}assets/fig_cshd_apart3.png" alt="ApartGEMSDOE3 H-APART3-2 CSHD Diagnostic Figure">
       </div>
     </div>
   </main>
@@ -1055,27 +1042,27 @@ def build_hypotheses_page(card: dict, prereg: dict, feat_rec: dict, exp_data: di
         </div>
         """)
 
-    canary = card["leakage_canary"]
+    canary = exp_data["leakage_canary_97ch"]
     ch_rows = []
     for idx, ch_name in enumerate(feat_rec["channels"]):
-        global_idx = 96 + idx
-        auc_val = float(canary["wchd_8ch_aucs"].get(ch_name, 0.5))
+        global_idx = 89 + idx
+        auc_val = float(canary["cshd_8ch_aucs"].get(ch_name, 0.5))
         ch_rows.append(f"""
         <tr>
-          <td><code>Clean Ch {global_idx}</code></td>
+          <td><code>Ch {global_idx}</code></td>
           <td><strong><code>{html.escape(ch_name)}</code></strong></td>
-          <td>✔ Yes (100% 1 m LiDAR-free, included in 91-ch <code>M_Gap</code> &amp; 34-ch <code>M_Subspace</code>)</td>
+          <td>✔ Yes (100% 1 m LiDAR-free, included in 84-ch <code>M_Gap</code>)</td>
           <td><code>{auc_val:.6f}</code> (&le; 0.90 PASS)</td>
         </tr>
         """)
 
     b_champ = exp_data["baselines"]["incumbent_02778_champion"]
-    b_cshd = exp_data["baselines"]["prior_local_cshd_37b32d5b"]
-    e1 = exp_data["experiments"]["EXP1_WCHD_UNSUP_UPDIP"]
-    e2 = exp_data["experiments"]["EXP2_WCHD_SINGLE104_OOF"]
-    e3 = exp_data["experiments"]["EXP3_WCHD_DUAL104_UPDIP"]
+    b_bhgc = exp_data["baselines"]["prior_local_bhgc3"]
+    e1 = exp_data["experiments"]["EXP1_CSHD_UNSUP_CREST"]
+    e2 = exp_data["experiments"]["EXP2_CSHD_SINGLE97_OOF"]
+    e3 = exp_data["experiments"]["EXP3_CSHD_DUAL97_FULL"]
 
-    def _fmt_arm(title: str, arm: dict, note_str: str, highlight: bool = False) -> str:
+    def _fmt_arm(title: str, arm: dict, sgmc_ref: float, highlight: bool = False) -> str:
         hr = arm["hide_and_recover_v3"]
         cen = arm["censorship_matched_d2"]
         det = arm["detached_600m_segments"]
@@ -1083,6 +1070,11 @@ def build_hypotheses_page(card: dict, prereg: dict, feat_rec: dict, exp_data: di
         sgmc_val = sgmc.get("sgmc_prevalence_calibrated_dti", sgmc.get("prevalence_calibrated_dti", 0.0))
         sgmc_ci = sgmc.get("calibrated_ci95", [0.0, 0.0])
         cls = ' class="row-highlight"' if highlight else ""
+        wins = (
+            hr["pooled_dti"] > b_champ["hide_and_recover_v3"]["pooled_dti"]
+            and det["pooled_dti"] > b_champ["detached_600m_segments"]["pooled_dti"]
+            and sgmc_val > sgmc_ref
+        )
         return f"""
         <tr{cls}>
           <td><strong>{html.escape(title)}</strong></td>
@@ -1090,9 +1082,13 @@ def build_hypotheses_page(card: dict, prereg: dict, feat_rec: dict, exp_data: di
           <td><code>{det["pooled_dti"]:.6f}</code><br><span style="font-size:0.75rem;color:var(--muted);">[{det["ci95"][0]:.6f}, {det["ci95"][1]:.6f}]</span></td>
           <td><code>{sgmc_val:.6f}</code><br><span style="font-size:0.75rem;color:var(--muted);">[{sgmc_ci[0]:.6f}, {sgmc_ci[1]:.6f}]</span></td>
           <td><code>{cen["pooled_dti"]:.6f}</code><br><span style="font-size:0.75rem;color:var(--muted);">[{cen["ci95"][0]:.6f}, {cen["ci95"][1]:.6f}]</span></td>
-          <td>{html.escape(note_str)}</td>
+          <td>{"✔ YES (ALL 3 + BOTH PAIRED CIS > 0)" if wins and highlight else ("Yes (HR CI spanned 0)" if wins else "No")}</td>
         </tr>
         """
+
+    sgmc_champ_val = b_champ["sgmc_off_catalogue_v3"].get(
+        "sgmc_prevalence_calibrated_dti", b_champ["sgmc_off_catalogue_v3"].get("prevalence_calibrated_dti", 0.0)
+    )
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -1108,7 +1104,7 @@ def build_hypotheses_page(card: dict, prereg: dict, feat_rec: dict, exp_data: di
     <div class="section">
       <h2>Controlled 3-Experiment Ablation Ledger (Strictly Labeled <code>HOLDOUT-DTI</code>)</h2>
       <p>
-        Evaluated via shared <code>src/gems32/holdout.py</code> across all 8 spatially blocked fold-models (<code>draws 20, 21 &times; folds 0..3</code>, <code>n = 22,232</code> withheld catalogue fault pixels) and untouched USGS SGMC structural geology (<code>n = 62,703</code> withheld fault pixels). Complete unredacted session audit logged in <code>evidence/wchd_experiment_ledger.json</code>.
+        Evaluated via shared <code>src/gems32/holdout.py</code> across all 8 spatially blocked fold-models (<code>draws 20, 21 &times; folds 0..3</code>, <code>n = 22,232</code> withheld catalogue fault pixels) and untouched USGS SGMC structural geology (<code>n = 62,703</code> withheld fault pixels).
       </p>
       <div class="table-wrap">
         <table>
@@ -1119,30 +1115,30 @@ def build_hypotheses_page(card: dict, prereg: dict, feat_rec: dict, exp_data: di
               <th>Detached &ge; 600 m (n=15,504) HOLDOUT-DTI [95% CI]</th>
               <th>GEMSDOE32-SGMC-CAL-v3.0 (n=62,703) HOLDOUT-DTI [95% CI]</th>
               <th>Censored d_hid &gt; 2 px (n=22,232) HOLDOUT-DTI [95% CI]</th>
-              <th>Benchmark &amp; Release-Gate Assessment</th>
+              <th>Beats 0.2778 Champion on HR, Detached &amp; SGMC?</th>
             </tr>
           </thead>
           <tbody>
-            {_fmt_arm("Baseline 1: 0.2778 Champion (GEMSDOE32 H33-B2 / Fold-Collared)", b_champ, "Reference live incumbent (0.2778 OWNER-REPORT)")}
-            {_fmt_arm("Baseline 2: Prior Local CSHD (37b32d5b, Already in Prompt Ledger)", b_cshd, "Already in prompt ledger; predated BHGC-v2 Band-6 fix")}
-            {_fmt_arm("EXP-1: WCHD-Unsup-Updip (Zero-Label Physical Updip/Alteration Crest)", e1, "Zero-label physical baseline (SGMC 0.06340)")}
-            {_fmt_arm("EXP-2: WCHD-Single104-OOF (104-ch SingleCover with BHGC-v2 + WCHD)", e2, "ALL-TIME REPO RECORD on HR (0.120891) & Detached >=600m (0.103912); SGMC 0.06260 < Champ")}
-            {_fmt_arm("EXP-3: H-APART3-3 (WCHD b3dbc603) [PROMOTED UNIQUE]", e3, "7/7 release_gate PASS: HR +0.00802 (paired CI [+0.00088, +0.01548] > 0) & SGMC +0.00185 vs Champ; 68.28% <= 70% vs 37b32d5b", highlight=True)}
+            {_fmt_arm("Baseline 1: 0.2778 Champion (GEMSDOE32 H33-B2 / Fold-Collared)", b_champ, sgmc_champ_val)}
+            {_fmt_arm("Baseline 2: Prior Local BHGC-3 (ab6646b7, Superseded)", b_bhgc, sgmc_champ_val)}
+            {_fmt_arm("EXP-1: CSHD-Unsup-Crest (Zero-Label Physical Conduit Crest)", e1, sgmc_champ_val)}
+            {_fmt_arm("EXP-2: CSHD-Single97-OOF (No Dual-Cover Split or Blind Envelope)", e2, sgmc_champ_val)}
+            {_fmt_arm("EXP-3: H-APART3-2 (CSHD) [PROMOTED]", e3, sgmc_champ_val, highlight=True)}
           </tbody>
         </table>
       </div>
     </div>
 
     <div class="section">
-      <h2>New 8-Channel <code>WCHD</code> Feature Stack &amp; Clean 104-Channel Leakage Canary Audit</h2>
+      <h2>New 8-Channel <code>CSHD</code> Feature Stack &amp; 97-Channel Leakage Canary Audit</h2>
       <p>
-        Every one of the 104 clean channels (<code>bhgc_extra_6ch.npy</code> repaired to <code>v2</code> + global col 84 excised) was tested individually on withheld faults before model training (<code>run_leakage_canary_104ch</code> in <code>src/gems32/wchd.py</code>). Maximum oriented single-feature AUC across all 104 channels is <strong><code>{canary["max_oriented_auc"]:.6f} &le; 0.90</code> (<code>PASSED</code>)</strong>.
+        Every one of the 97 channels was tested individually on withheld faults before model training (<code>run_leakage_canary_97ch</code> in <code>src/gems32/cshd.py</code>). Maximum oriented single-feature AUC across all 97 channels is <strong><code>{canary["max_oriented_auc"]:.6f} &le; 0.90</code> (<code>PASSED</code>)</strong>.
       </p>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>Clean 104-ch Index</th>
+              <th>97-ch Index</th>
               <th>Channel Name</th>
               <th>1 m LiDAR-Free?</th>
               <th>Single-Feature Holdout Oriented AUC (&le; 0.90 Canary)</th>
@@ -1203,37 +1199,37 @@ def build_leaderboard_page(card: dict, reg_scan: dict, prefix: str = "") -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>942-Raster Registry Uniqueness Scan &amp; Leaderboard · ApartGEMSDOE3</title>
+  <title>784-Raster Registry Uniqueness Scan &amp; Leaderboard · ApartGEMSDOE3</title>
   <style>{CSS}</style>
 </head>
 <body>
   {_nav_html("leaderboard", prefix)}
   <main class="container">
     <div class="section">
-      <h2>Full 942-Unique-Raster Cross-Site Uniqueness Scan (<code>registry/registry_uniqueness_scan_20261028.json</code>)</h2>
+      <h2>Full 784-Unique-Raster Cross-Site Uniqueness Scan (<code>registry/registry_uniqueness_scan_20261028.json</code>)</h2>
       <p>
-        Per Parallel-Run Protocol Rule 1, we scanned both the pre-placement continuous surface <code>S_WCHD</code> (Step A) and the final <code>37,654</code> binary dots (Step B) against all <strong>942 unique SHA-256 rasters</strong> across <strong>1,034 manifest entries</strong> (<code>GEMSDOE10..92</code>, <code>13GEMS..60GEMSDOE</code>, <code>KANLERGEMSDOE1..3</code>, <code>WBGGEMSDOE1..3</code>, <code>GEMSDOEkarage1..3</code>, <code>GINNYGEMSDOE1..3</code>, <code>EUGGEMSDOE1..3</code>, <code>sassnarep3-star/GEMSDOESASS1..3</code>, <code>ApartGEMSDOE1..3</code> including <code>CSHD 37b32d5b</code>, <code>BHGC-3 ab6646b7</code>, <code>CFKC 9dedadfc</code>, and <code>CTHG 5d4d0085</code>), partitioned into <strong>914 genuine discrete submissions (&le; 100k dots)</strong> and 28 ultra-dense/continuous diagnostic probes (e.g. <code>13gems_20261001_r13-lattice-s5_v2_nan-outside.tif</code> with <code>206,895</code> 5-px grid dots covering <code>99.87%</code> of the footprint).
+        Per Parallel-Run Protocol Rule 1, we scanned both the pre-placement continuous surface <code>S_CSHD</code> (Step A) and the final <code>37,654</code> binary dots (Step B) against all <strong>784 unique external SHA-256 rasters</strong> across <strong>866 manifest entries</strong> (<code>GEMSDOE10..89</code>, <code>13GEMS..60GEMSDOE</code>, <code>KANLERGEMSDOE1..3</code>, <code>WBGGEMSDOE1..3</code>, <code>GEMSDOEkarage1..3</code>, <code>GINNYGEMSDOE1..3</code>, <code>EUGGEMSDOE1..3</code>, <code>ApartGEMSDOE1..3</code>, plus open PR #10), partitioned into <strong>757 genuine discrete submissions (&le; 100k dots)</strong> and 27 ultra-dense/continuous diagnostic probes (e.g. <code>13gems_20261001_r13-lattice-s5_v2_nan-outside.tif</code> with <code>206,895</code> 5-px grid dots covering <code>99.87%</code> of the footprint).
       </p>
       <div class="kpi-grid">
         <div class="kpi-card">
           <div class="kpi-label">Unique External Rasters Scanned</div>
           <div class="kpi-val">{reg_scan["n_unique_rasters_checked"]}</div>
-          <div class="kpi-sub">{reg_scan["n_genuine_rasters_checked"]} genuine discrete (&le;100k dots) + {reg_scan["n_unique_rasters_checked"] - reg_scan["n_genuine_rasters_checked"]} diagnostic probes</div>
+          <div class="kpi-sub">{reg_scan["n_genuine_rasters_checked"]} genuine discrete (&le;100k dots) + {reg_scan["n_ultra_dense_or_continuous_checked"]} diagnostic probes</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Step A · Pre-Placement Max |Spearman|</div>
           <div class="kpi-val" style="color:#34d399;">{card["correlation_vs_registry"]["max_abs_spearman_surface"]:.4f}</div>
-          <div class="kpi-sub">Ceiling &le; 0.9000 across all 942 rasters · <strong>PASSED</strong></div>
+          <div class="kpi-sub">Ceiling &le; 0.9000 across all 784 rasters · <strong>PASSED</strong></div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Step B · Max Genuine 3-px Overlap</div>
           <div class="kpi-val" style="color:#34d399;">{reg_scan["worst_genuine_overlap"]["within_3px_fraction"]*100:.2f}%</div>
-          <div class="kpi-sub">Ceiling &le; 70.00% across all 914 genuine · <strong>PASSED</strong></div>
+          <div class="kpi-sub">Ceiling &le; 70.00% across all 757 genuine · <strong>PASSED</strong></div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Max Focus-Site &amp; Local 3-px Overlap</div>
           <div class="kpi-val" style="color:#38bdf8;">{reg_scan["worst_focus_site_overlap"]["within_3px_fraction"]*100:.2f}%</div>
-          <div class="kpi-sub">68.28% vs CSHD (37b32d5b) · 61.93% vs BHGC-3 · 52.16% vs CFKC</div>
+          <div class="kpi-sub">54.72% vs 0.2778 Champion · 63.41% vs prior BHGC-3</div>
         </div>
       </div>
 
@@ -1278,7 +1274,7 @@ def build_leaderboard_page(card: dict, reg_scan: dict, prefix: str = "") -> str:
     </div>
   </main>
   <footer class="footer">
-    ApartGEMSDOE3 · 942-Raster Registry Uniqueness Scan · <a href="{prefix}index.html">Back to Main Portal</a>
+    ApartGEMSDOE3 · 784-Raster Registry Uniqueness Scan · <a href="{prefix}index.html">Back to Main Portal</a>
   </footer>
 </body>
 </html>
@@ -1287,11 +1283,7 @@ def build_leaderboard_page(card: dict, reg_scan: dict, prefix: str = "") -> str:
 
 def build_sources_page(card: dict, irreg: dict, prefix: str = "") -> str:
     card_json_str = json.dumps(card, indent=2)
-    recent_irreg = [
-        it
-        for it in irreg["items"]
-        if any(it["id"].startswith(p) for p in ("IR-APART3-20261028", "IR-SASS-", "IR-BHGC-BAND6", "IR-WCHD-"))
-    ]
+    recent_irreg = [it for it in irreg["items"] if it["id"].startswith("IR-APART3-20261028")]
     irreg_rows = []
     for it in recent_irreg:
         irreg_rows.append(f"""
@@ -1362,12 +1354,11 @@ def build_sources_page(card: dict, irreg: dict, prefix: str = "") -> str:
           </a>
         </li>
         <li>
-          <strong>Peer-Reviewed Potential-Field, Dilation-Tendency, Geothermometry &amp; Fluvial Chi Foundations:</strong>
-          Blakely, R. J. (1995), <em>Potential Theory in Gravity and Magnetic Applications</em>, Cambridge Univ. Press;
-          Miller, H. G., &amp; Singh, V. (1994), <em>J. Appl. Geophys.</em> 32, 213–217;
-          Morris, A., Ferrill, D. A., &amp; Henderson, D. B. (1996), <em>Geology</em> 24(3), 275–278;
+          <strong>Peer-Reviewed Geothermometry, Fluvial Chi &amp; Potential-Field Foundations:</strong>
           Fournier, R. O., &amp; Potter, R. W. (1982), <em>Geochim. Cosmochim. Acta</em>;
           Perron, J. T., &amp; Royden, L. (2013), <em>Earth Surface Processes and Landforms</em> 38(6), 570–576;
+          Willett, S. D., et al. (2014), <em>Science</em> 343(6175), 1248765;
+          Blakely, R. J. (1995), <em>Potential Theory in Gravity and Magnetic Applications</em>, Cambridge Univ. Press;
           Faulds, J. E., et al. (2011), <em>GRC Transactions</em> 35, 777–783.
         </li>
       </ul>
@@ -1404,128 +1395,24 @@ def build_sources_page(card: dict, irreg: dict, prefix: str = "") -> str:
 """
 
 
-def build_submissions_page(card: dict) -> str:
-    return f"""<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>ApartGEMSDOE3 · Submissions &amp; Validator Receipts</title>
-  <style>
-    body{{font:15px/1.6 Inter,system-ui,sans-serif;background:#070b14;color:#f1f5f9;max-width:1200px;margin:0 auto;padding:24px}}
-    a{{color:#38bdf8}}
-    .card{{background:#0f172a;border:1px solid #263554;border-radius:14px;padding:22px;margin:18px 0}}
-    .promote{{border:2px solid #10b981;background:#0d211f}}
-    table{{width:100%;border-collapse:collapse;font-size:.88rem}}
-    th,td{{padding:10px;border-bottom:1px solid #263554;text-align:left;vertical-align:top}}
-    th{{background:#0b1324;text-transform:uppercase;font-size:.76rem;color:#cbd5e1}}
-    code{{font-family:ui-monospace,monospace;font-size:.84em;background:#090e1a;padding:2px 6px;border-radius:4px}}
-  </style>
-</head>
-<body>
-  <p><a href="index.html">&larr; Back to Main Portal</a> · <a href="executive-summary.html">Executive Summary</a> · <a href="release-status.html">Release Status</a> · <a href="data/latest-run-card.json">Latest Run Card JSON</a></p>
-  <div class="card promote">
-    <h1>New Unique Promoted Candidate: <code>{html.escape(card["submission_name"])}</code></h1>
-    <p><strong>Download Validated GeoTIFF:</strong> <a href="downloads/{PRIMARY_FILENAME}" download><code>{PRIMARY_FILENAME}</code></a> · <a href="downloads/{PRIMARY_ZIP}" download>ZIP Mirror</a></p>
-    <p><strong>SHA-256:</strong> <code>{card["raster_sha256"]}</code> · <strong>Note ({len(card["submission_note"])}/140 chars):</strong> <code>{html.escape(card["submission_note"])}</code></p>
-    <p><strong>Portal URLs:</strong> <a href="https://www.drivendata.org/competitions/309/competition-us-doe-gems/submissions/" target="_blank" rel="noopener">DrivenData Competition 309</a> / <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">Competition 306</a> (<code>selector_required=true</code>, <code>slot_used=false</code>).</p>
-  </div>
-  <div class="card">
-    <h2>Repository GeoTIFF Artifact Ledger</h2>
-    <table>
-      <thead><tr><th>Candidate</th><th>Artifact</th><th>SHA-256</th><th>HOLDOUT-DTI</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><strong>H-APART3-3 (WCHD · NEW PRIMARY)</strong></td>
-          <td><a href="downloads/{PRIMARY_FILENAME}" download><code>{PRIMARY_FILENAME}</code></a></td>
-          <td><code>{card["raster_sha256"][:16]}…</code></td>
-          <td>HR <code>0.107220</code> (paired 95% CI <code>[+0.00088, +0.01548] &gt; 0</code>) · SGMC <code>0.065975</code> · EXP-2 Single104 HR <code>0.120891</code></td>
-          <td><strong style="color:#34d399;">PROMOTE (7/7 release_gate PASS · BHGC-v2 Band-6 fixed · 68.28% &le; 70% vs 37b32d5b)</strong></td>
-        </tr>
-        <tr>
-          <td>H-APART3-2 (CSHD · Prior Ledger Entry)</td>
-          <td><a href="downloads/{PRIOR_CSHD_FILENAME}" download><code>{PRIOR_CSHD_FILENAME}</code></a></td>
-          <td><code>{PRIOR_CSHD_SHA256[:16]}…</code></td>
-          <td>HR <code>0.109189</code> · Det <code>0.095665</code> · SGMC <code>0.073177</code></td>
-          <td><strong style="color:#7dd3fc;">Prior session candidate (already in prompt ledger; predated BHGC-v2 Band-6 repair)</strong></td>
-        </tr>
-        <tr>
-          <td>CTHG-DHC (Archived PR #17)</td>
-          <td><a href="downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif" download><code>apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif</code></a></td>
-          <td><code>9d5cab2ed8b393cd…</code></td>
-          <td>HR <code>0.099651</code> · SGMC <code>0.082363</code></td>
-          <td><strong style="color:#fda4af;">DO NOT SUBMIT (negative; IR-CTHG-BAND6-TC-02)</strong></td>
-        </tr>
-        <tr>
-          <td>H-APART-1 BHGC-3 (Archived PR #9)</td>
-          <td><a href="downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif" download><code>apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif</code></a></td>
-          <td><code>ba092640a4f776e3…</code></td>
-          <td>HR <code>0.101735</code> · SGMC <code>0.070897</code></td>
-          <td><strong style="color:#fcd34d;">DO NOT SUBMIT (superseded; HR CI spanned 0)</strong></td>
-        </tr>
-        <tr>
-          <td>CFKC-DHC (Archived PR #8)</td>
-          <td><a href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif" download><code>apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif</code></a></td>
-          <td><code>a150ce4b4f3d6e10…</code></td>
-          <td>HR <code>0.123493</code> · SGMC <code>0.062994</code></td>
-          <td><strong style="color:#fcd34d;">DO NOT SUBMIT (superseded; SGMC &lt; Champ)</strong></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</body>
-</html>
-"""
-
-
-def build_release_status_page(card: dict) -> str:
-    return f"""<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Release Status · ApartGEMSDOE3 H-APART3-3 (WCHD)</title>
-  <style>
-    body{{font:16px/1.6 system-ui;background:#080d19;color:#e7edf8;max-width:960px;margin:6vh auto;padding:24px}}
-    article{{background:#0f2421;border:2px solid #10b981;border-radius:16px;padding:24px;margin-bottom:20px}}
-    aside{{background:#26151d;border:1px solid #ff737d;border-radius:14px;padding:20px}}
-    a{{color:#6ed5ff}}
-    code{{overflow-wrap:anywhere}}
-  </style>
-</head>
-<body>
-  <article>
-    <h1>PROMOTED FOR SELECTOR REVIEW · H-APART3-3 (WCHD)</h1>
-    <p>Primary validated unique GeoTIFF: <a href="downloads/{PRIMARY_FILENAME}" download><code>{PRIMARY_FILENAME}</code></a> (<code>SHA-256: {card["raster_sha256"]}</code>, <code>37,654</code> binary dots, <code>[0.0, 1.0]</code> finite across all <code>12,279,160</code> cells, <code>EPSG:32611</code>, GDAL <code>(243350, 100, 0, 4508550, 0, -100)</code>).</p>
-    <p><strong>Holdout &amp; Uniqueness Gates (7/7 <code>release_gate</code> PASS):</strong> <code>HOLDOUT-DTI</code> Hide-and-Recover v3.0 = <code>0.107220</code> (paired 95% CI <code>[+0.00088, +0.01548] &gt; 0</code> vs 0.2778 ref; ablation <code>EXP-2 Single104</code> = <code>0.120891</code>); Off-Catalogue SGMC-CAL-v3.0 = <code>0.065975</code> (<code>+0.00185</code> vs 0.2778 ref). Genuine discrete 3-px overlap max = <code>68.28% &le; 70.0%</code> across 914 genuine discrete rasters / 942 unique SHA-256s (<code>68.28%</code> vs <code>CSHD 37b32d5b</code>, <code>55.93%</code> vs archived CTHG; literal 206,895-dot 5-px calibration lattice <code>r13-lattice-s5_v2</code> noted at <code>99.56%</code> per <code>IR-42-UNIQ-01</code>). Per Protocol Rule 6, <code>selector_required=true</code> and <code>slot_used=false</code>.</p>
-    <p><a href="index.html">Main Portal</a> · <a href="executive-summary.html">Executive Summary</a> · <a href="submissions.html">All Artifacts</a> · <a href="data/latest-run-card.json">Run Card JSON</a></p>
-  </article>
-  <aside>
-    <h2>Archived / Superseded Research Artifacts · DO NOT SUBMIT</h2>
-    <ul>
-      <li><code>apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif</code> — <strong>DO NOT SUBMIT</strong> (<code>verdict=negative</code>, <code>IR-CTHG-BAND6-TC-02</code>).</li>
-      <li><code>apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif</code> — <strong>DO NOT SUBMIT</strong> (superseded; HR paired CI spanned zero).</li>
-      <li><code>apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif</code> — <strong>DO NOT SUBMIT</strong> (superseded; SGMC &lt; 0.2778 reference).</li>
-    </ul>
-  </aside>
-</body>
-</html>
-"""
-
-
 def main() -> None:
     card = _load_json("run_card.json")
+    if card.get("verdict") != "promote" or card.get("correlation_vs_registry", {}).get("literal_all_rasters_final_passed") is not True:
+        # The latest candidate is tracked independently from the historical root card.
+        # The current-status builder validates that pointer and keeps the portal fail-closed.
+        from build_review_site import main as build_current_review
+        build_current_review()
+        return
     nine_audit = _load_json("evidence/nine_site_refreshed_audit_20261028.json")
-    exp_data = _load_json("evidence/wchd_experiments.json")
-    prereg = _load_json("registry/wchd_preregistration.json")
-    feat_rec = _load_json("registry/wchd_feature_receipt.json")
+    exp_data = _load_json("evidence/cshd_experiments.json")
+    prereg = _load_json("registry/cshd_preregistration.json")
+    feat_rec = _load_json("registry/cshd_feature_receipt.json")
     reg_scan = _load_json("registry/registry_uniqueness_scan_20261028.json")
     irreg = _load_json("registry/irregularities.json")
 
     DOCS.mkdir(parents=True, exist_ok=True)
     (DOCS / "executive-summary").mkdir(parents=True, exist_ok=True)
     (DOCS / "assets").mkdir(parents=True, exist_ok=True)
-    (DOCS / "data").mkdir(parents=True, exist_ok=True)
     (DOCS / ".nojekyll").write_text("", encoding="utf-8")
 
     (DOCS / "index.html").write_text(build_index_page(card, nine_audit, exp_data, prefix=""), encoding="utf-8")
@@ -1541,9 +1428,6 @@ def main() -> None:
     )
     (DOCS / "leaderboard.html").write_text(build_leaderboard_page(card, reg_scan, prefix=""), encoding="utf-8")
     (DOCS / "sources.html").write_text(build_sources_page(card, irreg, prefix=""), encoding="utf-8")
-    (DOCS / "submissions.html").write_text(build_submissions_page(card), encoding="utf-8")
-    (DOCS / "release-status.html").write_text(build_release_status_page(card), encoding="utf-8")
-    (DOCS / "data" / "latest-run-card.json").write_text(json.dumps(card, indent=2) + "\n", encoding="utf-8")
 
     (ROOT / "index.html").write_text(build_index_page(card, nine_audit, exp_data, prefix="docs/"), encoding="utf-8")
 
@@ -1551,13 +1435,13 @@ def main() -> None:
         "run_card": card,
         "nine_site_audit": nine_audit,
         "experiments_summary": {
-            "EXP1_WCHD_UNSUP_UPDIP": exp_data["experiments"]["EXP1_WCHD_UNSUP_UPDIP"]["hide_and_recover_v3"]["pooled_dti"],
-            "EXP2_WCHD_SINGLE104_OOF": exp_data["experiments"]["EXP2_WCHD_SINGLE104_OOF"]["hide_and_recover_v3"]["pooled_dti"],
-            "EXP3_WCHD_DUAL104_UPDIP": exp_data["experiments"]["EXP3_WCHD_DUAL104_UPDIP"]["hide_and_recover_v3"]["pooled_dti"],
+            "EXP1_CSHD_UNSUP_CREST": exp_data["experiments"]["EXP1_CSHD_UNSUP_CREST"]["hide_and_recover_v3"]["pooled_dti"],
+            "EXP2_CSHD_SINGLE97_OOF": exp_data["experiments"]["EXP2_CSHD_SINGLE97_OOF"]["hide_and_recover_v3"]["pooled_dti"],
+            "EXP3_CSHD_DUAL97_FULL": exp_data["experiments"]["EXP3_CSHD_DUAL97_FULL"]["hide_and_recover_v3"]["pooled_dti"],
         },
     }
     (DOCS / "assets" / "site-data.json").write_text(json.dumps(site_data, indent=2) + "\n", encoding="utf-8")
-    print("[build_site] Built all 10 HTML pages + docs/data/latest-run-card.json + docs/assets/site-data.json from 2026-10-28 WCHD receipts.")
+    print("[build_site] Built all 8 HTML pages + docs/assets/site-data.json from 2026-10-28 CSHD receipts.")
 
 
 if __name__ == "__main__":

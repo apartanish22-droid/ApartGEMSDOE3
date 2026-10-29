@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "reviewed_utc": "2026-10-28",
+  "hypothesis": "No new experiment: no method lane paragraph was assigned. Reviewed the existing H-APART3-2-CTHG-DHC audit artifact only; it is not authorized for promotion.",
+  "mechanism": "Historical candidate mechanism: 103-channel dual-cover feature stack with Delta-chi/gravity/hydrothermal inputs and post-sharpened dual-horizon emission. Scientific interpretation is invalidated because Band 6 total count was treated as magnetic tilt; no new mechanism was tested.",
+  "named_non_fault_process": "Unfaulted plutonic or volcanic intrusive contacts and caldera-ring margins can create potential-field edge responses that mimic faults; differential erosion of welded tuff can create non-tectonic drainage knickpoints.",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI (historical archived diagnostic; not rerun in this review)",
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "n_withheld_positives": 22232,
+    "dti": 0.099651,
+    "ci95": [0.087243, 0.111947],
+    "source": "evidence/apart3_cthg_dhc_run_card.json"
+  },
+  "correlation_overlap_vs_registry": {
+    "status": "Existing archived comparison; not recomputed because the full registry rasters are absent from this checkout.",
+    "max_abs_surface_spearman": 0.212714,
+    "literal_final_dot_overlap_max": 0.998035,
+    "literal_overlap_limit": 0.70,
+    "other_literal_overlaps_over_limit": [0.759043, 0.722526],
+    "verdict": "negative; fails literal registry rule"
+  },
+  "raster_sha256": "9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112",
+  "artifact_role": "Previously generated research/audit artifact; no new raster was generated in this review.",
+  "validator_output": {
+    "local_owner_mirror_template_check_rerun": true,
+    "no_nan_inside_footprint": true,
+    "whole_array_finite": true,
+    "values_in_0_1": true,
+    "single_band_float32": true,
+    "crs": "EPSG:32611",
+    "shape": [3730, 3292],
+    "transform_matches_pinned_owner_mirror_template": true,
+    "organizer_authenticated_template": false,
+    "submission_authorization": false
+  },
+  "submission_name": "APARTGEMSDOE3-CTHG-DHC-5D4D0085",
+  "submission_note": "ApartGEMSDOE3 H-APART3-2 CTHG-DHC 37654d B2 d3.24 | HR=0.0997 Det=0.0960 SGMC=0.0824",
+  "verdict": "negative",
+  "experiments_used_this_review": 0,
+  "slot_used": false
+}

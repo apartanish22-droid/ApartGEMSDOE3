@@ -2206,5 +2206,6 @@
       ]
     }
   },
-  "verdict": "promote"
+  "verdict": "negative",
+  "review_warning": "Exploratory, post-selection results only. Assigned lane absent; multiple reruns and changes exceeded three-experiment/two-hour protocol; final all-registry literal overlap failed. Restricted-subset release gate is not authorization; experiment pipeline was withdrawn."
 }

@@ -1,70 +1,12 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>ApartGEMSDOE3 · Submissions &amp; Validator Receipts</title>
-  <style>
-    body{font:15px/1.6 Inter,system-ui,sans-serif;background:#070b14;color:#f1f5f9;max-width:1200px;margin:0 auto;padding:24px}
-    a{color:#38bdf8}
-    .card{background:#0f172a;border:1px solid #263554;border-radius:14px;padding:22px;margin:18px 0}
-    .promote{border:2px solid #10b981;background:#0d211f}
-    table{width:100%;border-collapse:collapse;font-size:.88rem}
-    th,td{padding:10px;border-bottom:1px solid #263554;text-align:left;vertical-align:top}
-    th{background:#0b1324;text-transform:uppercase;font-size:.76rem;color:#cbd5e1}
-    code{font-family:ui-monospace,monospace;font-size:.84em;background:#090e1a;padding:2px 6px;border-radius:4px}
-  </style>
-</head>
-<body>
-  <p><a href="index.html">&larr; Back to Main Portal</a> · <a href="executive-summary.html">Executive Summary</a> · <a href="release-status.html">Release Status</a> · <a href="data/latest-run-card.json">Latest Run Card JSON</a></p>
-  <div class="card promote">
-    <h1>New Unique Promoted Candidate: <code>APARTGEMSDOE3-WCHD-B3DBC603</code></h1>
-    <p><strong>Download Validated GeoTIFF:</strong> <a href="downloads/apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif" download><code>apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif</code></a> · <a href="downloads/gemsdoe32-apart3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.zip" download>ZIP Mirror</a></p>
-    <p><strong>SHA-256:</strong> <code>11f698c3c3f342029a1aa44d805d49b366a6a7724c178025d09790b47152a9dc</code> · <strong>Note (71/140 chars):</strong> <code>Apart3 H-APART3-3 WCHD 104/91ch d3.88 37654d B2 | HR=0.1072 SGMC=0.0660</code></p>
-    <p><strong>Portal URLs:</strong> <a href="https://www.drivendata.org/competitions/309/competition-us-doe-gems/submissions/" target="_blank" rel="noopener">DrivenData Competition 309</a> / <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">Competition 306</a> (<code>selector_required=true</code>, <code>slot_used=false</code>).</p>
-  </div>
-  <div class="card">
-    <h2>Repository GeoTIFF Artifact Ledger</h2>
-    <table>
-      <thead><tr><th>Candidate</th><th>Artifact</th><th>SHA-256</th><th>HOLDOUT-DTI</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><strong>H-APART3-3 (WCHD · NEW PRIMARY)</strong></td>
-          <td><a href="downloads/apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif" download><code>apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif</code></a></td>
-          <td><code>11f698c3c3f34202…</code></td>
-          <td>HR <code>0.107220</code> (paired 95% CI <code>[+0.00088, +0.01548] &gt; 0</code>) · SGMC <code>0.065975</code> · EXP-2 Single104 HR <code>0.120891</code></td>
-          <td><strong style="color:#34d399;">PROMOTE (7/7 release_gate PASS · BHGC-v2 Band-6 fixed · 68.28% &le; 70% vs 37b32d5b)</strong></td>
-        </tr>
-        <tr>
-          <td>H-APART3-2 (CSHD · Prior Ledger Entry)</td>
-          <td><a href="downloads/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif" download><code>apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif</code></a></td>
-          <td><code>65f2ac84ff2c7624…</code></td>
-          <td>HR <code>0.109189</code> · Det <code>0.095665</code> · SGMC <code>0.073177</code></td>
-          <td><strong style="color:#7dd3fc;">Prior session candidate (already in prompt ledger; predated BHGC-v2 Band-6 repair)</strong></td>
-        </tr>
-        <tr>
-          <td>CTHG-DHC (Archived PR #17)</td>
-          <td><a href="downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif" download><code>apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif</code></a></td>
-          <td><code>9d5cab2ed8b393cd…</code></td>
-          <td>HR <code>0.099651</code> · SGMC <code>0.082363</code></td>
-          <td><strong style="color:#fda4af;">DO NOT SUBMIT (negative; IR-CTHG-BAND6-TC-02)</strong></td>
-        </tr>
-        <tr>
-          <td>H-APART-1 BHGC-3 (Archived PR #9)</td>
-          <td><a href="downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif" download><code>apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif</code></a></td>
-          <td><code>ba092640a4f776e3…</code></td>
-          <td>HR <code>0.101735</code> · SGMC <code>0.070897</code></td>
-          <td><strong style="color:#fcd34d;">DO NOT SUBMIT (superseded; HR CI spanned 0)</strong></td>
-        </tr>
-        <tr>
-          <td>CFKC-DHC (Archived PR #8)</td>
-          <td><a href="downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif" download><code>apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif</code></a></td>
-          <td><code>a150ce4b4f3d6e10…</code></td>
-          <td>HR <code>0.123493</code> · SGMC <code>0.062994</code></td>
-          <td><strong style="color:#fcd34d;">DO NOT SUBMIT (superseded; SGMC &lt; Champ)</strong></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to submit · ApartGEMSDOE3</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#142238;--line:#30415c;--text:#e8edf7;--muted:#a8b7cc;--link:#8bd7fa;--alert:#4b2025}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,sans-serif}
+header{background:#111f35;border-bottom:1px solid var(--line)}.wrap{max-width:1120px;margin:auto;padding:20px}
+.brand{color:#8bd7fa;letter-spacing:.12em;font-size:.82rem}h1{margin:.15em 0;font-size:2.2rem}h2{margin-top:0}nav{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px}a{color:var(--link)}nav a{text-decoration:none}main section{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin:18px 0;padding:22px}
+.alert{padding:16px;background:var(--alert);border:1px solid #e47b82;border-radius:8px}.muted{color:var(--muted)}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;min-width:780px}th,td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid var(--line)}code{overflow-wrap:anywhere;color:#fff}li{margin:.45em 0}
+</style></head><body><header><div class="wrap"><div class="brand">APARTGEMSDOE3 · RESEARCH / RELEASE REVIEW</div><h1>How to submit</h1><nav aria-label="Main navigation"><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="release-status.html">Release status</a><a href="submissions.html">How to submit</a><a href="research.html">Research</a><a href="hypotheses.html">Hypotheses</a><a href="leaderboard.html">Score audit</a><a href="review.html">Repository review</a><a href="sources.html">Sources</a></nav></div></header>
+<main class="wrap"><section class="alert"><strong>DO NOT SUBMIT.</strong> No candidate has passed all required scientific, uniqueness, format, and selector gates. No weekly slot was used. Current negative candidate H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS; SHA-256 <code>8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd</code>; submission name <code>H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS</code>. The historical files are audit/research records only; this site does not authorize downloads.</section><section class="alert"><h2>WCHD research artifact — DO NOT SUBMIT</h2><p>Format checks pass against an owner-mirrored template, but its final dots fail the literal all-registry overlap rule (99.56% against the registered calibration lattice). The assigned lane was missing and the run exceeded protocol limits; the result is exploratory, not a score estimate.</p><p><a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/raw/main/docs/downloads/apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif">Download GeoTIFF for research only</a> · <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/evidence/wchd_run_card.json">Negative run card</a> · <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/evidence/wchd_literal_recheck.json">Format and overlap recheck</a></p><p>SHA-256 <code>11f698c3c3f342029a1aa44d805d49b366a6a7724c178025d09790b47152a9dc</code></p></section><section><h2>Submission checklist</h2><ol><li>Do not submit until a candidate beats the current holdout incumbent on the agreed spatially blocked, buffered hide-and-recover evaluator, with a paired 95% CI supporting the improvement.</li><li>Run each feature-alone leakage canary; AUC above 0.90 is presumed leakage until resolved.</li><li>Pass the pre-placement surface correlation and post-placement dot overlap gates against every registry raster; log a duplicate and stop on a threshold breach.</li><li>Pass automated single-band GeoTIFF validation against the competition template: matching CRS, shape, transform, finite values in [0,1] across the full array.</li><li>Obtain explicit separate selector authorization within the current weekly slot cap.</li><li>Download the exact authorized file, submit it on the competition page, and save the organizer receipt.</li></ol><p>These checks are independent; a format pass does not override a holdout, uniqueness, scientific-integrity, or selector failure.</p></section>
+<section><h2>Submission fields</h2><p>The submission-form text supplied in this project says a single-band GeoTIFF or a ZIP containing one GeoTIFF is accepted. Confirm the live rules on the official competition page before upload. Use the submission name and a concise comment stored in that candidate's run card. The local validator checks file structure/range, not portal account, slot quota, score, or scientific validity.</p><p><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/">Competition data / format page</a> (login may be required).</p></section></main></body></html>
