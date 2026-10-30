@@ -115,6 +115,33 @@ def restore_entry(entry: dict, root: Path) -> dict:
     }
 
 
+def merge_receipt(receipt_path: Path, results: list[dict], storage_root: str) -> dict:
+    """Merge this run's per-file results into the receipt, keyed by file id.
+
+    Earlier versions overwrote the receipt with only the current group, so a
+    `--group scored` run erased the `core` and `external` entries. Entries from
+    earlier runs are kept; an entry with the same id is replaced by the new result.
+    """
+    prior: dict[str, dict] = {}
+    if receipt_path.exists():
+        try:
+            old = json.loads(receipt_path.read_text())
+            for f in old.get("files", []):
+                if isinstance(f, dict) and "id" in f:
+                    prior[f["id"]] = f
+        except (json.JSONDecodeError, TypeError):
+            prior = {}
+    for r in results:
+        prior[r["id"]] = r
+    files = list(prior.values())
+    return {
+        "schema_version": 1,
+        "verified_files_count": len(files),
+        "storage_root": storage_root,
+        "files": files,
+    }
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--group", default="all", choices=["core", "external", "scored", "all"])
@@ -137,15 +164,11 @@ def main() -> None:
         storage_root = root.resolve().relative_to(ROOT.resolve()).as_posix()
     except ValueError:
         storage_root = str(root)
-    receipt = {
-        "schema_version": 1,
-        "verified_files_count": len(results),
-        "storage_root": storage_root,
-        "files": results,
-    }
-    (ROOT / "data").mkdir(parents=True, exist_ok=True)
-    (ROOT / "data" / "restore_receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
-    print(f"Verified {len(results)} files; receipt written to data/restore_receipt.json")
+    receipt_path = ROOT / "data" / "restore_receipt.json"
+    receipt = merge_receipt(receipt_path, results, storage_root)
+    receipt_path.parent.mkdir(parents=True, exist_ok=True)
+    receipt_path.write_text(json.dumps(receipt, indent=2) + "\n")
+    print(f"Verified {len(results)} files this run; receipt now lists {receipt['verified_files_count']} files in data/restore_receipt.json")
 
 
 if __name__ == "__main__":

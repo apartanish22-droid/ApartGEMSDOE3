@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "run_id": "ledger-calibration-n117-20261030",
+  "date_utc": "2026-10-30",
+  "experiment_type": "diagnostic (calibration of evaluators against live scores); no candidate raster generated",
+  "hypothesis": "H1a: HOLDOUT-DTI (hide-and-recover) rank-correlates negatively with OWNER-REPORT live scores. H1b: SGMC-calibrated off-catalogue DTI rank-correlates positively.",
+  "mechanism": "Hide-and-recover scores recovery of withheld catalogue segments; the official truth set is new faults outside the USGS catalogue (IR-32-PROXY-01/02).",
+  "non_fault_mimic": "Not applicable (no candidate).",
+  "pre_registration": "Docstring of scripts/ledger_calibration_check.py, written before the run.",
+  "lane": "calibration only; no duplicate-guard applicable (no candidate surface).",
+  "inputs": {
+    "evidence/live_ledger_rasters.json": "OWNER-REPORT scores; 117 unique SHA-256 of 118 status-ok rows",
+    "script_sha256": "461a894ba720009fe95f969c668e0628d73844b6b0539117ea3b1b3be367794f"
+  },
+  "holdout_dti": {
+    "evaluator_hide_and_recover": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "evaluator_sgmc_cal": "GEMSDOE32-SGMC-CAL-v3.0",
+    "alpha": 0.2,
+    "beta": 0.8,
+    "kernel_m": 300
+  },
+  "results": {
+    "n_scored": 117,
+    "n_excluded": 0,
+    "spearman_owner_vs_holdout_pooled": {
+      "rho": 0.1672,
+      "p_value": 0.071535,
+      "bootstrap_ci95": [
+        -0.0181,
+        0.3395
+      ]
+    },
+    "spearman_owner_vs_sgmc_prevalence_calibrated": {
+      "rho": 0.4042,
+      "p_value": 6e-06,
+      "bootstrap_ci95": [
+        0.2211,
+        0.559
+      ]
+    },
+    "verdict": {
+      "H1a": "H1a NOT supported (sign or CI)",
+      "H1b": "H1b supported"
+    }
+  },
+  "score_labels": {
+    "owner_scores": "OWNER-REPORT",
+    "dti_values": "HOLDOUT-DTI"
+  },
+  "raster_sha256": "not applicable (117 ledger rasters; per-raster SHA-256 in evidence/ledger_calibration_check_20261030.json rows)",
+  "registry_comparisons": "not applicable",
+  "validator_output": "not applicable (no candidate written)",
+  "submission_name_note": "not applicable (no submission)",
+  "verdict": "negative",
+  "verdict_meaning": "No candidate promoted. H1a not supported; H1b supported. Diagnostic only, not a submission authorization.",
+  "limitations": [
+    "Owner-reported scores; no organizer receipts.",
+    "117 rasters from one owner family; effective n below 117.",
+    "Spearman with bootstrap CI over rasters, not over pixels."
+  ]
+}

@@ -100,6 +100,26 @@ def sync_status_artifacts(root: Path = ROOT) -> dict:
     return card
 
 
+def calibration_summary(root: Path = ROOT) -> str:
+    """HTML block for the pre-registered live-ledger calibration (evidence/ledger_calibration_check_20261030.json)."""
+    path = root / "evidence" / "ledger_calibration_check_20261030.json"
+    if not path.is_file():
+        return '<p class="muted">Calibration check not recorded.</p>'
+    d = json.loads(path.read_text(encoding="utf-8"))
+    h = d["spearman_owner_vs_holdout_pooled"]
+    g = d["spearman_owner_vs_sgmc_prevalence_calibrated"]
+    return (
+        '<section class="alert"><h2>Calibration (pre-registered, n=117 live-ledger rasters)</h2>'
+        f"<p>Owner-reported live scores (OWNER-REPORT) against the repo's evaluator outputs (HOLDOUT-DTI). "
+        f"The off-catalogue SGMC-calibrated proxy is <b>positively and significantly</b> rank-correlated with the scores: "
+        f"rho={float(g['rho']):+.2f}, 95% bootstrap CI [{float(g['bootstrap_ci95'][0]):+.2f}, {float(g['bootstrap_ci95'][1]):+.2f}], p={float(g['p_value']):.1e}. "
+        f"The hide-and-recover HOLDOUT-DTI is <b>not significant</b>: rho={float(h['rho']):+.2f}, 95% CI [{float(h['bootstrap_ci95'][0]):+.2f}, {float(h['bootstrap_ci95'][1]):+.2f}], p={float(h['p_value']):.2f}. "
+        "An earlier n=18 check had shown a negative holdout correlation. It did not hold at n=117 and is withdrawn. "
+        "This is a rank diagnostic for ordering candidates, not a score projection. "
+        f'Evidence: <a href="{esc(repo_link("evidence/ledger_calibration_check_20261030.json"))}">ledger_calibration_check_20261030.json</a>.</p></section>'
+    )
+
+
 def build_pages(root: Path = ROOT) -> dict[str, str]:
     status = json.loads((root / "registry/current_status.json").read_text())
     current_card = json.loads((root / status["current_run_card"]).read_text())
@@ -127,20 +147,23 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
         peer, overlap, _ = max(site_pairings, key=lambda row: row[1])
         max_rho = max(row[2] for row in site_pairings)
         duplicate_status = f"NOT UNIQUE vs supplied nine: {overlap:.2%} within 3 px of {esc(peer)}; max |rho| {max_rho:.4f}; >70% gate FAIL"
+        file_name = Path(str(item["file"])).name
         rows.append(
             "<tr>"
             f'<td><a href="https://github.com/buffedlizard55-lab/{site}">{site}</a></td>'
-            f'<td><code>{esc(item["leaderboard_name"])}</code></td>'
+            f"<td><code>{esc(file_name)}</code></td>"
             f"<td>OWNER-REPORT {score:.4f}</td>"
             "<td>Not estimable</td>"
-            f"<td>{duplicate_status}</td></tr>"
+            f"<td>{duplicate_status}</td>"
+            "<td><b>DO NOT DOWNLOAD TO SUBMIT</b>: owner reports it is already on the leaderboard, and it is not unique versus the other eight.</td></tr>"
         )
     table = (
-        '<div class="scroll"><table><thead><tr><th>Site</th><th>Reported best artifact</th>'
-        '<th>Reported score</th><th>New score estimate</th><th>Uniqueness vs these nine</th></tr></thead><tbody>'
+        '<div class="scroll"><table><thead><tr><th>Site</th><th>File (already submitted)</th>'
+        '<th>Reported score</th><th>New score estimate</th><th>Uniqueness vs these nine</th><th>Verdict</th></tr></thead><tbody>'
         + "".join(rows)
         + "</tbody></table></div>"
     )
+    calib = calibration_summary(root)
     warning = (
         '<section class="alert"><strong>DO NOT SUBMIT.</strong> No candidate has passed all '
         "required scientific, uniqueness, format, and selector gates. No weekly slot was used. "
@@ -194,8 +217,13 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
 <p>Current candidate record: <code>{esc(current_id)}</code>, file <code>{esc(artifact)}</code>, SHA-256 <code>{esc(current_hash)}</code>, submission name <code>{esc(artifact_name)}</code>. It is a negative research record; no download or upload is authorized. The associated literal-registry and scientific-integrity gates fail.</p></section>
 <section><h2>What blocks a new result?</h2><ul><li>The assigned method paragraph is missing.</li><li>The large feature raster, cached feature stack, and complete registry are not restored in this checkout.</li><li>Historical candidate audits found uniqueness/scientific-integrity failures; format validation alone is insufficient.</li></ul><p class="muted">Details: <a href="release-status.html">release status</a> · <a href="review.html">current repository review</a> · <a href="research.html">unrun research shortlist</a></p></section>'''
 
-    exec_body = warning + f'''<section><h2>Nine-site comparison</h2>
+    exec_body = warning + f'''<section class="decision"><h2>Decision: which file can be downloaded and submitted?</h2>
+<p><b>None today.</b> The highest owner-reported file is <code>{esc(top['leaderboard_name'])}</code> (GEMSDOE32, {float(top['published_score_OWNER_REPORT']):.4f}). It is the best reported score, but it is already on the leaderboard per the owner report and it is <b>not unique</b> against the other eight sites (table below). Resubmitting it adds no information.</p>
+<p>No new candidate has passed the uniqueness gate, the scientific gate, and the weekly-slot selector gate. The only checks that pass for these files are format and range checks (values in [0, 1], EPSG:32611, 3730 x 3292, float32, single band). Format passing is not authorization.</p>
+<p>Estimated score for any new file: <b>not estimable</b>. For ranking candidates, the off-catalogue SGMC-calibrated metric is the one with a significant rank relationship to live scores (see calibration below). The hide-and-recover HOLDOUT-DTI is not.</p></section>
+<section><h2>Nine-site comparison</h2>
 <p>All submitted-score entries below are <b>OWNER-REPORT</b> from the supplied/repository audit. None is organizer-confirmed here. The score estimate for a new submission is <b>not estimable</b>; a HOLDOUT-DTI result cannot be converted to a live score without a validated calibration study.</p>{table}
+{calib}
 <p>{esc(top['site'])} is the largest listed owner report ({float(top['published_score_OWNER_REPORT']):.4f}). Existing analysis says the reported nested pruning sequence is consistent with removing low-credit false-positive mass, but no hidden truth or receipt-linked evidence establishes causation. See <a href="{esc(repo_link('knowledge/03_why_02778_and_the_anatomy_of_the_family.md'))}">the evidence and limitations</a>.</p><p>There is no file currently OK to submit. The nine reported files are <b>NOT UNIQUE in this nine-site cohort</b> according to the repository overlap audit; scores remain OWNER-REPORT, not organizer receipts. {current_registry_note} Earlier `H-APART3-2-CTHG-DHC` (`apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif`) had recorded overlaps of 75.90%, 72.25%, and 99.8035% within 3 px and a Band 6 interpretation issue; its paired HOLDOUT-DTI delta versus the 0.2778 incumbent was +0.000571 (95% CI [-0.006306, +0.007311]), spanning zero. For the current candidate, HOLDOUT-DTI diagnostic is <b>{float(holdout.get('pooled_dti', 0.0)):.6f}</b> (evaluator <code>{esc(holdout.get('evaluator_version', 'not recorded'))}</code>, n={int(holdout.get('n_withheld_positives', 0))}, 95% CI {esc(holdout.get('ci95', []))}); it is not a leaderboard score projection. {paired_note} Scientific-integrity review: {science_note}</p><p>Current negative candidate: <code>{esc(current_id)}</code> · <code>{esc(artifact)}</code> · SHA-256 <code>{esc(current_hash)}</code>. Not authorized to download or submit; local format validity does not cure scientific or uniqueness failures.</p></section>
 <section><h2>How to submit when a candidate is authorized</h2><ol><li>Only after the separate selector authorizes a slot, download the exact hash-verified GeoTIFF linked by the release page.</li><li>Open the correct <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DOE GEMS competition</a> and select <b>New submission</b>.</li><li>Choose the single-band GeoTIFF (or a ZIP containing exactly one GeoTIFF) that passed the release checklist. Confirm its CRS, shape, geotransform, and all predicted values in [0, 1].</li><li>Enter the submission name and a short note (140 characters maximum) recorded in the run card. Do not use an estimated score as the note.</li><li>Submit and retain the organizer's receipt. Record the exact file SHA-256 and the receipt's score as <b>ORGANIZER-CONFIRMED</b>.</li></ol><p><b>Current decision: no file is authorized for submission.</b> Exact portal acceptance cannot be guaranteed by a local validator.</p></section>'''
 

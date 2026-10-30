@@ -1,0 +1,405 @@
+{
+  "schema_version": 1,
+  "generated_by": "scripts/holdout_calibration_check.py",
+  "date_utc": "2026-10-30",
+  "purpose": "Rank-calibration diagnostic of HOLDOUT-DTI against OWNER-REPORT leaderboard scores. Not a score projection.",
+  "evaluator_versions": {
+    "hide_and_recover": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "sgmc_cal": "GEMSDOE32-SGMC-CAL-v3.0"
+  },
+  "n": 18,
+  "spearman_owner_vs_holdout_pooled": {
+    "rho": -0.5512,
+    "p_value": 0.0177
+  },
+  "spearman_owner_vs_sgmc_prevalence_calibrated": {
+    "rho": 0.6877,
+    "p_value": 0.0016
+  },
+  "focus_nine_subset": {
+    "labels": [
+      "GEMSDOE24",
+      "GEMSDOE25",
+      "GEMSDOE27",
+      "GEMSDOE28",
+      "GEMSDOE30",
+      "GEMSDOE31",
+      "GEMSDOE32",
+      "GEMSDOE33",
+      "GEMSDOE36"
+    ],
+    "n": 9,
+    "spearman_owner_vs_holdout_pooled": {
+      "rho": -0.8487,
+      "p_value": 0.0038
+    },
+    "spearman_owner_vs_sgmc_prevalence_calibrated": {
+      "rho": 0.9496,
+      "p_value": 0.0001
+    }
+  },
+  "rows": [
+    {
+      "label": "GEMSDOE24",
+      "path": ".cache/registry/GEMSDOE24/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "owner_reported_score": 0.2477,
+      "owner_score_source": "site list: GEMSDOE24",
+      "holdout_dti_pooled": 0.09315052698145053,
+      "holdout_dti_ci95": [
+        0.08127878015699064,
+        0.105968402764059
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.10111756213920534,
+      "sgmc_prevalence_calibrated_dti": 0.057932246070648355,
+      "sgmc_calibrated_ci95": [
+        0.05112656686015078,
+        0.0652165822506664
+      ],
+      "emitted_pixels": 60069,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "GEMSDOE25",
+      "path": ".cache/registry/GEMSDOE25/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "owner_reported_score": 0.26,
+      "owner_score_source": "site list: GEMSDOE25",
+      "holdout_dti_pooled": 0.09674330401596999,
+      "holdout_dti_ci95": [
+        0.08416165969221351,
+        0.10952536708166187
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.09528236525805692,
+      "sgmc_prevalence_calibrated_dti": 0.060592489973569044,
+      "sgmc_calibrated_ci95": [
+        0.05358257868838623,
+        0.06785452888019962
+      ],
+      "emitted_pixels": 44090,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "GEMSDOE27",
+      "path": ".cache/registry/GEMSDOE27/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "owner_reported_score": 0.2449,
+      "owner_score_source": "site list: GEMSDOE27",
+      "holdout_dti_pooled": 0.0927484913819319,
+      "holdout_dti_ci95": [
+        0.08085564044154277,
+        0.10539661683022032
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.10242171571074637,
+      "sgmc_prevalence_calibrated_dti": 0.05826237030075181,
+      "sgmc_calibrated_ci95": [
+        0.051476178073377704,
+        0.06553368995679887
+      ],
+      "emitted_pixels": 61328,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "GEMSDOE28",
+      "path": ".cache/registry/GEMSDOE28/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+      "owner_reported_score": 0.271,
+      "owner_score_source": "site list: GEMSDOE28",
+      "holdout_dti_pooled": 0.029360078390480288,
+      "holdout_dti_ci95": [
+        0.024959299444030806,
+        0.034382240223559776
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.09434123664384234,
+      "sgmc_prevalence_calibrated_dti": 0.06296746868114517,
+      "sgmc_calibrated_ci95": [
+        0.05571910069273813,
+        0.07037502524536735
+      ],
+      "emitted_pixels": 37660,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "GEMSDOE30",
+      "path": ".cache/registry/GEMSDOE30/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+      "owner_reported_score": 0.26,
+      "owner_score_source": "site list: GEMSDOE30",
+      "holdout_dti_pooled": 0.09674330401596999,
+      "holdout_dti_ci95": [
+        0.08416165969221351,
+        0.10952536708166187
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.09528236525805692,
+      "sgmc_prevalence_calibrated_dti": 0.060592489973569044,
+      "sgmc_calibrated_ci95": [
+        0.05358257868838623,
+        0.06785452888019962
+      ],
+      "emitted_pixels": 44090,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "GEMSDOE31",
+      "path": ".cache/registry/GEMSDOE31/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "owner_reported_score": 0.2708,
+      "owner_score_source": "site list: GEMSDOE31",
+      "holdout_dti_pooled": 0.030516096725810685,
+      "holdout_dti_ci95": [
+        0.025680176441420625,
+        0.03605063588978195
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.09627307160880005,
+      "sgmc_prevalence_calibrated_dti": 0.06300952965550723,
+      "sgmc_calibrated_ci95": [
+        0.055780891540621436,
+        0.07039487831429346
+      ],
+      "emitted_pixels": 40199,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "GEMSDOE32",
+      "path": ".cache/registry/GEMSDOE32/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "owner_reported_score": 0.2778,
+      "owner_score_source": "site list: GEMSDOE32",
+      "holdout_dti_pooled": 0.00451537871535044,
+      "holdout_dti_ci95": [
+        0.0038164175817344387,
+        0.005261598301920283
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.09606004283619354,
+      "sgmc_prevalence_calibrated_dti": 0.0641209376417646,
+      "sgmc_calibrated_ci95": [
+        0.056730181217206584,
+        0.0716486609703412
+      ],
+      "emitted_pixels": 37654,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "GEMSDOE33",
+      "path": ".cache/registry/GEMSDOE33/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+      "owner_reported_score": 0.2632,
+      "owner_score_source": "site list: GEMSDOE33",
+      "holdout_dti_pooled": 0.0519685128498396,
+      "holdout_dti_ci95": [
+        0.04577318545951855,
+        0.05829620661401161
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.09676373589379636,
+      "sgmc_prevalence_calibrated_dti": 0.06255070275978937,
+      "sgmc_calibrated_ci95": [
+        0.05531125719222555,
+        0.06998567406425855
+      ],
+      "emitted_pixels": 41865,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "GEMSDOE36",
+      "path": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "owner_reported_score": 0.275,
+      "owner_score_source": "site list: GEMSDOE36",
+      "holdout_dti_pooled": 0.004576730703979592,
+      "holdout_dti_ci95": [
+        0.0038915913728424577,
+        0.005300784778329944
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.09743406327058107,
+      "sgmc_prevalence_calibrated_dti": 0.06444361006575842,
+      "sgmc_calibrated_ci95": [
+        0.057086576831896246,
+        0.07195818932689524
+      ],
+      "emitted_pixels": 38854,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "gems19-h19-5 (scored group)",
+      "path": ".cache/gems_data/scored/gems19-h19-5-powerlaw-budget-multiline-corroborated-20260930-e27054cf-nan.tif",
+      "owner_reported_score": 0.1922,
+      "owner_score_source": "site list: GEMSDOE19",
+      "holdout_dti_pooled": 0.06879199690327992,
+      "holdout_dti_ci95": [
+        0.058821803669694084,
+        0.08005692480008342
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.10060349914232138,
+      "sgmc_prevalence_calibrated_dti": 0.044072527055937755,
+      "sgmc_calibrated_ci95": [
+        0.03839311646537306,
+        0.05018992183224019
+      ],
+      "emitted_pixels": 121131,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "gems19-h19-4 (scored group)",
+      "path": ".cache/gems_data/scored/gems19-h19-4-multiline-corroborated-openness-thermal-pop-20260930-691e4dfa-nan.tif",
+      "owner_reported_score": 0.1894,
+      "owner_score_source": "site list: GEMSDOE19",
+      "holdout_dti_pooled": 0.06920605698696591,
+      "holdout_dti_ci95": [
+        0.059306267819551985,
+        0.08063427130824635
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.10656435085530624,
+      "sgmc_prevalence_calibrated_dti": 0.04632622687647366,
+      "sgmc_calibrated_ci95": [
+        0.040333392551856855,
+        0.052417897477916905
+      ],
+      "emitted_pixels": 123779,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "gems16-h16-1 (scored group)",
+      "path": ".cache/gems_data/scored/gems16-h16-1-topo-geophys-baseline-ridges-20260930-df20f65e-nan.tif",
+      "owner_reported_score": 0.1855,
+      "owner_score_source": "site list: GEMSDOE16",
+      "holdout_dti_pooled": 0.06807433693226782,
+      "holdout_dti_ci95": [
+        0.05822502628819744,
+        0.07972415500757017
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.11268873870444045,
+      "sgmc_prevalence_calibrated_dti": 0.04900300619748864,
+      "sgmc_calibrated_ci95": [
+        0.04281313981184233,
+        0.05536965892873635
+      ],
+      "emitted_pixels": 123939,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "gems28-h27-4-r1-solo (scored group)",
+      "path": ".cache/gems_data/scored/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-allfinite.tif",
+      "owner_reported_score": 0.2708,
+      "owner_score_source": "site list: GEMSDOE28 (h27-4-r1-solo-d2-8)",
+      "holdout_dti_pooled": 0.030516096725810685,
+      "holdout_dti_ci95": [
+        0.025680176441420625,
+        0.03605063588978195
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.09627307160880005,
+      "sgmc_prevalence_calibrated_dti": 0.06300952965550723,
+      "sgmc_calibrated_ci95": [
+        0.055780891540621436,
+        0.07039487831429346
+      ],
+      "emitted_pixels": 40199,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "gems10-h28-dotted-ridge (scored group)",
+      "path": ".cache/gems_data/scored/gems10-h28-dotted-ridge-20260928T020256236880Z-6452ae1d00.tif",
+      "owner_reported_score": 0.1839,
+      "owner_score_source": "site list: GEMSDOE10",
+      "holdout_dti_pooled": 0.20219689416240075,
+      "holdout_dti_ci95": [
+        0.1869065447524894,
+        0.2166672203932162
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.09261374930146143,
+      "sgmc_prevalence_calibrated_dti": 0.05160598209389838,
+      "sgmc_calibrated_ci95": [
+        0.04537308441307553,
+        0.058120440425120434
+      ],
+      "emitted_pixels": 69281,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "gems10-h25-ctx-ridge (scored group)",
+      "path": ".cache/gems_data/scored/gems10-h25-ctx-ridge-20260927T232947704150Z-6452ae1d00.tif",
+      "owner_reported_score": 0.128,
+      "owner_score_source": "site list: GEMSDOE10",
+      "holdout_dti_pooled": 0.15338355660249836,
+      "holdout_dti_ci95": [
+        0.1392662616317737,
+        0.16687264711143016
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.08703912855555421,
+      "sgmc_prevalence_calibrated_dti": 0.03426000912820391,
+      "sgmc_calibrated_ci95": [
+        0.029887028695025835,
+        0.03914295568651854
+      ],
+      "emitted_pixels": 174232,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "8GEMSDOE Hedge-v2 (scored group)",
+      "path": ".cache/gems_data/scored/8GEMSDOE_Hedge-v2_submission.tif",
+      "owner_reported_score": 0.1563,
+      "owner_score_source": "site list: 8GEMSDOE",
+      "holdout_dti_pooled": 0.2665775129591306,
+      "holdout_dti_ci95": [
+        0.23708379552395797,
+        0.29669818843003687
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.10402084579870977,
+      "sgmc_prevalence_calibrated_dti": 0.040421474657155385,
+      "sgmc_calibrated_ci95": [
+        0.03544304932334273,
+        0.0454959816286172
+      ],
+      "emitted_pixels": 227507,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "13GEMSDOE r13-lattice (scored group)",
+      "path": ".cache/gems_data/scored/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "owner_reported_score": 0.0904,
+      "owner_score_source": "site list: 13GEMSDOE",
+      "holdout_dti_pooled": 0.08601698873001104,
+      "holdout_dti_ci95": [
+        0.07631334205623568,
+        0.09537855107936316
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.2509162807194406,
+      "sgmc_prevalence_calibrated_dti": 0.0936138128653588,
+      "sgmc_calibrated_ci95": [
+        0.08233542080413134,
+        0.10480482229205879
+      ],
+      "emitted_pixels": 206895,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    },
+    {
+      "label": "GEMSDOE9 2314b599 (scored group)",
+      "path": ".cache/gems_data/scored/gemsdoe9-PLACEHOLDER-2314b599.tif",
+      "owner_reported_score": 0.0107,
+      "owner_score_source": "site list: GEMSDOE9 (2314b599)",
+      "holdout_dti_pooled": 0.017321650852694905,
+      "holdout_dti_ci95": [
+        0.012466565405925324,
+        0.022271354521797036
+      ],
+      "n_withheld_positives": 22232,
+      "sgmc_raw_pooled_dti": 0.033857093139217045,
+      "sgmc_prevalence_calibrated_dti": 0.013741311094760528,
+      "sgmc_calibrated_ci95": [
+        0.009195483075662833,
+        0.01890446336035823
+      ],
+      "emitted_pixels": 147684,
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0"
+    }
+  ],
+  "label_note": "owner_reported_score values are OWNER-REPORT (copied from the supplied site list), not organizer receipts.",
+  "status": "SUPERSEDED 2026-10-30 by evidence/ledger_calibration_check_20261030.json (n=117, pre-registered). The negative holdout correlation shown here did not hold at scale (rho +0.17, CI spans 0) and is withdrawn."
+}
