@@ -761,6 +761,18 @@
    "severity": "medium (verified 2026-10-30)",
    "statement": "knowledge/06 says to run `scripts/fetch_live_ledger_rasters.py` to fetch the live-ledger rasters. That script is not in the repository (`git log --all -- scripts/fetch_live_ledger_rasters.py` is empty and no file exists in the tree). The ledger rows in evidence/live_ledger_rasters.json record repo, ref, path and sha256, and the 2026-10-30 experiment fetched them from those pins with SHA-256 verification.",
    "mitigation": "Use scripts/ledger_calibration_check.py for the fetch-and-verify step, or restore the missing script from its author. Owner to review."
+  },
+  {
+   "id": "IR-APART3-20261030-06",
+   "severity": "high (found at merge of PR #35)",
+   "statement": "The H-SEISMIC run card (evidence/GEMSDOE32-H-SEISMIC-20261030T020420Z-run-card.json) sets ok_to_download and ok_to_submit to true, and main's README and hand-written docs/executive-summary.html carried an OK TO DOWNLOAD CTA. Under the repo gate (registry/current_status.json gate_rule: holdout win vs the same-evaluator best with paired CI > 0), the pooled HOLDOUT-DTI 0.003857 is below the champion's 0.004515, so the candidate fails the gate. Its uniqueness was checked against 15 local comparators only, not the full registry. Its SGMC-calibrated off-catalogue DTI (0.1049 vs 0.0641) is the metric the n=117 test supports, so the owner should decide under proposal V1.",
+   "mitigation": "Fail-closed in this merge: the README bullet and the generated executive summary show NOT CLEARED and remove the download CTA. The run card is kept as a record. Owner decision needed on V1 and on the full-registry uniqueness check before any slot is considered."
+  },
+  {
+   "id": "IR-APART3-20261030-07",
+   "severity": "medium",
+   "statement": "Two scripts write the same executive-summary paths: scripts/build_site.py (writes docs/executive-summary.html, docs/executive-summary/index.html, docs/index.html, and the root index.html) and scripts/build_review_site.py (writes the same executive-summary paths). A rebuild with one silently overwrites the other's content, which is how the H-SEISMIC CTA could appear or disappear.",
+   "mitigation": "Use scripts/build_review_site.py as the single generator for the executive-summary pages (it runs the release-status fail-closed checks). Retire or disable build_site.py's executive-summary writes. Owner to confirm."
   }
  ],
  "updated_utc": "2026-10-30T00:00:00Z"
