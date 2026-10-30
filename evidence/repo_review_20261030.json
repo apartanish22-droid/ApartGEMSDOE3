@@ -10,9 +10,14 @@
   "holdout_95_ci": null,
   "n_withheld_positives": null,
   "correlation_overlap_vs_registry": {
-    "result": "not recalculated; required source rasters are missing from the local cache",
-    "max_abs_rank_correlation": null,
-    "max_fraction_within_3px": null
+    "result": "Recomputed the selected nine-site cohort audit from all nine SHA-256-verified pinned TIFFs. All 36 pairs breach the directional >70% within-3px rule; 11/36 pairs exceed |Spearman| 0.90. This is not a full-registry comparison for a new candidate.",
+    "selected_nine_pair_count": 36,
+    "selected_nine_pairs_overlap_gt_70pct": 36,
+    "selected_nine_pairs_abs_spearman_gt_0_90": 11,
+    "max_abs_rank_correlation_selected_nine": 1.0,
+    "max_directional_fraction_within_3px_selected_nine": 1.0,
+    "full_registry_restored": false,
+    "new_candidate_surface_and_final_dots_checked": false
   },
   "raster_sha256": null,
   "validator_output": {
@@ -35,44 +40,78 @@
   "release_status_result": "PASS; fail-closed status and hashes match; no slot used",
   "limitations": [
     "The assigned single method lane is absent.",
-    "The 19-band training raster, feature cache, full registry rasters, and nine-site source rasters are not present locally.",
-    "Competition template available for this review is an owner mirror, not organizer-authenticated.",
+    "The 19-band training raster and cached feature stack are unavailable; no new compliant holdout experiment can run.",
+    "The nine selected focus-site TIFFs were restored and hash-verified, but the complete registry is not restored.",
+    "The local submission template and labels are owner mirrors, not organizer-authenticated.",
     "No organizer submission receipt is available to confirm historical owner-reported scores."
   ],
-  "review_passes": [
-    {
-      "pass": 1,
-      "scope": "Repository inventory and implementation review",
-      "result": "Existing fail-closed portal and four-hypothesis shortlist; assigned method paragraph, feature stack/training raster, and full comparison registry unavailable."
-    },
-    {
-      "pass": 2,
-      "scope": "Test, release-state, and artifact format verification",
-      "result": "109 passed, 2 skipped; release status PASS. Restored only two SHA-256-pinned owner-mirror files. Negative candidate passed strict structural/range validation against that owner mirror. Nine-site audit command stopped on missing source raster."
-    },
-    {
-      "pass": 3,
-      "scope": "Reconciliation with original request",
-      "result": "No new GeoTIFF, model experiment, current-leaderboard claim, or slot action; prerequisites are absent and fail-closed policy prevents an unsupported release."
-    }
-  ],
-  "nine_site_focus_audit": {
-    "archived_audit": "evidence/nine_site_best_files_audit.json",
-    "fresh_audit_command": "python scripts/audit_nine_site_best.py",
-    "fresh_audit_result": "BLOCKED: first pinned GEMSDOE24 source raster absent from .cache/registry; no fresh pairwise metric calculated.",
-    "highest_owner_report": {
-      "site": "GEMSDOE32",
-      "reported_score": 0.2778,
-      "file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif"
-    },
-    "new_candidate_score_estimate": "not estimable",
-    "interpretation": "Archived focus rasters all breached the literal 70% 3-pixel-overlap rule with at least one other focus raster; they are audit evidence, not download/submission recommendations."
+  "focus_site_audit": {
+    "manifest": "registry/focus_registry_manifest.json",
+    "output": "evidence/nine_site_best_files_audit.json",
+    "source_byte_sha256_matches": 9,
+    "source_byte_sha256_expected": 9,
+    "site_pairs": 36,
+    "pairs_overlap_gate_fail": 36,
+    "pairs_rank_correlation_gate_fail": 11,
+    "evidence_class_for_scores": "OWNER-REPORT; no receipt tied to the selected raster hashes"
   },
-  "strict_format_check": {
-    "candidate": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
-    "sha256": "8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd",
-    "command": ".venv/bin/python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite <candidate>",
-    "result": "PASS: one-band float32, 3730x3292, EPSG:32611, transform matches, whole-array finite values in [0,1]. Template is owner-mirrored, not organizer-authenticated; this is not authorization."
+  "session_verification_2026_10_30": {
+    "reachability": {
+      "drivendata_data_page": "HTTP 000 (unreachable)",
+      "dropbox": "HTTP 000",
+      "gdr_openei": "HTTP 000",
+      "usgs": "HTTP 000",
+      "github_com": "HTTP 200",
+      "pypi": "HTTP 200",
+      "npm_registry": "HTTP 200"
+    },
+    "restored_inputs": "labels.tif, sample_submission.tif from owner mirror buffedlizard55-lab/GEMSDOE24 (integrity-pinned, NOT organizer-authenticated)",
+    "tests": "109 passed, 2 skipped",
+    "release_gate": "PASS (fail-closed; no slot used)",
+    "gemsdoe32_0p2778_file_format_check": {
+      "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "result": "format PASS vs owner-mirror template; copy of prior submission; not a candidate; score remains OWNER-REPORT"
+    },
+    "leaderboard_top_observations": [
+      {
+        "date": "2026-10-04",
+        "top": "nchuzhoy 0.3262",
+        "note": "0.3195 was rank 3 (DARD)",
+        "source": "registry/leaderboard_snapshot_2026-10-04.json"
+      },
+      {
+        "date": "2026-10-25",
+        "top": "xiaofanhu 0.4413",
+        "source": "docs/data/feed.json"
+      },
+      {
+        "date": "2026-10-26",
+        "top": "xiaofanhu 0.4437",
+        "source": "evidence/live_leaderboard_snapshot_20261026.json"
+      }
+    ],
+    "new_candidate_generated": false,
+    "score_estimate": null,
+    "submission_authorized": false,
+    "verdict": "negative (unchanged)"
   },
-  "leaderboard_freshness": "Not refreshed in this review. User-provided 0.3195 and repository-cached 0.4437 observation dated 2026-10-26 conflict as claims of current status; consult official leaderboard live."
+  "current_continuation_rerun": {
+    "tests": {
+      "command": ".venv/bin/python -m pytest -q",
+      "result": "109 passed, 2 skipped, 33 Rasterio affine deprecation warnings"
+    },
+    "release_check": {
+      "command": ".venv/bin/python scripts/check_release_status.py",
+      "result": "PASS; fail-closed; no slot used"
+    },
+    "negative_candidate_format": {
+      "path": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
+      "sha256": "8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd",
+      "result": "Strict format/range PASS against owner-mirror template only; not authorization."
+    },
+    "nine_site_audit": "Attempted scripts/audit_nine_site_best.py in this continuation; blocked because first pinned GEMSDOE24 TIFF was absent from .cache/registry. The separate archived audit evidence reports 9/9 source hashes matched and 36/36 pairs breached the overlap rule.",
+    "new_experiment_or_raster": false,
+    "leaderboard_live_fetch": false
+  }
 }
