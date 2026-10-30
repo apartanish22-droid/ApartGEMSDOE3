@@ -795,8 +795,8 @@ def _submission_instructions_html(card: dict) -> str:
     </li>
     <li>
       <strong>Upload to DrivenData:</strong> Open
-      <a href="https://www.drivendata.org/competitions/309/competition-us-doe-gems/submissions/" target="_blank" rel="noopener">
-        https://www.drivendata.org/competitions/309/competition-us-doe-gems/submissions/
+      <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/" target="_blank" rel="noopener">
+        https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/
       </a>
       and upload <code>{PRIMARY_FILENAME}</code> directly.
     </li>
@@ -1309,14 +1309,14 @@ def build_sources_page(card: dict, irreg: dict, prefix: str = "") -> str:
       <ul style="line-height:1.9;">
         <li>
           <strong>DrivenData US DOE GEMS Competition Overview &amp; Metric Specification:</strong>
-          <a href="https://www.drivendata.org/competitions/309/competition-us-doe-gems/page/955/" target="_blank" rel="noopener">
-            https://www.drivendata.org/competitions/309/competition-us-doe-gems/page/955/
+          <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/955/" target="_blank" rel="noopener">
+            https://www.drivendata.org/competitions/306/competition-doe-gems/page/955/
           </a>
         </li>
         <li>
           <strong>DrivenData US DOE GEMS Public Leaderboard (2026-10-26 Top <code>0.4437</code>, 2026-10-25 <code>0.4413</code>, Early-Oct <code>0.3195</code>):</strong>
-          <a href="https://www.drivendata.org/competitions/309/competition-us-doe-gems/leaderboard/" target="_blank" rel="noopener">
-            https://www.drivendata.org/competitions/309/competition-us-doe-gems/leaderboard/
+          <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" target="_blank" rel="noopener">
+            https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/
           </a>
         </li>
         <li>

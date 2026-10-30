@@ -24,9 +24,15 @@ The user-supplied prompt refers to a single assigned method paragraph, but that 
 
 ## Current executive status
 
+- [Repository review — 2026-10-30](docs/repo-review-2026-10-30.md): three-pass review, nine-site score status, validation results, blockers, and follow-up. Read this alongside the project brief at the start of each session.
+
+- **Start here (2026-10-30):** [Nine-site verification, why 0.2778, and the submission decision](docs/research/nine-site-verification-20261030.md). No file is cleared to download or submit. Re-verified from bytes: 4 of 9 site files pass the strict finite [0,1] check; GEMSDOE30 duplicates GEMSDOE25; all 36 site pairs exceed the 70% overlap gate. Holdout DTI ranks the nine files in reverse of the owner-reported scores (Spearman ρ = -0.85, n = 9), so it is not a valid selection signal for the official off-catalogue test. Public leaderboard #1 read 2026-10-30: 0.4544 (conflicts with prompt values 0.4413 and 0.3195; flagged).
+- **Leaderboard top (conflicting inputs, verified 2026-10-30):** the brief cites 0.4413 and 0.3195. The repo's latest verified observation is 0.4437 (xiaofanhu, 2026-10-26); 0.3195 was rank 3 on 2026-10-04. Public leaderboard values are not organizer receipts for any GEMSDOE file. See [this session's verification table](docs/repo-review-2026-10-30.md#session-verification-2026-10-30-this-session).
+- **Blocked in this sandbox:** DrivenData, Dropbox, GDR, and USGS are unreachable. Update 2026-10-30 (later session): the pinned owner-mirror feature stack was restored from GitHub by SHA-256 (not organizer-authenticated) and used for the holdout diagnostics. No new candidate, score estimate, or download link is produced until an organizer-authenticated source and the assigned method lane are available.
+
 - [Executive summary and nine-site comparison](docs/executive-summary.html): no new submission is authorized; estimate for a new raster is **not estimable**. The listed historical scores are owner-reported, not confirmed receipts.
 - [Why GEMSDOE32's reported 0.2778 is not explained causally](knowledge/03_why_02778_and_the_anatomy_of_the_family.md): the nested pruning sequence is consistent with removing low-credit false-positive mass, but does not prove why the score changed or predict a new score.
-- [Current session repository review](docs/repo-review-current-session-2026-10-28.md) · [four-candidate research shortlist](docs/research/next-hypotheses-review-20261028.md) · [current negative run card](evidence/session_review_20261028.json).
+- [Latest repository review (2026-10-30)](docs/repo-review-2026-10-30.md) · [four-candidate research shortlist](docs/research/next-hypotheses-review-20261028.md) · [machine-readable review card](evidence/repo_review_20261030.json) · [current negative run card](evidence/session_review_20261028.json).
 - Current recorded candidate: `H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS`, file `gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif`, submission name `H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS` (SHA-256 `8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd`), documented in [`evidence/H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS_run_card.json`](evidence/H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS_run_card.json). It is **negative**: the recorded HOLDOUT-DTI is 0.002126 [0.001567, 0.002606], canaries are missing, and the full-registry uniqueness comparison was not run. This is not authorized for download or submission.
 - Earlier CTHG-DHC candidate `H-APART3-2-CTHG-DHC` (SHA-256 `9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112`) also remains negative: its literal registry overlap and scientific-integrity gate fail.
 - The root `run_card.json` and historical CSHD artifact `apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif` (named `APARTGEMSDOE3-CSHD-37B32D5B`, SHA-256 `65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38`) are retained as audit/education history only; no download link is provided. Its original promotion claim is withdrawn. A local format pass against an owner mirror is not submission authorization; literal registry overlap and a scientific band-mapping error fail release.
@@ -43,6 +49,8 @@ python3 -m venv .venv
 .venv/bin/python scripts/restore_data.py --group core --manifest registry/ci_format_manifest.json
 .venv/bin/python scripts/check_release_status.py
 .venv/bin/python scripts/build_review_site.py
+# Re-verify the nine focus files from bytes (about 2 minutes; fetches 5 files from pinned GitHub refs if absent)
+.venv/bin/python scripts/verify_nine_site.py
 .venv/bin/python -m pytest -q
 .venv/bin/python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite submission/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif
 # Format only (owner mirror, NOT authorization); negative candidate, do not submit

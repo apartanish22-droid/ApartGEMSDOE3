@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+  "retrieved_via": "fetch_page tool (sandbox cannot reach drivendata.org directly; the tool returns no timestamp)",
+  "retrieval_date_utc": "2026-10-30 (session date; exact fetch time not returned by tool)",
+  "column": "Best public DW-Tversky (public split only; prize rounds use private and expanded labels)",
+  "label": "PUBLIC-LEADERBOARD-OBSERVATION (not organizer receipt for this repo's files)",
+  "rows_top10": [
+    {"rank": 1, "participant": "xiaofanhu", "best_public_dw_tversky": 0.4544, "last_submission_relative": "3d ago"},
+    {"rank": 2, "participant": "cfld__", "best_public_dw_tversky": 0.3916, "last_submission_relative": "5d 22h ago"},
+    {"rank": 3, "participant": "Batik Shirt Brothers", "best_public_dw_tversky": 0.3911, "last_submission_relative": "2d 20h ago"},
+    {"rank": 4, "participant": "BrandenKMurray", "best_public_dw_tversky": 0.3841, "last_submission_relative": "1d ago"},
+    {"rank": 5, "participant": "op01", "best_public_dw_tversky": 0.3642, "last_submission_relative": "13h 5min ago"},
+    {"rank": 6, "participant": "No Fault of Our Own", "best_public_dw_tversky": 0.3604, "last_submission_relative": "1h 46min ago"},
+    {"rank": 7, "participant": "joeyfezster", "best_public_dw_tversky": 0.3447, "last_submission_relative": "3d 4h ago"},
+    {"rank": 8, "participant": "JerryDataWorks", "best_public_dw_tversky": 0.3418, "last_submission_relative": "2w 6d ago"},
+    {"rank": 9, "participant": "alexoktaba", "best_public_dw_tversky": 0.3416, "last_submission_relative": "1w 6d ago"},
+    {"rank": 10, "participant": "zeaal", "best_public_dw_tversky": 0.3405, "last_submission_relative": "18h 55min ago"}
+  ],
+  "conflicts_with_other_records": [
+    "User-supplied prompts state 0.4413 (top) and 0.3195 (highest right now).",
+    "registry/current_status.json records xiaofanhu 0.4437 read at 2026-10-26T04:32:28Z.",
+    "This fetch shows xiaofanhu 0.4544. Snapshot times differ; none of these values is a score for this repository's files."
+  ]
+}
