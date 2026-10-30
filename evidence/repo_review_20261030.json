@@ -10,9 +10,14 @@
   "holdout_95_ci": null,
   "n_withheld_positives": null,
   "correlation_overlap_vs_registry": {
-    "result": "not recalculated; required source rasters are missing from the local cache",
-    "max_abs_rank_correlation": null,
-    "max_fraction_within_3px": null
+    "result": "Recomputed the selected nine-site cohort audit from all nine SHA-256-verified pinned TIFFs. All 36 pairs breach the directional >70% within-3px rule; 11/36 pairs exceed |Spearman| 0.90. This is not a full-registry comparison for a new candidate.",
+    "selected_nine_pair_count": 36,
+    "selected_nine_pairs_overlap_gt_70pct": 36,
+    "selected_nine_pairs_abs_spearman_gt_0_90": 11,
+    "max_abs_rank_correlation_selected_nine": 1.0,
+    "max_directional_fraction_within_3px_selected_nine": 1.0,
+    "full_registry_restored": false,
+    "new_candidate_surface_and_final_dots_checked": false
   },
   "raster_sha256": null,
   "validator_output": {
@@ -35,10 +40,21 @@
   "release_status_result": "PASS; fail-closed status and hashes match; no slot used",
   "limitations": [
     "The assigned single method lane is absent.",
-    "The 19-band training raster, feature cache, full registry rasters, and nine-site source rasters are not present locally.",
-    "Competition template available for this review is an owner mirror, not organizer-authenticated.",
+    "The 19-band training raster and cached feature stack are unavailable; no new compliant holdout experiment can run.",
+    "The nine selected focus-site TIFFs were restored and hash-verified, but the complete registry is not restored.",
+    "The local submission template and labels are owner mirrors, not organizer-authenticated.",
     "No organizer submission receipt is available to confirm historical owner-reported scores."
   ],
+  "focus_site_audit": {
+    "manifest": "registry/focus_registry_manifest.json",
+    "output": "evidence/nine_site_best_files_audit.json",
+    "source_byte_sha256_matches": 9,
+    "source_byte_sha256_expected": 9,
+    "site_pairs": 36,
+    "pairs_overlap_gate_fail": 36,
+    "pairs_rank_correlation_gate_fail": 11,
+    "evidence_class_for_scores": "OWNER-REPORT; no receipt tied to the selected raster hashes"
+  },
   "session_verification_2026_10_30": {
     "reachability": {
       "drivendata_data_page": "HTTP 000 (unreachable)",
