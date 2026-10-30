@@ -48,3 +48,24 @@ Other shortlist ideas are directional semivariogram anisotropy of residual gravi
 ## Evidence card
 
 Machine-readable review card: [`evidence/repo_review_20261030.json`](../evidence/repo_review_20261030.json). It records this as a negative review with no experiment, no new raster, no score estimate, and no submission authorization.
+
+## Session verification (2026-10-30, this session)
+
+Every item below was checked directly in this sandbox. Nothing here is a score, a new raster, or a submission authorization.
+
+| Check | Command or source | Result |
+|---|---|---|
+| Competition data reachable? | `curl` to drivendata.org data page, dropbox.com, gdr.openei.org/submissions/1391, usgs.gov | **Not reachable** (HTTP 000). Only github.com, pypi.org, and registry.npmjs.org responded (HTTP 200). |
+| Pinned "owner mirror" inputs | `scripts/restore_data.py --group core --manifest registry/ci_format_manifest.json` | Restored `labels.tif` and `sample_submission.tif`; hashes match `registry/ci_format_manifest.json`. These come from a third-party competitor's GitHub repo (`buffedlizard55-lab/GEMSDOE24`), not the organizer. The large 19-band training raster was **not** fetched; doing so would pull a competitor-hosted competition file of unverified licence status, so it is left as a flagged decision for the owner. |
+| Test suite | `.venv/bin/python -m pytest -q` | 109 passed, 2 skipped, 33 Rasterio deprecation warnings (reproduces the 2026-10-30 result above). |
+| Release gate | `scripts/check_release_status.py` | PASS: candidates fail closed, hashes match, no slot used. |
+| Format check, GEMSDOE32 0.2778 file | `scripts/check_submission.py --strict-finite` on `docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif` | PASSED format and range checks against the owner-mirror template. SHA-256 `c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9`. This is a copy of a prior submission and is **not** a candidate for submission. Its 0.2778 score remains OWNER-REPORT (IR-32-SCORE-01/02/03). |
+| Leaderboard top, conflicting figures | `docs/data/feed.json` (verified snapshots), `evidence/live_leaderboard_snapshot_20261026.json`, `registry/leaderboard_snapshot_2026-10-04.json` | The prompt cites **0.4413** and **0.3195**. The repo's snapshots show: 2026-10-04 #1 nchuzhoy 0.3262 (0.3195 was #3, DARD); 2026-10-25 #1 xiaofanhu 0.4413; 2026-10-26 #1 xiaofanhu **0.4437**. The most recent verified figure in the repo is 0.4437. Public leaderboard values are not organizer receipts for any GEMSDOE file. |
+| Internal evidence-class conflict | `docs/data/feed.json` entries that label 0.2778 as ORGANIZER-CONFIRMED vs OWNER-REPORT; `registry/irregularities.json` IR-32-SCORE-01/02/03 | Already flagged in the repo. The later Round-6 rule (OWNER-REPORT) governs. The ORGANIZER-CONFIRMED wording is a stale label and should be removed in a future cleanup. |
+
+### Consequences for the user's goals
+
+- **No unique, validated, downloadable submission was produced in this session.** Producing one needs the 19-band training raster and the cached feature stack, which are not in this checkout and are not reachable from the sandbox. A raster built from the two restored label/template files alone would not be a validated model and would fail the README gates.
+- **No score estimate is given** for a new file. The estimate is "not estimable" until a holdout experiment runs.
+- **The existing four-candidate shortlist** in `docs/research/next-hypotheses-review-20261028.md` is the current hypothesis set. This session did not add new hypotheses, because each one would need the same blocked data before any test could run.
+- **Two actions for the owner:** (1) decide whether the 19-band training raster may be restored from a non-organizer mirror, or whether an organizer-authenticated copy can be placed in `data/` manually; (2) supply the single assigned method paragraph the protocol refers to.
