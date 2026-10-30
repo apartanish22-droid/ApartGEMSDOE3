@@ -26,8 +26,9 @@ The user-supplied prompt refers to a single assigned method paragraph, but that 
 
 - [Repository review — 2026-10-30](docs/repo-review-2026-10-30.md): three-pass review, nine-site score status, validation results, blockers, and follow-up. Read this alongside the project brief at the start of each session.
 
+- **Start here (2026-10-30):** [Nine-site verification, why 0.2778, and the submission decision](docs/research/nine-site-verification-20261030.md). No file is cleared to download or submit. Re-verified from bytes: 4 of 9 site files pass the strict finite [0,1] check; GEMSDOE30 duplicates GEMSDOE25; all 36 site pairs exceed the 70% overlap gate. Holdout DTI ranks the nine files in reverse of the owner-reported scores (Spearman ρ = -0.85, n = 9), so it is not a valid selection signal for the official off-catalogue test. Public leaderboard #1 read 2026-10-30: 0.4544 (conflicts with prompt values 0.4413 and 0.3195; flagged).
 - **Leaderboard top (conflicting inputs, verified 2026-10-30):** the brief cites 0.4413 and 0.3195. The repo's latest verified observation is 0.4437 (xiaofanhu, 2026-10-26); 0.3195 was rank 3 on 2026-10-04. Public leaderboard values are not organizer receipts for any GEMSDOE file. See [this session's verification table](docs/repo-review-2026-10-30.md#session-verification-2026-10-30-this-session).
-- **Blocked in this sandbox:** DrivenData, Dropbox, GDR, and USGS are unreachable; the 19-band training raster and feature cache are absent. No new candidate, score estimate, or download link is produced until those inputs are restored from an organizer-authenticated source.
+- **Blocked in this sandbox:** DrivenData, Dropbox, GDR, and USGS are unreachable. Update 2026-10-30 (later session): the pinned owner-mirror feature stack was restored from GitHub by SHA-256 (not organizer-authenticated) and used for the holdout diagnostics. No new candidate, score estimate, or download link is produced until an organizer-authenticated source and the assigned method lane are available.
 
 - [Executive summary and nine-site comparison](docs/executive-summary.html): no new submission is authorized; estimate for a new raster is **not estimable**. The listed historical scores are owner-reported, not confirmed receipts.
 - [Why GEMSDOE32's reported 0.2778 is not explained causally](knowledge/03_why_02778_and_the_anatomy_of_the_family.md): the nested pruning sequence is consistent with removing low-credit false-positive mass, but does not prove why the score changed or predict a new score.
@@ -46,6 +47,8 @@ python3 -m venv .venv
 .venv/bin/python scripts/restore_data.py --group core --manifest registry/ci_format_manifest.json
 .venv/bin/python scripts/check_release_status.py
 .venv/bin/python scripts/build_review_site.py
+# Re-verify the nine focus files from bytes (about 2 minutes; fetches 5 files from pinned GitHub refs if absent)
+.venv/bin/python scripts/verify_nine_site.py
 .venv/bin/python -m pytest -q
 .venv/bin/python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite submission/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif
 # Format only (owner mirror, NOT authorization); negative candidate, do not submit

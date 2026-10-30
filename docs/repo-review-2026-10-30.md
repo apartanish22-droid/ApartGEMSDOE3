@@ -130,3 +130,20 @@ This table distinguishes checks rerun in the current continuation from same-date
 - **No score estimate is given** for a new file. The estimate is "not estimable" until a holdout experiment runs.
 - **The existing four-candidate shortlist** in `docs/research/next-hypotheses-review-20261028.md` is the current hypothesis set. This session did not add new hypotheses, because each one would need the same blocked data before any test could run.
 - **Two actions for the owner:** (1) decide whether the 19-band training raster may be restored from a non-organizer mirror, or whether an organizer-authenticated copy can be placed in `data/` manually; (2) supply the single assigned method paragraph the protocol refers to.
+
+## Addendum — later session, same date (verification from bytes)
+
+Scope: the earlier pass above was a review-only session. This addendum records a later, verified pass. It supersedes the earlier "not estimable/NOT RUN" items where stated.
+
+- **Environment:** `.venv` created from `requirements.txt`. Owner-mirror inputs restored and SHA-256 verified (`scripts/restore_data.py --group all`, 36 files; `data/restore_receipt.json` updated). Provenance remains a third-party mirror, not organizer-authenticated.
+- **Tests:** `python -m pytest -q` → 118 passed (111 existing + 7 new in `tests/test_nine_site_verification.py`). The earlier "NOT RUN" is resolved.
+- **Release gate:** `scripts/check_release_status.py` → PASS (fail-closed).
+- **Nine-site bytes:** five files fetched from pinned refs (SHA-256 matched). Strict repo validator: PASS for GEMSDOE30, 32, 33, 36; FAIL for 24, 25, 27, 28, 31 (NaN outside footprint). The official spec permits NaN outside bounds, so the cause of the portal's "[0, 1]" message is unverified. See `docs/research/nine-site-verification-20261030.md`.
+- **Duplicate:** GEMSDOE25 and GEMSDOE30 are the same prediction (identical after NaN→0), both reported 0.2600.
+- **Holdout (HOLDOUT-DTI, evaluator GEMSDOE32-HIDE-RECOVER-v3.0, 22,232 withheld positives):** GEMSDOE32 = 0.0045 [0.0038, 0.0053]; GEMSDOE24/25/27/30 ≈ 0.09. Spearman(owner score, holdout) = −0.85 (n = 9). Spearman(owner score, SGMC off-catalogue calibrated) = +0.95.
+- **Leaderboard:** public #1 xiaofanhu 0.4544 (fetched; snapshot time not returned). Conflicts with prompt values 0.4413 and 0.3195 and with the registry value 0.4437 (2026-10-26). Flagged.
+- **Official rules verified** from the competition problem page: test set = faults not in the USGS database; metric DTI α = 0.2, β = 0.8, 300 m triangular kernel; float32 in [0, 1], outside bounds null or NaN; a single submission must be chosen across both rounds.
+- **Overlapping prior shortlist item:** the top-ranked "basement-step ridge" in `docs/research/next-hypotheses-review-20261028.md` is already implemented as A48-H1 JXSTEP (`src/gems32/juxtaposition.py`). It is not a new hypothesis.
+- **New GeoTIFF:** none generated. Blockers: no assigned method lane (the prompt's paragraph is absent), the 451-raster uniqueness check has not run, and no candidate has passed holdout validation.
+
+Decision unchanged: **DO NOT SUBMIT** any file from this checkout.
