@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "purpose": "Nine-site fixed-file audit: bytes, format, and shared-evaluator holdout.",
+  "interpretation": "Fixed rasters are built from the full catalogue; hide-and-recover holdout is not designed to score them. Values are diagnostic only, not leaderboard estimates.",
+  "rows": [
+    {
+      "site": "GEMSDOE24",
+      "name": "h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan",
+      "stated_score_OWNER_REPORT": 0.2477,
+      "file": ".cache/registry/GEMSDOE24/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "bytes": 1632732,
+      "sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+      "format": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform_matches_template": true,
+        "nan_inside_footprint": 0,
+        "nan_anywhere": 7111787,
+        "min_inside": 0.0,
+        "max_inside": 1.0,
+        "positive_pixels": 60069
+      },
+      "holdout_hide_recover": {
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "pooled_dti": 0.09315052698145053,
+        "ci95": [
+          0.08127878015699064,
+          0.105968402764059
+        ],
+        "n_withheld_positives": 22232
+      },
+      "holdout_sgmc_calibrated": {
+        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "prevalence_calibrated_dti": 0.057932246070648355,
+        "ci95": [
+          0.05112656686015078,
+          0.0652165822506664
+        ],
+        "n_withheld_positives": 62703
+      },
+      "status": "measured"
+    },
+    {
+      "site": "GEMSDOE25",
+      "name": "dotted-h19-5-d2-8-20261002-e56ea318af89-nan",
+      "stated_score_OWNER_REPORT": 0.26,
+      "file": ".cache/registry/GEMSDOE25/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "bytes": 1603424,
+      "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+      "format": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform_matches_template": true,
+        "nan_inside_footprint": 0,
+        "nan_anywhere": 7111787,
+        "min_inside": 0.0,
+        "max_inside": 1.0,
+        "positive_pixels": 44090
+      },
+      "holdout_hide_recover": {
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "pooled_dti": 0.09674330401596999,
+        "ci95": [
+          0.08416165969221351,
+          0.10952536708166187
+        ],
+        "n_withheld_positives": 22232
+      },
+      "holdout_sgmc_calibrated": {
+        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "prevalence_calibrated_dti": 0.060592489973569044,
+        "ci95": [
+          0.05358257868838623,
+          0.06785452888019962
+        ],
+        "n_withheld_positives": 62703
+      },
+      "status": "measured"
+    },
+    {
+      "site": "GEMSDOE27",
+      "name": "topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan",
+      "stated_score_OWNER_REPORT": 0.2449,
+      "file": ".cache/registry/GEMSDOE27/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "bytes": 1635084,
+      "sha256": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d",
+      "format": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform_matches_template": true,
+        "nan_inside_footprint": 0,
+        "nan_anywhere": 7111787,
+        "min_inside": 0.0,
+        "max_inside": 1.0,
+        "positive_pixels": 61328
+      },
+      "holdout_hide_recover": {
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "pooled_dti": 0.0927484913819319,
+        "ci95": [
+          0.08085564044154277,
+          0.10539661683022032
+        ],
+        "n_withheld_positives": 22232
+      },
+      "holdout_sgmc_calibrated": {
+        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "prevalence_calibrated_dti": 0.05826237030075181,
+        "ci95": [
+          0.051476178073377704,
+          0.06553368995679887
+        ],
+        "n_withheld_positives": 62703
+      },
+      "status": "measured"
+    },
+    {
+      "site": "GEMSDOE28",
+      "name": "h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan",
+      "stated_score_OWNER_REPORT": 0.271,
+      "file": ".cache/registry/GEMSDOE28/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+      "bytes": 1590848,
+      "sha256": "5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641",
+      "format": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform_matches_template": true,
+        "nan_inside_footprint": 0,
+        "nan_anywhere": 7111787,
+        "min_inside": 0.0,
+        "max_inside": 1.0,
+        "positive_pixels": 37660
+      },
+      "holdout_hide_recover": {
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "pooled_dti": 0.029360078390480288,
+        "ci95": [
+          0.024959299444030806,
+          0.034382240223559776
+        ],
+        "n_withheld_positives": 22232
+      },
+      "holdout_sgmc_calibrated": {
+        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "prevalence_calibrated_dti": 0.06296746868114517,
+        "ci95": [
+          0.05571910069273813,
+          0.07037502524536735
+        ],
+        "n_withheld_positives": 62703
+      },
+      "status": "measured"
+    },
+    {
+      "site": "GEMSDOE30",
+      "name": "d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca",
+      "stated_score_OWNER_REPORT": 0.26,
+      "file": ".cache/registry/GEMSDOE30/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+      "bytes": 806758,
+      "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+      "format": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform_matches_template": true,
+        "nan_inside_footprint": 0,
+        "nan_anywhere": 0,
+        "min_inside": 0.0,
+        "max_inside": 1.0,
+        "positive_pixels": 44090
+      },
+      "holdout_hide_recover": {
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "pooled_dti": 0.09674330401596999,
+        "ci95": [
+          0.08416165969221351,
+          0.10952536708166187
+        ],
+        "n_withheld_positives": 22232
+      },
+      "holdout_sgmc_calibrated": {
+        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "prevalence_calibrated_dti": 0.060592489973569044,
+        "ci95": [
+          0.05358257868838623,
+          0.06785452888019962
+        ],
+        "n_withheld_positives": 62703
+      },
+      "status": "measured"
+    },
+    {
+      "site": "GEMSDOE31",
+      "name": "h27-4-solo-d28-20261004-8acb75e1-nan",
+      "stated_score_OWNER_REPORT": 0.2708,
+      "file": ".cache/registry/GEMSDOE31/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "bytes": 199214,
+      "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+      "format": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform_matches_template": true,
+        "nan_inside_footprint": 0,
+        "nan_anywhere": 7111787,
+        "min_inside": 0.0,
+        "max_inside": 1.0,
+        "positive_pixels": 40199
+      },
+      "holdout_hide_recover": {
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "pooled_dti": 0.030516096725810685,
+        "ci95": [
+          0.025680176441420625,
+          0.03605063588978195
+        ],
+        "n_withheld_positives": 22232
+      },
+      "holdout_sgmc_calibrated": {
+        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "prevalence_calibrated_dti": 0.06300952965550723,
+        "ci95": [
+          0.055780891540621436,
+          0.07039487831429346
+        ],
+        "n_withheld_positives": 62703
+      },
+      "status": "measured"
+    },
+    {
+      "site": "GEMSDOE32",
+      "name": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+      "stated_score_OWNER_REPORT": 0.2778,
+      "file": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "bytes": 219065,
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "format": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform_matches_template": true,
+        "nan_inside_footprint": 0,
+        "nan_anywhere": 0,
+        "min_inside": 0.0,
+        "max_inside": 1.0,
+        "positive_pixels": 37654
+      },
+      "holdout_hide_recover": {
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "pooled_dti": 0.00451537871535044,
+        "ci95": [
+          0.0038164175817344387,
+          0.005261598301920283
+        ],
+        "n_withheld_positives": 22232
+      },
+      "holdout_sgmc_calibrated": {
+        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "prevalence_calibrated_dti": 0.0641209376417646,
+        "ci95": [
+          0.056730181217206584,
+          0.0716486609703412
+        ],
+        "n_withheld_positives": 62703
+      },
+      "status": "measured"
+    },
+    {
+      "site": "GEMSDOE33",
+      "name": "h33d-analog-tip-stepover-r30-20261004-cb490425926e",
+      "stated_score_OWNER_REPORT": 0.2632,
+      "file": ".cache/registry/GEMSDOE33/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+      "bytes": 917544,
+      "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
+      "format": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform_matches_template": true,
+        "nan_inside_footprint": 0,
+        "nan_anywhere": 0,
+        "min_inside": 0.0,
+        "max_inside": 1.0,
+        "positive_pixels": 41865
+      },
+      "holdout_hide_recover": {
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "pooled_dti": 0.0519685128498396,
+        "ci95": [
+          0.04577318545951855,
+          0.05829620661401161
+        ],
+        "n_withheld_positives": 22232
+      },
+      "holdout_sgmc_calibrated": {
+        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "prevalence_calibrated_dti": 0.06255070275978937,
+        "ci95": [
+          0.05531125719222555,
+          0.06998567406425855
+        ],
+        "n_withheld_positives": 62703
+      },
+      "status": "measured"
+    },
+    {
+      "site": "GEMSDOE36",
+      "name": "anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros",
+      "stated_score_OWNER_REPORT": 0.275,
+      "file": ".cache/registry/GEMSDOE36/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "bytes": 318190,
+      "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+      "format": {
+        "shape": [
+          3730,
+          3292
+        ],
+        "crs": "EPSG:32611",
+        "transform_matches_template": true,
+        "nan_inside_footprint": 0,
+        "nan_anywhere": 0,
+        "min_inside": 0.0,
+        "max_inside": 1.0,
+        "positive_pixels": 38854
+      },
+      "holdout_hide_recover": {
+        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "pooled_dti": 0.004576730703979592,
+        "ci95": [
+          0.0038915913728424577,
+          0.005300784778329944
+        ],
+        "n_withheld_positives": 22232
+      },
+      "holdout_sgmc_calibrated": {
+        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+        "score_label": "HOLDOUT-DTI",
+        "prevalence_calibrated_dti": 0.06444361006575842,
+        "ci95": [
+          0.057086576831896246,
+          0.07195818932689524
+        ],
+        "n_withheld_positives": 62703
+      },
+      "status": "measured"
+    }
+  ],
+  "cross_site_byte_duplicates": []
+}

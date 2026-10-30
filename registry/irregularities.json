@@ -240,7 +240,7 @@
   {
    "id": "IR-32-SCORE-03",
    "severity": "medium",
-   "statement": "Until 2026-10-25 the README and site stated 'NO ORGANISER SCORE EXISTS for this or any artifact' and headlined a 0.3195/0.3262 leaderboard top. The owner then reported h33-2-b2 = 0.2778 from the DrivenData submission page, and the public leaderboard read 2026-10-25 has #1 = 0.4413 (xiaofanhu). Both stale claims are corrected this session; 0.2778 is recorded as ORGANIZER-CONFIRMED (owner-reported receipt; this repo cannot independently authenticate account-side receipts \u2014 cf. IR-32-SCORE-01/02).",
+   "statement": "Until 2026-10-25 the README and site stated 'NO ORGANISER SCORE EXISTS for this or any artifact' and headlined a 0.3195/0.3262 leaderboard top. The owner then reported h33-2-b2 = 0.2778 from the DrivenData submission page, and the public leaderboard read 2026-10-25 has #1 = 0.4413 (xiaofanhu). Both stale claims are corrected this session; 0.2778 is recorded as ORGANIZER-CONFIRMED (owner-reported receipt; this repo cannot independently authenticate account-side receipts — cf. IR-32-SCORE-01/02).",
    "mitigation": "observations.jsonl + leaderboard_history.jsonl + score-ledger.csv updated 2026-10-25; site status line regenerated"
   },
   {
@@ -313,7 +313,7 @@
    "id": "IR-32-BAND-02",
    "severity": "high",
    "status": "fixed-in-h36-tdr-pds",
-   "summary": "Band 6 (`tc`) in `training_features.tif` is Airborne Radiometric Total Count (`rho = +0.99942` with `0.41*K + 0.48*eTh + 0.21*eU`), NOT gravity Terrain Correction \u2014 prior hypotheses dividing `tc/dem` computed radiometric-over-elevation ratios.",
+   "summary": "Band 6 (`tc`) in `training_features.tif` is Airborne Radiometric Total Count (`rho = +0.99942` with `0.41*K + 0.48*eTh + 0.21*eU`), NOT gravity Terrain Correction — prior hypotheses dividing `tc/dem` computed radiometric-over-elevation ratios.",
    "impact": "Invalidated physical mechanism of prior `tc`-as-terrain-correction features; fixed in `src/gems32/h36_tdr_pds.py`."
   },
   {
@@ -731,7 +731,85 @@
    "severity": "low (verified 2026-10-28)",
    "statement": "Several sibling repo URLs listed in the cross-org prompt (`buffedlizard55-lab/GEMSDOE2`..`9` bare single-digit, `WBGGEMSDOE4`, `KANLERGEMSDOE4`) return HTTP 404 or are empty/unpopulated on GitHub as of 2026-10-28.",
    "mitigation": "Documented exact HTTP status and commit HEADs across all populated `buffedlizard55-lab`, `wbggemsdoe`, `kanlergemsdoe`, and `apartanish22-droid` repositories (`866` total rasters, `784` unique SHA-256s audited)."
+  },
+  {
+   "id": "IR-VO-01",
+   "severity": "high (blocks submission)",
+   "statement": "The VO-LEARN candidate FAILS the literal registry duplicate gate. Its only literal failure is the 5-px calibration lattice (GEMSDOE24 inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif, 98.2% of candidate dots within 3 px). The lattice covers 99.87% of the footprint within 3 px, and a uniform random 77,511-dot null scores 0.9986-0.9988. The literal rule therefore cannot be met by any dot set above roughly 22,163 dots.",
+   "mitigation": "Owner decision required (see IR-45-LATTICE-02, IR-51-LATTICE-01). Not exempted, and dots were not moved off lattice points to pass. Diagnostics only: evidence/vo-learn-hgb-frac15_registry_gate.json."
+  },
+  {
+   "id": "IR-VO-02",
+   "severity": "high (audit incomplete)",
+   "statement": "Two registry rasters cannot be compared against the template, so the literal audit is incomplete (audit_complete false). GEMSDOE31 docs/downloads/gemsdoe31-csdu-stepover-8cf9dc27-nan.tif has nonfinite values inside the footprint. GEMSDOE36 docs/downloads/GEMS36_FORMAT_TEST_NOT_SUBMISSION.tif has a grid mismatch (32x48). The earlier inspection identified only GEMSDOE36, so this entry adds GEMSDOE31 and corrects that count.",
+   "mitigation": "Owner or auditor must decide whether malformed rasters are excluded by rule, or repaired and compared. Record the decision before any clearance."
+  },
+  {
+   "id": "IR-VO-03",
+   "severity": "medium",
+   "statement": "E3 (frac 0.015) was selected after E1 and E2 from two pre-declared budgets, so its holdout is exploratory and optimistically biased. E1 (frac 0.0075) is the pre-declared primary. The final candidate uses the E3 budget.",
+   "mitigation": "Report E1 as the primary result. Treat E3 as a sensitivity point. Any clearance needs a fresh holdout or a pre-registered budget."
+  },
+  {
+   "id": "IR-VO-04",
+   "severity": "medium",
+   "statement": "Pre-registered HGB settings (learning rate 0.1, min_samples_leaf 100) were not used. The run used learning rate 0.08, min_samples_leaf 200, max_leaf_nodes 63, max_iter 200, and l2 1.0. Per-fold budget = frac x footprint / 4 (k=9689 per fold, total 38,756 for frac 0.0075 and 77,511 for 0.015).",
+   "mitigation": "Recorded in this run card. The deviation is disclosed and the settings are fixed in scripts/run_visible_only_candidate.py."
+  },
+  {
+   "id": "IR-VO-05",
+   "severity": "high (disclosure)",
+   "statement": "The official rules document (NLR, September 2026, section 3.2) requires any prize submission narrative to state the extent and manner of generative-AI use. This work was produced with an AI coding agent. No narrative has been drafted, and no disclosure has been made.",
+   "mitigation": "Owner must write the disclosure for any prize narrative. Source: https://docs.nlr.gov/docs/fy26osti/96647.pdf"
+  },
+  {
+   "id": "IR-VO-06",
+   "severity": "medium",
+   "statement": "The rules (section 3.2) state three submissions per week. The repo records a weekly slot concept but no numeric cap that was verified against the live submission page, which is login-walled.",
+   "mitigation": "Owner to confirm the live cap on the DrivenData submission page before any slot decision."
+  },
+  {
+   "id": "IR-VO-07",
+   "severity": "medium",
+   "statement": "The published 91eae1ca family is two byte-identical pairs, not one group. GEMSDOE30 docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca-nanoutside.tif matches GEMSDOE31 gemsdoe31-reference-d28-offcat-44090-20261004-nan.tif. GEMSDOE30 gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif matches a GEMSDOE32 copy. This corrects an earlier note that stated a single group of four. GEMSDOE31 gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif also has a byte-identical copy in the GEMSDOE32 repository.",
+   "mitigation": "Recorded from registry/focus_registry_manifest_20261030.json (489 rasters, 19 byte-duplicate groups, 464 unique SHA-256). Owner to confirm which copy is the official submission."
+  },
+  {
+   "id": "IR-VO-08",
+   "severity": "medium",
+   "statement": "Leaderboard snapshots conflict. The live leaderboard fetched 2026-10-30 shows #1 xiaofanhu at 0.4544 and #3 Batik Shirt Brothers at 0.3911. The repository snapshot of 2026-10-25 shows 0.4413 and 0.3904. Earlier cited values include 0.3195 (2026-10-03) and 0.3262 (2026-10-04). The conflict is flagged and not reconciled.",
+   "mitigation": "Timestamped sources only. Source: https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/"
+  },
+  {
+   "id": "IR-VO-09",
+   "severity": "high (scoring)",
+   "statement": "Holdout is not a leaderboard proxy. The reported 0.2778 file scores 0.004515 HOLDOUT-DTI, even though it is the best public-leaderboard family. Holdout applies only to methods refit per fold. A fixed raster built from full-catalogue labels is not measured fairly by it.",
+   "mitigation": "All holdout figures are labelled HOLDOUT-DTI. No leaderboard estimate is written. ORGANIZER-CONFIRMED requires a submission receipt."
+  },
+  {
+   "id": "IR-VO-10",
+   "severity": "high (nine-site uniqueness)",
+   "statement": "Nine-site pairwise check (scripts/nine_site_pairwise_uniqueness.py): 9 of 9 best files FAIL the literal uniqueness rule against other registry rasters. The calibration lattice is one failure, not the only one. GEMSDOE24: lattice=yes, same-site variants=12, other-site rasters=95; GEMSDOE25: lattice=yes, same-site variants=3, other-site rasters=102; GEMSDOE27: lattice=yes, same-site variants=9, other-site rasters=97; GEMSDOE28: lattice=yes, same-site variants=23, other-site rasters=84; GEMSDOE30: lattice=yes, same-site variants=4, other-site rasters=103; GEMSDOE31: lattice=yes, same-site variants=6, other-site rasters=101; GEMSDOE32: lattice=yes, same-site variants=35, other-site rasters=75; GEMSDOE33: lattice=yes, same-site variants=7, other-site rasters=100; GEMSDOE36: lattice=yes, same-site variants=1, other-site rasters=108. Byte-identical copies are listed separately per site in the JSON.",
+   "mitigation": "Same lattice decision as IR-VO-01, plus owner review of same-site format variants and cross-site copies. Uniqueness per site is reported with the exact comparator, not as a pass. Per-site counts: evidence/nine_site_pairwise_uniqueness_20261030.json."
+  },
+  {
+   "id": "IR-VO-11",
+   "severity": "low",
+   "statement": "evidence/nine_site_best_files_audit.json contains unquoted NaN and is not strict JSON. New audit files were written with strict JSON.",
+   "mitigation": "Parse with a tolerant reader or regenerate. Not edited in this run, to avoid altering an existing evidence file."
+  },
+  {
+   "id": "IR-VO-13",
+   "severity": "high (format)",
+   "statement": "Format conflict: the official specification (DrivenData competition page 967) says values outside the bounds are 'null or nan', and the same page requires every predicted value in [0, 1]. A NaN-filled file was rejected by the portal with 'Predicted values must be in range [0, 1]'. The zeros variant satisfies the range rule but departs from the literal 'null or nan' wording. No organizer receipt confirms that zeros are accepted.",
+   "mitigation": "Owner to decide which variant to submit, after a test that the organizer accepts it. Do not submit either variant until this is resolved. Source: https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/"
+  },
+  {
+   "id": "IR-VO-12",
+   "severity": "low",
+   "statement": "registry/focus_registry_manifest.json (451 rasters) is stale. The 489-raster manifest registry/focus_registry_manifest_20261030.json is current.",
+   "mitigation": "Use the 489-raster manifest only."
   }
  ],
- "updated_utc": "2026-10-28T10:15:00Z"
+ "updated_utc": "2026-10-30T02:42:36Z"
 }

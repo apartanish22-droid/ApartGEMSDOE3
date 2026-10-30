@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "candidate_id": "VO-LEARN-HGB-K1P5-NMS5",
+  "generated_utc": "2026-10-30T02:43:52Z",
+  "lane": "VO-LEARN (visible-only classifier refit per spatial fold; top-K dots after 5x5 NMS)",
+  "lane_note": "The assigned method paragraph is absent from the session prompt. The lane was declared by this run, and the declaration is disclosed here.",
+  "control": "VO-NEAR (K in-domain pixels nearest visible faults)",
+  "experiments_used": 3,
+  "experiment_budget": 3,
+  "experiment_budget_note": "E1 is the pre-declared primary. E2 is the logistic-regression control. E3 is a sensitivity point selected post hoc (IR-VO-03).",
+  "experiments": {
+    "E1_primary_hgb_frac0p0075": {
+      "score_label": "HOLDOUT-DTI",
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "candidate": {
+        "pooled_dti": 0.06080134976768623,
+        "ci95": [
+          0.05313472141437827,
+          0.0682530332906021
+        ]
+      },
+      "control_VO_NEAR": {
+        "pooled_dti": 0.018778847140389222,
+        "ci95": [
+          0.016023172939971395,
+          0.021671816458039523
+        ]
+      },
+      "paired_candidate_minus_control": {
+        "mean": 0.0420384987388883,
+        "ci95": [
+          0.03390574753385375,
+          0.05086085936042773
+        ]
+      },
+      "n_withheld_positives": 22232,
+      "n_spatial_clusters": 140,
+      "n_bootstrap_reps": 1000,
+      "learner": "hgb",
+      "frac_of_footprint": 0.0075,
+      "nms_radius_px": 2,
+      "max_single_feature_canary_auc": 0.6360724853939681,
+      "canary_max_feature": "det_elev_slope",
+      "features_flagged_leakage_gt_0p90": [],
+      "runtime_s": 313.1,
+      "npz_candidate_sha256": "89def174d519330d0caac8fd62e2f409db1f0c916fb50d2ce6dd8c08817aa951"
+    },
+    "E2_logreg_frac0p0075": {
+      "score_label": "HOLDOUT-DTI",
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "candidate": {
+        "pooled_dti": 0.044564208644604135,
+        "ci95": [
+          0.03695970923479706,
+          0.05339500625513779
+        ]
+      },
+      "control_VO_NEAR": {
+        "pooled_dti": 0.018778847140389222,
+        "ci95": [
+          0.016023172939971395,
+          0.021671816458039523
+        ]
+      },
+      "paired_candidate_minus_control": {
+        "mean": 0.02621060950783695,
+        "ci95": [
+          0.017610170990795187,
+          0.03518130956181641
+        ]
+      },
+      "n_withheld_positives": 22232,
+      "n_spatial_clusters": 140,
+      "n_bootstrap_reps": 1000,
+      "learner": "logreg",
+      "frac_of_footprint": 0.0075,
+      "nms_radius_px": 2,
+      "max_single_feature_canary_auc": 0.6360724853939681,
+      "canary_max_feature": "det_elev_slope",
+      "features_flagged_leakage_gt_0p90": [],
+      "runtime_s": 110.4,
+      "npz_candidate_sha256": "698942adc0692bf005b6ef602543bbd767a6a64867abd431c3db4481e5df9273"
+    },
+    "E3_hgb_frac0p015_post_hoc": {
+      "score_label": "HOLDOUT-DTI",
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "candidate": {
+        "pooled_dti": 0.06955122819492891,
+        "ci95": [
+          0.06145754367484977,
+          0.07673446752737428
+        ]
+      },
+      "control_VO_NEAR": {
+        "pooled_dti": 0.019259899099870897,
+        "ci95": [
+          0.016851955471309195,
+          0.022049282849075286
+        ]
+      },
+      "paired_candidate_minus_control": {
+        "mean": 0.050186772455960496,
+        "ci95": [
+          0.04170031985978056,
+          0.05817200088232977
+        ]
+      },
+      "n_withheld_positives": 22232,
+      "n_spatial_clusters": 140,
+      "n_bootstrap_reps": 1000,
+      "learner": "hgb",
+      "frac_of_footprint": 0.015,
+      "nms_radius_px": 2,
+      "max_single_feature_canary_auc": 0.6360724853939681,
+      "canary_max_feature": "det_elev_slope",
+      "features_flagged_leakage_gt_0p90": [],
+      "runtime_s": 310.5,
+      "npz_candidate_sha256": "5c2cd1a4ca37cb9af42afffab1bd66e575f21b413d0043beccbf5baa671a9c05"
+    }
+  },
+  "final_artifact": {
+    "public_downloadable_zeros_tif": "docs/downloads/apartgemsdoe3-vo-learn-hgb-frac15-233ea4b6-zeros.tif",
+    "public_zip": "docs/downloads/apartgemsdoe3-vo-learn-hgb-frac15-233ea4b6-zeros.zip",
+    "public_audit_json": "docs/downloads/apartgemsdoe3-vo-learn-hgb-frac15-233ea4b6-audit.json",
+    "submission_name": "apartgemsdoe3-vo-learn-233ea4b6",
+    "submission_note": "VO-LEARN HGB visible-only, 1.5% footprint dots, 5x5 NMS; no score claimed.",
+    "writer_note_not_used": "VO-LEARN HGB visible-only, 1.5% footprint dots, 5x5 NMS. Holdout DTI 0.0696 (not a leaderboard score)",
+    "sha256_zeros_tif": "a9b8cd2b17924fd87b8e94c94326a9f3a8201ce186b0f64588a4592c7481497f",
+    "bytes_zeros_tif": 353802,
+    "shape": [
+      3730,
+      3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "dtype": "float32",
+    "emitted_positive_pixels": 77511,
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "writer_checks_all_passed": true,
+    "format_check_command": "scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/apartgemsdoe3-vo-learn-hgb-frac15-233ea4b6-zeros.tif",
+    "nan_variant_status": "Not public. The portal rejected a NaN-filled file (\"Predicted values must be in range [0, 1]\"). The spec says NaN outside bounds, so the NaN/zeros conflict is open (see the irregularity ledger).",
+    "artifacts_staged": {
+      "apartgemsdoe3-vo-learn-hgb-frac15-233ea4b6-zeros.tif": {
+        "sha256": "a9b8cd2b17924fd87b8e94c94326a9f3a8201ce186b0f64588a4592c7481497f",
+        "bytes": 353802,
+        "source_cache_name": "gemsdoe32-gemsdoe32-vo-learn-hgb-k1p5-nms5-20261030-20261030T020000Z-233ea4b6-zeros.tif"
+      },
+      "apartgemsdoe3-vo-learn-hgb-frac15-233ea4b6-zeros.zip": {
+        "sha256": "2d38d726ecb83a68746f42d0c048be74704205c0a1d05130c7c32eeef89874fa",
+        "bytes": 323076,
+        "source_cache_name": "gemsdoe32-gemsdoe32-vo-learn-hgb-k1p5-nms5-20261030-20261030T020000Z-233ea4b6-zeros.zip"
+      },
+      "apartgemsdoe3-vo-learn-hgb-frac15-233ea4b6-audit.json": {
+        "sha256": "71b356155923fa8143d168da1eb57e80db195519c1b97bd31bd8c55f62064ee9",
+        "bytes": 3652,
+        "source_cache_name": "gemsdoe32-gemsdoe32-vo-learn-hgb-k1p5-nms5-20261030-20261030T020000Z-233ea4b6-audit.json"
+      }
+    }
+  },
+  "registry_gate": {
+    "script": "scripts/run_registry_gate.py",
+    "evidence": "evidence/vo-learn-hgb-frac15_registry_gate.json",
+    "rule": "full-footprint |Spearman| <= 0.90 AND candidate dots within 3 px <= 0.70 vs every registry raster; no exemptions",
+    "surface_passed": true,
+    "surface_worst_abs_spearman": 0.19528803559996924,
+    "final_literal_rule_passed": false,
+    "final_literal_duplicates": [
+      {
+        "repo": "GEMSDOE24",
+        "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        "within_3px_fraction": 0.9823121879475172,
+        "footprint_coverage_3px": 0.9987132726822701,
+        "space_filling": false
+      }
+    ],
+    "final_worst_abs_spearman": 0.05645957011389971,
+    "final_worst_within_3px_non_calibration": {
+      "repo": "GEMSDOE24",
+      "path": "docs/downloads/GEMSDOE24-geo1-concealed-conduit-rad-mag-lidar-20261029-8c9946590ca7-nan.tif",
+      "within_3px_fraction": 0.41062558862613047,
+      "spearman": 0.0006957738819896623
+    },
+    "malformed_or_missing": 2,
+    "audit_complete": false,
+    "byte_identical_matches": [],
+    "lattice_coverage_3px_footprint": 0.9987132726822701,
+    "random_null_overlap_note": "Random 77,511-dot null overlap 0.9986-0.9988 (computed in session; see IR-VO-01).",
+    "space_filling_variant_informational": true
+  },
+  "nine_site_pairwise_uniqueness": {
+    "script": "scripts/nine_site_pairwise_uniqueness.py",
+    "evidence": "evidence/nine_site_pairwise_uniqueness_20261030.json",
+    "rule": "literal: full-footprint |Spearman| <= 0.90 and directional <=3 px overlap <= 0.70 vs every other registry raster",
+    "per_site_literal_passed": {
+      "GEMSDOE24": false,
+      "GEMSDOE25": false,
+      "GEMSDOE27": false,
+      "GEMSDOE28": false,
+      "GEMSDOE30": false,
+      "GEMSDOE31": false,
+      "GEMSDOE32": false,
+      "GEMSDOE33": false,
+      "GEMSDOE36": false
+    }
+  },
+  "decision": {
+    "status": "NOT CLEARED",
+    "ok_to_submit": false,
+    "weekly_slot_used": false,
+    "promoted_to_slot": false,
+    "blocking": [
+      "Calibration lattice literal duplicate failure (IR-VO-01; owner decision IR-45-LATTICE-02 / IR-51-LATTICE-01).",
+      "Registry audit incomplete: 2 malformed rasters (IR-VO-02).",
+      "NaN-vs-zeros format conflict open (portal rejected NaN; zeros in range but departs from literal wording).",
+      "No ORGANIZER-CONFIRMED receipt; no leaderboard score is estimable from HOLDOUT-DTI (IR-VO-09).",
+      "Generative-AI disclosure required by rules section 3.2 (IR-VO-05)."
+    ]
+  },
+  "estimated_leaderboard_score": "NOT ESTIMABLE. HOLDOUT-DTI values are not on the leaderboard scale (IR-VO-09). No ORGANIZER-CONFIRMED receipt exists.",
+  "leaderboard_snapshot_2026_10_30": {
+    "live_1st": {
+      "name": "xiaofanhu",
+      "score": 0.4544
+    },
+    "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+    "note": "Timestamped; conflicts with 0.4413 repo snapshot (IR-VO-08)."
+  },
+  "deviations": [
+    "Pre-registered HGB settings not used (IR-VO-04).",
+    "E3 selected after E1 and E2 (IR-VO-03).",
+    "Lane declared by this run; the assigned method paragraph is absent (lane_note)."
+  ],
+  "irregularities_referenced": [
+    "IR-VO-01",
+    "IR-VO-02",
+    "IR-VO-03",
+    "IR-VO-04",
+    "IR-VO-05",
+    "IR-VO-06",
+    "IR-VO-07",
+    "IR-VO-08",
+    "IR-VO-09",
+    "IR-VO-10",
+    "IR-VO-11",
+    "IR-VO-13",
+    "IR-VO-12"
+  ],
+  "sources": {
+    "competition": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+    "rules_pdf": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
+    "reference_repo": "https://github.com/drivendataorg/gems-prize-reference-solution",
+    "epsg_32611": "https://epsg.io/32611",
+    "community_masking_thread": "https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516"
+  }
+}

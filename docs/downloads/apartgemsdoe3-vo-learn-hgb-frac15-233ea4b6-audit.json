@@ -1,0 +1,110 @@
+{
+  "candidate_id": "VO-LEARN-HGB-K1P5-NMS5",
+  "slug": "gemsdoe32-vo-learn-hgb-k1p5-nms5-20261030",
+  "content_digest8": "233ea4b6",
+  "description": "Per-fold visible-only HGB fault-likeness; final refit on all labels; top 1.5% footprint pixels after 5x5 NMS; labels masked",
+  "submission_note_zeros": "VO-LEARN HGB visible-only, 1.5% footprint dots, 5x5 NMS. Holdout DTI 0.0696 (not a leaderboard score)",
+  "submission_note_nan": "VO-LEARN HGB visible-only, 1.5% footprint dots, 5x5 NMS. Holdout DTI 0.0696 (not a leaderboard score)",
+  "zeros_tif": {
+    "filename": "gemsdoe32-gemsdoe32-vo-learn-hgb-k1p5-nms5-20261030-20261030T020000Z-233ea4b6-zeros.tif",
+    "size_bytes": 353802,
+    "sha256": "a9b8cd2b17924fd87b8e94c94326a9f3a8201ce186b0f64588a4592c7481497f",
+    "mode": "zeros",
+    "geometry_reference": "/home/user/ApartGEMSDOE3/.cache/gems_data/sample_submission.tif",
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "shape": [
+      3730,
+      3292
+    ],
+    "dtype": "float32",
+    "nodata": null,
+    "nodata_repr": "None",
+    "emitted_positive_pixels": 77511,
+    "footprint_fraction": 0.015,
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_finite_pixels": 5167373,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "full_grid_finite_pixels": 12279160,
+    "checks": {
+      "exact_reference_grid_match": true,
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_zero_nan": true,
+      "in_footprint_zero_inf": true,
+      "in_footprint_zero_sentinel": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_compliant": true,
+      "zero_on_catalogue_leakage": true,
+      "validator_range_0_1_guaranteed": true
+    },
+    "all_checks_passed": true
+  },
+  "nan_tif": {
+    "filename": "gemsdoe32-gemsdoe32-vo-learn-hgb-k1p5-nms5-20261030-20261030T020000Z-233ea4b6-nan.tif",
+    "size_bytes": 487578,
+    "sha256": "9dfc075b42bcd7f599091634d0877f2a116245812e04ed0c55b2e403eeb38e3f",
+    "mode": "nan",
+    "geometry_reference": "/home/user/ApartGEMSDOE3/.cache/gems_data/sample_submission.tif",
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "shape": [
+      3730,
+      3292
+    ],
+    "dtype": "float32",
+    "nodata": null,
+    "nodata_repr": "nan",
+    "emitted_positive_pixels": 77511,
+    "footprint_fraction": 0.015,
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_finite_pixels": 5167373,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "full_grid_finite_pixels": 5167373,
+    "checks": {
+      "exact_reference_grid_match": true,
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_zero_nan": true,
+      "in_footprint_zero_inf": true,
+      "in_footprint_zero_sentinel": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_compliant": true,
+      "zero_on_catalogue_leakage": true,
+      "validator_range_0_1_guaranteed": true
+    },
+    "all_checks_passed": true
+  },
+  "holdout_metrics": {
+    "catalogue_hidden_mean": 0.0,
+    "catalogue_hidden_per_quadrant": {},
+    "sgmc_prevalence_calibrated_dti": 0.0,
+    "drift_corrected_holdout_mean": 0.0,
+    "drift_corrected_per_quadrant": {},
+    "predicted_leaderboard_dti": null,
+    "ei_drift_corrected": null,
+    "slot_decision": "HOLD-DO-NOT-SUBMIT"
+  }
+}

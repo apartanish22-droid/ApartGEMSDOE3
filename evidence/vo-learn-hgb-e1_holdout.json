@@ -1,0 +1,251 @@
+{
+  "lane": "VO-LEARN",
+  "lane_note": "Assigned method paragraph absent from session prompt; lane declared by this run.",
+  "hypothesis": "A fold-refit classifier on the 19-band stack, trained only on visible catalogue traces, ranks withheld catalogue-segment pixels above the rest of the domain.",
+  "mechanism": "Learned multi-field signature (magnetic, gravity, radiometric, topographic, cover depth) that co-occurs with mapped faults; withheld segments share it.",
+  "named_non_fault_mimic": "Lithologic/magnetic contacts, intrusions, and cover-thickness steps of non-fault origin that share the same multi-band signature.",
+  "learner": "hgb",
+  "frac_of_footprint": 0.0075,
+  "nms_radius_px": 2,
+  "evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+  "candidate_holdout": {
+    "candidate_id": "vo-learn-hgb-e1",
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "score_label": "HOLDOUT-DTI",
+    "b_visible_px": 0.0,
+    "n_withheld_positives": 22232,
+    "n_spatial_clusters": 140,
+    "n_bootstrap_reps": 1000,
+    "pooled_dti": 0.06080134976768623,
+    "ci95_cluster_bootstrap": [
+      0.05313472141437827,
+      0.0682530332906021
+    ],
+    "fold_mean_dti": 0.060644309896835016,
+    "per_quadrant_dti": {
+      "NW": 0.04470239764279685,
+      "NE": 0.07270079656089432,
+      "SW": 0.05055410627027597,
+      "SE": 0.07461993911337295
+    }
+  },
+  "control_holdout_VO_NEAR": {
+    "candidate_id": "vo-learn-hgb-e1-VO-NEAR-control",
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "score_label": "HOLDOUT-DTI",
+    "b_visible_px": 0.0,
+    "n_withheld_positives": 22232,
+    "n_spatial_clusters": 140,
+    "n_bootstrap_reps": 1000,
+    "pooled_dti": 0.018778847140389222,
+    "ci95_cluster_bootstrap": [
+      0.016023172939971395,
+      0.021671816458039523
+    ],
+    "fold_mean_dti": 0.018510430694770645,
+    "per_quadrant_dti": {
+      "NW": 0.01992681331801771,
+      "NE": 0.01276600615599087,
+      "SW": 0.024583639863642884,
+      "SE": 0.01676526344143111
+    }
+  },
+  "paired_candidate_minus_control_ci95": [
+    0.03390574753385375,
+    0.05086085936042773
+  ],
+  "paired_candidate_minus_control_mean": 0.0420384987388883,
+  "per_cell": [
+    {
+      "cell": "draw20_fold0",
+      "train_pos": 296110,
+      "train_neg": 400000,
+      "k_dots": 9689,
+      "candidate_dots": 9689,
+      "control_dots": 9689,
+      "n_withheld_positives": 1911,
+      "candidate_within3px_of_visible": 0.059964908659304365,
+      "visible_faults_px": 48902
+    },
+    {
+      "cell": "draw20_fold1",
+      "train_pos": 280702,
+      "train_neg": 400000,
+      "k_dots": 9689,
+      "candidate_dots": 9689,
+      "control_dots": 9689,
+      "n_withheld_positives": 2351,
+      "candidate_within3px_of_visible": 0.08184539168128806,
+      "visible_faults_px": 48803
+    },
+    {
+      "cell": "draw20_fold2",
+      "train_pos": 235185,
+      "train_neg": 400000,
+      "k_dots": 9689,
+      "candidate_dots": 9689,
+      "control_dots": 9689,
+      "n_withheld_positives": 3685,
+      "candidate_within3px_of_visible": 0.08566415522757767,
+      "visible_faults_px": 49062
+    },
+    {
+      "cell": "draw20_fold3",
+      "train_pos": 261384,
+      "train_neg": 400000,
+      "k_dots": 9689,
+      "candidate_dots": 9689,
+      "control_dots": 9689,
+      "n_withheld_positives": 3225,
+      "candidate_within3px_of_visible": 0.10888636598204149,
+      "visible_faults_px": 48798
+    },
+    {
+      "cell": "draw21_fold0",
+      "train_pos": 294000,
+      "train_neg": 400000,
+      "k_dots": 9689,
+      "candidate_dots": 9689,
+      "control_dots": 9689,
+      "n_withheld_positives": 2111,
+      "candidate_within3px_of_visible": 0.05046960470636805,
+      "visible_faults_px": 48752
+    },
+    {
+      "cell": "draw21_fold1",
+      "train_pos": 283881,
+      "train_neg": 400000,
+      "k_dots": 9689,
+      "candidate_dots": 9689,
+      "control_dots": 9689,
+      "n_withheld_positives": 2265,
+      "candidate_within3px_of_visible": 0.08741872226235937,
+      "visible_faults_px": 48791
+    },
+    {
+      "cell": "draw21_fold2",
+      "train_pos": 234568,
+      "train_neg": 400000,
+      "k_dots": 9689,
+      "candidate_dots": 9689,
+      "control_dots": 9689,
+      "n_withheld_positives": 3584,
+      "candidate_within3px_of_visible": 0.08845082051811333,
+      "visible_faults_px": 49025
+    },
+    {
+      "cell": "draw21_fold3",
+      "train_pos": 261448,
+      "train_neg": 400000,
+      "k_dots": 9689,
+      "candidate_dots": 9689,
+      "control_dots": 9689,
+      "n_withheld_positives": 3100,
+      "candidate_within3px_of_visible": 0.1007327897615853,
+      "visible_faults_px": 48925
+    }
+  ],
+  "feature_alone_canary_auc": {
+    "mag_anom": {
+      "auc_mean_over_cells": 0.4837252163379863,
+      "auc_max_abs_dev_from_0p5": 0.5789648508634222,
+      "leak_flag_gt_0p90": false
+    },
+    "rtp": {
+      "auc_mean_over_cells": 0.5139818759618514,
+      "auc_max_abs_dev_from_0p5": 0.573580831152974,
+      "leak_flag_gt_0p90": false
+    },
+    "tmi_hg": {
+      "auc_mean_over_cells": 0.4994870733699386,
+      "auc_max_abs_dev_from_0p5": 0.5640382479764532,
+      "leak_flag_gt_0p90": false
+    },
+    "geod_2ndinv": {
+      "auc_mean_over_cells": 0.5142417202415577,
+      "auc_max_abs_dev_from_0p5": 0.5457670931449503,
+      "leak_flag_gt_0p90": false
+    },
+    "iso_grav_anom_slope": {
+      "auc_mean_over_cells": 0.5356051999340826,
+      "auc_max_abs_dev_from_0p5": 0.5796872818248713,
+      "leak_flag_gt_0p90": false
+    },
+    "tc": {
+      "auc_mean_over_cells": 0.4492976140350218,
+      "auc_max_abs_dev_from_0p5": 0.5899350264900662,
+      "leak_flag_gt_0p90": false
+    },
+    "geod_shearrate": {
+      "auc_mean_over_cells": 0.5153374476502487,
+      "auc_max_abs_dev_from_0p5": 0.5516217409860191,
+      "leak_flag_gt_0p90": false
+    },
+    "geod_dilaterate": {
+      "auc_mean_over_cells": 0.5165167412057523,
+      "auc_max_abs_dev_from_0p5": 0.5448249598813885,
+      "leak_flag_gt_0p90": false
+    },
+    "tmi_vg": {
+      "auc_mean_over_cells": 0.501136821648081,
+      "auc_max_abs_dev_from_0p5": 0.5231968723514212,
+      "leak_flag_gt_0p90": false
+    },
+    "deq_n100a15": {
+      "auc_mean_over_cells": 0.508097850901107,
+      "auc_max_abs_dev_from_0p5": 0.549808836560265,
+      "leak_flag_gt_0p90": false
+    },
+    "iso_grav_anom_vg": {
+      "auc_mean_over_cells": 0.5340576945344209,
+      "auc_max_abs_dev_from_0p5": 0.5905790607526882,
+      "leak_flag_gt_0p90": false
+    },
+    "det_elev": {
+      "auc_mean_over_cells": 0.5010847544964883,
+      "auc_max_abs_dev_from_0p5": 0.6320723251223748,
+      "leak_flag_gt_0p90": false
+    },
+    "iso_grav_anom": {
+      "auc_mean_over_cells": 0.48981622421120474,
+      "auc_max_abs_dev_from_0p5": 0.5701101387096774,
+      "leak_flag_gt_0p90": false
+    },
+    "tmi": {
+      "auc_mean_over_cells": 0.49246279260647957,
+      "auc_max_abs_dev_from_0p5": 0.5705179129600557,
+      "leak_flag_gt_0p90": false
+    },
+    "depth_to_base_surf": {
+      "auc_mean_over_cells": 0.49813951743546125,
+      "auc_max_abs_dev_from_0p5": 0.5904150430107526,
+      "leak_flag_gt_0p90": false
+    },
+    "ieq_n100a15": {
+      "auc_mean_over_cells": 0.5249415447963701,
+      "auc_max_abs_dev_from_0p5": 0.5755683717076574,
+      "leak_flag_gt_0p90": false
+    },
+    "cond_surf": {
+      "auc_mean_over_cells": 0.5026571516674623,
+      "auc_max_abs_dev_from_0p5": 0.5877165663701378,
+      "leak_flag_gt_0p90": false
+    },
+    "iso_grav_anom_hg": {
+      "auc_mean_over_cells": 0.4980356797713572,
+      "auc_max_abs_dev_from_0p5": 0.608561029433407,
+      "leak_flag_gt_0p90": false
+    },
+    "det_elev_slope": {
+      "auc_mean_over_cells": 0.5552029401681571,
+      "auc_max_abs_dev_from_0p5": 0.6360724853939681,
+      "leak_flag_gt_0p90": false
+    }
+  },
+  "features_flagged_leakage_gt_0p90": [],
+  "npz_candidate": "/home/user/ApartGEMSDOE3/.cache/gems_work/experiments/vo-learn-hgb-e1_cells.npz",
+  "npz_candidate_sha256": "89def174d519330d0caac8fd62e2f409db1f0c916fb50d2ce6dd8c08817aa951",
+  "npz_control": "/home/user/ApartGEMSDOE3/.cache/gems_work/experiments/vo-learn-hgb-e1_control_cells.npz",
+  "npz_control_sha256": "8221fdaf45fb513a29a6aa3b4e9faed91adbd59f5c7dfebfcf1c0a2f3c4eba5a",
+  "runtime_s": 313.1
+}

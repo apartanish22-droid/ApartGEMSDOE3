@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 NAV = [
     ("index.html", "Overview"),
+    ("submit.html", "Submission Center"),
     ("executive-summary.html", "Executive summary"),
     ("release-status.html", "Release status"),
     ("submissions.html", "How to submit"),
@@ -261,7 +262,7 @@ def main() -> None:
         '<h1>DO NOT SUBMIT</h1><p>Current negative candidate '
         + esc(current["candidate_id"]) + ' · SHA-256 <code>' + esc(current["sha256"])
         + '</code> · file <code>' + esc(current_file) + '</code> · submission name <code>'
-        + esc(current_name) + '</code>.</p><p><a href="docs/index.html">Open the fail-closed review portal</a>.'
+        + esc(current_name) + '</code>.</p><p><a href="docs/index.html">Open the fail-closed review portal</a> · <a href=\"docs/submit.html\">Submission Center (NOT CLEARED)</a>.'
         '</p></body></html>\n'
     )
     (ROOT / "index.html").write_text(gateway, encoding="utf-8")

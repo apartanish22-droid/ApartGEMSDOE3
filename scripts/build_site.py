@@ -1402,6 +1402,9 @@ def main() -> None:
         # The current-status builder validates that pointer and keeps the portal fail-closed.
         from build_review_site import main as build_current_review
         build_current_review()
+        # The Submission Center is generated from evidence files after the review pages.
+        from build_submission_center import main as build_submission_center
+        build_submission_center()
         return
     nine_audit = _load_json("evidence/nine_site_refreshed_audit_20261028.json")
     exp_data = _load_json("evidence/cshd_experiments.json")
