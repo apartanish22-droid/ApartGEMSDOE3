@@ -24,6 +24,8 @@ The user-supplied prompt refers to a single assigned method paragraph, but that 
 
 ## Current executive status
 
+- [Repository review — 2026-10-30](docs/repo-review-2026-10-30.md): three-pass review, nine-site score status, validation results, blockers, and follow-up. Read this alongside the project brief at the start of each session.
+
 - [Executive summary and nine-site comparison](docs/executive-summary.html): no new submission is authorized; estimate for a new raster is **not estimable**. The listed historical scores are owner-reported, not confirmed receipts.
 - [Why GEMSDOE32's reported 0.2778 is not explained causally](knowledge/03_why_02778_and_the_anatomy_of_the_family.md): the nested pruning sequence is consistent with removing low-credit false-positive mass, but does not prove why the score changed or predict a new score.
 - [Current session repository review](docs/repo-review-current-session-2026-10-28.md) · [four-candidate research shortlist](docs/research/next-hypotheses-review-20261028.md) · [current negative run card](evidence/session_review_20261028.json).
