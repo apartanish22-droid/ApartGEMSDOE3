@@ -23,7 +23,8 @@
 
 - `python3 scripts/check_release_status.py` → **PASS**: current and historical candidates fail closed; hashes match; portal is current; no slot used.
 - `python3 -m compileall -q src scripts tests` → **PASS**.
-- `python3 -m pytest -q` → **NOT RUN**: this interpreter has no `pytest` installed (`No module named pytest`). This is an environment limitation, not a passing test result.
+- `python3 -m pytest -q` → **BLOCKED**: system interpreter has no `pytest` (`No module named pytest`). A temporary isolated environment with pytest installed was also tried; collection stopped with 15 import errors because the project runtime dependencies (starting with NumPy) are absent. No test cases executed; do not interpret as a passing suite.
+- `python3 -m compileall -q src scripts tests` completed successfully (syntax/bytecode compilation only; not behavioral coverage).
 - Working tree was clean before this review. No experiment was run; do not count this review as one of the method experiments.
 
 ## Nine-site executive ranking (reported historical scores only)
