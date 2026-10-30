@@ -77,7 +77,7 @@
       {
         "date": "2026-10-04",
         "top": "nchuzhoy 0.3262",
-        "note": "0.3195 was rank 3 (DARD)",
+        "note": "Archived same-date reads disagree whether 0.3195 was rank 2 or rank 3 (DARD); both place it below the top and date it to early October.",
         "source": "registry/leaderboard_snapshot_2026-10-04.json"
       },
       {
@@ -89,6 +89,12 @@
         "date": "2026-10-26",
         "top": "xiaofanhu 0.4437",
         "source": "evidence/live_leaderboard_snapshot_20261026.json"
+      },
+      {
+        "date": "2026-10-30",
+        "top": "xiaofanhu 0.4544",
+        "source": "registry/leaderboard_history.jsonl",
+        "note": "Official public-board read recorded by the companion review; date only, not a score for any GEMSDOE artifact."
       }
     ],
     "new_candidate_generated": false,

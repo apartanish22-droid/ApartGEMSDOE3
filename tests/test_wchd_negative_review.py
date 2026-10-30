@@ -26,9 +26,10 @@ def test_wchd_literal_failure_and_saved_bytes():
         assert values.min() >= 0 and values.max() <= 1
 
 
-def test_public_pages_keep_wchd_research_only():
+def test_public_pages_keep_wchd_negative_without_download_cta():
     for page in ('docs/index.html', 'docs/executive-summary.html', 'docs/release-status.html'):
         text = (ROOT / page).read_text()
         assert 'WCHD research artifact — DO NOT SUBMIT' in text
-        assert 'Download GeoTIFF for research only' in text
+        assert 'no download link is provided' in text
+        assert 'Download GeoTIFF for research only' not in text
         assert '99.56%' in text

@@ -86,7 +86,62 @@ def main():
     feed = json.loads((ROOT / "docs/data/feed.json").read_text(encoding="utf-8"))
     if feed.get("current_candidate", {}).get("run_card") != card_path.relative_to(ROOT).as_posix():
         raise SystemExit("Feed run-card pointer is stale")
-    for name in ("index.html", "docs/index.html", "docs/executive-summary.html", "docs/release-status.html", "docs/submissions.html"):
+    review_rel = status.get("current_review")
+    if not review_rel:
+        raise SystemExit("Current status does not identify the current review card")
+    review_path = ROOT / review_rel
+    if not review_path.is_file():
+        raise SystemExit("Current review card is missing")
+    review = json.loads(review_path.read_text(encoding="utf-8"))
+    if review.get("verdict") != "negative" or review.get("ok_to_submit") is not False:
+        raise SystemExit("Current session review must remain fail-closed")
+    report_rel = review.get("review_report")
+    if not report_rel or not (ROOT / report_rel).is_file():
+        raise SystemExit("Current review card does not identify an existing report")
+    if feed.get("current_review", {}).get("review_card") != review_rel:
+        raise SystemExit("Feed current-review pointer is stale")
+    if feed.get("current_review", {}).get("review_report") != report_rel:
+        raise SystemExit("Feed review-report pointer is stale")
+    if feed.get("generated_utc") != status.get("updated_utc"):
+        raise SystemExit("Feed generation timestamp is stale")
+    history_path = ROOT / "registry/leaderboard_history.jsonl"
+    history = [
+        json.loads(line)
+        for line in history_path.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    verified_history = [
+        (str(record.get("observed_utc", "")), index, record)
+        for index, record in enumerate(history)
+        if record.get("verified") is True and record.get("rows")
+    ]
+    if not verified_history:
+        raise SystemExit("No verified public leaderboard snapshot is recorded")
+    latest_board = max(verified_history, key=lambda item: (item[0], item[1]))[2]
+    if (
+        feed.get("leaderboard_observed_utc") != latest_board.get("observed_utc")
+        or feed.get("leaderboard") != latest_board.get("rows")
+        or feed.get("leaderboard_verified") is not True
+    ):
+        raise SystemExit("Feed public-leaderboard observation is stale")
+    current_leaderboard_top = status.get("leaderboard_top", {})
+    latest_top = latest_board["rows"][0]
+    if (
+        current_leaderboard_top.get("score") != latest_top.get("score")
+        or current_leaderboard_top.get("team") != latest_top.get("participant")
+        or current_leaderboard_top.get("rank") != latest_top.get("rank")
+        or current_leaderboard_top.get("read_utc") != latest_board.get("observed_utc")
+    ):
+        raise SystemExit("Current status leaderboard-top record is stale")
+    if "not a score for any gemsdoe file" not in feed.get("leaderboard_note", "").lower():
+        raise SystemExit("Feed must label public scores as unrelated to GEMSDOE artifacts")
+    for name in (
+        "index.html",
+        "docs/index.html",
+        "docs/executive-summary.html",
+        "docs/release-status.html",
+        "docs/submissions.html",
+    ):
         page = (ROOT / name).read_text(encoding="utf-8")
         if "DO NOT SUBMIT" not in page:
             raise SystemExit(f"Missing release warning: {name}")

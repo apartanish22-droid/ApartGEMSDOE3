@@ -48,9 +48,9 @@ Official leaderboard, read 2026-10-30 via `fetch_page`: [drivendata.org/competit
 | #5 | op01 | 0.3642 |
 
 - The prompt's **0.4413** matches the 2026-10-25 snapshot. The repo's 2026-10-26 snapshot shows 0.4437. Today's official page shows **0.4544**.
-- The prompt's **0.3195** is an early-October value. In the 2026-10-04 snapshot in `registry/leaderboard_history.jsonl`, DARD was #2 at 0.3195 and nchuzhoy was #1 at 0.3262. It is **not** the current high and should not be used as the target. The current top is 0.4544.
+- The prompt's **0.3195** is an early-October value. One 2026-10-04 read in `registry/leaderboard_history.jsonl` places DARD #2 behind nchuzhoy (0.3262); a separate same-date read places DARD #3. The rank discrepancy is unresolved, but 0.3195 is not the current high and should not be used as the target. The latest recorded public-board top is 0.4544.
 - Today's observation has been appended to `registry/leaderboard_history.jsonl` (date only; time of day was not captured).
-- `docs/data/feed.json` and `scripts/build_site.py` still carry the older "current top" text in places. This needs a separate feed-update pass; this review did not rewrite those narratives.
+- At the time of this earlier review, `docs/data/feed.json` still carried the 2026-10-26 snapshot. A follow-up on the current branch synchronized the feed, `registry/current_status.json`, and generated leaderboard/review pages from the latest verified `registry/leaderboard_history.jsonl` record (2026-10-30, xiaofanhu 0.4544), while explicitly labeling the feed as static rather than live.
 
 ### 3. Wrong competition ID in links (fixed)
 
@@ -80,7 +80,7 @@ Not estimable. There is no organizer receipt linking any file hash to a score. T
 3. Compute single-feature leakage canaries before any model work.
 4. Run the literal all-raster uniqueness check on the surface before placement and on final dots.
 5. Only after those pass, consider the one weekly slot through the separate selector step.
-6. Update `docs/data/feed.json` so the "current top" language reflects the 2026-10-30 leaderboard (0.4544).
+6. **Completed in current-branch follow-up:** synchronize `docs/data/feed.json` and current status to the 2026-10-30 public-board observation (0.4544); retain an explicit static-feed freshness caveat.
 
 ## Sources checked in this review
 

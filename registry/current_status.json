@@ -1,9 +1,9 @@
 {
  "schema_version": 1,
- "updated_utc": "2026-10-28T23:10:00Z",
- "single_source_of_truth": "Latest current-session review is evidence/session_review_20261028.json (no experiment run by this review). Current recorded candidate is H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS from evidence/H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS_run_card.json; it is negative and unauthorized. Earlier CTHG-DHC and root CSHD records are also negative. Do not infer a current promotion or score from prior promotion cards.",
+ "updated_utc": "2026-10-30T02:07:49Z",
+ "single_source_of_truth": "Latest current-branch review is evidence/session_review_20261030.json (no experiment run by this review). Current recorded candidate remains H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS from evidence/H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS_run_card.json; it is negative and unauthorized. Its format was rechecked against an owner mirror only. Companion review docs/repo-review-2026-10-30.md records the official public leaderboard observation xiaofanhu 0.4544 on 2026-10-30; that is not a score for this project or a receipt. No candidate score estimate is supported.",
  "any_file_ok_to_submit": false,
- "headline": "DO NOT SUBMIT. No experiment was run in this review. The latest imported candidate, H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS, is negative: its HOLDOUT-DTI diagnostic is weak, single-feature canaries and full-registry uniqueness are unverified, and no lane or selector authorization exists. No weekly slot was used; no leaderboard-score estimate is supported.",
+ "headline": "DO NOT SUBMIT. No experiment was run in the 2026-10-30 review. The current candidate, H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS, remains negative: its prior HOLDOUT-DTI diagnostic is weak, single-feature canaries and full-registry uniqueness are unverified, and no lane or selector authorization exists. Its exact GeoTIFF passed format/range checks against an owner mirror only. No weekly slot was used; no new leaderboard-score estimate is supported.",
  "gate_rule": "OK TO SUBMIT requires an explicitly assigned method lane; all feature-only leakage canaries <=0.90; a fold-local HOLDOUT-DTI win with paired 95% CI >0 against the current same-evaluator repo best; no SGMC-cal regression against the Champion; literal surface/final-dot uniqueness against every registry raster (Spearman <=0.90 and <=70% within 3 px); exact saved-byte format/range validation; and separate weekly-slot selector approval. No human inspection.",
  "best_scored": {
   "file": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
@@ -11,7 +11,7 @@
   "evidence_class": "OWNER-REPORT (owner-provided submission-log claim; no submission-page receipt linking this raster hash to the score is present in this repository)",
   "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
   "dots": 37654,
-  "advice": "already submitted - do not resubmit (a resubmission spends a slot and adds no information)"
+  "advice": "historical OWNER-REPORT best only; do not treat as a new candidate or resubmit without checking the live slot policy and exact-file receipt"
  },
  "newest_unique": null,
  "withdrawn": [
@@ -33,12 +33,12 @@
  ],
  "how_to_submit": "executive-summary.html",
  "leaderboard_top": {
-  "score": 0.4437,
+  "score": 0.4544,
   "team": "xiaofanhu",
   "rank": 1,
-  "read_utc": "2026-10-26T04:32:28Z",
+  "read_utc": "2026-10-30",
   "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
-  "source_note": "Direct official public page read at 2026-10-26T04:32:28Z; at that timestamp xiaofanhu was #1 at 0.4437. This supersedes the cached 2026-10-25 snapshot of 0.4413; 0.3195 is an older historical figure in the supplied prompt. Public observation only, not a score for this team or a private/final-round result."
+  "source_note": "Official public-board read recorded in docs/repo-review-2026-10-30.md and registry/leaderboard_history.jsonl; date only, time not captured. Public observation only, not a score for any GEMSDOE file, project submission, or private/final-round result. Earlier snapshots were 0.4437 on 2026-10-26 and 0.4413 on 2026-10-25; archived 2026-10-04 reads disagree on whether 0.3195 ranked #2 or #3."
  },
  "knowledge": "knowledge/05_h42_outcome_instrument_artifact_and_fault_discovery_science_2026-10-25.md",
  "round6_candidate": {
@@ -1184,7 +1184,9 @@
   ],
   "results_doc": "docs/research/h47-ldgi-results-and-nine-site-executive-summary-20261026.md"
  },
- "current_review": "evidence/session_review_20261028.json",
+ "current_review": "evidence/session_review_20261030.json",
+ "current_research_shortlist": "docs/research/next-hypotheses-review-20261028.md",
+ "feed_scope_note": "Static repository feed, not live. It is synchronized from the latest verified public leaderboard observation recorded by the companion review on 2026-10-30 (xiaofanhu 0.4544; date only). This branch did not fetch external pages; the observation is a public-board result, not a score for any GEMSDOE file or a receipt. Competition data-download and USGS/GDR sources were not revalidated here.",
  "current_run_card": "evidence/H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS_run_card.json",
  "previous_newest_unique_H48": {
   "file": "docs/downloads/gemsdoe32-h48-fbgr-dualcover-axial28-37654-20261027T180500Z-4d38a240-zeros.tif",
@@ -1326,7 +1328,7 @@
   "literal_registry_max_overlap": null,
   "literal_overlap_limit": 0.7,
   "scientific_integrity_irregularity": "IR-UNIQUE-OFFCATALOGUE-CANARY-01",
-  "source": "evidence/H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS_run_card.json; evidence/session_review_20261028.json"
+  "source": "evidence/H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS_run_card.json; evidence/session_review_20261030.json"
  },
  "current_review_20261028": {
   "report": "evidence/repo_review_20261028.json",
@@ -1336,7 +1338,7 @@
   "threshold": 0.7,
   "passed": false
  },
- "latest_comprehensive_review": "docs/review-2026-10-28.md; docs/repo-review-2026-10-28.md; evidence/repo_review_20261028.json",
+ "latest_comprehensive_review": "docs/repo-review-current-session-2026-10-30.md; evidence/session_review_20261030.json; historical: docs/review-2026-10-28.md and evidence/repo_review_20261028.json",
  "latest_research_artifact": {
   "file": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
   "sha256": "8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd",
