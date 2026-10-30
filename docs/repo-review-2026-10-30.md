@@ -1,86 +1,50 @@
 # Repository review — 2026-10-30
 
-## Executive decision
+## Decision
 
-**DO NOT SUBMIT any artifact from this checkout.** No new TIF was created and no weekly slot was used. The current site and registry correctly fail closed. Creating a TIF simply to satisfy a download request would contradict the required lane, holdout, leakage, uniqueness, and selector gates.
+**NEGATIVE — DO NOT SUBMIT any artifact in this checkout.** This review generated no raster and did not run a model experiment or spend a competition slot. The saved candidate checked below is only format-valid against the local owner-mirrored template; that does not make it scientifically validated, unique, or eligible to submit.
 
-## Pass 1 — inventory and source-of-truth review
+The user's requested research protocol is retained in the root [README](../README.md). This review follows its bounded-experiment and fail-closed release rules. No new “highest score” is inferred from a holdout metric.
 
-- Read the persistent project brief in `README.md`, `registry/current_status.json`, `docs/executive-summary.html`, the nine-site audit, and the latest candidate/run-card records.
-- The README's current decision is DO NOT SUBMIT. It identifies the latest candidate as negative and explains that scores supplied by the owner are not organizer receipts.
-- The nine-site files audit is `evidence/nine_site_best_files_audit.json`. It describes artifact bytes and score labels as `OWNER_REPORT`; it is not evidence that an artifact is eligible or that the stated score is an organizer-confirmed result.
-- The best historical score supplied for GEMSDOE32 is 0.2778 (OWNER-REPORT). Its why/how cannot be causally established from leaderboard values alone. Pruning/placement differences may be hypotheses, not proof. No legitimate leaderboard score estimate for a new candidate is supported by this review.
+## Review performed
 
-## Pass 2 — operational and scientific gate checks
+- Read the README, project charter, release-status registry, nine-site executive summary, scientific/hypothesis notes, holdout evaluator, submission writer, test configuration, and Pages workflow.
+- Installed project dependencies into ignored `.venv/` and restored only `labels.tif` and `sample_submission.tif` from the hash-pinned owner-mirror manifest into ignored `.cache/`. The manifest explicitly says these are **not organizer-authenticated**.
+- Ran `.venv/bin/python -m pytest -q`: **109 passed, 2 skipped**, with 33 Rasterio affine deprecation warnings.
+- Ran `.venv/bin/python scripts/check_release_status.py`: **PASS**, status remains fail-closed, hashes match, and no slot is recorded as used.
+- Ran strict format validation on the current research-only candidate. It passes the local owner-mirror grid check: one-band float32, shape 3730×3292, EPSG:32611, matching transform, finite values, and values in [0,1]. This is a structural validator result only, not an organizer acceptance receipt.
+- Attempted to rerun `scripts/audit_nine_site_best.py`; it stopped because the locally cached GEMSDOE24 source raster is absent (`.cache/registry/...`). No overlap result was independently recalculated in this review.
 
-- The assigned method paragraph is absent from the checkout; a lane cannot be inferred safely.
-- The full training-feature raster and cached feature stack are not available in this checkout, so a compliant holdout, feature-alone leakage canary, and new candidate surface cannot be run here.
-- Existing research artifacts have known release blockers, including overlap with the literal 5-pixel calibration lattice. This must not be waved away as an exception: the protocol says compare against every registry raster.
-- The source/template provenance for prior format checks is an owner mirror, not an authenticated organizer template. Format pass alone is not submission authorization.
-- No candidate meets every scientific, uniqueness, format, and separate selector gate. Do not surface a TIF as “OK to submit.”
+The starting checkout did not have the local sample/label files; this was a reproducibility prerequisite for two tests, not a source-code defect. After restoring the pinned mirrors, all tests passed.
 
-## Pass 3 — verification performed this session
+## Findings and irregularities
 
-- `python3 scripts/check_release_status.py` → **PASS**: current and historical candidates fail closed; hashes match; portal is current; no slot used.
-- `python3 -m compileall -q src scripts tests` → **PASS**.
-- `python3 -m pytest -q` → **BLOCKED**: system interpreter has no `pytest` (`No module named pytest`). A temporary isolated environment with pytest installed was also tried; collection stopped with 15 import errors because the project runtime dependencies (starting with NumPy) are absent. No test cases executed; do not interpret as a passing suite.
-- `python3 -m compileall -q src scripts tests` completed successfully (syntax/bytecode compilation only; not behavioral coverage).
-- Working tree was clean before this review. No experiment was run; do not count this review as one of the method experiments.
+### Release / data gates
 
-## Nine-site executive ranking (reported historical scores only)
+1. **No submission is currently safe or authorized.** The latest recorded candidate is `H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS` (SHA-256 `8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd`). Its recorded HOLDOUT-DTI is weak, single-feature canaries are absent, full-registry surface/final-dot comparison is absent, and the session method lane is not specified. The current status JSON correctly marks it negative and `ok_to_submit=false`.
+2. **A valid file format does not establish a good submission.** The strict local validator passes that raster, but only against an owner-mirrored template. The DrivenData data page is login-walled in this project record; the official submission-page receipt is also absent. Therefore neither exact organizer compatibility nor score is confirmed.
+3. **The data needed to test a new hypothesis is not present.** The checkout lacks the 19-band training raster, cached feature stack, complete registry rasters, and the GEMSDOE24 files required by the site-audit script. The training raster manifest entry is about 419 MB and describes an owner mirror, not an authenticated competition download. No holdout canary, holdout comparison, or fresh nine-site overlap audit was run.
+4. **The assigned lane is missing.** The request refers to a method paragraph that assigns one lane, but no such single method paragraph is present in the project instructions available to this checkout. Do not choose an experiment lane by guessing.
+5. **Historical leaderboard claims remain evidence-classed correctly.** The repository's executive summary labels the nine-site scores OWNER-REPORT, not ORGANIZER-CONFIRMED. It reports 0.2778 for GEMSDOE32 as the largest of the provided nine-site results; no receipt ties that score to the exact raster bytes in this checkout. A score estimate for a new candidate is not estimable from the evidence here.
+6. **A fresh site audit is not reproducible locally yet.** `scripts/audit_nine_site_best.py` expects the original candidate rasters in `.cache/registry/`; they are not present. Its existing checked-in audit records are historical evidence, not a live refresh.
+7. **CI is appropriate as a safety net but not evidence of current scientific validity.** The Pages workflow runs tests, release-state checks, and format checks for historical rasters. It does not run a new model, holdout, canary, or fresh registry audit; publication can only demonstrate those checks on the checked-out evidence. The status copy appropriately says no candidate is authorized.
 
-| Site | Highest score stated in supplied record | Confidence label | Release choice now |
-|---|---:|---|---|
-| GEMSDOE24 | 0.2477 | OWNER-REPORT | None authorized |
-| GEMSDOE25 | 0.2600 | OWNER-REPORT | None authorized |
-| GEMSDOE27 | 0.2449 | OWNER-REPORT | None authorized |
-| GEMSDOE28 | 0.2710 | OWNER-REPORT | None authorized |
-| GEMSDOE30 | 0.2600 | OWNER-REPORT | None authorized |
-| GEMSDOE31 | 0.2708 | OWNER-REPORT | None authorized |
-| GEMSDOE32 | 0.2778 | OWNER-REPORT | None authorized |
-| GEMSDOE33 | 0.2632 | OWNER-REPORT | None authorized |
-| GEMSDOE36 | 0.2750 | OWNER-REPORT | None authorized |
+## Hypotheses worth considering after the blockers are cleared
 
-These are the best scores stated in the supplied prompt, not a freshly verified leaderboard snapshot. The current comparative file audit should be consulted before interpreting file-level differences. “Highest supplied value” is not the same as an approved file to download or submit. Estimated score for any new candidate: **not estimable**.
+The repository already documents a four-item shortlist in [next-hypotheses-review-20261028.md](research/next-hypotheses-review-20261028.md). Its ranking is qualitative, not a DTI forecast. The leading idea is a multi-scale gradient ridge in competition band 15 (`depth_to_base_surf`) with a weak-surface-expression gate using band 12 (`det_elev`). It aims at buried basement steps that may have no mapped scarp; sedimentary facies edges, paleochannels, and interpolation seams are plausible non-fault mimics. A related H61-1 idea is already registered as unvalidated, so this is not asserted to be globally novel.
 
-## Three new-session candidate hypotheses
+Other shortlist ideas are directional semivariogram anisotropy of residual gravity/magnetic fields; signed, scale-persistent magnetic–gravity edge offset; and paired signed cross-front topographic profile residual. Each has plausible non-fault mimics and distinctness caveats documented in that proposal. The proposal identifies in-repository layers, so no new outside layer is required for those initial tests; however, band semantics and data availability still need local byte-level confirmation. **No candidate was selected or tested in this review.** If a later hypothesis requires USGS 3DEP, the official source pointer is [USGS 3DEP](https://www.usgs.gov/3d-elevation-program); current availability and the exact necessary tiles must be checked before treating it as a viable input.
 
-The repository already holds a four-item qualitative shortlist at `docs/research/next-hypotheses-review-20261028.md`. Its leading proposal—buried basement-step ridge with surface-quiescence gate using in-competition depth-to-basement/elevation layers—is a test priority only, not a fresh session lane. The next session should select a single assigned lane before running any experiment and first perform candidate-vs-incumbent feature-level novelty checks. No new external data source is required for that proposal, but the data/cache bytes are currently unavailable. Alternative shortlist ideas are directional semivariogram anisotropy and signed cross-edge magnetic–gravity offset; both are adjacent to prior methods and require detailed code-level overlap review before treating them as novel.
+## Recommended next work
 
-## Highest-priority blockers and follow-up
+1. Restore and hash-check the complete, permitted input set and feature cache; distinguish organizer downloads from owner mirrors in provenance.
+2. Restore the full registry and GEMSDOE24/25/27/28/30/31/32/33/36 top rasters so the specified uniqueness audit is reproducible.
+3. Record the single assigned method lane and a fresh experiment budget before running anything.
+4. Reconcile evaluator/writer versions and band semantics; run per-feature leakage canaries before trusting a model feature.
+5. Run no more than three pre-registered experiments using shared `evaluate_holdout.py` and `submission_writer.py`, fold-local visible-only catalogue features, exact masking, and pooled DTI with the specified kernel. Compare paired spatial confidence intervals to a same-evaluator incumbent.
+6. Apply literal registry checks to both the unplaced surface and final dots; stop at either specified duplicate threshold. Validate the exact saved bytes against an authenticated competition template and preserve all evidence in a run card.
+7. Keep slot selection separate. Only show an “OK TO SUBMIT” download link after scientific, uniqueness, format, and selector gates pass; capture the organizer receipt afterward.
 
-1. Restore verified organizer competition data and the cached stack using the documented restore/data process; record exact provenance and hashes. The current CI mirror is not organizer authentication.
-2. Resolve the missing assigned lane paragraph and register one experiment with its stopping rule before executing anything.
-3. Re-run the prescribed leakage canaries and whole-segment buffered hide-and-recover via shared evaluator/writer only; compare against same-evaluator incumbent and report spatial 95% CI.
-4. Audit the literal registry, including the calibration lattice, before placement and on final dots. Any threshold breach means stop/negative.
-5. Install the declared development dependencies in a venv and run full tests. Repair any shared evaluator/writer defect centrally.
-6. Keep the selector separate. A promising holdout is not an organizer score, projection, or authorization to spend the weekly submission allowance.
+## Evidence card
 
-## Official review pointers
-
-- [Competition overview](https://www.drivendata.org/competitions/306/competition-doe-gems/)
-- [Competition problem description](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/)
-- [Competition data page (login may be required)](https://www.drivendata.org/competitions/306/competition-doe-gems/data/)
-- [Public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)
-- [DrivenData reference solution](https://github.com/drivendataorg/gems-prize-reference-solution)
-- [USGS GeoDAWN data page](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and)
-- [INGENIOUS project](https://gbcge.org/current-projects/ingenious/)
-
-Links are source pointers, not assertions of live reachability during this review.
-
-## Run card (review-only; no experiment)
-
-```json
-{
-  "hypothesis": "No experiment: assigned lane missing and required cached feature stack unavailable.",
-  "mechanism": "N/A — review only; no raster generation or feature fitting occurred.",
-  "named_non_fault_mimic": "N/A — no candidate surface was evaluated.",
-  "holdout_dti": "NOT RUN; no evaluator result or confidence interval claimed.",
-  "correlation_overlap_vs_registry": "NOT RUN this session; previous audited artifacts have literal calibration-lattice overlap failures.",
-  "raster_sha256": null,
-  "validator_output": "No new TIF. Existing fail-closed release-status check passed; no claim of organizer-template validation.",
-  "submission_name": null,
-  "submission_note": "Review only; no candidate or slot authorization.",
-  "verdict": "negative"
-}
-```
+Machine-readable review card: [`evidence/repo_review_20261030.json`](../evidence/repo_review_20261030.json). It records this as a negative review with no experiment, no new raster, no score estimate, and no submission authorization.
