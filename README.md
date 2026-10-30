@@ -26,6 +26,7 @@ The user-supplied prompt refers to a single assigned method paragraph, but that 
 
 - [Repository review — 2026-10-30](docs/repo-review-2026-10-30.md): three-pass review, nine-site score status, validation results, blockers, and follow-up. Read this alongside the project brief at the start of each session.
 
+- **Start here (2026-10-30):** [Nine-site verification, why 0.2778, and the submission decision](docs/research/nine-site-verification-20261030.md). No file is cleared to download or submit. Re-verified from bytes: 4 of 9 site files pass the strict finite [0,1] check; GEMSDOE30 duplicates GEMSDOE25; all 36 site pairs exceed the 70% overlap gate. Holdout DTI ranks the nine files in reverse of the owner-reported scores (Spearman ρ = -0.85, n = 9), so it is not a valid selection signal for the official off-catalogue test. Public leaderboard #1 read 2026-10-30: 0.4544 (conflicts with prompt values 0.4413 and 0.3195; flagged).
 - [Executive summary and nine-site comparison](docs/executive-summary.html): no new submission is authorized; estimate for a new raster is **not estimable**. The listed historical scores are owner-reported, not confirmed receipts.
 - [Why GEMSDOE32's reported 0.2778 is not explained causally](knowledge/03_why_02778_and_the_anatomy_of_the_family.md): the nested pruning sequence is consistent with removing low-credit false-positive mass, but does not prove why the score changed or predict a new score.
 - [Current session repository review](docs/repo-review-current-session-2026-10-28.md) · [four-candidate research shortlist](docs/research/next-hypotheses-review-20261028.md) · [current negative run card](evidence/session_review_20261028.json).
@@ -43,6 +44,8 @@ python3 -m venv .venv
 .venv/bin/python scripts/restore_data.py --group core --manifest registry/ci_format_manifest.json
 .venv/bin/python scripts/check_release_status.py
 .venv/bin/python scripts/build_review_site.py
+# Re-verify the nine focus files from bytes (about 2 minutes; fetches 5 files from pinned GitHub refs if absent)
+.venv/bin/python scripts/verify_nine_site.py
 .venv/bin/python -m pytest -q
 .venv/bin/python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite submission/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif
 # Format only (owner mirror, NOT authorization); negative candidate, do not submit

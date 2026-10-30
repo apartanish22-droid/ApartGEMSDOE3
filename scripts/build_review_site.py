@@ -100,6 +100,75 @@ def sync_status_artifacts(root: Path = ROOT) -> dict:
     return card
 
 
+def verification_record(root: Path = ROOT) -> dict:
+    """Load the byte-level nine-site verification record (evidence/nine_site_verification_20261030.json)."""
+    return json.loads((root / "evidence/nine_site_verification_20261030.json").read_text(encoding="utf-8"))
+
+
+def start_here_html(root: Path = ROOT) -> str:
+    """Executive answer and per-site download/estimate/uniqueness table (fail-closed; no download CTA)."""
+    rec = verification_record(root)
+    names = [row["site"] for row in rec["sites"]]
+    overlap = rec["pairwise_3px_overlap_row_within_3px_of_column"]
+    rows = []
+    for row in rec["sites"]:
+        site = row["site"]
+        peers = [(other, overlap[f"{site}->{other}"]) for other in names if other != site]
+        peer, pct = max(peers, key=lambda x: x[1])
+        if site == "GEMSDOE32":
+            download = "<b>NO</b> — already submitted per the registry record; resubmitting adds nothing."
+        elif site == "GEMSDOE30":
+            download = "<b>NO</b> — same prediction as GEMSDOE25 (identical after NaN→0)."
+        elif not row["validator_strict_finite_passed"]:
+            download = "<b>NO</b> — fails the strict finite [0,1] check (NaN outside footprint). Do not re-save as zeros."
+        else:
+            download = "<b>NO</b> — not unique (see right) and no authorization."
+        hold = row["holdout_dti"]
+        ci = hold["ci95_cluster_bootstrap"]
+        rows.append(
+            "<tr>"
+            f"<td>{esc(site)}</td>"
+            f"<td><code>{esc(row['file_name'])}</code><br><span class=\"muted\">File to download: NONE</span></td>"
+            f"<td>OWNER-REPORT {float(row['owner_reported_score_OWNER_REPORT']):.4f}</td>"
+            f"<td>HOLDOUT-DTI {hold['pooled_dti']:.4f} [{ci[0]:.4f}, {ci[1]:.4f}], n={hold['withheld_positives']:,} withheld</td>"
+            "<td>Not estimable</td>"
+            f"<td>NOT UNIQUE: {pct:.2%} of dots within 3 px of {esc(peer)}</td>"
+            f"<td>{download}</td></tr>"
+        )
+    table = (
+        '<div class="scroll"><table><thead><tr><th>Site</th><th>File (for reference only)</th>'
+        '<th>Reported score</th><th>Holdout DTI (evaluator v3.0, 95% CI)</th><th>Estimated score for a new file</th>'
+        '<th>Unique?</th><th>Download and submit now?</th></tr></thead><tbody>'
+        + "".join(rows)
+        + "</tbody></table></div>"
+    )
+    best = max(rec["sites"], key=lambda r: r["owner_reported_score_OWNER_REPORT"])
+    corr = rec["correlations"]
+    return (
+        '<section class="alert"><h2>Start here: the verified answer</h2>'
+        "<p><b>No file in this repository is cleared to download or submit.</b> "
+        f"Highest reported file: <b>{esc(best['site'])} {float(best['owner_reported_score_OWNER_REPORT']):.4f}</b> (OWNER-REPORT). "
+        "It is already submitted per the registry record and is not unique against the other eight. "
+        "<b>No new TIF was generated</b>: the protocol lane paragraph is absent, the full 451-raster uniqueness check has not been run, "
+        "and no candidate has passed holdout validation.</p>"
+        "<p><b>Portal error “Predicted values must be in range [0, 1]”:</b> five site files (GEMSDOE24, 25, 27, 28, 31) "
+        "have NaN outside the footprint and fail the repo’s strict check. The official spec allows NaN outside the bounds, "
+        "so the cause of the portal message is <b>unverified</b>. Do not re-save a file to get past it: that is a copy of an existing submission.</p>"
+        "<p><b>Leaderboard:</b> public #1 is xiaofanhu 0.4544 (PUBLIC-LEADERBOARD-OBSERVATION, read 2026-10-30). "
+        "The prompts state 0.4413 and 0.3195; these values conflict and are flagged for review.</p>"
+        f"<p><b>Why the top file scored well (association, n=9):</b> share of dots more than 1 km from the catalogue vs owner score "
+        f"ρ = {corr['spearman_owner_vs_frac_beyond_1km']['rho']:+.2f}. The catalogue-withheld holdout ranks the files in reverse "
+        f"(ρ = {corr['spearman_owner_vs_holdout_dti']['rho']:+.2f}), so it is not a valid selection signal for this competition.</p>"
+        f'<p><a href="{esc(repo_link("docs/research/nine-site-verification-20261030.md"))}">Full verification, analysis, hypotheses, and run card</a> · '
+        f'<a href="{esc(repo_link("evidence/nine_site_verification_20261030.json"))}">Byte-level evidence (JSON)</a> · '
+        f'<a href="{esc(repo_link("scripts/verify_nine_site.py"))}">Reproduce script</a></p></section>'
+        '<section><h2>Per-site download, estimate, and uniqueness</h2>'
+        "<p>Estimate for any new file: <b>not estimable</b>. Unique: <b>no</b> for all nine.</p>"
+        + table
+        + "</section>"
+    )
+
+
 def build_pages(root: Path = ROOT) -> dict[str, str]:
     status = json.loads((root / "registry/current_status.json").read_text())
     current_card = json.loads((root / status["current_run_card"]).read_text())
@@ -188,13 +257,13 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
     else:
         science_note = "Feature-alone leakage canaries were not computed, and the assigned lane is absent; physical mimics remain unresolved."
 
-    home = warning + f'''<section><h2>Decision at a glance</h2>
+    home = warning + '<section><h2>Start here</h2><p><b>No file is cleared to download or submit.</b> Read the <a href="executive-summary.html">executive summary</a> for the verified answer, the per-site table, and why the portal error occurs.</p></section>' + f'''<section><h2>Decision at a glance</h2>
 <p>The highest result among these nine sites is <b>{esc(top['site'])}: OWNER-REPORT {float(top['published_score_OWNER_REPORT']):.4f}</b> for <code>{esc(top['leaderboard_name'])}</code>. This is an owner-supplied report, not an organizer receipt. It does not establish that the artifact's method caused the score or predict the score of a new raster.</p>
 <p><a href="executive-summary.html">Open the executive summary</a> for the site-by-site comparison and exact upload checklist.</p>
 <p>Current candidate record: <code>{esc(current_id)}</code>, file <code>{esc(artifact)}</code>, SHA-256 <code>{esc(current_hash)}</code>, submission name <code>{esc(artifact_name)}</code>. It is a negative research record; no download or upload is authorized. The associated literal-registry and scientific-integrity gates fail.</p></section>
 <section><h2>What blocks a new result?</h2><ul><li>The assigned method paragraph is missing.</li><li>The large feature raster, cached feature stack, and complete registry are not restored in this checkout.</li><li>Historical candidate audits found uniqueness/scientific-integrity failures; format validation alone is insufficient.</li></ul><p class="muted">Details: <a href="release-status.html">release status</a> · <a href="review.html">current repository review</a> · <a href="research.html">unrun research shortlist</a></p></section>'''
 
-    exec_body = warning + f'''<section><h2>Nine-site comparison</h2>
+    exec_body = warning + start_here_html(root) + f'''<section><h2>Nine-site comparison</h2>
 <p>All submitted-score entries below are <b>OWNER-REPORT</b> from the supplied/repository audit. None is organizer-confirmed here. The score estimate for a new submission is <b>not estimable</b>; a HOLDOUT-DTI result cannot be converted to a live score without a validated calibration study.</p>{table}
 <p>{esc(top['site'])} is the largest listed owner report ({float(top['published_score_OWNER_REPORT']):.4f}). Existing analysis says the reported nested pruning sequence is consistent with removing low-credit false-positive mass, but no hidden truth or receipt-linked evidence establishes causation. See <a href="{esc(repo_link('knowledge/03_why_02778_and_the_anatomy_of_the_family.md'))}">the evidence and limitations</a>.</p><p>There is no file currently OK to submit. The nine reported files are <b>NOT UNIQUE in this nine-site cohort</b> according to the repository overlap audit; scores remain OWNER-REPORT, not organizer receipts. {current_registry_note} Earlier `H-APART3-2-CTHG-DHC` (`apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif`) had recorded overlaps of 75.90%, 72.25%, and 99.8035% within 3 px and a Band 6 interpretation issue; its paired HOLDOUT-DTI delta versus the 0.2778 incumbent was +0.000571 (95% CI [-0.006306, +0.007311]), spanning zero. For the current candidate, HOLDOUT-DTI diagnostic is <b>{float(holdout.get('pooled_dti', 0.0)):.6f}</b> (evaluator <code>{esc(holdout.get('evaluator_version', 'not recorded'))}</code>, n={int(holdout.get('n_withheld_positives', 0))}, 95% CI {esc(holdout.get('ci95', []))}); it is not a leaderboard score projection. {paired_note} Scientific-integrity review: {science_note}</p><p>Current negative candidate: <code>{esc(current_id)}</code> · <code>{esc(artifact)}</code> · SHA-256 <code>{esc(current_hash)}</code>. Not authorized to download or submit; local format validity does not cure scientific or uniqueness failures.</p></section>
 <section><h2>How to submit when a candidate is authorized</h2><ol><li>Only after the separate selector authorizes a slot, download the exact hash-verified GeoTIFF linked by the release page.</li><li>Open the correct <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DOE GEMS competition</a> and select <b>New submission</b>.</li><li>Choose the single-band GeoTIFF (or a ZIP containing exactly one GeoTIFF) that passed the release checklist. Confirm its CRS, shape, geotransform, and all predicted values in [0, 1].</li><li>Enter the submission name and a short note (140 characters maximum) recorded in the run card. Do not use an estimated score as the note.</li><li>Submit and retain the organizer's receipt. Record the exact file SHA-256 and the receipt's score as <b>ORGANIZER-CONFIRMED</b>.</li></ol><p><b>Current decision: no file is authorized for submission.</b> Exact portal acceptance cannot be guaranteed by a local validator.</p></section>'''
