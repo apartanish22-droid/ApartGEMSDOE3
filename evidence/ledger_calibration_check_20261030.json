@@ -1,0 +1,2849 @@
+{
+  "schema_version": 1,
+  "generated_by": "scripts/ledger_calibration_check.py",
+  "date_utc": "2026-10-30",
+  "purpose": "Experiment 3: rank calibration of HOLDOUT-DTI and SGMC-CAL against OWNER-REPORT live scores at scale. Not a projection.",
+  "preregistration": "Docstring of scripts/ledger_calibration_check.py (written before the run).",
+  "evaluator_versions": {
+    "hide_and_recover": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "sgmc_cal": "GEMSDOE32-SGMC-CAL-v3.0"
+  },
+  "score_label": "OWNER-REPORT (live ledger; no organizer receipts)",
+  "n_ledger_rows_ok": 118,
+  "n_unique_rasters": 117,
+  "n_scored": 117,
+  "n_excluded": 0,
+  "excluded": [],
+  "spearman_owner_vs_holdout_pooled": {
+    "rho": 0.1672,
+    "p_value": 0.071535,
+    "bootstrap_ci95": [
+      -0.0181,
+      0.3395
+    ]
+  },
+  "spearman_owner_vs_sgmc_prevalence_calibrated": {
+    "rho": 0.4042,
+    "p_value": 6e-06,
+    "bootstrap_ci95": [
+      0.2211,
+      0.559
+    ]
+  },
+  "verdict": {
+    "H1a": "H1a NOT supported (sign or CI)",
+    "H1b": "H1b supported"
+  },
+  "runtime_seconds": 335.3,
+  "rows": [
+    {
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "submission": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+      "site": "GEMSDOE32",
+      "repo": "GEMSDOE32",
+      "owner_reported_score": 0.2778,
+      "owner_scores_for_same_bytes": [
+        0.2778
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.00451537871535044,
+      "holdout_dti_ci95": [
+        0.0038164175817344387,
+        0.005261598301920283
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.0641209376417646,
+      "sgmc_calibrated_ci95": [
+        0.056730181217206584,
+        0.0716486609703412
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+      "submission": "anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros",
+      "site": "GEMSDOE36",
+      "repo": "GEMSDOE36",
+      "owner_reported_score": 0.275,
+      "owner_scores_for_same_bytes": [
+        0.275
+      ],
+      "emitted_pixels": 38854,
+      "holdout_dti_pooled": 0.004576730703979592,
+      "holdout_dti_ci95": [
+        0.0038915913728424577,
+        0.005300784778329944
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06444361006575842,
+      "sgmc_calibrated_ci95": [
+        0.057086576831896246,
+        0.07195818932689524
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641",
+      "submission": "h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan",
+      "site": "GEMSDOE28",
+      "repo": "GEMSDOE28",
+      "owner_reported_score": 0.271,
+      "owner_scores_for_same_bytes": [
+        0.271
+      ],
+      "emitted_pixels": 37660,
+      "holdout_dti_pooled": 0.029360078390480288,
+      "holdout_dti_ci95": [
+        0.024959299444030806,
+        0.034382240223559776
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06296746868114517,
+      "sgmc_calibrated_ci95": [
+        0.05571910069273813,
+        0.07037502524536735
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73",
+      "submission": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan",
+      "site": "GEMSDOE28",
+      "repo": "GEMSDOE28",
+      "owner_reported_score": 0.2708,
+      "owner_scores_for_same_bytes": [
+        0.2708
+      ],
+      "emitted_pixels": 40199,
+      "holdout_dti_pooled": 0.030516096725810685,
+      "holdout_dti_ci95": [
+        0.025680176441420625,
+        0.03605063588978195
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06300952965550723,
+      "sgmc_calibrated_ci95": [
+        0.055780891540621436,
+        0.07039487831429346
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+      "submission": "h27-4-solo-d28-20261004-8acb75e1-nan",
+      "site": "GEMSDOE31",
+      "repo": "GEMSDOE31",
+      "owner_reported_score": 0.2708,
+      "owner_scores_for_same_bytes": [
+        0.2708
+      ],
+      "emitted_pixels": 40199,
+      "holdout_dti_pooled": 0.030516096725810685,
+      "holdout_dti_ci95": [
+        0.025680176441420625,
+        0.03605063588978195
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06300952965550723,
+      "sgmc_calibrated_ci95": [
+        0.055780891540621436,
+        0.07039487831429346
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "81d5b87bc8424f162a8f56aa9aac8fbe630c61646b9cac24d5ebbdc1b1951783",
+      "submission": "h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-nan",
+      "site": "GEMSDOE28",
+      "repo": "GEMSDOE28",
+      "owner_reported_score": 0.2707,
+      "owner_scores_for_same_bytes": [
+        0.2707
+      ],
+      "emitted_pixels": 37860,
+      "holdout_dti_pooled": 0.02929491909657082,
+      "holdout_dti_ci95": [
+        0.02489656154403185,
+        0.03432198001010455
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06304334738289143,
+      "sgmc_calibrated_ci95": [
+        0.055799230032307204,
+        0.07038256465003352
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "04d31922f5c1ea4016984fc470ab2b0ff8e266c615792f0e86020da3b940d3ff",
+      "submission": "h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan",
+      "site": "GEMSDOE28",
+      "repo": "GEMSDOE28",
+      "owner_reported_score": 0.2649,
+      "owner_scores_for_same_bytes": [
+        0.2649
+      ],
+      "emitted_pixels": 42294,
+      "holdout_dti_pooled": 0.06151171235875668,
+      "holdout_dti_ci95": [
+        0.053740961470343886,
+        0.06920979633219823
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06175666339514615,
+      "sgmc_calibrated_ci95": [
+        0.05469717578274583,
+        0.06909743390056608
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
+      "submission": "h33d-analog-tip-stepover-r30-20261004-cb490425926e",
+      "site": "GEMSDOE33",
+      "repo": "GEMSDOE33",
+      "owner_reported_score": 0.2632,
+      "owner_scores_for_same_bytes": [
+        0.2632
+      ],
+      "emitted_pixels": 41865,
+      "holdout_dti_pooled": 0.0519685128498396,
+      "holdout_dti_ci95": [
+        0.04577318545951855,
+        0.05829620661401161
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06255070275978937,
+      "sgmc_calibrated_ci95": [
+        0.05531125719222555,
+        0.06998567406425855
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+      "submission": "dotted-h19-5-d2-8-20261002-e56ea318af89-nan",
+      "site": "GEMSDOE25",
+      "repo": "GEMSDOE25",
+      "owner_reported_score": 0.26,
+      "owner_scores_for_same_bytes": [
+        0.26
+      ],
+      "emitted_pixels": 44090,
+      "holdout_dti_pooled": 0.09674330401596999,
+      "holdout_dti_ci95": [
+        0.08416165969221351,
+        0.10952536708166187
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.060592489973569044,
+      "sgmc_calibrated_ci95": [
+        0.05358257868838623,
+        0.06785452888019962
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+      "submission": "d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca",
+      "site": "GEMSDOE30",
+      "repo": "GEMSDOE30",
+      "owner_reported_score": 0.26,
+      "owner_scores_for_same_bytes": [
+        0.26
+      ],
+      "emitted_pixels": 44090,
+      "holdout_dti_pooled": 0.09674330401596999,
+      "holdout_dti_ci95": [
+        0.08416165969221351,
+        0.10952536708166187
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.060592489973569044,
+      "sgmc_calibrated_ci95": [
+        0.05358257868838623,
+        0.06785452888019962
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
+      "submission": "efd28-repro-20261003-1cc7dc534d51-nan",
+      "site": "GEMSDOE29",
+      "repo": "GEMSDOE29",
+      "owner_reported_score": 0.26,
+      "owner_scores_for_same_bytes": [
+        0.26
+      ],
+      "emitted_pixels": 44090,
+      "holdout_dti_pooled": 0.09674330401596999,
+      "holdout_dti_ci95": [
+        0.08416165969221351,
+        0.10952536708166187
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.060592489973569044,
+      "sgmc_calibrated_ci95": [
+        0.05358257868838623,
+        0.06785452888019962
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "3ea61e719af4c0d0df9f8d279560ae4a6b5063cca0a43991c8f66a56cb63c51f",
+      "submission": "wormrank-d28-20261003-59dcaf6dd11d-zeros",
+      "site": "GEMSDOE29",
+      "repo": "GEMSDOE29",
+      "owner_reported_score": 0.256,
+      "owner_scores_for_same_bytes": [
+        0.256
+      ],
+      "emitted_pixels": 41338,
+      "holdout_dti_pooled": 0.09648612669735199,
+      "holdout_dti_ci95": [
+        0.08400794167455289,
+        0.10929711016118206
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.060073639523389545,
+      "sgmc_calibrated_ci95": [
+        0.05324234464506803,
+        0.06719401838889433
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "d0e41ce921afcf3af33b7d86d75f6a258653dfbb4d050e864babe643245f0ea8",
+      "submission": "gems70-p5-dual-submod300-oof38k-20261020",
+      "site": "GEMSDOE70",
+      "repo": "GEMSDOE70",
+      "owner_reported_score": 0.2478,
+      "owner_scores_for_same_bytes": [
+        0.2478
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.0024002258434376034,
+      "holdout_dti_ci95": [
+        0.0019080285703290223,
+        0.002940259649877533
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.08569559266052777,
+      "sgmc_calibrated_ci95": [
+        0.07583796238276887,
+        0.09482667248795401
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+      "submission": "h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan",
+      "site": "GEMSDOE24",
+      "repo": "GEMSDOE24",
+      "owner_reported_score": 0.2477,
+      "owner_scores_for_same_bytes": [
+        0.2477
+      ],
+      "emitted_pixels": 60069,
+      "holdout_dti_pooled": 0.09315052698145053,
+      "holdout_dti_ci95": [
+        0.08127878015699064,
+        0.105968402764059
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.057932246070648355,
+      "sgmc_calibrated_ci95": [
+        0.05112656686015078,
+        0.0652165822506664
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d",
+      "submission": "topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan",
+      "site": "GEMSDOE27",
+      "repo": "GEMSDOE27",
+      "owner_reported_score": 0.2449,
+      "owner_scores_for_same_bytes": [
+        0.2449
+      ],
+      "emitted_pixels": 61328,
+      "holdout_dti_pooled": 0.0927484913819319,
+      "holdout_dti_ci95": [
+        0.08085564044154277,
+        0.10539661683022032
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.05826237030075181,
+      "sgmc_calibrated_ci95": [
+        0.051476178073377704,
+        0.06553368995679887
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "c58fe0551e120678fff190239146985d0b2f7255255535fb5fb637a05cb40af3",
+      "submission": "gate_ortho_w0.25-40k-20261006T213721Z-nan",
+      "site": "GEMSDOE49",
+      "repo": "GEMSDOE49",
+      "owner_reported_score": 0.2376,
+      "owner_scores_for_same_bytes": [
+        0.2376
+      ],
+      "emitted_pixels": 40000,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.08817189195155781,
+      "sgmc_calibrated_ci95": [
+        0.08103059418464172,
+        0.09458175833768846
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "54c978399d0a875ba89aacc465e7efd8644420e6ba1dfa7c0a1390328be2c514",
+      "submission": "gems76-ptcf-tiltworm-submod39k-20261021T034000Z-6316481d-zeros",
+      "site": "GEMSDOE76",
+      "repo": "GEMSDOE76",
+      "owner_reported_score": 0.2343,
+      "owner_scores_for_same_bytes": [
+        0.2343
+      ],
+      "emitted_pixels": 39200,
+      "holdout_dti_pooled": 0.0016725073417528957,
+      "holdout_dti_ci95": [
+        0.0012780643274190597,
+        0.0021085109805277797
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.057985146208250564,
+      "sgmc_calibrated_ci95": [
+        0.05134096846809963,
+        0.06503648910795776
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "46a0f0fa2f63e6e6b4a5fe4520e999b925cf3ff954a01b10b36b735c1b0649c8",
+      "submission": "cvarlw-thin-s3p17-54864-20261011T220606Z-c58f60c4-zeros",
+      "site": "GEMSDOE63",
+      "repo": "GEMSDOE63",
+      "owner_reported_score": 0.2303,
+      "owner_scores_for_same_bytes": [
+        0.2303
+      ],
+      "emitted_pixels": 54864,
+      "holdout_dti_pooled": 0.009524480808735964,
+      "holdout_dti_ci95": [
+        0.008442749107253575,
+        0.010588553455591636
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.07833722390570963,
+      "sgmc_calibrated_ci95": [
+        0.07094185231897704,
+        0.08550487758023143
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "f1584187b459baf47f75e5daf64de6f7696f9feb14910d3cf2762f7a1119597a",
+      "submission": "h59-cover-ds-belief-b2xh33d-20261008T184547Z-b79c4c61d8d8",
+      "site": "GEMSDOE48",
+      "repo": "GEMSDOE48",
+      "owner_reported_score": 0.2296,
+      "owner_scores_for_same_bytes": [
+        0.2296
+      ],
+      "emitted_pixels": 37723,
+      "holdout_dti_pooled": 0.060072855043236284,
+      "holdout_dti_ci95": [
+        0.052734661829437965,
+        0.06763124118062545
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.062236944988968285,
+      "sgmc_calibrated_ci95": [
+        0.05583678322826799,
+        0.06901901966230926
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "8585c5e870f197f84fda5bac7f22047d646fb73d455eb8b1129486c79bb976cf",
+      "submission": "gems27-h29-hydrothermal-piedmont-celf-20261025-511898747886-allfinite",
+      "site": "GEMSDOE27",
+      "repo": "GEMSDOE27",
+      "owner_reported_score": 0.219,
+      "owner_scores_for_same_bytes": [
+        0.219
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.013967417811359436,
+      "holdout_dti_ci95": [
+        0.011399250590349595,
+        0.016601425422462953
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.05581521294826572,
+      "sgmc_calibrated_ci95": [
+        0.04851230687837598,
+        0.06304992017312022
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "ef2ae808eb7179861b9f1ff753fd3ded625ace7b7c158e29cec45bbd8fa3cfaa",
+      "submission": "h19-5-powerlaw-budget-multiline-corroborated-20260930-e27054cf-nan",
+      "site": "19GEMSDOE",
+      "repo": "19GEMSDOE",
+      "owner_reported_score": 0.1922,
+      "owner_scores_for_same_bytes": [
+        0.1922
+      ],
+      "emitted_pixels": 121131,
+      "holdout_dti_pooled": 0.06879199690327992,
+      "holdout_dti_ci95": [
+        0.058821803669694084,
+        0.08005692480008342
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.044072527055937755,
+      "sgmc_calibrated_ci95": [
+        0.03839311646537306,
+        0.05018992183224019
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "fab28aa25f7f803907c91d0e64cbfe2755f9bc1702163f458bbb1017174a0249",
+      "submission": "gems73-h73-mcsc-seamfree-blakely-37654dots-20261021T073716Z-b27ac445-zeros",
+      "site": "GEMSDOE73",
+      "repo": "GEMSDOE73",
+      "owner_reported_score": 0.1917,
+      "owner_scores_for_same_bytes": [
+        0.1917
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.0192119996379258,
+      "holdout_dti_ci95": [
+        0.01613837398137542,
+        0.02229712133421952
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.056260301027763714,
+      "sgmc_calibrated_ci95": [
+        0.047682601201263525,
+        0.06566704477138326
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "ad52f4c2704f2a8721f74b736dc139b6b9e11cbf6130c3b971b91cfb3661ac84",
+      "submission": "h19-4-multiline-corroborated-openness-thermal-pop-20260930-691e4dfa-nan",
+      "site": "19GEMSDOE",
+      "repo": "19GEMSDOE",
+      "owner_reported_score": 0.1894,
+      "owner_scores_for_same_bytes": [
+        0.1894
+      ],
+      "emitted_pixels": 123779,
+      "holdout_dti_pooled": 0.06920605698696591,
+      "holdout_dti_ci95": [
+        0.059306267819551985,
+        0.08063427130824635
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04632622687647366,
+      "sgmc_calibrated_ci95": [
+        0.040333392551856855,
+        0.052417897477916905
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "10cd66f0e55fd419366ad90b9bd27b8164fc702e2ed0c2d471f92c1983708c1d",
+      "submission": "h20-1-sarnnpu-powerlaw-pi0363-tilt-wingcrack-20260930-be0e8f6b-nan",
+      "site": "20GEMSDOE",
+      "repo": "20GEMSDOE",
+      "owner_reported_score": 0.189,
+      "owner_scores_for_same_bytes": [
+        0.189
+      ],
+      "emitted_pixels": 123829,
+      "holdout_dti_pooled": 0.0696749198529687,
+      "holdout_dti_ci95": [
+        0.059518562031058785,
+        0.08115130458993623
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.046791587665334505,
+      "sgmc_calibrated_ci95": [
+        0.04084092476406435,
+        0.05299395080878175
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "120810feffb4688c364f2bb49a3d2624dcbb53fdc294892c68957f65fbaba131",
+      "submission": "gemsdoe82-h82-submodular-punoisyor-20261021T235456Z-fe137199-zeros",
+      "site": "GEMSDOE82",
+      "repo": "GEMSDOE82",
+      "owner_reported_score": 0.1886,
+      "owner_scores_for_same_bytes": [
+        0.1886
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.003862095950543298,
+      "holdout_dti_ci95": [
+        0.0027249874083586927,
+        0.005131325148606641
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06200121951812308,
+      "sgmc_calibrated_ci95": [
+        0.05443655175880191,
+        0.069376417237474
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "4e199f0ce1bb7e6f6e5e42fbbe54fcd3714bbf1b4ee864fad262b95ebba464f7",
+      "submission": "h20-5-continuous-pu-proxy-unverified-20260930-824ce73a-nan",
+      "site": "20GEMSDOE",
+      "repo": "20GEMSDOE",
+      "owner_reported_score": 0.1859,
+      "owner_scores_for_same_bytes": [
+        0.1859
+      ],
+      "emitted_pixels": 121258,
+      "holdout_dti_pooled": 0.06900966993243567,
+      "holdout_dti_ci95": [
+        0.05887795481429133,
+        0.0801260888858895
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04439577383674869,
+      "sgmc_calibrated_ci95": [
+        0.038676488443635325,
+        0.050442632767699495
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "055309694ed499ca3d87e76b3f5e81c292aef6e39c418d33ff5a817aa1309bea",
+      "submission": "h16-1-topo-geophys-baseline-ridges-20260930-df20f65e-nan",
+      "site": "16GEMSDOE",
+      "repo": "16GEMSDOE",
+      "owner_reported_score": 0.1855,
+      "owner_scores_for_same_bytes": [
+        0.1855
+      ],
+      "emitted_pixels": 123939,
+      "holdout_dti_pooled": 0.06807433693226782,
+      "holdout_dti_ci95": [
+        0.05822502628819744,
+        0.07972415500757017
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04900300619748864,
+      "sgmc_calibrated_ci95": [
+        0.04281313981184233,
+        0.05536965892873635
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "7637b72d4c6c3e10226bf46bd72a20272d62ccbe29743062632d10b158b49c58",
+      "submission": "h28-dotted-ridge-20260928T020256236880Z-6452ae1d00",
+      "site": "GEMSDOE10",
+      "repo": "GEMSDOE10",
+      "owner_reported_score": 0.1839,
+      "owner_scores_for_same_bytes": [
+        0.1839
+      ],
+      "emitted_pixels": 69281,
+      "holdout_dti_pooled": 0.20219689416240075,
+      "holdout_dti_ci95": [
+        0.1869065447524894,
+        0.2166672203932162
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.05160598209389838,
+      "sgmc_calibrated_ci95": [
+        0.04537308441307553,
+        0.058120440425120434
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "64d589ac8d5365693d8845a5673a42ec593794ac46be2aa14a1f950e948fe2b3",
+      "submission": "gems91-s17-lftg-20261025T160014Z-7b6bf90844-zeros",
+      "site": "GEMSDOE91",
+      "repo": "GEMSDOE91",
+      "owner_reported_score": 0.1823,
+      "owner_scores_for_same_bytes": [
+        0.1823
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.004509730720590083,
+      "holdout_dti_ci95": [
+        0.004014345205505864,
+        0.00501109884798062
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.05554596452078469,
+      "sgmc_calibrated_ci95": [
+        0.049016339763503995,
+        0.0626653376425506
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "e04df46e8a0770b470bf8846ed2aff966fd192e7ff71fbc4d82724b28c0b1b71",
+      "submission": "gems75-trlt-radon-loco-ridge-20261021-zeros",
+      "site": "GEMSDOE75",
+      "repo": "GEMSDOE75",
+      "owner_reported_score": 0.1627,
+      "owner_scores_for_same_bytes": [
+        0.1627
+      ],
+      "emitted_pixels": 36800,
+      "holdout_dti_pooled": 0.000306419814293421,
+      "holdout_dti_ci95": [
+        0.0001849867444306647,
+        0.00044218655966102847
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.08023928523300135,
+      "sgmc_calibrated_ci95": [
+        0.07187400592761747,
+        0.08824073331013324
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "57be86502a03a22eb755f04204cb090b49ba4b89158662a728ca2e34b1d37f95",
+      "submission": "r11f-scarp-radiometric-fusion-00e049b51218-zeros",
+      "site": "GEMSDOE46",
+      "repo": "GEMSDOE46",
+      "owner_reported_score": 0.1589,
+      "owner_scores_for_same_bytes": [
+        0.1589
+      ],
+      "emitted_pixels": 44090,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.10608135876797316,
+      "sgmc_calibrated_ci95": [
+        0.09015512342045556,
+        0.12109576049867432
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "8ca06ece44285ca2d96c1871b265dc11d3bd36b6622d04492d354289d2b11786",
+      "submission": "gems78-h78sigx-fuse-b5-44090dots-20261022T021932Z-zeros",
+      "site": "GEMSDOE78",
+      "repo": "GEMSDOE78",
+      "owner_reported_score": 0.1564,
+      "owner_scores_for_same_bytes": [
+        0.1564
+      ],
+      "emitted_pixels": 44090,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06594730117467666,
+      "sgmc_calibrated_ci95": [
+        0.05925077124123232,
+        0.07302691954663328
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "7f00890a62878d612fb5eef67a9a364a2df819433dde74b6762ce4fc0fc4fe15",
+      "submission": "gems-submission-20260926T175114Z-7f00890a",
+      "site": "5GEMSDOE",
+      "repo": "5GEMSDOE",
+      "owner_reported_score": 0.1563,
+      "owner_scores_for_same_bytes": [
+        0.1563
+      ],
+      "emitted_pixels": 172974,
+      "holdout_dti_pooled": 0.08384341875589338,
+      "holdout_dti_ci95": [
+        0.0724770576086766,
+        0.09535596182014291
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.040421474657155385,
+      "sgmc_calibrated_ci95": [
+        0.03544304932334273,
+        0.0454959816286172
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "052688eafbc7a55d90caab72252a50304fe5caa8ecf973f8e791b4ae910f0792",
+      "submission": "Hedge-v2_submission",
+      "site": "8GEMSDOE",
+      "repo": "8GEMSDOE",
+      "owner_reported_score": 0.1563,
+      "owner_scores_for_same_bytes": [
+        0.1563
+      ],
+      "emitted_pixels": 227507,
+      "holdout_dti_pooled": 0.2665775129591306,
+      "holdout_dti_ci95": [
+        0.23708379552395797,
+        0.29669818843003687
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.040421474657155385,
+      "sgmc_calibrated_ci95": [
+        0.03544304932334273,
+        0.0454959816286172
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "f68e590f8534d036872f18170819b52366c728e68619f17c648dce9629b0aaf2",
+      "submission": "gemsdoe2-dual-family-union-20260925T160406Z-f68e590f",
+      "site": "GEMSDOE2",
+      "repo": "GEMSDOE2",
+      "owner_reported_score": 0.156,
+      "owner_scores_for_same_bytes": [
+        0.156
+      ],
+      "emitted_pixels": 183642,
+      "holdout_dti_pooled": 0.08450270568859394,
+      "holdout_dti_ci95": [
+        0.07285623587541863,
+        0.09625257156958526
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.03957661337334866,
+      "sgmc_calibrated_ci95": [
+        0.03466988059985019,
+        0.044588789738675985
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "d706807d42d1b21f6417483cd7aeb04a410d62accd5a66c6b2a6ab0dc16662af",
+      "submission": "gems76_h76_3_geotherm_tilt_axial_submod_20261021_zeros",
+      "site": "GEMSDOE76",
+      "repo": "GEMSDOE76",
+      "owner_reported_score": 0.1555,
+      "owner_scores_for_same_bytes": [
+        0.1555
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.0007017464697424051,
+      "holdout_dti_ci95": [
+        0.0005069051002949825,
+        0.0009253325920005064
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.056863495368566164,
+      "sgmc_calibrated_ci95": [
+        0.050134700063072433,
+        0.0636080261701284
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "22850984a68c393f60c6cc9aeafd8d74fd8a3479654bdfcfd3626a4b99ff0381",
+      "submission": "gems30-MSDB1-edge44090-20261025-e7856ec3f14a",
+      "site": "GEMSDOE30",
+      "repo": "GEMSDOE30",
+      "owner_reported_score": 0.1462,
+      "owner_scores_for_same_bytes": [
+        0.1462
+      ],
+      "emitted_pixels": 44090,
+      "holdout_dti_pooled": 0.10099185105503296,
+      "holdout_dti_ci95": [
+        0.08901928703546373,
+        0.11204842785140418
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.049231562627065927,
+      "sgmc_calibrated_ci95": [
+        0.04348663844124069,
+        0.05572588930767732
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "36c3a3f341c8306dfb5610f61acfec635a7cb8a3ef6ef00380ca083d2f9745fe",
+      "submission": "lidarscarp-ridge-top2pct-36c3a3f341c8",
+      "site": "7GEMSDOE",
+      "repo": "7GEMSDOE",
+      "owner_reported_score": 0.1461,
+      "owner_scores_for_same_bytes": [
+        0.1461
+      ],
+      "emitted_pixels": 76859,
+      "holdout_dti_pooled": 0.08479790078324236,
+      "holdout_dti_ci95": [
+        0.0725644184429957,
+        0.09694757731779002
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.03427062791858263,
+      "sgmc_calibrated_ci95": [
+        0.029392132548218673,
+        0.0386783173306767
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "8624c5a58c681f57a6d26cab0652cfe654bcd46dc8ba68a7d5a4c0feaa29bc89",
+      "submission": "ovtr-ml-cover-tau3p0-20261012-nan",
+      "site": "GEMSDOE67",
+      "repo": "GEMSDOE67",
+      "owner_reported_score": 0.1426,
+      "owner_scores_for_same_bytes": [
+        0.1426
+      ],
+      "emitted_pixels": 167597,
+      "holdout_dti_pooled": 0.13011000525386351,
+      "holdout_dti_ci95": [
+        0.11666195389352953,
+        0.14296134521223805
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.08178136831597328,
+      "sgmc_calibrated_ci95": [
+        0.07162650102169305,
+        0.09115597115479313
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "792af6255a7e1048e5c2053c178feee5f807f5de83b5d07e51617a7164115ec5",
+      "submission": "gems91-s17-cwpc-e3-37654dots-20261025T150000Z-4d124f1d-zeros",
+      "site": "GEMSDOE91",
+      "repo": "GEMSDOE91",
+      "owner_reported_score": 0.1367,
+      "owner_scores_for_same_bytes": [
+        0.1367
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06082588420521149,
+      "sgmc_calibrated_ci95": [
+        0.04957796468639557,
+        0.07223741929602194
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "38539dc647d5ede0d8fa90123810d18130ee15e524097f55e83b6b8a57976ea9",
+      "submission": "h30-arrangement-matched-habitat-20261002-0d4e02e8-nan",
+      "site": "GEMSDOE23",
+      "repo": "GEMSDOE23",
+      "owner_reported_score": 0.1352,
+      "owner_scores_for_same_bytes": [
+        0.1352
+      ],
+      "emitted_pixels": 91533,
+      "holdout_dti_pooled": 0.0946385586711979,
+      "holdout_dti_ci95": [
+        0.08337350349808247,
+        0.10537810375042551
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.1003554367256019,
+      "sgmc_calibrated_ci95": [
+        0.08522242708308958,
+        0.11411251002527444
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "ce3f70fa2e1e7bbea60c8c62a2f805c22d15b8a8905ebec757259617ceb02fbc",
+      "submission": "r7-nms3-dem10-scarp_0c9199f14e62",
+      "site": "12GEMSDOE",
+      "repo": "12GEMSDOE",
+      "owner_reported_score": 0.1294,
+      "owner_scores_for_same_bytes": [
+        0.1294,
+        0.1294
+      ],
+      "emitted_pixels": 103347,
+      "holdout_dti_pooled": 0.14426186793130083,
+      "holdout_dti_ci95": [
+        0.13112982218451955,
+        0.15642306328244762
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.0701476774059954,
+      "sgmc_calibrated_ci95": [
+        0.06148336602908563,
+        0.07807653349458825
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "1381e784fb8b8340beffd0e735ac9eea89ad35d1a807f8a9bab5506e3fc8275e",
+      "submission": "H25-ctx-ridge-20260927T232947704150Z-6452ae1d00",
+      "site": "GEMSDOE10",
+      "repo": "GEMSDOE10",
+      "owner_reported_score": 0.128,
+      "owner_scores_for_same_bytes": [
+        0.128
+      ],
+      "emitted_pixels": 174232,
+      "holdout_dti_pooled": 0.15338355660249836,
+      "holdout_dti_ci95": [
+        0.1392662616317737,
+        0.16687264711143016
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.03426000912820391,
+      "sgmc_calibrated_ci95": [
+        0.029887028695025835,
+        0.03914295568651854
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "d54cf7edc6ec57c29b88dec81fe3fb101efa4fe31fc9c1088664a0c2e5190887",
+      "submission": "dilcond-oof-v1-20261003-47629f496133-nan",
+      "site": "GEMSDOE26",
+      "repo": "GEMSDOE26",
+      "owner_reported_score": 0.1223,
+      "owner_scores_for_same_bytes": [
+        0.1223
+      ],
+      "emitted_pixels": 60068,
+      "holdout_dti_pooled": 0.07202011618574654,
+      "holdout_dti_ci95": [
+        0.05906599845390811,
+        0.08594183404049838
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.061981327780265875,
+      "sgmc_calibrated_ci95": [
+        0.05105032878008009,
+        0.07224382980175872
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "f347b70daa95170bfc967b1c0b6bbf951496c2b74764a7102848ad6178829aca",
+      "submission": "pindrop-v4-nodes-20260925T152420Z-f347b70daa",
+      "site": "GEMSDOE3",
+      "repo": "GEMSDOE3",
+      "owner_reported_score": 0.1193,
+      "owner_scores_for_same_bytes": [
+        0.1193
+      ],
+      "emitted_pixels": 155021,
+      "holdout_dti_pooled": 0.07934185545336365,
+      "holdout_dti_ci95": [
+        0.07090035206508023,
+        0.08812434551935722
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.09706498713268791,
+      "sgmc_calibrated_ci95": [
+        0.08536766033171019,
+        0.10765649906786669
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "ce749a992baec603460dfeddd068758855cb8b12978268e6ef94f6e23ffd9ee7",
+      "submission": "h6-physics-dotted-80k-20261005T055000Z-0bef9211631c",
+      "site": "GEMSDOE37",
+      "repo": "GEMSDOE37",
+      "owner_reported_score": 0.1193,
+      "owner_scores_for_same_bytes": [
+        0.1193
+      ],
+      "emitted_pixels": 80000,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06964039880032212,
+      "sgmc_calibrated_ci95": [
+        0.061599185932379105,
+        0.07807540686987155
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "4e03fc97052e9bd673e48f1923ad17f15926f8db26d2befc033e1722381dc9b7",
+      "submission": "pindrop-v4-ridge-20260925T152422Z-4e03fc9705",
+      "site": "GEMSDOE3",
+      "repo": "GEMSDOE3",
+      "owner_reported_score": 0.1152,
+      "owner_scores_for_same_bytes": [
+        0.1152
+      ],
+      "emitted_pixels": 155021,
+      "holdout_dti_pooled": 0.07348525463283954,
+      "holdout_dti_ci95": [
+        0.06252314285679124,
+        0.08560133432083486
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.12076180811184574,
+      "sgmc_calibrated_ci95": [
+        0.10766900957701345,
+        0.13120245572818284
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "7c7d30c22c17571e24927c8c2c435725e5c8396bd6724446ecc60663d5972b7e",
+      "submission": "gems66-lidar03-cvretrain-reliefdecile-37654dots-20261020T190152Z-zeros",
+      "site": "GEMSDOE66",
+      "repo": "GEMSDOE66",
+      "owner_reported_score": 0.1152,
+      "owner_scores_for_same_bytes": [
+        0.1152
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.008302595914500777,
+      "holdout_dti_ci95": [
+        0.006464723871524908,
+        0.010246183742893222
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04502907841691246,
+      "sgmc_calibrated_ci95": [
+        0.037139417475234374,
+        0.052722608893230126
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "61ef04376a55169786b96423114394db85b7aaadf3d298d3c75b7b90022da109",
+      "submission": "gemsdoe85-hjcd-ventbridge-submod-zeros",
+      "site": "GEMSDOE85",
+      "repo": "GEMSDOE85",
+      "owner_reported_score": 0.111,
+      "owner_scores_for_same_bytes": [
+        0.111
+      ],
+      "emitted_pixels": 21334,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04031269097013996,
+      "sgmc_calibrated_ci95": [
+        0.03494985858433959,
+        0.0461296713081446
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "5823def4fab491ac6bd667cedb467c0540fd1bbce1351992289f4a609e7b775e",
+      "submission": "h53-twostage-20261008T040951Z-9a0b32c871",
+      "site": "GEMSDOE51",
+      "repo": "GEMSDOE51",
+      "owner_reported_score": 0.1047,
+      "owner_scores_for_same_bytes": [
+        0.1047
+      ],
+      "emitted_pixels": 44069,
+      "holdout_dti_pooled": 0.026460371983619103,
+      "holdout_dti_ci95": [
+        0.024387146529851522,
+        0.0284367126207762
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.092744842099683,
+      "sgmc_calibrated_ci95": [
+        0.07959969885684688,
+        0.10569685603792743
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "e5f3684e9b49e8f11019f87e047017c5ab8a46294935bc0c7c80859ca7d2b1ce",
+      "submission": "h23-a-dti-optimal-emission-6pct-20261002-e2ec4b49-nan",
+      "site": "GEMSDOE22",
+      "repo": "GEMSDOE22",
+      "owner_reported_score": 0.1002,
+      "owner_scores_for_same_bytes": [
+        0.1002
+      ],
+      "emitted_pixels": 335879,
+      "holdout_dti_pooled": 0.04666598782997178,
+      "holdout_dti_ci95": [
+        0.04090734465918348,
+        0.05279336988073485
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.05022682224442878,
+      "sgmc_calibrated_ci95": [
+        0.04361078699509889,
+        0.05613391380433545
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "f28e5cff682662c18d6b15f5d5501e13096b0ab00a76e1640dc93dc5e6e6fc8f",
+      "submission": "h45-eulerdepthreadcluster-20261006-f28e5cff6826-zeros",
+      "site": "GEMSDOE40",
+      "repo": "GEMSDOE40",
+      "owner_reported_score": 0.0984,
+      "owner_scores_for_same_bytes": [
+        0.0984
+      ],
+      "emitted_pixels": 43038,
+      "holdout_dti_pooled": 0.018627934455622285,
+      "holdout_dti_ci95": [
+        0.015013758473944865,
+        0.02257953619187134
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.082247219852768,
+      "sgmc_calibrated_ci95": [
+        0.07388410266263525,
+        0.09050394366176578
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "92904a5bfd84c8bd1141683fc5d29817aa4de71574d8caff5b40f7ed0072a5b8",
+      "submission": "h18-3a-topo-geophys-x-complexity-prior-20260930-c502dfab-nan",
+      "site": "16GEMSDOE",
+      "repo": "16GEMSDOE",
+      "owner_reported_score": 0.0976,
+      "owner_scores_for_same_bytes": [
+        0.0976
+      ],
+      "emitted_pixels": 122120,
+      "holdout_dti_pooled": 0.08114004440067156,
+      "holdout_dti_ci95": [
+        0.0726593240869728,
+        0.08947896042932438
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04152739087787429,
+      "sgmc_calibrated_ci95": [
+        0.03531919630957646,
+        0.04797168843160819
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "47caaca53d2906f797459abf1194fb81ee1181e05cf5c9a6e74e6f57b0999b98",
+      "submission": "gems85-h85-edti-collar35-skel-r33-20261021-d97b248e-zeros",
+      "site": "GEMSDOE77",
+      "repo": "GEMSDOE77",
+      "owner_reported_score": 0.0964,
+      "owner_scores_for_same_bytes": [
+        0.0964
+      ],
+      "emitted_pixels": 201260,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.07075104978946864,
+      "sgmc_calibrated_ci95": [
+        0.06144026077283217,
+        0.08021325744072343
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "a3c14d76d1f58802c8bd3f13378cbeb037ad3618d5fbd9dbf5f5a0dae4a35ede",
+      "submission": "gemsdoe80-h80g-choquet-tworegime-20261022T000000Z-zeros",
+      "site": "GEMSDOE80",
+      "repo": "GEMSDOE80",
+      "owner_reported_score": 0.0943,
+      "owner_scores_for_same_bytes": [
+        0.0943
+      ],
+      "emitted_pixels": 51667,
+      "holdout_dti_pooled": 0.0009159225842832593,
+      "holdout_dti_ci95": [
+        0.0005900477469696709,
+        0.0012781773420569894
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.05023486073230198,
+      "sgmc_calibrated_ci95": [
+        0.044213172230608895,
+        0.056460056587954784
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "a26e5e46acc00ddd867f0b2910e638b25e4e81108ebe05c0abcc7c9b04372247",
+      "submission": "h20-dem10-scarp-thin-20260927T155223039488Z-ffc91a1686",
+      "site": "GEMSDOE10",
+      "repo": "GEMSDOE10",
+      "owner_reported_score": 0.0921,
+      "owner_scores_for_same_bytes": [
+        0.0921
+      ],
+      "emitted_pixels": 153957,
+      "holdout_dti_pooled": 0.13006090394211786,
+      "holdout_dti_ci95": [
+        0.11924283300894914,
+        0.14024790529147876
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.03091343046890096,
+      "sgmc_calibrated_ci95": [
+        0.02683071943595406,
+        0.03527237490421306
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "submission": "20261001_r13-lattice-s5_v2_nan-outside",
+      "site": "13GEMSDOE",
+      "repo": "13GEMSDOE",
+      "owner_reported_score": 0.0904,
+      "owner_scores_for_same_bytes": [
+        0.0904
+      ],
+      "emitted_pixels": 206895,
+      "holdout_dti_pooled": 0.08601698873001104,
+      "holdout_dti_ci95": [
+        0.07631334205623568,
+        0.09537855107936316
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.0936138128653588,
+      "sgmc_calibrated_ci95": [
+        0.08233542080413134,
+        0.10480482229205879
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "b5ca6f1755af059e17f5edf0940fd7e945d43a1359e103a4789eae33c536ad41",
+      "submission": "gems24-gvc1-negative-geothermal-lineament-submod-20261025-abe8e51c719d-zeros",
+      "site": "GEMSDOE24",
+      "repo": "GEMSDOE24",
+      "owner_reported_score": 0.0859,
+      "owner_scores_for_same_bytes": [
+        0.0859
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.022197269011965344,
+      "holdout_dti_ci95": [
+        0.019859656497441213,
+        0.02445291692730069
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04883566826308088,
+      "sgmc_calibrated_ci95": [
+        0.04273491924577842,
+        0.05549791445298228
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "1b0b00aa711fde1a0e7dfbdb3680bc9f8652a09f7ff6ee3709e7ccafda9656a2",
+      "submission": "h97b-candidate",
+      "site": "GEMSDOE52",
+      "repo": "GEMSDOE52",
+      "owner_reported_score": 0.0856,
+      "owner_scores_for_same_bytes": [
+        0.0856
+      ],
+      "emitted_pixels": 25400,
+      "holdout_dti_pooled": 0.004869345493770556,
+      "holdout_dti_ci95": [
+        0.0036995180972939266,
+        0.006059865994818101
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04501508709725363,
+      "sgmc_calibrated_ci95": [
+        0.03521195154024738,
+        0.05457766665795915
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "73fd1d8340e32d0175ca7ddb084c50f561a04a2b6bd58f80426d7934cef157c7",
+      "submission": "r12-scarp-rad-concordance-23e807e2de9f-zeros",
+      "site": "GEMSDOE46",
+      "repo": "GEMSDOE46",
+      "owner_reported_score": 0.0843,
+      "owner_scores_for_same_bytes": [
+        0.0843
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 2.0529221823224898e-05,
+      "holdout_dti_ci95": [
+        5.631170887306421e-06,
+        4.231412480159842e-05
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.10941620782875706,
+      "sgmc_calibrated_ci95": [
+        0.09383807678290879,
+        0.12428714123091532
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "37f9d5b855ee1b6c302cb81cdae1414db94db427f5dc9da3538474df37cf1cad",
+      "submission": "pindrop-v4-discovery-20260925T152423Z-37f9d5b855",
+      "site": "GEMSDOE3",
+      "repo": "GEMSDOE3",
+      "owner_reported_score": 0.083,
+      "owner_scores_for_same_bytes": [
+        0.083
+      ],
+      "emitted_pixels": 155021,
+      "holdout_dti_pooled": 0.06899298309428151,
+      "holdout_dti_ci95": [
+        0.06153946814112938,
+        0.07615430406981256
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.09914735414500564,
+      "sgmc_calibrated_ci95": [
+        0.08740066621644302,
+        0.11017715749842258
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "b437efcec17fb4582a3ff2f5f6ce6a179545c1e21fcd51e0c4b828cfd185d631",
+      "submission": "gems-tso1-20260929T005627Z-conj_alteration_mag",
+      "site": "15GEMSDOE",
+      "repo": "15GEMSDOE",
+      "owner_reported_score": 0.0782,
+      "owner_scores_for_same_bytes": [
+        0.0782
+      ],
+      "emitted_pixels": 99999,
+      "holdout_dti_pooled": 0.07036880016797863,
+      "holdout_dti_ci95": [
+        0.06119085564672309,
+        0.08076848919943425
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.08719125407687654,
+      "sgmc_calibrated_ci95": [
+        0.07736098379388075,
+        0.09711160827672562
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "acf00361263a14c29fc6292bce2f10f862ec3ac258e1cd123a8a17c37bd5d203",
+      "submission": "h34-scatter-q50-arr-matched-20261004T223317Z",
+      "site": "GEMSDOE34",
+      "repo": "GEMSDOE34",
+      "owner_reported_score": 0.0778,
+      "owner_scores_for_same_bytes": [
+        0.0778
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.003951071386035064,
+      "holdout_dti_ci95": [
+        0.003458255583422784,
+        0.004439068456113354
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.0726802887639564,
+      "sgmc_calibrated_ci95": [
+        0.06663200529782709,
+        0.07803571830407366
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "838f9502fd4a2720374559db0947fb3372f97629401a617e5c9c95c1b1ce8be5",
+      "submission": "h59-sharpened-scarp-scatter-90k-20261007T171954Z-allfinite",
+      "site": "GEMSDOE50",
+      "repo": "GEMSDOE50",
+      "owner_reported_score": 0.0764,
+      "owner_scores_for_same_bytes": [
+        0.0764
+      ],
+      "emitted_pixels": 90000,
+      "holdout_dti_pooled": 0.017784306252348718,
+      "holdout_dti_ci95": [
+        0.015064371371601647,
+        0.020601939857808494
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.12490060955193201,
+      "sgmc_calibrated_ci95": [
+        0.1111902753244107,
+        0.13716870123509745
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "8e0876bbe844ee118489993bc3fe67c3120181ffef9a0dc144c083fbb5a1f5cd",
+      "submission": "D-step-3p0-07pct-tipProt-20261005-ecfbf59e2b48-zero",
+      "site": "GEMSDOE38",
+      "repo": "GEMSDOE38",
+      "owner_reported_score": 0.0763,
+      "owner_scores_for_same_bytes": [
+        0.0763
+      ],
+      "emitted_pixels": 36171,
+      "holdout_dti_pooled": 0.08297397434590016,
+      "holdout_dti_ci95": [
+        0.0711838958627089,
+        0.09436437018603316
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04562873983449633,
+      "sgmc_calibrated_ci95": [
+        0.03754682423376737,
+        0.05583193865378534
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "34218a188aa865923bc15a032767a7e633141afcd63139c1614d1cf346671a61",
+      "submission": "h61o-vardepth-none-40000dots-20261011T160711Z-28d4fac611ea-zeros-zeros",
+      "site": "61GEMSDOE",
+      "repo": "61GEMSDOE",
+      "owner_reported_score": 0.0751,
+      "owner_scores_for_same_bytes": [
+        0.0751
+      ],
+      "emitted_pixels": 40000,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04916257814679493,
+      "sgmc_calibrated_ci95": [
+        0.03873540856945469,
+        0.05894645232481011
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "e1e91be23d763ee184839f38a22aa573d6c957aac8fd0038a680cf6615ef41eb",
+      "submission": "gems90-cnc-35000dots-20261024T084324Z",
+      "site": "GEMSDOE90",
+      "repo": "GEMSDOE90",
+      "owner_reported_score": 0.0749,
+      "owner_scores_for_same_bytes": [
+        0.0749
+      ],
+      "emitted_pixels": 35000,
+      "holdout_dti_pooled": 0.0001295414579499621,
+      "holdout_dti_ci95": [
+        1.2885201401792875e-05,
+        0.0003038515092364832
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.07638187790596501,
+      "sgmc_calibrated_ci95": [
+        0.06483713268310161,
+        0.08717910717250246
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "d0c5fd6825b544eb08672303c11292eb99d6105e42a41eac0e5a211a3fdc69e5",
+      "submission": "h23-b-dti-optimal-emission-10pct-20261002-86176698-nan",
+      "site": "GEMSDOE22",
+      "repo": "GEMSDOE22",
+      "owner_reported_score": 0.0748,
+      "owner_scores_for_same_bytes": [
+        0.0748
+      ],
+      "emitted_pixels": 516738,
+      "holdout_dti_pooled": 0.036594603891761696,
+      "holdout_dti_ci95": [
+        0.032045366346809975,
+        0.04127990011431882
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04688850793318615,
+      "sgmc_calibrated_ci95": [
+        0.04045186416916578,
+        0.05280104068385068
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "7503f4d498694c0107e0efad92cd06613b56d6fe402712532c1805e778166c1a",
+      "submission": "gems25-h66-mgd-flank-sapd3-0-k3p5-20261025-da617550a0e9-zeros",
+      "site": "GEMSDOE25",
+      "repo": "GEMSDOE25",
+      "owner_reported_score": 0.0742,
+      "owner_scores_for_same_bytes": [
+        0.0742
+      ],
+      "emitted_pixels": 44832,
+      "holdout_dti_pooled": 0.006633858237898865,
+      "holdout_dti_ci95": [
+        0.0058672504396322265,
+        0.0074219422566219355
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06274939089045482,
+      "sgmc_calibrated_ci95": [
+        0.05493965059652799,
+        0.07103762731427721
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "3c04892d0deca00ccbadf77c801130180f05a03a9c0d575e4d8b91127286d06f",
+      "submission": "h46-twostageAB_20261006T160000Z_b0cfe956-zeros",
+      "site": "GEMSDOE44",
+      "repo": "GEMSDOE44",
+      "owner_reported_score": 0.0715,
+      "owner_scores_for_same_bytes": [
+        0.0715
+      ],
+      "emitted_pixels": 42000,
+      "holdout_dti_pooled": 0.012677066485301777,
+      "holdout_dti_ci95": [
+        0.010433560912827662,
+        0.015034233658332171
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.2046721572573463,
+      "sgmc_calibrated_ci95": [
+        0.1858040610947891,
+        0.22357156675877474
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "31bf5aef0539dc3c401662f0bc3b657287943049ad8d031d10026ba45d669c4b",
+      "submission": "gemsdoe74-triregime-radon-piedmont-37654-20261021T051000Z-zeros",
+      "site": "GEMSDOE74",
+      "repo": "GEMSDOE74",
+      "owner_reported_score": 0.0669,
+      "owner_scores_for_same_bytes": [
+        0.0669
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.005907357544966896,
+      "holdout_dti_ci95": [
+        0.005116149596979458,
+        0.006702780843051326
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.07807210572614,
+      "sgmc_calibrated_ci95": [
+        0.07168805348875606,
+        0.0835958074299335
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "88495c1c3dc535f85f9c15a03c4e1bcd2eb0123bc3bfec249b159f034f4f809b",
+      "submission": "h56-final-dotted-ridge-d2p8-20261009T190421Z",
+      "site": "56GEMSDOE",
+      "repo": "56GEMSDOE",
+      "owner_reported_score": 0.0658,
+      "owner_scores_for_same_bytes": [
+        0.0658
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.012945123811876033,
+      "holdout_dti_ci95": [
+        0.011397122705410623,
+        0.01437465587794104
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06396140431765786,
+      "sgmc_calibrated_ci95": [
+        0.05835150667013256,
+        0.0687786820533641
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "7de8f533e13a26c25aadd74852b920a6ef759d5beab5d453ba25cb2d9212b9c9",
+      "submission": "xscale-worm-persistence-20261006T000541Z-nan",
+      "site": "GEMSDOE42",
+      "repo": "GEMSDOE42",
+      "owner_reported_score": 0.0581,
+      "owner_scores_for_same_bytes": [
+        0.0581
+      ],
+      "emitted_pixels": 60069,
+      "holdout_dti_pooled": 0.04660110230242827,
+      "holdout_dti_ci95": [
+        0.03819659109893753,
+        0.05479612382945013
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04967960175176678,
+      "sgmc_calibrated_ci95": [
+        0.04060717351469721,
+        0.05936532081696579
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "79f14dc84cd7760cb44645bc090ed2d33dbcfe789cec844fd83753fcff1082a2",
+      "submission": "gems83-h83-gvcd-dink300-37654dots-20261021-1a373694-zeros",
+      "site": "GEMSDOE83",
+      "repo": "GEMSDOE83",
+      "owner_reported_score": 0.0573,
+      "owner_scores_for_same_bytes": [
+        0.0573
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06096271106137869,
+      "sgmc_calibrated_ci95": [
+        0.053867070766757966,
+        0.06819772741832854
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "0b08a50224d7ac16d8514fd7af99f90e9f179ebd0d3d6291d97c649cca88d8ad",
+      "submission": "gems71-hydro-conduit-38800-20261020T120000Z-zeros",
+      "site": "GEMSDOE71",
+      "repo": "GEMSDOE71",
+      "owner_reported_score": 0.0558,
+      "owner_scores_for_same_bytes": [
+        0.0558
+      ],
+      "emitted_pixels": 38800,
+      "holdout_dti_pooled": 0.008016243552753818,
+      "holdout_dti_ci95": [
+        0.0065930503937946675,
+        0.009466021232250463
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.06400902012995874,
+      "sgmc_calibrated_ci95": [
+        0.051132492683245406,
+        0.07771804069780963
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "8a85485ed0877d240ece6b07883641d04fa64cdf8d3687ff767a068346350313",
+      "submission": "wormsurv-filter-20261003-921f10960d6e-zeros",
+      "site": "GEMSDOE29",
+      "repo": "GEMSDOE29",
+      "owner_reported_score": 0.0532,
+      "owner_scores_for_same_bytes": [
+        0.0532
+      ],
+      "emitted_pixels": 38907,
+      "holdout_dti_pooled": 0.02243714490517938,
+      "holdout_dti_ci95": [
+        0.019534272999317346,
+        0.02517863484670814
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.05486461715793651,
+      "sgmc_calibrated_ci95": [
+        0.04688584172235036,
+        0.06464736730693871
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "9b83158bde01cd5d42e38229d70d01e67cecd2514eeb5fa8d1f3ab6851469dad",
+      "submission": "sgmc-off-catalogue-44k-20261003-c8dcd780e3fd-nan",
+      "site": "GEMSDOE29",
+      "repo": "GEMSDOE29",
+      "owner_reported_score": 0.0512,
+      "owner_scores_for_same_bytes": [
+        0.0512
+      ],
+      "emitted_pixels": 44090,
+      "holdout_dti_pooled": 0.046210574999043665,
+      "holdout_dti_ci95": [
+        0.03645642718124367,
+        0.05616001349676645
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.37875434074971237,
+      "sgmc_calibrated_ci95": [
+        0.37284906612542734,
+        0.38406236889612877
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "1c28a4c991111dd201281ccdb05e7792344ba00a6a8efedfceab976117cf2c69",
+      "submission": "h87-h87-cmgep-20261022T060000Z-8f394f43",
+      "site": "GEMSDOE87",
+      "repo": "GEMSDOE87",
+      "owner_reported_score": 0.05,
+      "owner_scores_for_same_bytes": [
+        0.05
+      ],
+      "emitted_pixels": 35200,
+      "holdout_dti_pooled": 0.0007812286904406477,
+      "holdout_dti_ci95": [
+        0.0004885996789538603,
+        0.0011356836733040165
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.05315412641196088,
+      "sgmc_calibrated_ci95": [
+        0.045819899315647644,
+        0.06068568949166502
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "44c54063451f1162c6613b9ff621f8791a3199bac2f58c172049a0320f7e7131",
+      "submission": "h59j-coherence-consensus-dotted-20261011T043000Z",
+      "site": "59GEMSDOE",
+      "repo": "59GEMSDOE",
+      "owner_reported_score": 0.0499,
+      "owner_scores_for_same_bytes": [
+        0.0499
+      ],
+      "emitted_pixels": 30815,
+      "holdout_dti_pooled": 0.018394961790965947,
+      "holdout_dti_ci95": [
+        0.016329293433950606,
+        0.020506207234879295
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.03634297664561541,
+      "sgmc_calibrated_ci95": [
+        0.03220883114978239,
+        0.03985399040579184
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "650b5ad2273f3634c15c0a97840ce36056906d3a2cedb110a77f8708c6783966",
+      "submission": "gemsdoe72-h72-1-sgmc-offcatalogue-20261020T195456Z-6e6525e5-zeros",
+      "site": "GEMSDOE72",
+      "repo": "GEMSDOE72",
+      "owner_reported_score": 0.0492,
+      "owner_scores_for_same_bytes": [
+        0.0492
+      ],
+      "emitted_pixels": 27823,
+      "holdout_dti_pooled": 0.002580807981248835,
+      "holdout_dti_ci95": [
+        0.002009917899259055,
+        0.0031718462563638957
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.4979015961658395,
+      "sgmc_calibrated_ci95": [
+        0.49558452586111235,
+        0.5001236181311992
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "b33684ae033512a1a1c7d2cfccd128955fedfdff2a8fed6c7585a755b1b58b3c",
+      "submission": "h16-continuation-20260927T065521077735Z-3431b83c7c",
+      "site": "GEMSDOE10",
+      "repo": "GEMSDOE10",
+      "owner_reported_score": 0.0461,
+      "owner_scores_for_same_bytes": [
+        0.0461
+      ],
+      "emitted_pixels": 310042,
+      "holdout_dti_pooled": 0.10458295331398976,
+      "holdout_dti_ci95": [
+        0.09537576301014536,
+        0.11442686358009739
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.020866112219805093,
+      "sgmc_calibrated_ci95": [
+        0.017494437702573074,
+        0.024510012782754376
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "73454bc5ed668806d3629544c03934cfb5679c54052eb7fa320d2dd093be4f84",
+      "submission": "h54c-manifest-edge-20261009T025732Z-73454bc5",
+      "site": "GEMSDOE54",
+      "repo": "GEMSDOE54",
+      "owner_reported_score": 0.0449,
+      "owner_scores_for_same_bytes": [
+        0.0449
+      ],
+      "emitted_pixels": 18880,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.019656797412460944,
+      "sgmc_calibrated_ci95": [
+        0.01491856769310935,
+        0.024908001925404613
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "ac4ebc913a172f3415f14a3b47b169af03798cff3a643ffd0a89451b869259be",
+      "submission": "xfit-c0-habitat-20261003-ca879db0089a-zeros",
+      "site": "GEMSDOE29",
+      "repo": "GEMSDOE29",
+      "owner_reported_score": 0.0439,
+      "owner_scores_for_same_bytes": [
+        0.0439
+      ],
+      "emitted_pixels": 33766,
+      "holdout_dti_pooled": 0.02051073523405335,
+      "holdout_dti_ci95": [
+        0.01761914789164094,
+        0.02296934242408749
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04957791425980239,
+      "sgmc_calibrated_ci95": [
+        0.04298587123130042,
+        0.05665482284765884
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "3f9553609ad7260f9e9a5520bde56ed4a728a9fa484e78fd59fe764101f8185d",
+      "submission": "gems68-autoctx-s3-strands-35000dots-20261020T210000Z-849a0f04-nan",
+      "site": "GEMSDOE68",
+      "repo": "GEMSDOE68",
+      "owner_reported_score": 0.0437,
+      "owner_scores_for_same_bytes": [
+        0.0437
+      ],
+      "emitted_pixels": 35000,
+      "holdout_dti_pooled": 0.00026956359444342613,
+      "holdout_dti_ci95": [
+        0.00013944470082019592,
+        0.00043668090058236443
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.05835167653143491,
+      "sgmc_calibrated_ci95": [
+        0.052502402672912285,
+        0.06394849076123697
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "849a0f04d2ca8e644eb346ac30c3f3a467024de447b3e8e3e44eecf2f814ae35",
+      "submission": "gems68-autoctx-s3-strands-35000dots-20261020T210000Z-849a0f04-zeros",
+      "site": "GEMSDOE68",
+      "repo": "GEMSDOE68",
+      "owner_reported_score": 0.0437,
+      "owner_scores_for_same_bytes": [
+        0.0437
+      ],
+      "emitted_pixels": 35000,
+      "holdout_dti_pooled": 0.00026956359444342613,
+      "holdout_dti_ci95": [
+        0.00013944470082019592,
+        0.00043668090058236443
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.05835167653143491,
+      "sgmc_calibrated_ci95": [
+        0.052502402672912285,
+        0.06394849076123697
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "b2e05f0b0d61a785d01cc9469462442fbf3b9b5bdc9a34c2abe0852fd66ec9dc",
+      "submission": "sar-em-propensity-half-20261011T223500Z-5e4660cd-zeros",
+      "site": "GEMSDOE65",
+      "repo": "GEMSDOE65",
+      "owner_reported_score": 0.0431,
+      "owner_scores_for_same_bytes": [
+        0.0431
+      ],
+      "emitted_pixels": 39802,
+      "holdout_dti_pooled": 0.03645444976188329,
+      "holdout_dti_ci95": [
+        0.02111003698716776,
+        0.05316141132576537
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.016070234188697283,
+      "sgmc_calibrated_ci95": [
+        0.009477062208607027,
+        0.021991622397522673
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "d75ab9e282422d9592bc835c5cf719b22e6c564730de1f5fc42b57fc5bac2c01",
+      "submission": "h60-lidarscarp-s2p0-20261007-nanoutside",
+      "site": "GEMSDOE47",
+      "repo": "GEMSDOE47",
+      "owner_reported_score": 0.043,
+      "owner_scores_for_same_bytes": [
+        0.043
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.02823499201196923,
+      "holdout_dti_ci95": [
+        0.02081329533152454,
+        0.03665755039773365
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.0584968947100978,
+      "sgmc_calibrated_ci95": [
+        0.04483043152234815,
+        0.07239514603876025
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "41216d099db0e077dcdedb99c0fcda879c4d9406fafa42b45b78a968f6349c38",
+      "submission": "sup01-hgb21-sep40-n40000-20261006-bc2e4e9a8d6f-nan",
+      "site": "GEMSDOE43",
+      "repo": "GEMSDOE43",
+      "owner_reported_score": 0.0424,
+      "owner_scores_for_same_bytes": [
+        0.0424
+      ],
+      "emitted_pixels": 40000,
+      "holdout_dti_pooled": 0.026403537846881597,
+      "holdout_dti_ci95": [
+        0.02456672753140301,
+        0.02822961580927615
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04836908058805691,
+      "sgmc_calibrated_ci95": [
+        0.041419736159796446,
+        0.056904711333785024
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "465935789e62e6a042881a0e2dd11f96dc89d0913a29d3079455c2833c1bc464",
+      "submission": "h35-06-aaa86efb25-20261004T225420098147Z-candidate",
+      "site": "GEMSDOE35",
+      "repo": "GEMSDOE35",
+      "owner_reported_score": 0.0418,
+      "owner_scores_for_same_bytes": [
+        0.0418
+      ],
+      "emitted_pixels": 39530,
+      "holdout_dti_pooled": 0.015617719486962077,
+      "holdout_dti_ci95": [
+        0.007711264006109111,
+        0.02642916597702264
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.015290989391385413,
+      "sgmc_calibrated_ci95": [
+        0.010390353804279278,
+        0.020073880785001517
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "0814b454be3bd8f0f898c8822bd9d2bc7eec57271276e3b326ee4e235ed7ff3b",
+      "submission": "h8-euler-lineament-depthcluster-20261006-785c4f5d5ce1-hard",
+      "site": "GEMSDOE40",
+      "repo": "GEMSDOE40",
+      "owner_reported_score": 0.0397,
+      "owner_scores_for_same_bytes": [
+        0.0397
+      ],
+      "emitted_pixels": 40000,
+      "holdout_dti_pooled": 0.014691183578489853,
+      "holdout_dti_ci95": [
+        0.012969654556962714,
+        0.0163105515720943
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.0391302672755097,
+      "sgmc_calibrated_ci95": [
+        0.03391561806124598,
+        0.0441939386885087
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "736f62c2da585677ef472cab0f9bc63bd15c50c340beb4a0f4627fafd3d1c853",
+      "submission": "h18-4-usgs-geologic-map-faults-gap-20260930-aef8f42c-nan",
+      "site": "16GEMSDOE",
+      "repo": "16GEMSDOE",
+      "owner_reported_score": 0.036,
+      "owner_scores_for_same_bytes": [
+        0.036
+      ],
+      "emitted_pixels": 57783,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.5270297132434842,
+      "sgmc_calibrated_ci95": [
+        0.5249744103106253,
+        0.529048700590905
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "ab9076de63bd76fd8857b0dba81f6c19be4a95377cb52802f71ccf177cf9b9ce",
+      "submission": "xfit-h41-union-qfaults-20261003-9edb34b99e3a-zeros",
+      "site": "GEMSDOE29",
+      "repo": "GEMSDOE29",
+      "owner_reported_score": 0.0356,
+      "owner_scores_for_same_bytes": [
+        0.0356
+      ],
+      "emitted_pixels": 33739,
+      "holdout_dti_pooled": 0.022051493534100894,
+      "holdout_dti_ci95": [
+        0.019063699360536444,
+        0.024725519823360687
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04922296334662707,
+      "sgmc_calibrated_ci95": [
+        0.04274908896337849,
+        0.05641402043743815
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "9088ee175c6061488855cbe5ffdaabf7e3b21164aa20834cf2717f3f851d80cd",
+      "submission": "h67a-orientip-lane-29447dots-20261012T021226Z-allfinite",
+      "site": "GEMSDOE67",
+      "repo": "GEMSDOE67",
+      "owner_reported_score": 0.0356,
+      "owner_scores_for_same_bytes": [
+        0.0356
+      ],
+      "emitted_pixels": 29447,
+      "holdout_dti_pooled": 0.001092011761743906,
+      "holdout_dti_ci95": [
+        0.0005400769733289183,
+        0.0018002868800058277
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.02443731468581592,
+      "sgmc_calibrated_ci95": [
+        0.018316505001576878,
+        0.030750652374759813
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "49d26d8195e343b531cf5e8f9ebd44e2e0a652daca6ad4f71016faabcab33509",
+      "submission": "h8-euler-lineament-depthcluster-20261006-785c4f5d5ce1",
+      "site": "GEMSDOE40",
+      "repo": "GEMSDOE40",
+      "owner_reported_score": 0.0355,
+      "owner_scores_for_same_bytes": [
+        0.0355
+      ],
+      "emitted_pixels": 40000,
+      "holdout_dti_pooled": 0.014691183578489853,
+      "holdout_dti_ci95": [
+        0.012969654556962714,
+        0.0163105515720943
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.0391302672755097,
+      "sgmc_calibrated_ci95": [
+        0.03391561806124598,
+        0.0441939386885087
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "7fcf455c549598be9002acdc2c0370f232e11616d1ea21cb84f96d8af82ab971",
+      "submission": "h73-chi-coherent-corridor-12000-20261011T195818Z-zeros",
+      "site": "60GEMSDOE",
+      "repo": "60GEMSDOE",
+      "owner_reported_score": 0.0351,
+      "owner_scores_for_same_bytes": [
+        0.0351
+      ],
+      "emitted_pixels": 12000,
+      "holdout_dti_pooled": 0.004259556141154614,
+      "holdout_dti_ci95": [
+        0.0036550375061741285,
+        0.004966677812024618
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.13013372131999468,
+      "sgmc_calibrated_ci95": [
+        0.12393618779335903,
+        0.13618576880409927
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "9b4d5675a2f67a47c6884f8d753491d849b6eec7aae1da60f5c76fe316f6dc8e",
+      "submission": "h40-e-disc-h40e-30k-zeros",
+      "site": "GEMSDOE39",
+      "repo": "GEMSDOE39",
+      "owner_reported_score": 0.0339,
+      "owner_scores_for_same_bytes": [
+        0.0339
+      ],
+      "emitted_pixels": 30000,
+      "holdout_dti_pooled": 0.04246534459882677,
+      "holdout_dti_ci95": [
+        0.03801790248933884,
+        0.04737212060354306
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.07703340934204647,
+      "sgmc_calibrated_ci95": [
+        0.06391697481509329,
+        0.09010459714964307
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "715c8b862c50af4218cdfb201869f743e9b85585b840180486f947bbd64d8361",
+      "submission": "gemsdoe89-bh-rtp-habc-20261024-d7e1507c-zeros",
+      "site": "GEMSDOE89",
+      "repo": "GEMSDOE89",
+      "owner_reported_score": 0.0301,
+      "owner_scores_for_same_bytes": [
+        0.0301
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04899510897121184,
+      "sgmc_calibrated_ci95": [
+        0.043131324558518695,
+        0.05537977962029883
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "c11e495e5817730ad5f0fdc368b810f79050cbb6bd65e98c98123b7921ed336b",
+      "submission": "H19-C_20260930T212401Z_c11e495e",
+      "site": "18GEMSDOE",
+      "repo": "18GEMSDOE",
+      "owner_reported_score": 0.0297,
+      "owner_scores_for_same_bytes": [
+        0.0297
+      ],
+      "emitted_pixels": 513786,
+      "holdout_dti_pooled": 0.11523990873744372,
+      "holdout_dti_ci95": [
+        0.09941326388466945,
+        0.132952125395174
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.12476771660148896,
+      "sgmc_calibrated_ci95": [
+        0.10671751761464565,
+        0.1436473440297278
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "927dc17f7f5d890b2f382e266ade5d775474631ee96674f8ff3cbc1f1b7c7693",
+      "submission": "tensor_full-n16000-sep3-20261009T211747Z-nan",
+      "site": "55GEMSDOE",
+      "repo": "55GEMSDOE",
+      "owner_reported_score": 0.029,
+      "owner_scores_for_same_bytes": [
+        0.029
+      ],
+      "emitted_pixels": 16000,
+      "holdout_dti_pooled": 0.025791149271754327,
+      "holdout_dti_ci95": [
+        0.022272464992775565,
+        0.029509626732907787
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.02528010959257007,
+      "sgmc_calibrated_ci95": [
+        0.02201947386776005,
+        0.028506912771778626
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "33cec71ff00b3f32d0d59c81c156f3f1488ffef46baa4b6499094e24ea1875ab",
+      "submission": "gems6_hgb88-topk03_33cec71ff0",
+      "site": "6GEMSDOE",
+      "repo": "6GEMSDOE",
+      "owner_reported_score": 0.0286,
+      "owner_scores_for_same_bytes": [
+        0.0286
+      ],
+      "emitted_pixels": 155021,
+      "holdout_dti_pooled": 0.17095891642102592,
+      "holdout_dti_ci95": [
+        0.15564619030045293,
+        0.1874362329548206
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.016034902960968753,
+      "sgmc_calibrated_ci95": [
+        0.013163532809906118,
+        0.019087229769266106
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "91e26530ad25cfc19e05d3fc38b75c0e295ee1e128f571a3ba4afcf8df10934e",
+      "submission": "gemsdoe92-listricdip-updip50-37654-20261025T190000Z-zeros",
+      "site": "GEMSDOE92",
+      "repo": "GEMSDOE92",
+      "owner_reported_score": 0.0255,
+      "owner_scores_for_same_bytes": [
+        0.0255
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.004943898127629225,
+      "holdout_dti_ci95": [
+        0.00383534642131575,
+        0.0059729042831784445
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.027197817931877876,
+      "sgmc_calibrated_ci95": [
+        0.020181464233832415,
+        0.033952393601349364
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "00cf5b2066f19e0857cd6ea5c1dda5d3e6ac69620249c24eb286d6f05679be58",
+      "submission": "h57r-joint-strata-38000-20261010T214547Z-00cf5b2066f1-zeros",
+      "site": "57GEMSDOE",
+      "repo": "57GEMSDOE",
+      "owner_reported_score": 0.0254,
+      "owner_scores_for_same_bytes": [
+        0.0254
+      ],
+      "emitted_pixels": 38000,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04447856398375631,
+      "sgmc_calibrated_ci95": [
+        0.031103374118537332,
+        0.056894426038896155
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "2943432c6e3d13f1cfae69a473499cdb9c611a873f6841f9268f151f2a025555",
+      "submission": "h42-submission-primary",
+      "site": "GEMSDOE41",
+      "repo": "GEMSDOE41",
+      "owner_reported_score": 0.0245,
+      "owner_scores_for_same_bytes": [
+        0.0245
+      ],
+      "emitted_pixels": 40000,
+      "holdout_dti_pooled": 0.009161086748150004,
+      "holdout_dti_ci95": [
+        0.00761046337444507,
+        0.010901553101672094
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.08235442959788267,
+      "sgmc_calibrated_ci95": [
+        0.0695435076303151,
+        0.09413685012409839
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "ce043566a96a1bf0abae366ba706ed6be5907297248b1d14deace8596500b186",
+      "submission": "gems28-s18-mxtp-20261025-3e95505c011a-allfinite",
+      "site": "GEMSDOE28",
+      "repo": "GEMSDOE28",
+      "owner_reported_score": 0.0217,
+      "owner_scores_for_same_bytes": [
+        0.0217
+      ],
+      "emitted_pixels": 11082,
+      "holdout_dti_pooled": 0.0018254004347198188,
+      "holdout_dti_ci95": [
+        0.001407364309097606,
+        0.002286485820358147
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.015093967164093948,
+      "sgmc_calibrated_ci95": [
+        0.01251058487077492,
+        0.017774665258185024
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "6292a7916c83d371fc650b0f0c6a090702b9890eaa6e6546d50f104eea2fadc3",
+      "submission": "gems-structural-area06-v1",
+      "site": "11GEMSDOE",
+      "repo": "11GEMSDOE",
+      "owner_reported_score": 0.0202,
+      "owner_scores_for_same_bytes": [
+        0.0202
+      ],
+      "emitted_pixels": 343526,
+      "holdout_dti_pooled": 0.18297904596559045,
+      "holdout_dti_ci95": [
+        0.16418881360601292,
+        0.20286124331466573
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.01806541585701025,
+      "sgmc_calibrated_ci95": [
+        0.014348419981159814,
+        0.022252831719814684
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "0210da4395b209450e52e9efc780ab3ca6aceffd60c26d6f623da2b8fe76b691",
+      "submission": "17GEMSDOE_F-ensemble-2pct_20260930T050626Z",
+      "site": "17GEMSDOE",
+      "repo": "17GEMSDOE",
+      "owner_reported_score": 0.0187,
+      "owner_scores_for_same_bytes": [
+        0.0187
+      ],
+      "emitted_pixels": 103347,
+      "holdout_dti_pooled": 0.12372474133502112,
+      "holdout_dti_ci95": [
+        0.10645859833678077,
+        0.14068647800699136
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.014702901967183383,
+      "sgmc_calibrated_ci95": [
+        0.010991864023994272,
+        0.018921993247962395
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "40c2518802a9a220fa362be0b152f2c4c7ca753c3919624eed22a556c5769366",
+      "submission": "ml-binary-ridge-20261012T000000Z",
+      "site": "58GEMSDOE",
+      "repo": "58GEMSDOE",
+      "owner_reported_score": 0.018,
+      "owner_scores_for_same_bytes": [
+        0.018
+      ],
+      "emitted_pixels": 45355,
+      "holdout_dti_pooled": 0.04176738343143773,
+      "holdout_dti_ci95": [
+        0.027573082912866132,
+        0.05473463439307833
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.017523585218014157,
+      "sgmc_calibrated_ci95": [
+        0.012717229625625322,
+        0.022299184092297145
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "b6d91ba6f6a703c45bbd71dca43209f95521be52dfa4d9ae96fc8270c392740c",
+      "submission": "h8-tiprelay-ridgeconcord-pr2-n80000-20261009-49bec522-zeros",
+      "site": "GEMSDOE53",
+      "repo": "GEMSDOE53",
+      "owner_reported_score": 0.0159,
+      "owner_scores_for_same_bytes": [
+        0.0159
+      ],
+      "emitted_pixels": 80000,
+      "holdout_dti_pooled": 0.034667584634805036,
+      "holdout_dti_ci95": [
+        0.032310985418535124,
+        0.03718579210515716
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04991428261145068,
+      "sgmc_calibrated_ci95": [
+        0.04359204963277286,
+        0.05694356974534719
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "f8b7526ca161b0342004586afe747c38a4d886bad877fca73ba77025725655a5",
+      "submission": "gems84-h84-kthm-tworegime-58000px-20261022T235900Z-zeros",
+      "site": "GEMSDOE84",
+      "repo": "GEMSDOE84",
+      "owner_reported_score": 0.0132,
+      "owner_scores_for_same_bytes": [
+        0.0132
+      ],
+      "emitted_pixels": 58000,
+      "holdout_dti_pooled": 0.022987641278509236,
+      "holdout_dti_ci95": [
+        0.02045483833119375,
+        0.025684296799679783
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04120801804092825,
+      "sgmc_calibrated_ci95": [
+        0.036673563505054914,
+        0.04615227087754656
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "2314b59920bfeeaf6a592d4868b25eca62212825620f9945723c2f6d0a2e5b22",
+      "submission": "2314b599",
+      "site": "GEMSDOE9",
+      "repo": "GEMSDOE9",
+      "owner_reported_score": 0.0107,
+      "owner_scores_for_same_bytes": [
+        0.0107
+      ],
+      "emitted_pixels": 147684,
+      "holdout_dti_pooled": 0.017321650852694905,
+      "holdout_dti_ci95": [
+        0.012466565405925324,
+        0.022271354521797036
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.013741311094760528,
+      "sgmc_calibrated_ci95": [
+        0.009195483075662833,
+        0.01890446336035823
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "81c90dedb7f775aa6e1731088be90e2f9f63a7ac0a9c979638abdf5a842e2a0c",
+      "submission": "h51-km-faultzone-20261006-zeros",
+      "site": "GEMSDOE45",
+      "repo": "GEMSDOE45",
+      "owner_reported_score": 0.0106,
+      "owner_scores_for_same_bytes": [
+        0.0106
+      ],
+      "emitted_pixels": 37654,
+      "holdout_dti_pooled": 0.0055971198666843695,
+      "holdout_dti_ci95": [
+        0.004770873361288296,
+        0.006467386397294853
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.03701172640414719,
+      "sgmc_calibrated_ci95": [
+        0.03327972010907326,
+        0.04104937474773639
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "981beb5707bb9933a2cf24a615eed373dc7e7cab451954207097e1641f32eaa6",
+      "submission": "h69-joint-relayramp-pullapart-38669-20261020T201504Z-f29b6df5",
+      "site": "GEMSDOE69",
+      "repo": "GEMSDOE69",
+      "owner_reported_score": 0.0053,
+      "owner_scores_for_same_bytes": [
+        0.0053
+      ],
+      "emitted_pixels": 38669,
+      "holdout_dti_pooled": 0.004586065472467484,
+      "holdout_dti_ci95": [
+        0.0014751674854264973,
+        0.0074137898564060395
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.003327437001015896,
+      "sgmc_calibrated_ci95": [
+        0.0015805159882996908,
+        0.005236505851533609
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "3537e9fc47a465036a8c1462b99a29b7f3449ee2e7bb94fd0a12d438a85b375d",
+      "submission": "repo-c0-habitat-emission-20261003-a4d439b07426-nan",
+      "site": "GEMSDOE29",
+      "repo": "GEMSDOE29",
+      "owner_reported_score": 0.0041,
+      "owner_scores_for_same_bytes": [
+        0.0041
+      ],
+      "emitted_pixels": 37913,
+      "holdout_dti_pooled": 0.32639355770420125,
+      "holdout_dti_ci95": [
+        0.3147308722797774,
+        0.3372654093519586
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.025011593335393444,
+      "sgmc_calibrated_ci95": [
+        0.02215207532530363,
+        0.028068132310316206
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "9798fe7f4a68c7b8efbb9f3f03945ab800177b993abe671e4d174282e0675508",
+      "submission": "gems81-cont-poisson44090-buf2-20261021T233115Z-42223e10-zeros",
+      "site": "GEMSDOE81",
+      "repo": "GEMSDOE81",
+      "owner_reported_score": 0.0041,
+      "owner_scores_for_same_bytes": [
+        0.0041
+      ],
+      "emitted_pixels": 44090,
+      "holdout_dti_pooled": 0.09211796595505617,
+      "holdout_dti_ci95": [
+        0.08801466065641708,
+        0.09594481657692207
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.029483929301275955,
+      "sgmc_calibrated_ci95": [
+        0.026381607421860426,
+        0.032827866035921645
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "ccbe1de0cfd70cbe7257c04669195f390ca652fa3a76c51505f461f01a1424c6",
+      "submission": "GEMS_r5-geom-horse-ensemble_20260929T154852Z_ccbe1de0_site_e96e942f",
+      "site": "14GEMSDOE",
+      "repo": "14GEMSDOE",
+      "owner_reported_score": 0.002,
+      "owner_scores_for_same_bytes": [
+        0.002
+      ],
+      "emitted_pixels": 116225,
+      "holdout_dti_pooled": 0.04843804017662808,
+      "holdout_dti_ci95": [
+        0.043319886927519535,
+        0.05282014398326762
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.017264204424091656,
+      "sgmc_calibrated_ci95": [
+        0.014995343148385276,
+        0.019674992162255912
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "565a581b46878ba249aff3296f21ba6bf6e9317dc713a8acad9f5eb193fc0ed9",
+      "submission": "h61a-basement-step-20000dots-20261011T012029Z-eb2ae4bb024b-zeros",
+      "site": "61GEMSDOE",
+      "repo": "61GEMSDOE",
+      "owner_reported_score": 0.0009,
+      "owner_scores_for_same_bytes": [
+        0.0009
+      ],
+      "emitted_pixels": 25285,
+      "holdout_dti_pooled": 0.0,
+      "holdout_dti_ci95": [
+        0.0,
+        0.0
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.0014412642799629507,
+      "sgmc_calibrated_ci95": [
+        0.0003189754780493039,
+        0.0029241614548825984
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    },
+    {
+      "sha256": "f1db3dc711cc8e2d5411c05b0d167f763c3ef22b2263896f463056fd3fbc56bd",
+      "submission": "datum-lahontan-strain-gauge-defensible-440dots-zeros",
+      "site": "62GEMSDOE",
+      "repo": "62GEMSDOE",
+      "owner_reported_score": 0.0,
+      "owner_scores_for_same_bytes": [
+        0.0
+      ],
+      "emitted_pixels": 440,
+      "holdout_dti_pooled": 0.0002539543427284934,
+      "holdout_dti_ci95": [
+        0.0,
+        0.000621736746608603
+      ],
+      "hide_and_recover_evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "sgmc_prevalence_calibrated_dti": 8.356260036308787e-05,
+      "sgmc_calibrated_ci95": [
+        8.868693013135846e-06,
+        0.00019838389649537265
+      ],
+      "sgmc_evaluator": "GEMSDOE32-SGMC-CAL-v3.0"
+    }
+  ]
+}
