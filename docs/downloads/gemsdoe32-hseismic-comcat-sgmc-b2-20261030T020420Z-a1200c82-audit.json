@@ -1,0 +1,120 @@
+{
+  "candidate_id": "GEMSDOE32-H-SEISMIC-20261030T020420Z",
+  "slug": "hseismic-comcat-sgmc-b2",
+  "content_digest8": "a1200c82",
+  "description": "H-SEISMIC: magnitude-weighted USGS ANSS ComCat hypocenter density (300 m triangular kernel) x USGS SGMC off-catalogue trace band (100 m-1.2 km), >200 m catalogue collar, Poisson-disk d=2.6 px, 30,000 dots.",
+  "submission_note_zeros": "H-SEISMIC 3cf5774b: USGS ComCat+SGMC blind-conduit dots; unique vs 9 GEMSDOE sites; holdout-DTI proxy only; [0,1] no-NaN",
+  "submission_note_nan": "H-SEISMIC 423921b3: USGS ComCat+SGMC blind-conduit dots; unique vs 9 GEMSDOE sites; holdout-DTI proxy only; [0,1] no-NaN",
+  "zeros_tif": {
+    "filename": "gemsdoe32-hseismic-comcat-sgmc-b2-20261030T020420Z-a1200c82-zeros.tif",
+    "size_bytes": 179852,
+    "sha256": "3cf5774b2fe9bcab97988480e4da011ddf4fe9f90214e1696d24ca7c4d3b4c23",
+    "mode": "zeros",
+    "geometry_reference": "/home/user/ApartGEMSDOE3/.cache/gems_data/sample_submission.tif",
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "shape": [
+      3730,
+      3292
+    ],
+    "dtype": "float32",
+    "nodata": null,
+    "nodata_repr": "None",
+    "emitted_positive_pixels": 30000,
+    "footprint_fraction": 0.005806,
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_finite_pixels": 5167373,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "full_grid_finite_pixels": 12279160,
+    "checks": {
+      "exact_reference_grid_match": true,
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_zero_nan": true,
+      "in_footprint_zero_inf": true,
+      "in_footprint_zero_sentinel": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_compliant": true,
+      "zero_on_catalogue_leakage": true,
+      "validator_range_0_1_guaranteed": true
+    },
+    "all_checks_passed": true
+  },
+  "nan_tif": {
+    "filename": "gemsdoe32-hseismic-comcat-sgmc-b2-20261030T020420Z-a1200c82-nan.tif",
+    "size_bytes": 315062,
+    "sha256": "423921b3747210746b36375e4e45d239cacd936d6040acf34ec3914267b51f5e",
+    "mode": "nan",
+    "geometry_reference": "/home/user/ApartGEMSDOE3/.cache/gems_data/sample_submission.tif",
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "shape": [
+      3730,
+      3292
+    ],
+    "dtype": "float32",
+    "nodata": null,
+    "nodata_repr": "nan",
+    "emitted_positive_pixels": 30000,
+    "footprint_fraction": 0.005806,
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_finite_pixels": 5167373,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "full_grid_finite_pixels": 5167373,
+    "checks": {
+      "exact_reference_grid_match": true,
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_zero_nan": true,
+      "in_footprint_zero_inf": true,
+      "in_footprint_zero_sentinel": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_compliant": true,
+      "zero_on_catalogue_leakage": true,
+      "validator_range_0_1_guaranteed": true
+    },
+    "all_checks_passed": true
+  },
+  "holdout_metrics": {
+    "catalogue_hidden_mean": 0.0036838252922547477,
+    "catalogue_hidden_per_quadrant": {
+      "NW": 0.003605310329822454,
+      "NE": 0.0026572059808335495,
+      "SW": 0.0036352479570991242,
+      "SE": 0.004837536901263862
+    },
+    "sgmc_prevalence_calibrated_dti": 0.10490500591103162,
+    "drift_corrected_holdout_mean": 0.05569485115347546,
+    "drift_corrected_per_quadrant": {
+      "NW": 0.04722870275327984,
+      "NE": 0.03611522187008193,
+      "SW": 0.0670072280055862,
+      "SE": 0.07242825198495385
+    },
+    "predicted_leaderboard_dti": null,
+    "ei_drift_corrected": null,
+    "slot_decision": "UNUSED - no weekly slot claimed; promotion to a real slot is a separate selector step"
+  }
+}
