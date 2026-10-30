@@ -45,6 +45,42 @@ Other shortlist ideas are directional semivariogram anisotropy of residual gravi
 6. Apply literal registry checks to both the unplaced surface and final dots; stop at either specified duplicate threshold. Validate the exact saved bytes against an authenticated competition template and preserve all evidence in a run card.
 7. Keep slot selection separate. Only show an “OK TO SUBMIT” download link after scientific, uniqueness, format, and selector gates pass; capture the organizer receipt afterward.
 
+## Three-pass re-review and nine-site decision table
+
+The request called for multiple passes. The following is the result of three distinct review passes, not three model experiments:
+
+1. **Pass 1 — implementation/inventory:** inspected the portal, README/charter, current release registry, holdout evaluator, submission writer/validator, site-audit script, tests, and Pages workflow. The project already has a fail-closed release flow and a four-hypothesis research shortlist; it does not have the assigned method-lane paragraph or the data required for a new experiment.
+2. **Pass 2 — verification/edge cases:** installed dependencies in ignored `.venv/`, restored only the two SHA-256-pinned owner-mirror format inputs (label mask and template) to ignored `.cache/`, then ran tests and release checks. Result: **109 passed, 2 skipped**; `check_release_status.py` passed and kept `ok_to_submit=false`. Strict full-array format validation of the recorded negative candidate passed against the owner-mirror template. That pass verifies file structure only. The fresh nine-site audit command was also run and stopped at the first absent source raster, `.cache/registry/GEMSDOE24/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif`.
+3. **Pass 3 — original-request reconciliation:** no new TIF was generated, no holdout experiment was run, no current leaderboard value was asserted, and no slot was used. This is intentional: method lane, feature stack/training raster, full comparison registry and fresh source artifacts are missing. Producing a TIF now would not satisfy the protocol's scientific validation and uniqueness requirements. The nearest recorded artifact remains explicitly **DO NOT SUBMIT**.
+
+### Focus-site table (archived evidence, not a live refresh)
+
+The table below transcribes the pinned nine-site byte-audit (`evidence/nine_site_best_files_audit.json`) and the owner-supplied score claims already quoted in the project brief. The nine-site raster comparison was run against the recorded archived variants, but could not be independently refreshed in this checkout because those source rasters are absent. `OWNER-REPORT` scores are not presented as organizer-confirmed receipts. For a new submission, a numerical leaderboard score estimate is **not estimable**; a holdout DTI is not a calibrated leaderboard score.
+
+| Site | Archived best file | Reported score | Estimate for a new raster | Unique vs the other eight? |
+|---|---|---:|---|---|
+| GEMSDOE24 | `gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif` | OWNER-REPORT 0.2477 | Not estimable | No — 100.00% of its dots within 3 px of GEMSDOE25 in the archived audit |
+| GEMSDOE25 | `gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif` | OWNER-REPORT 0.2600 | Not estimable | No — 100.00% within 3 px of GEMSDOE24 |
+| GEMSDOE27 | `gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif` | OWNER-REPORT 0.2449 | Not estimable | No — 98.02% within 3 px of GEMSDOE24 |
+| GEMSDOE28 | `gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif` | OWNER-REPORT 0.2710 | Not estimable | No — 100.00% within 3 px of GEMSDOE24 |
+| GEMSDOE30 | `gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif` | OWNER-REPORT 0.2600 | Not estimable | No — 100.00% within 3 px of GEMSDOE24 |
+| GEMSDOE31 | `gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif` | OWNER-REPORT 0.2708 | Not estimable | No — 100.00% within 3 px of GEMSDOE24 |
+| **GEMSDOE32** | **`gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif`** | **OWNER-REPORT 0.2778 — highest of these nine** | Not estimable | No — 100.00% within 3 px of GEMSDOE24 |
+| GEMSDOE33 | `GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif` | OWNER-REPORT 0.2632 | Not estimable | No — 99.71% within 3 px of GEMSDOE27 |
+| GEMSDOE36 | `gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif` | OWNER-REPORT 0.2750 | Not estimable | No — 97.58% within 3 px of GEMSDOE27 |
+
+These are audit identifiers, **not download recommendations**: copying or resubmitting a listed raster is not authorized. The archived audit reports shape 3730×3292, EPSG:32611, one band for the variants, and checksum agreement with its pinned manifest. It is not a fresh organizer-side validation. It also contains Spearman values; an absolute rank correlation above 0.90 is another duplicate stop. The exact filenames and source repositories are recorded in `registry/focus_registry_manifest.json` and the table source audit.
+
+### Why the GEMSDOE32 result is not an actionable score recipe
+
+The supplied evidence places the GEMSDOE32 0.2778 owner-reported result above the other eight focus-site values. The repository's [`knowledge/03_why_02778_and_the_anatomy_of_the_family.md`](../knowledge/03_why_02778_and_the_anatomy_of_the_family.md) treats the score movement in its nested thinning/pruning family as consistent with reducing low-credit false-positive mass. That is a plausible explanation, **not a causal identification**: there is no randomized intervention or hidden truth receipt establishing which pixels caused the score gain. The artifact is itself a member of a near-identical raster family according to the archived overlap analysis, and it is already reported submitted. It is therefore learning evidence, not a candidate to copy or resubmit.
+
+A date/claim discrepancy also remains: the user prompt calls 0.3195 the current leaderboard high, while the repository's cached status records an official public-page observation of 0.4437 on 2026-10-26. Neither is freshly checked in this review, so neither should be described as today's current value. The only safe current wording is “live leaderboard not refreshed; consult the official [leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/).”
+
+### Additional irregularity: literal dot-overlap gate can constrain candidate size
+
+`evidence/irregularities_ledger.json` records a geometric check against a dense 5-pixel calibration lattice: only 6,649 footprint cells were farther than 3 pixels from that lattice. Under the literal rule “no more than 70% of candidate dots may be within 3 px,” a candidate larger than 22,163 dots cannot satisfy this one registry comparison (because at most 6,649 dots can be outside the buffer). The nine focus submissions contain 37,654–61,328 dots and accordingly fail the archived focus-cohort overlap checks. Do **not** silently exempt the lattice or reinterpret this limit; raise it as a protocol-level review issue before spending an experiment or slot. A candidate below that size is not automatically unique or scientifically useful.
+
 ## Evidence card
 
 Machine-readable review card: [`evidence/repo_review_20261030.json`](../evidence/repo_review_20261030.json). It records this as a negative review with no experiment, no new raster, no score estimate, and no submission authorization.

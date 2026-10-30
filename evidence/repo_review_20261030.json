@@ -38,5 +38,41 @@
     "The 19-band training raster, feature cache, full registry rasters, and nine-site source rasters are not present locally.",
     "Competition template available for this review is an owner mirror, not organizer-authenticated.",
     "No organizer submission receipt is available to confirm historical owner-reported scores."
-  ]
+  ],
+  "review_passes": [
+    {
+      "pass": 1,
+      "scope": "Repository inventory and implementation review",
+      "result": "Existing fail-closed portal and four-hypothesis shortlist; assigned method paragraph, feature stack/training raster, and full comparison registry unavailable."
+    },
+    {
+      "pass": 2,
+      "scope": "Test, release-state, and artifact format verification",
+      "result": "109 passed, 2 skipped; release status PASS. Restored only two SHA-256-pinned owner-mirror files. Negative candidate passed strict structural/range validation against that owner mirror. Nine-site audit command stopped on missing source raster."
+    },
+    {
+      "pass": 3,
+      "scope": "Reconciliation with original request",
+      "result": "No new GeoTIFF, model experiment, current-leaderboard claim, or slot action; prerequisites are absent and fail-closed policy prevents an unsupported release."
+    }
+  ],
+  "nine_site_focus_audit": {
+    "archived_audit": "evidence/nine_site_best_files_audit.json",
+    "fresh_audit_command": "python scripts/audit_nine_site_best.py",
+    "fresh_audit_result": "BLOCKED: first pinned GEMSDOE24 source raster absent from .cache/registry; no fresh pairwise metric calculated.",
+    "highest_owner_report": {
+      "site": "GEMSDOE32",
+      "reported_score": 0.2778,
+      "file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif"
+    },
+    "new_candidate_score_estimate": "not estimable",
+    "interpretation": "Archived focus rasters all breached the literal 70% 3-pixel-overlap rule with at least one other focus raster; they are audit evidence, not download/submission recommendations."
+  },
+  "strict_format_check": {
+    "candidate": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
+    "sha256": "8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd",
+    "command": ".venv/bin/python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite <candidate>",
+    "result": "PASS: one-band float32, 3730x3292, EPSG:32611, transform matches, whole-array finite values in [0,1]. Template is owner-mirrored, not organizer-authenticated; this is not authorization."
+  },
+  "leaderboard_freshness": "Not refreshed in this review. User-provided 0.3195 and repository-cached 0.4437 observation dated 2026-10-26 conflict as claims of current status; consult official leaderboard live."
 }
