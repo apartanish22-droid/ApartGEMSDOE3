@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-30",
+  "review_type": "repository and release-gate review; no model experiment",
+  "hypothesis": "No new geological hypothesis tested; review assessed readiness to run a bounded holdout experiment and release a submission.",
+  "mechanism": "Not tested. The previously ranked candidate in the repository is a multiscale sediment-cover thickness ridge with a weak-surface-expression gate.",
+  "named_non_fault_mimic": "Not tested. For the previously ranked candidate: depositional facies boundaries, paleochannels, and interpolation seams can mimic a sediment-thickness edge.",
+  "holdout_dti": null,
+  "holdout_label": "No new HOLDOUT-DTI result; no evaluator run in this review.",
+  "holdout_95_ci": null,
+  "n_withheld_positives": null,
+  "correlation_overlap_vs_registry": {
+    "result": "not recalculated; required source rasters are missing from the local cache",
+    "max_abs_rank_correlation": null,
+    "max_fraction_within_3px": null
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "new_raster_generated": false,
+    "current_recorded_negative_candidate_format_check": "PASS against hash-pinned owner-mirror template only; one band, float32, shape 3730x3292, EPSG:32611, transform match, finite, in [0,1]",
+    "organizer_template_authenticated": false,
+    "format_pass_is_submission_authorization": false
+  },
+  "submission_name": null,
+  "submission_note": "No candidate produced or authorized in this review.",
+  "verdict": "negative",
+  "slot_used": false,
+  "experiment_count": 0,
+  "budget_status": "No model experiment attempted; no experiment budget consumed.",
+  "tests": {
+    "command": ".venv/bin/python -m pytest -q",
+    "result": "109 passed, 2 skipped, 33 Rasterio affine deprecation warnings"
+  },
+  "release_status_command": ".venv/bin/python scripts/check_release_status.py",
+  "release_status_result": "PASS; fail-closed status and hashes match; no slot used",
+  "limitations": [
+    "The assigned single method lane is absent.",
+    "The 19-band training raster, feature cache, full registry rasters, and nine-site source rasters are not present locally.",
+    "Competition template available for this review is an owner mirror, not organizer-authenticated.",
+    "No organizer submission receipt is available to confirm historical owner-reported scores."
+  ]
+}
