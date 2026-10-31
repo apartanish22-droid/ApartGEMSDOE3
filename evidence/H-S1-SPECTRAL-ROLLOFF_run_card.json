@@ -1,0 +1,367 @@
+{
+  "run_id": "H-S1-SPECTRAL-ROLLOFF-20261031T044136Z",
+  "date_utc": "20261031T044136Z",
+  "lane": "NOT ASSIGNED (no method paragraph in prompt or checkout). Self-declared research run; cannot be cleared for a weekly slot.",
+  "hypothesis": "Oriented 2-km line integrals of the local flatness anomaly of the 3.2-km-window magnetic (rtp) power-spectrum slope mark linear damage-zone texture not visible as edges.",
+  "mechanism": "Fracture damage zones add high-wavenumber power, flattening the local spectral slope; the 8-orientation max-of-line-means keeps only linear responses.",
+  "named_non_fault_mimic": "Magnetite-heterogeneous lithology and GeoDAWN flight-line artefacts (controlled by acquisition-block eta-squared and rtp-amplitude Spearman, below).",
+  "single_feature_canary_auc_holdout_seed20": {
+    "rtp_band2_raw": 0.5101154254861762,
+    "spectral_flatness_z": 0.5245855549163161,
+    "h_s1_surface": 0.5259774426897371
+  },
+  "canary_threshold": 0.9,
+  "canary_passed": true,
+  "controls": {
+    "acquisition_block_eta_squared_surface": 3.082275722676369e-07,
+    "spearman_surface_vs_rtp_amplitude": -0.03720054986907799
+  },
+  "surface_stats": {
+    "n_windows_total": 754800,
+    "n_windows_valid": 310607,
+    "surface_min": -6.639824451193979,
+    "surface_max": 3.2024141483823416,
+    "surface_all_finite_in_footprint": true
+  },
+  "dots_before_label_mask": 41253,
+  "dots_after_label_mask": 40732,
+  "candidate_file": "docs/downloads/gemsdoe32-h-specroll-h1-20261031T044136Z-ad93017d-zeros.tif",
+  "candidate_sha256": "299647f911c31fd4b1942865330f932b9e6fec3d4fca824deebac1f3358275f6",
+  "candidate_zip": "gemsdoe32-h-specroll-h1-20261031T044136Z-ad93017d-zeros.zip",
+  "submission_name": "H-SPECROLL-H1",
+  "submission_note": "H-S1 spectral roll-off line integral, 37654 dots, 100m, no catalogue input, NaN-free",
+  "note_chars": 84,
+  "validator": "see bundle",
+  "holdout_candidate": {
+    "candidate_id": "H-S1-SPECTRAL-ROLLOFF",
+    "path": "/home/user/ApartGEMSDOE3/docs/downloads/gemsdoe32-h-specroll-h1-20261031T044136Z-ad93017d-zeros.tif",
+    "emitted_pixels": 40732,
+    "hide_and_recover": {
+      "candidate_id": "H-S1-SPECTRAL-ROLLOFF",
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "score_label": "HOLDOUT-DTI",
+      "b_visible_px": 0.0,
+      "n_withheld_positives": 22232,
+      "n_spatial_clusters": 140,
+      "n_bootstrap_reps": 1000,
+      "pooled_dti": 0.02127779836393038,
+      "ci95_cluster_bootstrap": [
+        0.01632143943334265,
+        0.02583027488785236
+      ],
+      "fold_mean_dti": 0.02124887851751681,
+      "per_quadrant_dti": {
+        "NW": 0.021553209487424094,
+        "NE": 0.019852439669326212,
+        "SW": 0.02154921471874552,
+        "SE": 0.02204065019457141
+      },
+      "folds": {
+        "draw20_fold0": {
+          "dti": 0.024866896693388835,
+          "coverage": 0.04573605588177152,
+          "tp": 87.40160279006538,
+          "fp": 9842.484650033377,
+          "fn": 1823.5983972099345,
+          "n_truth": 1911,
+          "emitted": 9899
+        },
+        "draw20_fold1": {
+          "dti": 0.02008023143989899,
+          "coverage": 0.03426166126122437,
+          "tp": 80.54916562513849,
+          "fp": 10572.282815177883,
+          "fn": 2270.4508343748616,
+          "n_truth": 2351,
+          "emitted": 10626
+        },
+        "draw20_fold2": {
+          "dti": 0.02514574957077437,
+          "coverage": 0.035805183581087356,
+          "tp": 131.94210149630692,
+          "fp": 11363.525869929072,
+          "fn": 3553.057898503693,
+          "n_truth": 3685,
+          "emitted": 11437
+        },
+        "draw20_fold3": {
+          "dti": 0.027140888684301177,
+          "coverage": 0.0346620579561889,
+          "tp": 111.78513690870922,
+          "fp": 7581.70725182208,
+          "fn": 3113.2148630912907,
+          "n_truth": 3225,
+          "emitted": 7638
+        },
+        "draw21_fold0": {
+          "dti": 0.018239522281459353,
+          "coverage": 0.031738765820431676,
+          "tp": 67.00053464693127,
+          "fp": 9855.855135426711,
+          "fn": 2043.9994653530687,
+          "n_truth": 2111,
+          "emitted": 9899
+        },
+        "draw21_fold1": {
+          "dti": 0.019624647898753435,
+          "coverage": 0.03416644198807512,
+          "tp": 77.38699110299015,
+          "fp": 10579.397611158787,
+          "fn": 2187.61300889701,
+          "n_truth": 2265,
+          "emitted": 10626
+        },
+        "draw21_fold2": {
+          "dti": 0.01795267986671667,
+          "coverage": 0.025855892489882164,
+          "tp": 92.66751868373768,
+          "fp": 11380.158620843873,
+          "fn": 3491.332481316262,
+          "n_truth": 3584,
+          "emitted": 11437
+        },
+        "draw21_fold3": {
+          "dti": 0.016940411704841646,
+          "coverage": 0.021936833877140564,
+          "tp": 68.00418501913575,
+          "fp": 7603.581501325143,
+          "fn": 3031.9958149808645,
+          "n_truth": 3100,
+          "emitted": 7638
+        }
+      }
+    },
+    "sgmc_off_catalogue": {
+      "candidate_id": "H-S1-SPECTRAL-ROLLOFF",
+      "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+      "score_label": "HOLDOUT-DTI",
+      "n_withheld_positives": 62703,
+      "n_spatial_clusters": 140,
+      "n_bootstrap_reps": 1000,
+      "sgmc_raw_pooled_dti": 0.03796828052259226,
+      "sgmc_raw_ci95": [
+        0.02885602665211112,
+        0.04946183935651086
+      ],
+      "sgmc_prevalence_calibrated_dti": 0.024575340018219465,
+      "sgmc_calibrated_ci95": [
+        0.01812642817493785,
+        0.03224444423828167
+      ]
+    },
+    "legacy_summary": {
+      "catalogue_hidden_mean": 0.02124887851751681,
+      "sgmc_prevalence_calibrated_dti": 0.024575340018219462,
+      "drift_corrected_holdout_mean": 0.03465123287934754
+    }
+  },
+  "holdout_champion_GEMSDOE32": {
+    "candidate_id": "GEMSDOE32-champion",
+    "path": "/home/user/ApartGEMSDOE3/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+    "emitted_pixels": 37654,
+    "hide_and_recover": {
+      "candidate_id": "GEMSDOE32-champion",
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "score_label": "HOLDOUT-DTI",
+      "b_visible_px": 0.0,
+      "n_withheld_positives": 22232,
+      "n_spatial_clusters": 140,
+      "n_bootstrap_reps": 1000,
+      "pooled_dti": 0.00451537871535044,
+      "ci95_cluster_bootstrap": [
+        0.0038164175817344387,
+        0.005261598301920283
+      ],
+      "fold_mean_dti": 0.004600104084398947,
+      "per_quadrant_dti": {
+        "NW": 0.00512840329036098,
+        "NE": 0.005504306306184852,
+        "SW": 0.0036920786311337214,
+        "SE": 0.004075628109916233
+      },
+      "folds": {
+        "draw20_fold0": {
+          "dti": 0.005385639773569569,
+          "coverage": 0.009078166496374933,
+          "tp": 17.348376174572497,
+          "fp": 8444.793980125369,
+          "fn": 1893.6516238254276,
+          "n_truth": 1911,
+          "emitted": 8458
+        },
+        "draw20_fold1": {
+          "dti": 0.006335943576507519,
+          "coverage": 0.010261877623361285,
+          "tp": 24.125674292522383,
+          "fp": 9610.612598232361,
+          "fn": 2326.8743257074775,
+          "n_truth": 2351,
+          "emitted": 9629
+        },
+        "draw20_fold2": {
+          "dti": 0.003796426179210498,
+          "coverage": 0.005136499475503275,
+          "tp": 18.928000567229567,
+          "fp": 10169.78083470613,
+          "fn": 3666.0719994327706,
+          "n_truth": 3685,
+          "emitted": 10184
+        },
+        "draw20_fold3": {
+          "dti": 0.0048529260906769785,
+          "coverage": 0.006012700417157937,
+          "tp": 19.390958845334346,
+          "fp": 7059.23480529578,
+          "fn": 3205.6090411546656,
+          "n_truth": 3225,
+          "emitted": 7074
+        },
+        "draw21_fold0": {
+          "dti": 0.0048711668071523915,
+          "coverage": 0.007802019059799343,
+          "tp": 16.470062235236412,
+          "fp": 8445.194316834295,
+          "fn": 2094.5299377647634,
+          "n_truth": 2111,
+          "emitted": 8458
+        },
+        "draw21_fold1": {
+          "dti": 0.004672669035862185,
+          "coverage": 0.007712224592569388,
+          "tp": 17.468188702169662,
+          "fp": 9614.406378171032,
+          "fn": 2247.5318112978302,
+          "n_truth": 2265,
+          "emitted": 9629
+        },
+        "draw21_fold2": {
+          "dti": 0.0035877310830569444,
+          "coverage": 0.004910041733066764,
+          "tp": 17.597589571311282,
+          "fp": 10171.07993491746,
+          "fn": 3566.4024104286887,
+          "n_truth": 3584,
+          "emitted": 10184
+        },
+        "draw21_fold3": {
+          "dti": 0.003298330129155487,
+          "coverage": 0.004144469410263709,
+          "tp": 12.847855171817496,
+          "fp": 7063.454802117206,
+          "fn": 3087.1521448281824,
+          "n_truth": 3100,
+          "emitted": 7074
+        }
+      }
+    },
+    "sgmc_off_catalogue": {
+      "candidate_id": "GEMSDOE32-champion",
+      "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+      "score_label": "HOLDOUT-DTI",
+      "n_withheld_positives": 62703,
+      "n_spatial_clusters": 140,
+      "n_bootstrap_reps": 1000,
+      "sgmc_raw_pooled_dti": 0.09606004283619354,
+      "sgmc_raw_ci95": [
+        0.08565972243445039,
+        0.10707194739837263
+      ],
+      "sgmc_prevalence_calibrated_dti": 0.0641209376417646,
+      "sgmc_calibrated_ci95": [
+        0.056730181217206584,
+        0.0716486609703412
+      ]
+    },
+    "legacy_summary": {
+      "catalogue_hidden_mean": 0.004600104084398947,
+      "sgmc_prevalence_calibrated_dti": 0.06412093764176459,
+      "drift_corrected_holdout_mean": 0.04504333270394367
+    }
+  },
+  "score_label": "HOLDOUT-DTI (evaluator GEMSDOE32-HIDE-RECOVER-v3.0 and GEMSDOE32-SGMC-CAL-v3.0). Live score: NOT ESTIMABLE.",
+  "verdict": "negative",
+  "gates": {
+    "G1_format_strict_finite_0_1_crs_shape_transform": {
+      "passed": true
+    },
+    "G2_single_feature_leakage_canary_max_auc_le_0.90": {
+      "passed": true
+    },
+    "G3_holdout_HIDE_RECOVER_beats_GEMSDOE32_incumbent": {
+      "passed": true
+    },
+    "G4_SGMC_calibrated_no_regression_vs_GEMSDOE32": {
+      "passed": false
+    },
+    "G5_surface_registry_literal_abs_spearman_le_0.90": {
+      "passed": true
+    },
+    "G6_final_dots_registry_literal_within_3px_le_0.70": {
+      "passed": false
+    },
+    "G9_submission_note_states_actual_dot_count": {
+      "passed": false
+    },
+    "G7_method_lane_assigned": {
+      "passed": false
+    },
+    "G8_selector_authorization_weekly_slot": {
+      "passed": false
+    }
+  },
+  "blocking_gates": [
+    "G4_SGMC_calibrated_no_regression_vs_GEMSDOE32",
+    "G6_final_dots_registry_literal_within_3px_le_0.70",
+    "G9_submission_note_states_actual_dot_count",
+    "G7_method_lane_assigned",
+    "G8_selector_authorization_weekly_slot"
+  ],
+  "validator_output": {
+    "tool": "gemsdoe32.submission.validate_submission_geotiff(strict_whole_array_finite=True)",
+    "passed": true,
+    "detail": {
+      "file_path": "/home/user/ApartGEMSDOE3/docs/downloads/gemsdoe32-h-specroll-h1-20261031T044136Z-ad93017d-zeros.tif",
+      "sha256": "299647f911c31fd4b1942865330f932b9e6fec3d4fca824deebac1f3358275f6",
+      "passed": true,
+      "checks": [
+        {
+          "name": "dimensions",
+          "passed": true,
+          "detail": "shape (3730, 3292) (expected (3730, 3292))"
+        },
+        {
+          "name": "band_count",
+          "passed": true,
+          "detail": "bands: 1 (expected 1)"
+        },
+        {
+          "name": "crs",
+          "passed": true,
+          "detail": "CRS: EPSG:32611 (expected EPSG:32611)"
+        },
+        {
+          "name": "transform",
+          "passed": true,
+          "detail": "transform matched template"
+        },
+        {
+          "name": "dtype",
+          "passed": true,
+          "detail": "dtype: float32 (expected float32)"
+        },
+        {
+          "name": "in_footprint_range",
+          "passed": true,
+          "detail": "in-footprint range [0.0000, 1.0000], all finite"
+        },
+        {
+          "name": "portal_safe_whole_array",
+          "passed": true,
+          "detail": "whole-array range [0.0000, 1.0000], finite=True"
+        }
+      ]
+    }
+  },
+  "ok_to_submit": false,
+  "registry_scan": "evidence/H-S1-SPECTRAL-ROLLOFF_registry_scan.json"
+}

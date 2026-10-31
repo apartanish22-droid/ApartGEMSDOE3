@@ -6,10 +6,12 @@
 
 ## Start here: what to do before every session
 
-1. **Decision (2026-10-30): no existing file is OK to download or submit.** The best owner-reported file, GEMSDOE32 (0.2778), is already on the leaderboard per the owner report and is not unique against the other eight focus files. The [executive summary](docs/executive-summary.html) has the table of files, estimated scores (not estimable), uniqueness, and verdicts.
-2. **Restore inputs** (`GEMS_DATA_DIR` defaults to `.cache/gems_data`): `python scripts/restore_data.py --group all` verifies all 36 pinned files against SHA-256 and rewrites `data/restore_receipt.json`. Inputs come from owner mirrors on GitHub and are **not organizer-authenticated**.
-3. **Re-read the official pages** before quoting any number: [problem and metric](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/) · [leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) · [data (login)](https://www.drivendata.org/competitions/306/competition-doe-gems/data/).
-4. **Re-check the calibration** (`scripts/ledger_calibration_check.py`, [evidence](evidence/ledger_calibration_check_20261030.json), [note 10](knowledge/10_calibration_finding_and_next_candidates_20261030.md)) before using either metric to rank anything.
+0. **Read the session brief first:** [docs/session-prompts/2026-10-31-requirements.md](docs/session-prompts/2026-10-31-requirements.md) — the condensed 2026-10-31 requirements, rules, and limits. It is the single record every session starts from.
+1. **Decision (2026-10-31): DO NOT SUBMIT.** Two new candidates were generated, format-validated, and run through the holdout and full-registry scan. Both are negative. H-S1 (spectral roll-off) and H-M1 (magnetic–gravity cross-gradient) both fail the SGMC off-catalogue gate against the GEMSDOE32 incumbent (0.0246 and 0.0340 vs 0.0641). H-S1 also fails literal final-dot uniqueness on seven dense rasters. See the [repo review](docs/repo-review-2026-10-31.md), the [results note](docs/research/h-s1-h-m1-results-20261031.md), and the [executive summary](docs/executive-summary.html). Downloads are research-only.
+2. **Decision (2026-10-30): no existing file is OK to download or submit.** The best owner-reported file, GEMSDOE32 (0.2778), is already on the leaderboard per the owner report and is not unique against the other eight focus files. The [executive summary](docs/executive-summary.html) has the table of files, estimated scores (not estimable), uniqueness, and verdicts.
+3. **Restore inputs** (`GEMS_DATA_DIR` defaults to `.cache/gems_data`): `python scripts/restore_data.py --group all` verifies all 36 pinned files against SHA-256 and rewrites `data/restore_receipt.json`. Inputs come from owner mirrors on GitHub and are **not organizer-authenticated**.
+4. **Re-read the official pages** before quoting any number: [problem and metric](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/) · [leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) · [data (login)](https://www.drivendata.org/competitions/306/competition-doe-gems/data/).
+5. **Re-check the calibration** (`scripts/ledger_calibration_check.py`, [evidence](evidence/ledger_calibration_check_20261030.json), [note 10](knowledge/10_calibration_finding_and_next_candidates_20261030.md)) before using either metric to rank anything.
 
 ### Standing requirements (from the 2026-10-30 session prompt)
 
@@ -86,7 +88,7 @@ python3 -m venv .venv
 .venv/bin/python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif
 ```
 
-The format inputs are hash-pinned owner mirrors, **not organizer-authenticated**. This review restored only the small format/label inputs needed for tests; it did not restore the large 19-band training-feature raster or cached feature stack. Therefore this environment cannot run a compliant new holdout experiment. `data/` remains the documented location for restored inputs; large files are ignored by Git.
+The inputs are hash-pinned owner mirrors, **not organizer-authenticated**. Update 2026-10-31: the full pinned group (36 files, including the 19-band training-feature raster, the registry, and the sibling-org mirrors) was restored and SHA-256 verified, and the holdout ran on it (`scripts/evaluate_holdout.py`). The earlier statement that this environment cannot run a holdout experiment is withdrawn. Both 2026-10-31 experiments used this path. `data/` remains the documented location for restored inputs; large files are ignored by Git.
 
 ## Official reference links
 

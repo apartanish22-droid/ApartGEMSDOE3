@@ -39,6 +39,8 @@ jobs:
           python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif
           python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif
           python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif
+          python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/gemsdoe32-h-specroll-h1-20261031T044136Z-ad93017d-zeros.tif
+          python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/gemsdoe32-h-crossgrad-mg-h2-20261031T045331Z-8b399900-zeros.tif
 
   publish:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
