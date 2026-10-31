@@ -1,64 +1,105 @@
 # Repository review — 2026-10-31
 
-**Decision: DO NOT SUBMIT.** No file in this repository is cleared for download as a competition submission or for a weekly slot. Two new GeoTIFFs were produced and validated for format, but neither clears the release gates. Their live score is not estimable.
+## Executive decision
 
-Machine-readable gate summary: `evidence/candidates_20261031_summary.json`. Research note: `docs/research/h-s1-h-m1-results-20261031.md`. Session brief: `docs/session-prompts/2026-10-31-requirements.md`.
+**No new TIF is approved for download or submission.** This review generated no candidate raster and used no competition slot. The repo's recorded GEMSDOE32 value of 0.2778 is an **OWNER-REPORT**, not an organizer-confirmed score tied to a receipt and exact raster bytes. The evidence in this checkout is insufficient to claim a new submission will exceed it, much less the current official leaderboard leader.
 
-## 1. What was checked
+The highest-priority code defect found in this review was fixed: the registry surface gate treated only positive Spearman correlations above 0.90 as duplicates, although the persistent project brief requires the absolute rank-correlation threshold. A regression test now verifies that a perfect inverse-rank surface is rejected before placement.
 
-| Item | Result | Evidence |
-|---|---|---|
-| Restored inputs | 36 pinned files restored and SHA-256 verified; owner mirrors, **not organizer-authenticated** | `scripts/restore_data.py`, `registry/data_manifest.json` |
-| Official problem page | Metric (distance-weighted Tversky, α=0.2, β=0.8, 300 m triangular kernel), format (float32 GeoTIFF in [0, 1], EPSG:32611, 100 m, NaN outside allowed), single submission across rounds | [problem page](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/), read via fetch tool 2026-10-31 |
-| Official leaderboard | #1 xiaofanhu 0.4544; #2 cfld__ 0.3934; #3 Batik Shirt Brothers 0.3917; #4 BrandenKMurray 0.3860; #5 op01 0.3642 | [leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/), read 2026-10-31 (live page, not a team receipt) |
-| GEMSDOE32 incumbent (owner-reported 0.2778) | Catalogue-withheld HOLDOUT-DTI 0.0045 [0.0038, 0.0053]; SGMC-calibrated HOLDOUT-DTI 0.0641 [0.0567, 0.0716] | `scripts/evaluate_holdout.py` run 2026-10-31, read-only |
-| Format validator, both new candidates | PASS under strict whole-array finite check, [0, 1] range, CRS, shape, transform | `scripts/check_submission.py --strict-finite`; re-checked in `scripts/summarize_candidates_20261031.py` |
-| Leakage canary (single feature, holdout AUC) | All below 0.90 (max 0.535) | run cards |
-| Full-registry uniqueness, H-S1 | Surface PASS; final dots FAIL on 7 literal duplicates, all dense (3-px coverage ≥ 0.70) | `evidence/H-S1-SPECTRAL-ROLLOFF_registry_scan.json` |
-| Full-registry uniqueness, H-M1 | Surface PASS; final dots FAIL on 8 literal duplicates (7 dense, 1 sparse GEMSDOE67) | `evidence/H-M1-CROSSGRAD-MG_registry_scan.json` |
+## Three-pass review
 
-## 2. Reconciling the leaderboard figures
+### Pass 1 — project state and provenance
 
-The prompt cites 0.3195 as the current high and 0.4413 as the GEMSDOE high. Repository history shows:
+- Read the README project brief, current status registry, nine-site verification, score claims, release-gate implementation, evaluator/writer entry points, tests, and CI workflow.
+- The repo already contains the requested nine-site comparison and a documented analysis of the reported GEMSDOE32 0.2778. It does **not** substantiate why that specific submission scored 0.2778 causally: the explanation that catalogue-adjacent false-positive mass was pruned is plausible and consistent with the reported nested family, but score receipts, controlled ablation, and exact organizer provenance are absent.
+- The nine-site values are recorded as `OWNER-REPORT`; historical raster bytes and mirror hashes do not prove the submission-page score. The checked-in 2026-10-30 audit says all nine selected artifacts breach the pairwise 70%-within-3-pixels uniqueness rule in at least one direction. GEMSDOE25 and GEMSDOE30 are a duplicate after outside-footprint NaNs are normalized to zero. These are historical cohort findings, not a uniqueness result for a new candidate.
+- The website and README already fail closed: no new artifact is authorized. Several public leaderboard snapshots and status records have different dates. Treat them as time-stamped observations, not a live 2026-10-31 leaderboard fetch.
 
-- 0.4413: #1 on 2026-10-25 (`registry/leaderboard_history.jsonl`, line 3; superseded by the 2026-10-26 read).
-- 0.4437: #1 on 2026-10-26 (`registry/current_status.json`).
-- 0.4544: #1 on the live page read 2026-10-31 (this review).
-- 0.3195: rank #2 (DARD) in the first 2026-10-04 snapshot (`registry/leaderboard_history.jsonl`, line 1). The README says rank #3, which does not match that file (IR-20261031-14). It is not on the 2026-10-31 top five.
+### Pass 2 — implementation and controls
 
-The prompt's 0.4413 and 0.3195 are therefore historical, not current. None of these values is ORGANIZER-CONFIRMED. Confirm on your own account before any decision.
+- Confirmed the shared entry points are `scripts/evaluate_holdout.py`, `scripts/submission_writer.py`, and `scripts/check_submission.py`; the release selector is distinct from these checks.
+- Found and corrected the release-gate sign bug in `src/gems32/release_gate.py`: `rho > .90` became `abs(rho) > .90`, and the machine-readable rule text was corrected. Added `test_inverse_rank_surface_stops_before_placement` in `tests/test_release_gate.py`.
+- Confirmed `scripts/check_release_status.py` passes after the change. It checks the repository's configured status and historical cards and confirms their hashes, fail-closed state, and no-slot status. It does not certify a newly generated submission.
+- Found and corrected a stale research page that still labelled H-SEISMIC `ok_to_download`/`ok_to_submit` after its run card's positive flags had been superseded. The page now marks H-SEISMIC withdrawn and cites the failed same-evaluator holdout gate and incomplete (15-raster) uniqueness scan. The original run card remains preserved as historical evidence; its positive fields must not be interpreted as current authorization.
+- Format-checked the archived GEMSDOE32 file (`docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif`) using the pinned owner-mirror `sample_submission.tif`: one band, float32, EPSG:32611, 3730×3292, matching transform, and finite whole-array values in [0,1]. This proves local format compatibility only; it is not an authorized candidate and does not verify its score.
+- Re-ran `scripts/format_audit.py` against all downloadable GeoTIFFs. It reports 11/17 portal-format pass; all 6 failures are `-nan` variants failing the whole-array finite/range check. This reproduces a plausible mechanism for the reported portal range error, but the template is an owner mirror and the actual portal validator is not observable here; do not assert exact causation.
+- No scientific experiment was run. The method paragraph assigning this session's single lane is not identifiable in the checkout; the complete feature stack and full registry are not restored. Running a hypothesis experiment, claiming a holdout score, or generating a purportedly unique submission would violate the run protocol or be unauditable.
 
-## 3. Irregularities (flagged for owner review)
+### Pass 3 — clean environment and regression verification
 
-- **IR-20261031-01 — Leaderboard figures disagree.** See §2. Treat the prompt values as unverified.
-- **IR-20261031-02 — Submission notes state the target dot count, not the raster's count.** Both candidate notes say "37654 dots". The rasters have 40,732 (H-S1) and 36,681 (H-M1) dots after the label mask. Gate G9 records this as a failure. The note must be regenerated before any promotion.
-- **IR-20261031-03 — The literal 3-px overlap rule cannot separate full-footprint rasters.** Any candidate scores about 1.0 against a raster that covers the whole footprint. In the H-S1 scan, all 7 literal duplicates had 3-px coverage ≥ 0.70. In the H-M1 scan, 7 of 8 are dense, but one sparse raster (GEMSDOE67, coverage 0.548, overlap 0.746) is a genuine literal duplicate, so H-M1 cannot be explained by the rule defect alone. The rule needs a written owner decision. Until then, it is applied as written and failures are reported as they are.
-- **IR-20261031-04 — No method lane is assigned.** The checkout and prompt contain no lane paragraph. Every run is self-declared, and none can be cleared for a weekly slot.
-- **IR-20261031-05 — Holdout ranking is unreliable on owner data.** On the nine owner-reported files, holdout DTI ranks in reverse of owner scores (ρ = −0.85, n = 9). Hide-and-recover gives ρ = +0.17 (CI −0.02 to +0.34, n = 117). The owner's 0.2778 cannot be reproduced from the holdout (holdout 0.0045).
-- **IR-20261031-06 — Portal error cause not verified.** The error "Predicted values must be in range [0, 1]" matches files with NaN outside the footprint (GEMSDOE24, 25, 27, 28, 31 in the nine-site note). The cause has not been confirmed against the portal. The zeros variants pass the strict check.
-- **IR-20261031-07 — `-nan.tif` variants sit beside the zeros candidates.** Both driver runs wrote a NaN-outside variant to `docs/downloads/`. It is not the submission candidate and has not been validated against the portal's rule. Do not use it.
-- **IR-20261031-08 — Registry scope has changed since the last full scan.** The 2026-10-28 scan covered 866 manifest rows and 784 unique rasters checked (`registry/registry_uniqueness_scan_20261028.json`). The 2026-10-31 scan covers 1,204 manifest rows and 1,092 registry rasters, including 715 sibling-org rasters. The 2026-10-28 result is stale for uniqueness claims.
-- **IR-20261031-09 — Two "current" status records.** `registry/current_status.json` still points to H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS. The 2026-10-31 candidates are recorded only in `evidence/candidates_20261031_summary.json`. Repointing the status requires test changes and was not done.
-- **IR-20261031-10 — Restore receipt rewritten by the restore tool.** `scripts/restore_data.py` rewrote `data/restore_receipt.json`. The change was receipt-only and was reverted.
-- **IR-20261031-11 — Malformed background launch.** A scan was started with a process-substitution surface (`--surface /dev/fd/63 --out /dev/null`) that did not exist as a file. It was stopped and its output was never used.
-- **IR-20261031-12 — Nine-site claims re-verified this session.** `scripts/audit_nine_site_best.py` re-run: all 36 site pairs exceed the 70% within-3-px flag, and 11 pairs exceed |ρ| 0.90. A strict-format check on each site's cached copy gives 4 of 9 passing (GEMSDOE30, 32, 33, 36 pass; GEMSDOE24, 25, 27, 28, 31 fail on whole-array NaN outside the footprint, with in-footprint values in range). The earlier 2026-10-30 note agrees. The cached copies are owner-mirror bytes, not organizer-authenticated.
-- **IR-20261031-14 — README rank for 0.3195 disagrees with the history file.** The README says rank #3 on 2026-10-04. `registry/leaderboard_history.jsonl` line 1 shows rank #2 (DARD, 0.3262 is #1 nchuzhoy). Repair the README text in a follow-up.
-- **IR-20261031-15 — Scan gate read a missing key (fixed).** `scripts/scan_registry_uniqueness.py` read `literal_rule_passed` from the surface stage, but `audit_surface` returns `passed`. Both saved scans therefore showed the surface stage as failed when it passed (worst |ρ| 0.046 H-S1; 0.132 H-M1). The script is fixed. The two saved gate blocks were recomputed from their stored stage records, and the old values are kept as `gate_before_fix`. A full re-scan would give the same stage records. The stored gate was not otherwise changed.
-- **IR-20261031-13 — Two generators write the executive-summary pages.** `scripts/build_site.py` delegates to `scripts/build_review_site.py` when the root card is not a promotion. Edit only the builder, never the HTML.
+- Created the ignored `.venv` from `requirements.txt`. A first test run had two failures because the ignored sample template was absent; restored `labels.tif` and `sample_submission.tif` with `scripts/restore_data.py --group core --manifest registry/ci_format_manifest.json`. Their SHA-256 values matched the pinned manifest. These are owner-mirror files, not organizer-authenticated.
+- Final `pytest -q -rs`: **120 passed, 2 skipped**. Both skips are `tests/test_holdout_visible_gate.py` because the local holdout data cache is incomplete; they are not passing validation evidence. Rasterio emitted 33 `PendingDeprecationWarning`s for affine multiplication.
+- `scripts/check_release_status.py`: **PASS** (configured records fail closed; hashes match; no slot used).
+- Strict whole-array check of the archived GEMSDOE32 TIF against the owner-mirror template: **PASS**. This is not a scientific or slot authorization.
+- `scripts/format_audit.py --template .cache/gems_data/sample_submission.tif --out .cache/format_audit_recheck.json`: **11 pass / 6 fail of 17**; every failing item is a NaN-outside variant and fails `portal_safe_whole_array`. Format-only evidence.
+- `python -m compileall -q src scripts tests` and `git diff --check`: **PASS**.
 
-## 4. Experiments this session (budget: 3 or 2 hours)
+## Focus-site executive comparison
 
-- Experiment 1, H-S1 spectral roll-off: **negative**. SGMC-calibrated 0.0246 vs incumbent 0.0641. Literal final-dot uniqueness fails on 7 dense rasters.
-- Experiment 2, H-M1 magnetic–gravity cross-gradient: **negative**. SGMC-calibrated 0.0340 vs incumbent 0.0641. Catalogue-withheld holdout 0.0304 is above the incumbent's 0.0045 (non-overlapping CIs), but the off-catalogue gate fails. Final-dot uniqueness also fails on 8 literal duplicates, one of them sparse (GEMSDOE67).
-- Experiment 3 (H-B directional semivariogram): **not started**. Two of three experiments are used and the 2-hour clock has not run out. The decision to stop is about expected value, not the clock. A third candidate needs an implementation of medium cost, and the two completed candidates already miss the off-catalogue gate by 1.9× to 2.6×. The third slot is reserved for the next session.
+The score values below reproduce the supplied/repo audit, not a fresh organizer receipt. They are `OWNER-REPORT`; there is no new-score estimate. The files are not recommendations for resubmission. Refer to [`docs/research/nine-site-verification-20261030.md`](research/nine-site-verification-20261030.md) and [`evidence/nine_site_verification_20261030.json`](../evidence/nine_site_verification_20261030.json) for the raster hashes, byte-level checks, and recorded holdout diagnostics.
 
-## 5. Remaining work and limitations
+| Site | Best reported entry in the supplied focus list | Score evidence | Review conclusion |
+|---|---|---:|---|
+| GEMSDOE24 | `h25-1-dotted-h19-5-d1-5` | OWNER-REPORT 0.2477 | Historical only; overlaps other focus rasters. |
+| GEMSDOE25 | `dotted-h19-5-d2-8` | OWNER-REPORT 0.2600 | Historical only; same prediction as GEMSDOE30 after NaN-to-zero normalization. |
+| GEMSDOE27 | `topo-gap-closure-t-v2-on-d1-5` | OWNER-REPORT 0.2449 | Historical only; overlaps other focus rasters. |
+| GEMSDOE28 | `h36-1-rung30-blind-r1` | OWNER-REPORT 0.2710 | Highest item in that site's supplied list; historical only. |
+| GEMSDOE30 | `d28-poisson300m-offcat-44090` | OWNER-REPORT 0.2600 | Duplicate of GEMSDOE25 under the recorded pixel comparison. |
+| GEMSDOE31 | `h27-4-solo-d28` | OWNER-REPORT 0.2708 | Historical only; overlaps other focus rasters. |
+| GEMSDOE32 | `h33-h33-2-b2` | OWNER-REPORT 0.2778 | Highest reported among these nine; already submitted per the supplied log, and not independently receipt-verified. Do not resubmit. |
+| GEMSDOE33 | `h33d-analog-tip-stepover-r30` | OWNER-REPORT 0.2632 | Historical only; overlaps other focus rasters. |
+| GEMSDOE36 | `anderson-geothermal-pinn-38854` | OWNER-REPORT 0.2750 | Historical only; overlaps other focus rasters. |
 
-1. Owner decision on the literal 3-px rule (IR-03). Without it, no candidate with non-trivial coverage can ever be cleared.
-2. Assign a method lane. Without one, no weekly-slot selection is possible.
-3. Verify the live portal's NaN rule against a receipt (IR-06).
-4. Regenerate submission notes with the actual dot count (IR-02). Done only after a promotion decision.
-5. Re-check the nine-site audit against the live submission pages (IR-12).
-6. Decide whether `registry/current_status.json` should point to the 2026-10-31 candidates (IR-09).
-7. Obtain organizer-authenticated inputs if available. The restored mirrors are not authenticated (IR-05 and §7 of the session brief).
-8. Holdout DTI is a poor selection signal on owner data (IR-05). Treat holdout improvements as candidates for testing, not as predicted scores.
+**Score estimate for a new candidate: not estimable.** The reported 0.2778 cannot be explained or exceeded by the available holdout alone: the repo's own 2026-10-30 audit warns that its catalogue-withheld holdout ranks the nine files inversely to their owner-reported scores. The SGMC off-catalogue metric tracks this small owner-reported cohort more closely, but is still a proxy and not a validated leaderboard calibration. Do not relabel either diagnostic as a competition score.
+
+## Main risks and irregularities
+
+1. **Assigned lane missing.** README requires one specific method paragraph for parallel sessions, but none is identifiable here. Do not infer the lane.
+2. **Data provenance/access.** The organizer data page is login-walled per repo records. Locally available core TIFFs are pinned owner mirrors; the large training feature raster / reusable full feature stack and holdout cache are absent in this checkout. An SHA match proves mirror consistency, not organizer authenticity.
+3. **Full registry unavailable.** No all-registry surface and final-dot uniqueness test for a new candidate can be established from this checkout.
+4. **Stale status timestamp.** `registry/current_status.json` is dated 2026-10-28 while later notes/evidence discuss 2026-10-30 events. The release check is internally consistent with its configured historical/current card but does not by itself reconcile all dated narrative claims. The status registry should be reconciled against the latest evidence before future promotion.
+5. **Conflicting H-SEISMIC authorization artifacts.** Its historical run card still says `ok_to_download: true` and `ok_to_submit: true`, while README and the executive-summary page explicitly override that result because the holdout gate failed and full-registry uniqueness was not run. `docs/research/hypotheses-next-20261030.md` had repeated the stale positive claim; this review changed it to a negative/withdrawn notice. The run card remains unmodified for audit history.
+6. **Incomplete holdout suite.** Two tests skip because local holdout data is incomplete. No claim about a candidate's holdout DTI is made in this review.
+7. **Format-versus-spec irregularity.** The checker can enforce strict finite whole-array values; official page wording recorded in the repo allows null/NaN outside the footprint. A past portal range error is not proven to have been caused by outside-footprint NaNs. Keep a strict zeros-outside export for compatibility, but preserve the distinction between portal testing and official format evidence.
+8. **Warning cleanup.** The 33 Rasterio affine deprecation warnings are non-failing but should eventually be fixed centrally and tested.
+
+## Next steps (no slot until validation)
+
+1. Reconcile `registry/current_status.json`, site feeds, and latest dated evidence so one explicit record owns the current state.
+2. Establish the assigned lane and preregister no more than three experiments / two hours.
+3. Restore the required feature stack and whole-segment spatial holdout inputs from an authenticated source where possible; record provenance and hashes. Do not treat a mirror as organizer-authenticated.
+4. For each feature, run its standalone leakage canary; then fold-local buffered hide-and-recover with catalogue-derived features restricted to visible faults, exact masks, pooled DTI (α=.2, β=.8, 300 m triangular kernel), and paired spatial CIs against the incumbent.
+5. Compare a candidate's surface before placement and final dots after placement against the complete registry; stop at |Spearman| > .90 or >70% directional dot overlap within 3 px.
+6. Generate and validate exact saved bytes only after the science and uniqueness tests. A separate selector must authorize a weekly slot; record an organizer receipt and exact file hash afterward.
+7. Keep historical negatives as useful artifacts; do not publish a download CTA or score prediction for an uncleared raster.
+
+## Run card — review only
+
+```json
+{
+  "hypothesis": "Review only; no candidate hypothesis was tested. Code defect: the surface uniqueness gate missed inverse-rank duplicates.",
+  "mechanism": "A perfectly inverse-ranked raster has absolute Spearman correlation 1.0 and must trigger the specified duplicate stop before placement.",
+  "named_non_fault_process_that_could_mimic_it": "A monotonic contrast inversion or sign convention change can produce a high-magnitude inverse rank correlation without representing a new geological signal.",
+  "holdout_dti_and_ci": "NOT RUN for this review; local holdout cache is incomplete. No score estimate.",
+  "correlation_overlap_vs_registry": "No new raster. New unit test verifies a synthetic inverse-ranked surface is rejected. No full registry comparison performed.",
+  "raster_sha256": null,
+  "validator_output": "No new TIF. Historical GEMSDOE32 raster passes strict local format/range validation against SHA-pinned owner-mirror template; not organizer authentication or release approval.",
+  "submission_name": null,
+  "submission_note": "Review only; no candidate is cleared for download or submission.",
+  "verdict": "negative"
+}
+```
+
+## Source pointers for manual review
+
+These are project-recorded pointers; this review did not claim a fresh fetch of every external source.
+
+- [DrivenData problem description](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/)
+- [DrivenData data page (login may be required)](https://www.drivendata.org/competitions/306/competition-doe-gems/data/)
+- [DrivenData public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)
+- [DrivenData prize reference solution](https://github.com/drivendataorg/gems-prize-reference-solution)
+- [USGS GeoDAWN airborne survey](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and)
+- [USGS 3DEP](https://www.usgs.gov/3d-elevation-program)
+- [INGENIOUS project](https://gbcge.org/current-projects/ingenious/)
+- [EPSG:32611](https://epsg.io/32611)
+- [`docs/PROJECT_CHARTER.md`](PROJECT_CHARTER.md), [`registry/data_manifest.json`](../registry/data_manifest.json), [`registry/current_status.json`](../registry/current_status.json), and [`evidence/nine_site_verification_20261030.json`](../evidence/nine_site_verification_20261030.json)

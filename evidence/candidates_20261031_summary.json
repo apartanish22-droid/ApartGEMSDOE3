@@ -337,6 +337,185 @@
       "verdict": "negative",
       "ok_to_submit": false,
       "ok_to_download_for_research_only": true
+    },
+    {
+      "candidate_id": "H1-LIDAR-SCARP-DEM-CHI",
+      "source_card": "evidence/H1-LIDAR-SCARP-DEM-CHI_run_card.json",
+      "source_note": "Created on branch arena/d20ee5aa by another session; verified here.",
+      "file": "docs/downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif",
+      "sha256": "3ec64572ab5e215b5d6305ca1ded5527635bf19584b5e6d78e4d2dbacb5a9abc",
+      "submission_name": "H1-LIDAR-SCARP-DEM-CHI",
+      "submission_note": "H1 LiDAR scarp + DEM10 chi blind-fault dots, 30k, off-catalogue, [0,1] zeros TIF",
+      "note_chars": 80,
+      "dots": 62469,
+      "holdout_dti_hide_recover": {
+        "value": 0.006213622903514402,
+        "ci95": [
+          0.004778316607639289,
+          0.007895504251300303
+        ],
+        "evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0",
+        "withheld_positives": 22232,
+        "label": "HOLDOUT-DTI"
+      },
+      "sgmc_calibrated_dti": {
+        "value": 0.0939751241099031,
+        "ci95": [
+          0.07134566292734854,
+          0.11484958325099542
+        ],
+        "evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+        "label": "HOLDOUT-DTI"
+      },
+      "live_score_estimate": "NOT ESTIMABLE (no calibrated mapping; no organizer receipt)",
+      "unique_literal_rule": false,
+      "gates": {
+        "G1_format_strict_finite_0_1_crs_shape_transform": {
+          "passed": true
+        },
+        "G2_single_feature_leakage_canary_max_auc_le_0.90": {
+          "passed": false,
+          "note": "Not computed by the H1 run card (feature_canaries False). Not run here."
+        },
+        "G3_holdout_HIDE_RECOVER_beats_GEMSDOE32_incumbent": {
+          "passed": false,
+          "note": "Recheck CI lower bound is below the incumbent's CI upper bound, so the intervals overlap. Paired CI not computed.",
+          "candidate": [
+            0.006213622903514402,
+            [
+              0.004778316607639289,
+              0.007895504251300303
+            ]
+          ],
+          "champion": [
+            0.00451537871535044,
+            [
+              0.0038164175817344387,
+              0.005261598301920283
+            ]
+          ]
+        },
+        "G4_SGMC_calibrated_no_regression_vs_GEMSDOE32": {
+          "passed": true,
+          "note": "Point estimate higher; calibrated CIs overlap by about 0.0003. Not a demonstrated gain.",
+          "candidate": [
+            0.0939751241099031,
+            [
+              0.07134566292734854,
+              0.11484958325099542
+            ]
+          ],
+          "champion": [
+            0.0641209376417646,
+            [
+              0.056730181217206584,
+              0.0716486609703412
+            ]
+          ]
+        },
+        "G5_surface_registry_literal_abs_spearman_le_0.90": {
+          "passed": false,
+          "note": "No continuous surface file exists for H1. The surface-before-placement stage was not run."
+        },
+        "G6_final_dots_registry_literal_within_3px_le_0.70": {
+          "passed": false,
+          "literal_duplicate_rasters": 9,
+          "of_which_space_filling_or_dense_coverage_ge_0.70": 7,
+          "of_which_sparse_coverage_lt_0.70": 2,
+          "registry_rasters_compared": 1092,
+          "unique_masks_or_surfaces": 769,
+          "literal_duplicates": [
+            {
+              "repo": "GEMSDOE24",
+              "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+              "within_3px": 0.9977909042885271,
+              "coverage_3px": 0.9987132726822701,
+              "abs_spearman": 8.870986486324116e-05
+            },
+            {
+              "repo": "GEMSDOE67",
+              "path": "docs/downloads/gemsdoe67-ovtr-ml-cover-tau3p0-20261012-nan.tif",
+              "within_3px": 0.7127695336887095,
+              "coverage_3px": 0.5481466114406682,
+              "abs_spearman": 0.007186270087856421
+            },
+            {
+              "repo": "GEMSDOE23",
+              "path": "docs/downloads/gemsdoe23-h30-arrangement-matched-habitat-20261002-0d4e02e8-nan.tif",
+              "within_3px": 0.8285229473819015,
+              "coverage_3px": 0.41077564944508554,
+              "abs_spearman": 0.03586306526672086
+            },
+            {
+              "repo": "GEMSDOE3",
+              "path": "docs/downloads/pindrop-v4-nodes-20260925T152420Z-f347b70daa.tif",
+              "within_3px": 0.7965871072051738,
+              "coverage_3px": 0.7350464152674869,
+              "abs_spearman": 0.012238172268941345
+            },
+            {
+              "repo": "ApartGEMSDOE2",
+              "path": "docs/downloads/gemsdoe32-h-depth-cond-conductive-under-thin-cover-top37654-20261028T224836Z-e34db98d-nan.tif",
+              "within_3px": 1.0,
+              "coverage_3px": 1.0,
+              "abs_spearman": 0.012089376559788936
+            },
+            {
+              "repo": "ApartGEMSDOE2",
+              "path": "docs/downloads/gemsdoe32-h-depth-cond-conductive-under-thin-cover-top37654-20261028T224836Z-e34db98d-zeros.tif",
+              "within_3px": 1.0,
+              "coverage_3px": 1.0,
+              "abs_spearman": 0.012089376559788936
+            },
+            {
+              "repo": "ApartGEMSDOE2",
+              "path": "docs/downloads/gemsdoe32-h-mag-edge-slope-mag-x-slope-top37654-20261028T224750Z-2c00c25b-nan.tif",
+              "within_3px": 1.0,
+              "coverage_3px": 0.9999692300130066,
+              "abs_spearman": 0.011454575416126525
+            },
+            {
+              "repo": "ApartGEMSDOE2",
+              "path": "docs/downloads/gemsdoe32-h-mag-edge-slope-mag-x-slope-top37654-20261028T224750Z-2c00c25b-zeros.tif",
+              "within_3px": 1.0,
+              "coverage_3px": 0.9999692300130066,
+              "abs_spearman": 0.011454575416126525
+            },
+            {
+              "repo": "GEMSDOEkarage1",
+              "path": "docs/downloads/karage1-halo-damagezone-d2p0-20261029T181947Z-zeros.tif",
+              "within_3px": 1.0,
+              "coverage_3px": 1.0,
+              "abs_spearman": 0.0059431267509948635
+            }
+          ]
+        },
+        "G9_submission_note_states_actual_dot_count": {
+          "passed": false,
+          "note_says": null,
+          "raster_dots": 62469
+        },
+        "G7_method_lane_assigned": {
+          "passed": false,
+          "note": "Lane H1 is named in its own card, but the 2026-10-31 checkout has no lane assignment for this session. Not accepted here."
+        },
+        "G8_selector_authorization_weekly_slot": {
+          "passed": false,
+          "note": "Separate selector step; none recorded (slot_authorized False in its card)."
+        }
+      },
+      "blocking_gates": [
+        "G2_single_feature_leakage_canary_max_auc_le_0.90",
+        "G3_holdout_HIDE_RECOVER_beats_GEMSDOE32_incumbent",
+        "G5_surface_registry_literal_abs_spearman_le_0.90",
+        "G6_final_dots_registry_literal_within_3px_le_0.70",
+        "G9_submission_note_states_actual_dot_count",
+        "G7_method_lane_assigned",
+        "G8_selector_authorization_weekly_slot"
+      ],
+      "verdict": "negative",
+      "ok_to_submit": false,
+      "ok_to_download_for_research_only": true
     }
   ],
   "any_file_ok_to_submit": false

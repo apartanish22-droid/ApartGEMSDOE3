@@ -1,0 +1,255 @@
+{
+  "generated_utc": "20261031T043901Z",
+  "evaluator_version": "GEMSDOE32-HOLDOUT-v3-visible-gated",
+  "results": [
+    {
+      "site": "GEMSDOE24",
+      "file": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "path": ".cache/gems_data/scored/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "owner_reported_score": 0.2477,
+      "evidence_class": "OWNER-REPORT",
+      "source": "buffedlizard55-lab/GEMSDOE24",
+      "available_locally": true,
+      "emitted_pixels": 60069,
+      "holdout_dti": 0.09720385946561562,
+      "holdout_ci95": [
+        0.08041759371472434,
+        0.11708950895997254
+      ],
+      "evaluator_version": "GEMSDOE32-HOLDOUT-v3-visible-gated",
+      "n_withheld_positives": 22232,
+      "sgmc_raw_dti": 0.10292949255413086,
+      "sgmc_cal_dti": 0.06225743113714825,
+      "ok_to_submit": false
+    },
+    {
+      "site": "GEMSDOE25",
+      "file": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "path": ".cache/gems_data/scored/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "owner_reported_score": 0.26,
+      "evidence_class": "OWNER-REPORT",
+      "source": "buffedlizard55-lab/GEMSDOE25",
+      "available_locally": true,
+      "emitted_pixels": 44090,
+      "holdout_dti": 0.09920232315251677,
+      "holdout_ci95": [
+        0.08112912776206667,
+        0.12082969980617288
+      ],
+      "evaluator_version": "GEMSDOE32-HOLDOUT-v3-visible-gated",
+      "n_withheld_positives": 22232,
+      "sgmc_raw_dti": 0.09606004283619353,
+      "sgmc_cal_dti": 0.06412093764176459,
+      "ok_to_submit": false
+    },
+    {
+      "site": "GEMSDOE27",
+      "file": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "path": ".cache/gems_data/scored/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+      "owner_reported_score": 0.2449,
+      "evidence_class": "OWNER-REPORT",
+      "source": "buffedlizard55-lab/GEMSDOE27",
+      "available_locally": true,
+      "emitted_pixels": 61328,
+      "holdout_dti": 0.09677777415544302,
+      "holdout_ci95": [
+        0.0801260856026794,
+        0.11660490131116467
+      ],
+      "evaluator_version": "GEMSDOE32-HOLDOUT-v3-visible-gated",
+      "n_withheld_positives": 22232,
+      "sgmc_raw_dti": 0.10428980903961495,
+      "sgmc_cal_dti": 0.06262193727424928,
+      "ok_to_submit": false
+    },
+    {
+      "site": "GEMSDOE28",
+      "file": "gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-allfinite.tif",
+      "path": ".cache/gems_data/scored/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-allfinite.tif",
+      "owner_reported_score": 0.271,
+      "evidence_class": "OWNER-REPORT",
+      "source": "buffedlizard55-lab/GEMSDOE28",
+      "available_locally": true,
+      "emitted_pixels": 40199,
+      "holdout_dti": 0.03005741418614668,
+      "holdout_ci95": [
+        0.025449417732504604,
+        0.03520145348763807
+      ],
+      "evaluator_version": "GEMSDOE32-HOLDOUT-v3-visible-gated",
+      "n_withheld_positives": 22232,
+      "sgmc_raw_dti": 0.09606004283619353,
+      "sgmc_cal_dti": 0.06412093764176459,
+      "ok_to_submit": false
+    },
+    {
+      "site": "GEMSDOE30",
+      "file": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "path": ".cache/gems_data/scored/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+      "owner_reported_score": 0.26,
+      "evidence_class": "OWNER-REPORT",
+      "source": "GEMSDOE30 == GEMSDOE25 file (identical hash 91eae1ca)",
+      "available_locally": true,
+      "emitted_pixels": 44090,
+      "holdout_dti": 0.09920232315251677,
+      "holdout_ci95": [
+        0.08112912776206667,
+        0.12082969980617288
+      ],
+      "evaluator_version": "GEMSDOE32-HOLDOUT-v3-visible-gated",
+      "n_withheld_positives": 22232,
+      "sgmc_raw_dti": 0.09606004283619353,
+      "sgmc_cal_dti": 0.06412093764176459,
+      "ok_to_submit": false
+    },
+    {
+      "site": "GEMSDOE31",
+      "file": "NOT AVAILABLE LOCALLY",
+      "path": "docs/downloads/MISSING_GEMSDOE31_file.tif",
+      "owner_reported_score": 0.2708,
+      "evidence_class": "OWNER-REPORT",
+      "source": "buffedlizard55-lab/GEMSDOE31 - file NOT in restore manifest, not available locally",
+      "available_locally": false,
+      "emitted_pixels": null,
+      "holdout_dti": null,
+      "holdout_ci95": null,
+      "evaluator_version": "GEMSDOE32-HOLDOUT-v3-visible-gated",
+      "n_withheld_positives": null,
+      "sgmc_raw_dti": null,
+      "sgmc_cal_dti": null,
+      "ok_to_submit": false
+    },
+    {
+      "site": "GEMSDOE32",
+      "file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "owner_reported_score": 0.2778,
+      "evidence_class": "OWNER-REPORT",
+      "source": "buffedlizard55-lab/GEMSDOE32",
+      "available_locally": true,
+      "emitted_pixels": 37654,
+      "holdout_dti": 0.00451537871535044,
+      "holdout_ci95": [
+        0.003917415528830087,
+        0.005257222182093553
+      ],
+      "evaluator_version": "GEMSDOE32-HOLDOUT-v3-visible-gated",
+      "n_withheld_positives": 22232,
+      "sgmc_raw_dti": 0.09606004283619353,
+      "sgmc_cal_dti": 0.06412093764176459,
+      "ok_to_submit": false
+    },
+    {
+      "site": "GEMSDOE33",
+      "file": "NOT AVAILABLE LOCALLY",
+      "path": "docs/downloads/MISSING_GEMSDOE33_file.tif",
+      "owner_reported_score": 0.2632,
+      "evidence_class": "OWNER-REPORT",
+      "source": "buffedlizard55-lab/GEMSDOE33 - file NOT in restore manifest, not available locally",
+      "available_locally": false,
+      "emitted_pixels": null,
+      "holdout_dti": null,
+      "holdout_ci95": null,
+      "evaluator_version": "GEMSDOE32-HOLDOUT-v3-visible-gated",
+      "n_withheld_positives": null,
+      "sgmc_raw_dti": null,
+      "sgmc_cal_dti": null,
+      "ok_to_submit": false
+    },
+    {
+      "site": "GEMSDOE36",
+      "file": "NOT AVAILABLE LOCALLY",
+      "path": "docs/downloads/MISSING_GEMSDOE36_file.tif",
+      "owner_reported_score": 0.275,
+      "evidence_class": "OWNER-REPORT",
+      "source": "buffedlizard55-lab/GEMSDOE36 - file NOT in restore manifest, not available locally",
+      "available_locally": false,
+      "emitted_pixels": null,
+      "holdout_dti": null,
+      "holdout_ci95": null,
+      "evaluator_version": "GEMSDOE32-HOLDOUT-v3-visible-gated",
+      "n_withheld_positives": null,
+      "sgmc_raw_dti": null,
+      "sgmc_cal_dti": null,
+      "ok_to_submit": false
+    }
+  ],
+  "uniqueness": {
+    "GEMSDOE24 vs GEMSDOE25": {
+      "overlap_within_3px_of_s1": 1.0,
+      "spearman_rank_corr": 0.5782703870315997,
+      "unique": false
+    },
+    "GEMSDOE24 vs GEMSDOE27": {
+      "overlap_within_3px_of_s1": 1.0,
+      "spearman_rank_corr": 0.989631305428662,
+      "unique": false
+    },
+    "GEMSDOE24 vs GEMSDOE28": {
+      "overlap_within_3px_of_s1": 0.9338593950290499,
+      "spearman_rank_corr": 0.5488935008931514,
+      "unique": false
+    },
+    "GEMSDOE24 vs GEMSDOE30": {
+      "overlap_within_3px_of_s1": 1.0,
+      "spearman_rank_corr": 0.5782703870315997,
+      "unique": false
+    },
+    "GEMSDOE24 vs GEMSDOE32": {
+      "overlap_within_3px_of_s1": 0.8772245251294345,
+      "spearman_rank_corr": 0.5347911289123627,
+      "unique": false
+    },
+    "GEMSDOE25 vs GEMSDOE27": {
+      "overlap_within_3px_of_s1": 1.0,
+      "spearman_rank_corr": 0.5722461382444816,
+      "unique": false
+    },
+    "GEMSDOE25 vs GEMSDOE28": {
+      "overlap_within_3px_of_s1": 0.9245180312996144,
+      "spearman_rank_corr": 0.9547035317225063,
+      "unique": false
+    },
+    "GEMSDOE25 vs GEMSDOE30": {
+      "overlap_within_3px_of_s1": 1.0,
+      "spearman_rank_corr": 0.9999999999999999,
+      "unique": false
+    },
+    "GEMSDOE25 vs GEMSDOE32": {
+      "overlap_within_3px_of_s1": 0.8671580857337264,
+      "spearman_rank_corr": 0.9238922286382336,
+      "unique": false
+    },
+    "GEMSDOE27 vs GEMSDOE28": {
+      "overlap_within_3px_of_s1": 0.9151937124967389,
+      "spearman_rank_corr": 0.5431748111343399,
+      "unique": false
+    },
+    "GEMSDOE27 vs GEMSDOE30": {
+      "overlap_within_3px_of_s1": 0.98004174276024,
+      "spearman_rank_corr": 0.5722461382444816,
+      "unique": false
+    },
+    "GEMSDOE27 vs GEMSDOE32": {
+      "overlap_within_3px_of_s1": 0.8597051917558048,
+      "spearman_rank_corr": 0.5292199143625667,
+      "unique": false
+    },
+    "GEMSDOE28 vs GEMSDOE30": {
+      "overlap_within_3px_of_s1": 1.0,
+      "spearman_rank_corr": 0.9547035317225061,
+      "unique": false
+    },
+    "GEMSDOE28 vs GEMSDOE32": {
+      "overlap_within_3px_of_s1": 0.9448244981218439,
+      "spearman_rank_corr": 0.9677268365945662,
+      "unique": false
+    },
+    "GEMSDOE30 vs GEMSDOE32": {
+      "overlap_within_3px_of_s1": 0.8671580857337264,
+      "spearman_rank_corr": 0.9238922286382336,
+      "unique": false
+    }
+  },
+  "note": "Owner-reported scores are OWNER-REPORT, not organizer receipts. Holdout DTI is HOLDOUT-DTI, not a leaderboard score projection. No file is authorized for submission."
+}

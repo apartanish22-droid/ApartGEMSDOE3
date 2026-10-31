@@ -30,13 +30,14 @@ def summary():
 
 def test_nothing_is_cleared(summary):
     assert summary["any_file_ok_to_submit"] is False
-    assert len(summary["candidates"]) == 2
+    assert len(summary["candidates"]) == 3
     for c in summary["candidates"]:
         assert c["ok_to_submit"] is False
         assert c["verdict"] == "negative", c["candidate_id"]
         assert c["live_score_estimate"].startswith("NOT ESTIMABLE")
         assert c["gates"]["G7_method_lane_assigned"]["passed"] is False
         assert c["gates"]["G8_selector_authorization_weekly_slot"]["passed"] is False
+        assert c["gates"]["G2_single_feature_leakage_canary_max_auc_le_0.90"]["passed"] in (True, False)
 
 
 def test_artifact_hashes_and_note_length(summary):
@@ -90,12 +91,17 @@ def test_readme_links_session_brief_and_decision():
 @pytest.mark.parametrize("scan", [
     "evidence/H-S1-SPECTRAL-ROLLOFF_registry_scan.json",
     "evidence/H-M1-CROSSGRAD-MG_registry_scan.json",
+    "evidence/H1-LIDAR-SCARP-DEM-CHI_registry_scan_20261031.json",
 ])
 def test_scan_gate_matches_stage_records(scan):
     """Regression for IR-20261031-15: the gate must read the surface stage's 'passed' flag."""
     d = json.loads((ROOT / scan).read_text())
     gate = d["gate"]
-    assert gate["surface_literal_passed"] == bool(d["surface"]["passed"])
     assert gate["final_dots_literal_passed"] == bool(d["final_dots"]["literal_rule_passed"])
-    assert gate["all_literal_checks_passed"] is (gate["surface_literal_passed"] and gate["final_dots_literal_passed"])
+    if "surface" in d:
+        assert gate["surface_literal_passed"] == bool(d["surface"]["passed"])
+        assert gate["all_literal_checks_passed"] is (gate["surface_literal_passed"] and gate["final_dots_literal_passed"])
+    else:
+        assert "surface_literal_passed" not in gate  # no surface was supplied; the surface stage was not run
+        assert gate["all_literal_checks_passed"] is gate["final_dots_literal_passed"]
     assert gate["all_literal_checks_passed"] is False

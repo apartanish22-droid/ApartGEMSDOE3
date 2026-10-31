@@ -1,0 +1,32 @@
+{
+  "session": "2026-10-31",
+  "branch": "arena/38398511-apartgemsdoe3",
+  "hypothesis": "No new experiment this session. Goal: verify the tooling and the GEMSDOE32 0.2778 file, and decide whether any file is cleared for download or submission.",
+  "mechanism": "Not applicable (no new candidate). Reproduction of the shared holdout evaluator on the incumbent file.",
+  "named_non_fault_mimic": "Not applicable. Note: the SGMC-calibrated proxy is a population proxy, not expert labels (see knowledge/10).",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "n_withheld_positives": 22232,
+    "pooled_dti": 0.00451537871535044,
+    "ci95": [0.0038164175817344387, 0.005261598301920283],
+    "matches_recorded_incumbent": true,
+    "recorded_in": "evidence/holdout_incumbent_gemsdoe32_20261030.json"
+  },
+  "sgmc_calibrated_proxy": {
+    "label": "HOLDOUT-DTI (SGMC-CAL proxy, not organizer labels)",
+    "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+    "n_withheld_positives": 62703,
+    "prevalence_calibrated_dti": 0.0641209376417646,
+    "ci95": [0.056730181217206584, 0.0716486609703412]
+  },
+  "correlation_overlap_vs_registry": "Not run this session. The full registry is not restored in this checkout; uniqueness cannot be cleared.",
+  "raster_sha256": {
+    "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9"
+  },
+  "validator_output": "scripts/check_submission.py --strict-finite: PASSED on the GEMSDOE32 file (format, dtype float32, in-footprint and whole-array range [0,1], all finite). Format check only; not authorization.",
+  "submission_name": "none",
+  "submission_note": "none (no candidate cleared)",
+  "verdict": "negative",
+  "verdict_reason": "No candidate has passed the uniqueness gate (full registry not restored), the organizer-authenticated template check, or a holdout win. Do not download or submit any file from this session."
+}

@@ -1,6 +1,6 @@
 # H-S1 and H-M1 — holdout and uniqueness results, 2026-10-31
 
-**Decision: both negative. DO NOT SUBMIT.** Neither candidate clears the off-catalogue (SGMC) gate against the GEMSDOE32 incumbent. Neither has an assigned lane or a selector authorization. The live score is NOT ESTIMABLE.
+**Decision: both experiments negative, and the third candidate on main (H1) is stopped as a literal duplicate. DO NOT SUBMIT.** Neither candidate clears the off-catalogue (SGMC) gate against the GEMSDOE32 incumbent. Neither has an assigned lane or a selector authorization. The live score is NOT ESTIMABLE.
 
 Labels: **HOLDOUT-DTI** = evaluator version, withheld-positive count, 95% cluster-bootstrap CI (140 spatial clusters, 1000 reps). **OWNER-REPORT** = owner-reported leaderboard value, not reproducible from the holdout. No ORGANIZER-CONFIRMED values exist for these files.
 
@@ -62,6 +62,25 @@ The H-M1 catalogue-withheld value is above the incumbent's, and the two CIs do n
   - The scan records `audit_complete: false` (6 malformed or missing rasters, 2 constant or empty).
 - **Submission note:** says "37654 dots". The raster has 36,681 (IR-20261031-02).
 - **Verdict:** negative.
+
+## Third candidate on main: H1-LIDAR-SCARP-DEM-CHI (verified here, not built here)
+
+Created on branch `arena/d20ee5aa` by another session, merged to `main` before this review. This review re-ran the shared evaluator and the full-registry scan on the same bytes. The file's SHA-256 matches its card: `3ec64572ab5e215b5d6305ca1ded5527635bf19584b5e6d78e4d2dbacb5a9abc`.
+
+| Quantity | Its card | Re-run here (`evidence/H1-LIDAR-SCARP-DEM-CHI_holdout_recheck_20261031.json`) | GEMSDOE32 incumbent |
+|---|---|---|---|
+| HOLDOUT-DTI, catalogue-withheld (point) | 0.006214 | 0.006214 (identical) | 0.004515 |
+| HOLDOUT-DTI 95% CI | [0.004713, 0.007406] | **[0.004778, 0.007896]** (does not match the card) | [0.003816, 0.005262] |
+| SGMC-calibrated HOLDOUT-DTI | 0.093975 (CI not shown in card) | 0.093975 [0.071346, 0.114850] | 0.064121 [0.056730, 0.071649] |
+
+- **Holdout claim does not hold as written.** The card says the CI is "entirely above repo best". The CI lower bound (0.0048) is below the incumbent's CI upper bound (0.0053), so the intervals overlap. A paired same-cluster CI was not computed.
+- **SGMC calibrated:** point estimate higher than the incumbent. The calibrated CIs overlap by about 0.0003. This is not a demonstrated gain.
+- **Full-registry final dots: FAIL.** Nine literal duplicates (`evidence/H1-LIDAR-SCARP-DEM-CHI_registry_scan_20261031.json`): GEMSDOE24 lattice (0.998), GEMSDOE3 pindrop (0.797), GEMSDOE23 habitat (overlap 0.829 at 3-px coverage 0.411), GEMSDOE67 (0.713 at coverage 0.548), four ApartGEMSDOE2 masks (1.00), GEMSDOEkarage1 (1.00). Two of these are sparse rasters, so the H1 failure is not only the dense-raster artifact.
+- **The "unique vs focus nine" claim is correct but does not establish full-registry uniqueness.** Its overlap with the focus nine is 22–34%; the GEMSDOE24 focus submission overlaps at about 0.27. All nine literal duplicates are non-focus rasters. The GEMSDOE24 entry is that repo's calibration lattice (`inputs/calibration/13gems_…lattice…`), not its focus submission.
+- **Surface stage not run.** The card has no continuous surface file, so the pre-placement surface comparison was not done.
+- **Leakage canaries not run.** The parallel-run protocol says to log a duplicate and stop, so no canary work was done on H1.
+- **Dots:** the card and note say "about 30k". The raster has 62,469 dots. The note does not state the actual count (gate G9 fails).
+- **Verdict:** negative. Literal duplicate, so stopped per protocol. No weekly slot used.
 
 ## Why the proxy ranks these below the incumbent
 

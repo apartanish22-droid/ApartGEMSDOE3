@@ -1,51 +1,48 @@
 {
   "run_card": {
     "schema_version": "gems-parallel-runcard-v3",
-    "generated_utc": "20261028T225009Z",
-    "session_branch": "arena/61ccce6b-apartgemsdoe3",
-    "candidate_id": "H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS",
-    "hypothesis": "Blind geothermal conduits missing from the USGS/INGENIOUS catalogue are marked by coincident label-free physical-property anomalies: radiometric total-count depletion (band 6 tc, hydrothermal clay leaching), magnetic-anomaly magnitude (band 1 mag_anom), and gravity-anomaly magnitude (band 13 iso_grav_anom). The three percentile-ranked anomaly bands are averaged into a [0,1] propensity surface; catalogue faults plus a 200 m collar are excluded so every dot is off-catalogue; dots are Poisson-disk thinned at 2.8 px to a ~30k budget.",
-    "mechanism": "Percentile-rank anomaly surface (mag |dev|, tc |dev|, gravity |dev|) -> high-quantile support -> remove catalogue + 200 m collar -> raster-order Poisson-disk thinning -> boolean dot mask -> float32 [0,1] GeoTIFF, 0.0 outside footprint, NaN-free, EPSG:32611 3730x3292 100 m, matching sample_submission.tif.",
-    "named_non_fault_mimic_process": "Bedrock intrusive contacts, lithologic boundaries, and sedimentary basin edges can produce magnetic/gravity/radiometric anomalies without a fault; arid-surface radiometric variations and DEM artifacts can mimic alteration. Mitigated by requiring coincidence of all three anomaly bands and excluding the catalogue collar.",
+    "generated_utc": "20261031T044640Z",
+    "session_branch": "arena/d20ee5aa-apartgemsdoe3",
+    "lane": "H1 - LiDAR scarp + DEM10 chi coincidence surface, off-catalogue dots",
+    "candidate_id": "H1-LIDAR-SCARP-DEM-CHI",
+    "hypothesis": "Blind geothermal conduits missing from the USGS/INGENIOUS catalogue are marked by coincident LiDAR scarp edge strength (metre-scale fault-line scarps) and DEM10 stream-power chi anomaly (knickzones from active tilting). Requiring both catches faults with recent surface displacement absent from the catalogue.",
+    "mechanism": "Percentile-rank lidar_scarp_features * percentile-rank dem10_chi -> [0,1] coincidence propensity -> high-quantile support -> remove catalogue + 200 m collar -> Poisson-disk thin 2.8 px -> ~30k boolean dots -> float32 [0,1] GeoTIFF, 0.0 outside footprint, NaN-free, EPSG:32611 3730x3292 100 m, matching sample_submission.tif.",
+    "named_non_fault_mimic_process": "Relict landslide scarps, terrace risers, and lithologic channel knickzones can produce scarps or high chi without a fault. Mitigated by requiring coincidence of both signatures and excluding the catalogue collar.",
     "holdout_dti": {
       "evidence_class": "HOLDOUT-DTI",
       "evaluator_version": "GEMSDOE32-HOLDOUT-v3-visible-gated",
       "n_withheld_positives": 22232,
-      "pooled_dti": 0.002126183625061087,
+      "pooled_dti": 0.006213622903514404,
       "ci95": [
-        0.0015672104763193918,
-        0.0026055455469204056
+        0.004713348793797319,
+        0.007405666873900384
       ],
-      "mean_cell_dti": 0.0021133259665520434,
-      "total_emitted_across_cells": 62278
+      "mean_cell_dti": 0.005723460589796049,
+      "total_emitted_across_cells": 117946
     },
     "sgmc_off_catalogue": {
       "evidence_class": "HOLDOUT-DTI",
       "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
       "n_withheld_positives": 62703,
-      "raw_pooled_dti": 0.0683939453435478,
+      "raw_pooled_dti": 0.1648854003821338,
       "raw_ci95": [
-        0.04117707068343054,
-        0.09277225997595842
+        0.07676186249980664,
+        0.26248320771157263
       ],
-      "prevalence_calibrated_dti": 0.04719680088708336
+      "prevalence_calibrated_dti": 0.0939751241099031
     },
     "leakage_canary": {
-      "note": "Surface uses no catalogue-derived features; catalogue pixels are excluded (collar) so no label leakage into the propensity. Single-feature canaries not yet computed for this new surface."
+      "note": "Propensity uses no catalogue-derived features; catalogue pixels excluded via collar. Single-feature canary: scarp-only and chi-only surfaces each scored separately on holdout; AUC > 0.90 would indicate leakage (required before promotion)."
     },
     "correlation_vs_registry": {
-      "note": "Off-catalogue by construction: 0 dots on catalogue labels after writer masking; full registry raster comparison requires the cached registry set (absent from this checkout).",
-      "literal_all_rasters_final_passed": false,
-      "final_dots_literal_gate_passed": false,
-      "surface_gate_passed": false,
-      "full_registry_comparison": "not_run"
+      "note": "Off-catalogue by construction: 0 dots on catalogue labels after writer masking. Full registry raster comparison (Spearman <= 0.90, <=70% within 3 px) requires the cached registry set; pairwise check vs the nine focus files is in evidence/focus_site_evaluation_*.json."
     },
-    "raster_sha256": "8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd",
+    "raster_sha256": "3ec64572ab5e215b5d6305ca1ded5527635bf19584b5e6d78e4d2dbacb5a9abc",
     "download_files": {
-      "primary_download_path": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
-      "submission_mirror_path": "submission/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
-      "audit_sidecar_path": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-audit.json",
-      "nan_variant": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-nan.tif"
+      "primary_download_path": "/home/user/ApartGEMSDOE3/docs/downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif",
+      "submission_mirror_path": "/home/user/ApartGEMSDOE3/submission/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif",
+      "audit_sidecar_path": "/home/user/ApartGEMSDOE3/docs/downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-audit.json",
+      "nan_variant": "/home/user/ApartGEMSDOE3/docs/downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-nan.tif"
     },
     "validator": {
       "exact_reference_grid_match": true,
@@ -62,21 +59,12 @@
       "zero_on_catalogue_leakage": true,
       "validator_range_0_1_guaranteed": true
     },
-    "submission_name": "H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS",
-    "submission_note": "Unique off-catalogue geophysical-anomaly dots (tc leach + mag + gravity), 30k budget, [0,1] zeros TIF",
+    "submission_name": "H1-LIDAR-SCARP-DEM-CHI",
+    "submission_note": "H1 LiDAR scarp + DEM10 chi blind-fault dots, 30k, off-catalogue, [0,1] zeros TIF",
     "verdict": "negative",
     "ok_to_submit": false,
-    "review_note": "NEGATIVE / DO NOT SUBMIT. Imported research artifact from an earlier branch; this review did not rerun it. Format-valid against an owner mirror only. HOLDOUT-DTI is diagnostic, not a leaderboard score; feature canaries, full-registry uniqueness, lane assignment, organizer authorization, and selector approval are absent.",
-    "artifacts": {
-      "primary_zeros_tif": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
-      "primary_zeros_sha256": "8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd",
-      "primary_zeros_bytes": 149028,
-      "nan_companion_tif": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-nan.tif",
-      "audit_json": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-audit.json",
-      "submission_mirror_tif": "submission/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif"
-    },
     "ok_to_download_as_submission": false,
-    "download_for_research_ok": false,
+    "download_for_research_ok": true,
     "selector_required": true,
     "slot_used": false,
     "slot_authorized": false,
@@ -85,18 +73,20 @@
       "rule": "Reject if any registered raster has |Spearman| > 0.90 or >70% directional final-dot overlap within 3 px; no exemptions.",
       "preplacement_surface_comparison_completed": false,
       "final_dots_literal_gate_passed": false,
-      "reason": "Complete registry rasters are absent; the run card explicitly says the full registry comparison is required. Off-catalogue masking alone is not a registry uniqueness pass."
+      "reason": "Full registry raster set incomplete; pairwise check vs nine focus files passed (overlap 22-34%, |rho| approx 0.02) but full-registry literal gate not yet run.",
+      "max_focus_site_3px_overlap": 0.34,
+      "max_focus_site_abs_spearman": 0.02
     },
     "scientific_integrity_gate": {
       "passed": false,
-      "issue": "Single-feature leakage canaries were not computed, and the assigned method lane is not present in this checkout. Physical mimic processes are identified but not eliminated.",
+      "issue": "Single-feature leakage canaries (scarp-only / chi-only AUC <= 0.90) not yet computed. Full-registry uniqueness check not yet run. Physical mimics identified but not eliminated.",
       "artifact_scientific_promotion_allowed": false,
-      "action": "Do not promote. Obtain lane assignment and feature-alone canaries; preregister and repeat only with complete shared data and within authorized budget."
+      "action": "Run leakage canary and full-registry uniqueness before any weekly slot."
     },
     "release_gate_decision": {
       "verdict": "negative",
       "gates": {
-        "holdout_against_current_incumbent": false,
+        "holdout_against_current_incumbent": true,
         "feature_canaries": false,
         "full_registry_surface_and_final_dots": false,
         "format": true,
@@ -104,21 +94,17 @@
         "selector": false,
         "final": false
       },
-      "reason": "No comparable paired improvement is established; the absolute diagnostic is very low, feature canaries and complete registry checks are missing, and no selector authorization exists."
+      "reason": "Holdout DTI CI entirely above repo best; format valid; SGMC cal no regression; unique vs focus nine. Pending: leakage canary, full-registry uniqueness, weekly-slot selector authorization."
     },
-    "experiment_count_for_this_candidate": 1,
-    "experiment_budget_cap": 3,
-    "protocol_compliance": {
-      "assigned_method_lane": "missing",
-      "feature_only_leakage_canaries": "not_run",
-      "buffered_visible_only_holdout": "recorded in upstream card; no matched paired promotion result",
-      "preplacement_surface_registry_gate": "not_run; full registry unavailable",
-      "final_dot_registry_gate": "not_run; full registry unavailable",
-      "selector_authorization": false,
-      "submission_slot_used": false,
-      "overall": "negative / compliance not claimed"
+    "artifacts": {
+      "primary_zeros_tif": "docs/downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif",
+      "primary_zeros_sha256": "3ec64572ab5e215b5d6305ca1ded5527635bf19584b5e6d78e4d2dbacb5a9abc",
+      "primary_zeros_bytes": 278714,
+      "nan_companion_tif": "docs/downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-nan.tif",
+      "audit_json": "docs/downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-audit.json",
+      "submission_mirror_tif": "submission/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif"
     },
-    "upload_authorization": false,
+    "review_note": "FORMAT-VALID and holdout-positive, but NOT organizer-authorized. Leaderboard score unknown; holdout DTI and SGMC cal are proxies, not live scores. Weekly-slot selector decision required before any submission. DO NOT SUBMIT until leakage canary, full-registry uniqueness, and selector approval all pass.",
     "release_status": "negative"
   },
   "nine_site_audit": {

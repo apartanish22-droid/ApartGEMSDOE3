@@ -18,7 +18,8 @@ Reusable lessons for any project on this kind of task. Numbers are HOLDOUT-DTI w
 4. **Spectral slope magnitude is estimator output.** Steep slopes (median about −7 on real data) can be real and are not a sign of a coding error. Check with a synthetic power-law test before judging a slope estimator.
 5. **Prior art check matters.** A grep found the cross-gradient functional form already in a module for another layer pair. Disclose it rather than claim novelty of the method.
 6. **Check a gate's key, not just its name.** The scan gate read `literal_rule_passed` from a stage that returns `passed`, so a passing surface stage was reported as failed. Assert gate values against the stage records in a test.
-7. **Note fields must come from the actual raster.** Both candidate notes said "37654 dots" when the rasters had 40,732 and 36,681. Compute the count from the raster when writing the note.
+7. **'Unique against the focus nine' is not full-registry uniqueness.** A third candidate (H1, from a parallel session) had overlap 22–34% with the nine focus files but literal duplicates on two sparse non-focus registry rasters (overlap 0.829 and 0.713). Run the full registry before claiming uniqueness.
+8. **Note fields must come from the actual raster.** Both candidate notes said "37654 dots" when the rasters had 40,732 and 36,681. Compute the count from the raster when writing the note.
 
 ## Reusable tools
 

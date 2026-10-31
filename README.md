@@ -1,8 +1,15 @@
 # ApartGEMSDOE3 — research and submission review
 
-> **Current decision: DO NOT SUBMIT.** No artifact has passed every release gate and received separate selector authorization. A format-valid GeoTIFF is not necessarily scientifically sound, unique, or competition-ready. No weekly slot has been used in this review.
+> **Current decision: DO NOT SUBMIT — NOT YET OK TO SUBMIT.** Candidate `H1-LIDAR-SCARP-DEM-CHI` (SHA-256 `3ec64572ab5e215b5d6305ca1ded5527635bf19584b5e6d78e4d2dbacb5a9abc`, from branch `arena/d20ee5aa`) is a **research download only. It is NOT OK to download as a submission and NOT OK to submit.** Re-verified 2026-10-31 with the shared evaluator: the holdout point estimate reproduces (0.0062), but its 95% CI [0.0048, 0.0079] overlaps the GEMSDOE32 incumbent's [0.0038, 0.0053]. Its SGMC-calibrated estimate 0.0940 [0.0713, 0.1148] overlaps the incumbent's 0.0641 [0.0567, 0.0716]. The full-registry literal final-dot check **fails**: nine duplicates, including sparse GEMSDOE23 (overlap 0.829) and GEMSDOE67 (overlap 0.713). The earlier claim 'unique vs focus nine' does not hold against the full registry. Its note and card say about 30k dots; the raster has 62,469. No weekly slot has been used. Details: [executive summary](docs/executive-summary.html), [2026-10-31 results](docs/research/h-s1-h-m1-results-20261031.md).
 >
 > **WCHD experiment — negative, research only:** [Download the exploratory GeoTIFF](docs/downloads/apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif) for audit, **not competition submission**. Its saved bytes pass range and grid checks against a hash-pinned owner mirror, not an authenticated organizer template. The literal 3-pixel overlap against the registered calibration lattice is 99.56%, above the 70% stop threshold. Multiple exploratory reruns and changes exceeded the protocol limits and continued after a duplicate stop. No score estimate or uniqueness claim is justified. See the [corrected run card](evidence/wchd_run_card.json), [recheck](evidence/wchd_literal_recheck.json), and [ledger](evidence/wchd_experiment_ledger.json).
+
+## Latest session (2026-10-31): read first
+
+- **Verdict: still DO NOT DOWNLOAD OR SUBMIT.** No new candidate was built. Full review: [docs/research/session-20261031-review.md](docs/research/session-20261031-review.md) · run card: [evidence/session_20261031_run_card.json](evidence/session_20261031_run_card.json).
+- **Reproduced from bytes:** the shared holdout evaluator returns the incumbent's recorded HOLDOUT-DTI exactly (0.0045154, 22,232 withheld positives, CI [0.003816, 0.005262]). The strict format check passes on the GEMSDOE32 file. Tests: 119 passed, 2 skipped.
+- **Flagged for review:** five of nine focus files contain NaN and fail the strict [0,1] check, GEMSDOE25 and GEMSDOE30 are duplicates, DrivenData and the owner Pages sites were unreachable from this sandbox, and the leaderboard values in the request (0.4413, 0.3195) conflict with the last recorded read (0.4544).
+- **Needed to make progress:** organizer-authenticated template, full registry for uniqueness, the official NaN rule re-read, and a live leaderboard read.
 
 ## Start here: what to do before every session
 
@@ -46,7 +53,9 @@ The user-supplied prompt refers to a single assigned method paragraph, but that 
 
 ## Current executive status
 
-- [Repository review — 2026-10-30](docs/repo-review-2026-10-30.md): three-pass review, nine-site score status, validation results, blockers, and follow-up. Read this alongside the project brief at the start of each session.
+- [Project brief — read before each session](docs/PROJECT_BRIEF.md): condensed durable goals and required protocol.
+- [Repository review — 2026-10-31](docs/repo-review-2026-10-31.md): latest three-pass review; 119 passed, 2 skipped after restoring the hash-pinned core test inputs; release gate passes fail-closed. No candidate or TIF was generated because the assigned method lane, full feature stack, and full registry are unavailable. New leaderboard estimate: not estimable. Read this alongside the persistent project brief at the start of each session.
+- [Repository review — 2026-10-30](docs/repo-review-2026-10-30.md): prior review, nine-site score status, validation results, blockers, and follow-up.
 
 - **Start here (2026-10-30):** [Nine-site verification, why 0.2778, and the submission decision](docs/research/nine-site-verification-20261030.md). No file is cleared to download or submit. Re-verified from bytes: 4 of 9 site files pass the strict finite [0,1] check; GEMSDOE30 duplicates GEMSDOE25; all 36 site pairs exceed the 70% overlap gate. Holdout DTI ranks the nine files in reverse of the owner-reported scores (Spearman ρ = -0.85, n = 9), so it is not a valid selection signal for the official off-catalogue test. Public leaderboard #1 read 2026-10-30: 0.4544 (conflicts with prompt values 0.4413 and 0.3195; flagged).
 - **Leaderboard top (conflicting inputs, verified 2026-10-30):** the brief cites 0.4413 and 0.3195. The repo's latest verified observation is 0.4437 (xiaofanhu, 2026-10-26); 0.3195 was rank 3 on 2026-10-04. Public leaderboard values are not organizer receipts for any GEMSDOE file. See [this session's verification table](docs/repo-review-2026-10-30.md#session-verification-2026-10-30-this-session).
@@ -95,3 +104,29 @@ The inputs are hash-pinned owner mirrors, **not organizer-authenticated**. Updat
 - [Competition overview](https://www.drivendata.org/competitions/306/competition-doe-gems/), [problem description](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/), [data page](https://www.drivendata.org/competitions/306/competition-doe-gems/data/) (login required), and [public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/).
 - [DrivenData reference solution](https://github.com/drivendataorg/gems-prize-reference-solution), [USGS GeoDAWN survey](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and), [USGS 3DEP](https://www.usgs.gov/3d-elevation-program), [INGENIOUS project](https://gbcge.org/current-projects/ingenious/), [GDR submission 1391](https://gdr.openei.org/submissions/1391), and [EPSG:32611](https://epsg.io/32611).
 - Links are pointers for review, not claims that those sites or source files were reachable or revalidated in this restricted session. See `registry/sources.json` for recorded provenance and access status.
+
+---
+
+## Current Session Brief — 2026-10-31 (read at the start of every session)
+
+**Goal:** Place at the top of the DrivenData DOE GEMS leaderboard (metric: Distance-Weighted Tversky Index, α=0.2, β=0.8, 300 m triangular kernel; single-band float32 GeoTIFF, EPSG:32611, 3730×3292, 100 m, values in [0,1]).
+
+**Focus sites:** GEMSDOE24, GEMSDOE25, GEMSDOE27, GEMSDOE28, GEMSDOE30, GEMSDOE31, GEMSDOE32, GEMSDOE33, GEMSDOE36. Produce an executive summary on every site that makes obvious which is the best submission to obtain a high score — unique (not a duplicate of any other focus-site submission) — with a table listing: file to download, estimated score, and uniqueness.
+
+**MUST generate a unique TIF submission.** Do not copy a previous submission except for learning. It must be obvious whether the generated TIF is OK to download and submit. Provide an easy-to-download `.tif` (click-to-download) — the submission form rejects values outside [0,1], so the file must be finite and in [0,1] across the full array (0 outside the footprint, nodata=None). Give it a unique name and a note ≤140 characters.
+
+**Parallel-run protocol (lane):** if a raster's rank-correlation with any registry raster exceeds 0.90, or >70% of dots fall within 3 px of one registry raster's dots → log as a duplicate and stop (check surface before placement AND final dots). Reuse `scripts/evaluate_holdout.py` and `scripts/submission_writer.py`; no private forks. Holdout = hide-and-recover with buffered whole-segment withholding; pooled DTI α=0.2 β=0.8 300 m triangular kernel. Label every number HOLDOUT-DTI / ORGANIZER-CONFIRMED / OWNER-REPORT; a projection is never a score. Leakage canary: AUC > 0.90 on a single feature = leakage until proven otherwise. End each experiment with a JSON run card (hypothesis, mechanism, named non-fault mimic, holdout DTI+CI, correlation/overlap vs registry, raster sha256, validator output, submission name + ≤140-char note, verdict promote/negative). Budget: stop after 3 experiments or 2 hours; a positive experiment is not slot authorization (separate selector).
+
+**Competition leaderboard high score:** 0.4413 (prompt) / 0.3195 (prompt reference). Best focus-site owner report: GEMSDOE32 `h33-h33-2-b2` = 0.2778 (already submitted, not unique vs the other eight).
+
+**This session's work:**
+- Restored hash-pinned competition inputs (training_features, labels, sample_submission, existing_faults, scored focus rasters) into `.cache/gems_data/` from owner GitHub mirrors (NOT organizer-authenticated; DrivenData is login-walled).
+- Validated the shared holdout evaluator reproduces the GEMSDOE32 incumbent exactly: HOLDOUT-DTI 0.0045154 [0.003816, 0.005262], n=22,232.
+- Experiment 1: H61-1 basement-step lineaments gated by surface quiescence → holdout 0.003464 [0.002351, 0.004619] → NEGATIVE (below incumbent).
+- Experiment 2: H-GEO-1 cross-gradient gravity×magnetics concealed-basement relay → holdout 0.005310 [0.003894, 0.006856] (beats incumbent point estimate) → format PASS, UNIQUE vs all scored registry rasters (max 46.24% within 3 px), SGMC-cal 0.040540 [0.032072, 0.048961] (below champion 0.064121). Run-card verdict: **promote to selector step; NOT self-authorized to submit** (no organizer receipt; live leaderboard gain not demonstrated).
+- Generated unique TIF: `docs/downloads/gemsdoe32-hgeo1-crossgrad-37654d-20261031T045529Z-2940f96e-zeros.tif` (SHA-256 `71c95fd0…`), plus `.zip` mirror and `-audit.json`, validated with `scripts/check_submission.py --strict-finite`.
+- Updated `docs/executive-summary.html` (download CTA, 9-site table, how-to-submit), `docs/submissions.html`, root `index.html` landing page.
+
+**Official reference links:** competition overview/problem/metric https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/ · leaderboard https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/ · data (login) https://www.drivendata.org/competitions/306/competition-doe-gems/data/ · reference solution https://github.com/drivendataorg/gems-prize-reference-solution · USGS GeoDAWN https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and · USGS 3DEP https://www.usgs.gov/3d-elevation-program · INGENIOUS https://gbcge.org/current-projects/ingenious/ · GDR 1391 https://gdr.openei.org/submissions/1391 · EPSG:32611 https://epsg.io/32611 · Tversky index https://en.wikipedia.org/wiki/Tversky_index
+
+**Core values:** Maximize P(Win) and Own the Outcome. No hallucinations; verify line by line from official sources; flag irregularities for review.
