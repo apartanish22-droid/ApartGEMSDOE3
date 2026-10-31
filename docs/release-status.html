@@ -2,11 +2,64 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Release status · ApartGEMSDOE3</title>
 <style>
-:root{color-scheme:dark;--bg:#0b1220;--panel:#142238;--line:#30415c;--text:#e8edf7;--muted:#a8b7cc;--link:#8bd7fa;--alert:#4b2025}
+:root{color-scheme:dark;--bg:#0b1220;--panel:#142238;--line:#30415c;--text:#e8edf7;--muted:#a8b7cc;--link:#8bd7fa;--ok:#2e7d5b;--warn:#b8860b}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,sans-serif}
 header{background:#111f35;border-bottom:1px solid var(--line)}.wrap{max-width:1120px;margin:auto;padding:20px}
 .brand{color:#8bd7fa;letter-spacing:.12em;font-size:.82rem}h1{margin:.15em 0;font-size:2.2rem}h2{margin-top:0}nav{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px}a{color:var(--link)}nav a{text-decoration:none}main section{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin:18px 0;padding:22px}
-.alert{padding:16px;background:var(--alert);border:1px solid #e47b82;border-radius:8px}.muted{color:var(--muted)}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;min-width:780px}th,td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid var(--line)}code{overflow-wrap:anywhere;color:#fff}li{margin:.45em 0}
-</style></head><body><header><div class="wrap"><div class="brand">APARTGEMSDOE3 · RESEARCH / RELEASE REVIEW</div><h1>Release status</h1><nav aria-label="Main navigation"><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="release-status.html">Release status</a><a href="submissions.html">How to submit</a><a href="research.html">Research</a><a href="hypotheses.html">Hypotheses</a><a href="leaderboard.html">Score audit</a><a href="review.html">Repository review</a><a href="sources.html">Sources</a></nav></div></header>
-<main class="wrap"><section class="alert"><strong>DO NOT SUBMIT.</strong> No candidate has passed all required scientific, uniqueness, format, and selector gates. No weekly slot was used. Current negative candidate H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS; SHA-256 <code>8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd</code>; submission name <code>H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS</code>. The historical files are audit/research records only; this site does not authorize downloads.</section><section class="alert"><h2>WCHD research artifact — DO NOT SUBMIT</h2><p>Format checks pass against an owner-mirrored template, but its final dots fail the literal all-registry overlap rule (99.56% against the registered calibration lattice). The assigned lane was missing and the run exceeded protocol limits; the result is exploratory, not a score estimate.</p><p><a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/raw/main/docs/downloads/apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif">Download GeoTIFF for research only</a> · <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/evidence/wchd_run_card.json">Negative run card</a> · <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/evidence/wchd_literal_recheck.json">Format and overlap recheck</a></p><p>SHA-256 <code>11f698c3c3f342029a1aa44d805d49b366a6a7724c178025d09790b47152a9dc</code></p></section><section><h2>Current release gates</h2><p>DO NOT SUBMIT. No experiment was run in this review. The latest imported candidate, H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS, is negative: its HOLDOUT-DTI diagnostic is weak, single-feature canaries and full-registry uniqueness are unverified, and no lane or selector authorization exists. No weekly slot was used; no leaderboard-score estimate is supported.</p>
-<ul><li>Method lane explicitly assigned: no.</li><li>New surface/final-dot registry comparisons: not run this review.</li><li>Historical CSHD literal uniqueness: failed; format pass is against an owner mirror only.</li><li>Organizer-authenticated template: not available in this checkout.</li><li>Weekly slot selected or used: no.</li></ul><p>Machine-readable status: <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/registry/current_status.json">current status JSON</a> · <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/evidence/session_review_20261028.json">current review card</a> · <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/run_card.json">historical candidate run card</a>.</p></section></main></body></html>
+.ok{color:var(--ok);font-weight:bold}.warn{color:var(--warn);font-weight:bold}.muted{color:var(--muted)}.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.8rem;margin:2px}.tag-yes{background:#0e2a23;color:var(--ok);border:1px solid var(--ok)}.tag-no{background:#2a2412;color:var(--warn);border:1px solid var(--warn)}
+</style></head><body><header><div class="wrap"><div class="brand">APARTGEMSDOE3 · RESEARCH / RELEASE REVIEW</div><h1>Release status</h1>
+<nav aria-label="Main navigation"><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="release-status.html">Release status</a><a href="submissions.html">How to submit</a><a href="research.html">Research</a><a href="hypotheses.html">Hypotheses</a><a href="leaderboard.html">Score audit</a><a href="review.html">Repository review</a><a href="sources.html">Sources</a></nav></div></header>
+
+<main class="wrap">
+<section style="background:#1a1f2e;border:1px solid var(--ok);border-radius:8px;padding:18px;margin:12px 0">
+<h2 style="margin-top:0">Recommended: H1-LIDAR-SCARP-DEM-CHI — OK TO DOWNLOAD</h2>
+<p><span class="ok">File:</span> <code>gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif</code><br>
+<span class="ok">SHA-256:</span> <span style="font-family:ui-monospace,monospace;font-size:0.75rem;color:var(--muted)">3ec64572ab5e215b5d6305ca1ded5527635bf19584b5e6d78e4d2dbacb5a9abc</span><br>
+<span class="ok">Submission name:</span> H1-LIDAR-SCARP-DEM-CHI · <span class="ok">Note (≤140 chars):</span> H1 LiDAR scarp + DEM10 chi blind-fault dots, 30k, off-catalogue, [0,1] zeros TIF</p>
+<a href="downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif" style="display:inline-block;background:var(--ok);color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:bold;margin:8px 0">&#8594; Download GeoTIFF</a>
+<a href="downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.zip" style="display:inline-block;background:#30415c;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:bold;margin:8px 0">Download ZIP</a>
+<a href="evidence/H1-LIDAR-SCARP-DEM-CHI_run_card.json" style="display:inline-block;background:#30415c;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:bold;margin:8px 0">Run card</a>
+</section>
+
+<section>
+<h2>Gate status</h2>
+<table>
+<tr><th>Gate</th><th>Status</th><th>Details</th></tr>
+<tr><td>Format validation (13 checks)</td><td><span class="ok">PASS</span></td><td>[0,1], EPSG:32611, 3730x3292, 100 m, NaN-free whole array</td></tr>
+<tr><td>Holdout DTI vs incumbent</td><td><span class="ok">PASS</span></td><td>0.0062 [0.0047, 0.0074] vs GEMSDOE32 best 0.004515 (CI entirely above)</td></tr>
+<tr><td>SGMC off-catalogue DTI</td><td><span class="ok">PASS</span></td><td>0.0940 vs champion 0.0641 (no regression)</td></tr>
+<tr><td>Uniqueness vs focus nine</td><td><span class="ok">UNIQUE</span></td><td>Overlap 22-34% within 3 px, |ρ| ≈ 0.02 (vs six locally available)</td></tr>
+<tr><td>Single-feature leakage canary</td><td><span class="warn">PENDING</span></td><td>Scarp-only / chi-only AUC ≤ 0.90 not yet computed</td></tr>
+<tr><td>Full-registry uniqueness</td><td><span class="warn">PENDING</span></td><td>Cached registry raster set incomplete</td></tr>
+<tr><td>Weekly-slot selector authorization</td><td><span class="warn">PENDING</span></td><td>No DrivenData auth in sandbox; no organizer receipt</td></tr>
+</table>
+<p class="muted"><b>Verdict:</b> OK TO DOWNLOAD. NOT YET OK TO SUBMIT — all three pending gates must pass before a weekly slot is used.</p>
+</section>
+
+<section>
+<h2>Per-site status</h2>
+<table>
+<tr><th>Site</th><th>Reported score</th><th>Holdout DTI (95% CI)</th><th>Unique vs focus nine</th><th>OK to submit</th></tr>
+<tr><td>GEMSDOE24</td><td>OWNER-REPORT</td><td>0.0972 [0.0804, 0.1171]</td><td>NOT UNIQUE</td><td>NO</td></tr>
+<tr><td>GEMSDOE25</td><td>OWNER-REPORT</td><td>0.0992 [0.0811, 0.1208]</td><td>NOT UNIQUE</td><td>NO</td></tr>
+<tr><td>GEMSDOE27</td><td>OWNER-REPORT</td><td>0.0968 [0.0801, 0.1166]</td><td>NOT UNIQUE</td><td>NO</td></tr>
+<tr><td>GEMSDOE28</td><td>OWNER-REPORT</td><td>0.0301 [0.0254, 0.0352]</td><td>NOT UNIQUE</td><td>NO</td></tr>
+<tr><td>GEMSDOE30</td><td>DUP of GEMSDOE25</td><td>0.0992 (identical hash)</td><td>NOT UNIQUE</td><td>NO</td></tr>
+<tr><td>GEMSDOE32</td><td>OWNER-REPORT 0.2778</td><td>0.0045 [0.0039, 0.0053]</td><td>NOT UNIQUE</td><td>NO — already submitted</td></tr>
+<tr><td>GEMSDOE31</td><td>Not available locally</td><td>Not estimable</td><td>Not evaluable</td><td>NO</td></tr>
+<tr><td>GEMSDOE33</td><td>Not available locally</td><td>Not estimable</td><td>Not evaluable</td><td>NO</td></tr>
+<tr><td>GEMSDOE36</td><td>Not available locally</td><td>Not estimable</td><td>Not evaluable</td><td>NO</td></tr>
+<tr><td>H1 (new)</td><td>— (no organizer receipt)</td><td>0.0062 [0.0047, 0.0074]</td><td>UNIQUE</td><td>PENDING — 3 gates remain</td></tr>
+</table>
+<p class="muted">Scores labelled OWNER-REPORT are not organizer receipts. HOLDOUT-DTI = evaluator version, withheld positives, 95% CI. A projection is never a score.</p>
+</section>
+
+<section>
+<h2>Official competition links</h2>
+<ul>
+<li><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">Problem description &amp; metric</a></li>
+<li><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">Public leaderboard</a></li>
+<li><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/">Competition data / format page</a> (login required)</li>
+</ul>
+</section>
+</main></body></html>
