@@ -44,6 +44,7 @@ The user-supplied prompt refers to a single assigned method paragraph, but that 
 
 ## Current executive status
 
+- [Repository review — 2026-10-31](docs/repo-review-2026-10-31.md): three-pass review, nine-site score status, checks actually run, blockers, and follow-up. This is a review-only continuation: no TIFF or experiment was produced.
 - [Repository review — 2026-10-30](docs/repo-review-2026-10-30.md): three-pass review, nine-site score status, validation results, blockers, and follow-up. Read this alongside the project brief at the start of each session.
 
 - **Start here (2026-10-30):** [Nine-site verification, why 0.2778, and the submission decision](docs/research/nine-site-verification-20261030.md). No file is cleared to download or submit. Re-verified from bytes: 4 of 9 site files pass the strict finite [0,1] check; GEMSDOE30 duplicates GEMSDOE25; all 36 site pairs exceed the 70% overlap gate. Holdout DTI ranks the nine files in reverse of the owner-reported scores (Spearman ρ = -0.85, n = 9), so it is not a valid selection signal for the official off-catalogue test. Public leaderboard #1 read 2026-10-30: 0.4544 (conflicts with prompt values 0.4413 and 0.3195; flagged).
