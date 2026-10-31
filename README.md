@@ -2,6 +2,8 @@
 
 > **Current decision: DO NOT SUBMIT.** No artifact has passed every release gate and received separate selector authorization. A format-valid GeoTIFF is not necessarily scientifically sound, unique, or competition-ready. No weekly slot has been used in this review.
 >
+> **Latest review (2026-10-31):** [repository review and next-step plan](docs/repo-review-2026-10-31.md) · [machine-readable negative run card](evidence/repo_review_20261031_run_card.json). The test suite passes after restoring the two documented core mirror inputs, but no new experiment or TIFF was produced: the assigned lane, training feature raster/cache, and complete registry are absent. Read this review and the persistent project brief below before each session; do not interpret historical score claims as current or organizer-confirmed.
+>
 > **WCHD experiment — negative, research only:** [Download the exploratory GeoTIFF](docs/downloads/apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif) for audit, **not competition submission**. Its saved bytes pass range and grid checks against a hash-pinned owner mirror, not an authenticated organizer template. The literal 3-pixel overlap against the registered calibration lattice is 99.56%, above the 70% stop threshold. Multiple exploratory reruns and changes exceeded the protocol limits and continued after a duplicate stop. No score estimate or uniqueness claim is justified. See the [corrected run card](evidence/wchd_run_card.json), [recheck](evidence/wchd_literal_recheck.json), and [ledger](evidence/wchd_experiment_ledger.json).
 
 ## Latest session (2026-10-31): read first
