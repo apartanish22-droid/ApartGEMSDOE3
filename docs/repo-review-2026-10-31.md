@@ -8,7 +8,7 @@ This is a three-pass review of the checked-out repository and available local ev
 
 ## Pass 1 — files, provenance, and what the nine-site table says
 
-The repository contains the project brief in [`README.md`](../README.md), release and review pages, shared holdout and writer tools (`scripts/evaluate_holdout.py`, `scripts/submission_writer.py`), and historical artifacts. It does **not** contain the full `training_features.tif`, cached feature stack, or full registry raster cache. The manifest `data/prepared_manifest.json` records expected hashes and grid metadata, but is not the underlying raster data. This session restored only `labels.tif` and `sample_submission.tif` from the pinned owner-mirror CI manifest; that proves hash agreement with the manifest, not organizer provenance.
+The repository contains the project brief in [`README.md`](../README.md), release and review pages, shared holdout and writer tools (`scripts/evaluate_holdout.py`, `scripts/submission_writer.py`), and historical artifacts. In this active sandbox, `.cache/gems_data/` currently contains only `labels.tif` and `sample_submission.tif`; the full `training_features.tif`, cached feature stack, and full registry raster cache are not present. The manifest `data/prepared_manifest.json` records expected hashes and grid metadata, but is not the underlying raster data. A separate merged 2026-10-31 session records 36 pinned files restored and verified (`data/restore_receipt.json` and [`docs/research/session-20261031-review.md`](research/session-20261031-review.md)); those cached bytes are not present in this active sandbox, so that receipt is not evidence of current local availability. This session restored only the two core format inputs from the pinned owner-mirror CI manifest; that proves hash agreement with the manifest, not organizer provenance.
 
 | Site | Highest file recorded in the supplied site audit | Score | HOLDOUT-DTI, evaluator v3.0 (22,232 withheld positives; 95% CI) | Unique against the other eight named sites? | OK to submit? |
 |---|---|---:|---|---|---|
@@ -75,7 +75,7 @@ It restored `labels.tif` and `sample_submission.tif`; the cache is ignored by Gi
 - `.venv/bin/python -m compileall -q src scripts tests` — **PASS**.
 - `git diff --check` — **PASS**.
 
-No holdout evaluator was run in this review: its required feature/cached inputs are not present. No current live leaderboard fetch was performed.
+No new holdout evaluator or candidate was run in this review: its required feature/cached inputs are not present locally. A separate merged session did reproduce the incumbent exactly: `HOLDOUT-DTI` 0.0045153787 [0.0038164176, 0.0052615983], evaluator `GEMSDOE32-HIDE-RECOVER-v3.0`, 22,232 withheld positives; see [`evidence/holdout_incumbent_recheck_20261031.json`](../evidence/holdout_incumbent_recheck_20261031.json) and [`evidence/session_20261031_run_card.json`](../evidence/session_20261031_run_card.json). The prior session's format audit reports 11/17 TIFF variants passed and six NaN variants failed the whole-array validator against the owner-mirror template; this review did not rerun that audit because the files used by it are not restored here. See [`evidence/format_audit_20261031.json`](../evidence/format_audit_20261031.json). No current live leaderboard fetch was performed.
 
 ## Suggested next work
 
