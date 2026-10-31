@@ -1,0 +1,38 @@
+{
+  "purpose": "Null-baseline controls for the holdout instruments, run 2026-10-31. Random placement must not outrank real signal.",
+  "evaluator_versions": {
+    "hide_and_recover": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "sgmc_cal": "GEMSDOE32-SGMC-CAL-v3.0"
+  },
+  "controls": {
+    "random_seed0": {
+      "label": "HOLDOUT-DTI control (not a submission)",
+      "hide_and_recover_pooled_dti": 0.0451723305739691,
+      "hide_and_recover_ci95": [
+        0.04090397781806272,
+        0.04951907799709922
+      ],
+      "hide_and_recover_n_withheld": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04678200489584633,
+      "sgmc_n_withheld": 62703,
+      "dots": 37654,
+      "construction": "uniform random 37,654 footprint cells, numpy default_rng(0)",
+      "sha256": "689008b87070e18e51cd2546957eda2cd058e1448f8d9eefba0e4eee7cf4b743"
+    },
+    "random_seed1": {
+      "label": "HOLDOUT-DTI control (not a submission)",
+      "hide_and_recover_pooled_dti": 0.0489045912978499,
+      "hide_and_recover_ci95": [
+        0.044232066715701485,
+        0.05304203824200469
+      ],
+      "hide_and_recover_n_withheld": 22232,
+      "sgmc_prevalence_calibrated_dti": 0.04615526875500396,
+      "sgmc_n_withheld": 62703,
+      "dots": 37654,
+      "construction": "uniform random 37,654 footprint cells, numpy default_rng(1)",
+      "sha256": "4fb35021379577c48b8b83ee706035136148537b0ab489bb8e95bf362c162c91"
+    }
+  },
+  "reading": "Random dots score 0.045 on HIDE-RECOVER, ~10x the champion (0.0045). The HIDE-RECOVER gate therefore does not discriminate pruned catalogue-free dots from random dots. SGMC-CAL random = 0.047 vs champion 0.064."
+}

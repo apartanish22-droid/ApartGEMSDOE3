@@ -1,0 +1,15 @@
+{
+  "n_compared": 131,
+  "n_measurable": 131,
+  "n_duplicates": 7,
+  "worst_within_3px_fraction": 0.9993503857084856,
+  "worst_within_3px_registry": "/home/user/ApartGEMSDOE3/.cache/ledger/13GEMSDOE/docs/downloads/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+  "worst_abs_spearman": 0.05812663601718637,
+  "worst_spearman_registry": "/home/user/ApartGEMSDOE3/.cache/ledger/18GEMSDOE/docs/downloads/18GEMSDOE_H19-C_20260930T212401Z_c11e495e.tif",
+  "passed_all": false,
+  "rule": "literal rho>0.90 OR directional <=3px overlap>0.70; compare_registry stage=final; surfaces = binary rasters (candidate density not saved)",
+  "candidate": "docs/downloads/gemsdoe32-hgeo1-crossgrad-37654d-20261031T045529Z-2940f96e-zeros.tif (from origin/main commit 0acfc77; not in this branch working tree at check time)",
+  "candidate_sha256": "71c95fd09f2d2bf3de4c590c7cb5208cb91ebcd23e0c641421f84ce6c4eca113",
+  "checked_by": "2026-10-31 session; same compare_registry code path as evidence/euler_n1_E1_uniqueness_20261031.json",
+  "registry_paths_note": "paths under .cache/ledger (117 SHA-verified rasters) and .cache/gems_data/scored; 131 compared"
+}

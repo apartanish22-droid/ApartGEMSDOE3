@@ -212,6 +212,67 @@ def start_here_html(root: Path = ROOT) -> str:
     )
 
 
+
+# Session 2026-10-31 decision block (static, reviewed text). Numbers trace to evidence/ files; see tests/test_session_20261031_decision.py.
+DECISION_HTML_20261031 = '''<section class="alert" id="decision"><h2>SUBMISSION DECISION (31 Oct 2026) — read this first</h2>
+<p style="font-size:1.1rem"><b>Download: NONE. Submit: NONE.</b> No file on this site is cleared to download or submit. No file below is a download-to-submit link; the research-only links in the table below are audit copies, on purpose: every candidate fails at least one automated gate. Verified from bytes this session; every number is labelled.</p>
+<div class="scroll"><table><thead><tr><th>Item</th><th>File</th><th>Score (label)</th><th>Unique?</th><th>Format: finite, [0,1], no NaN</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><b>Highest reported score</b></td><td><code>gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</code><br>SHA-256 <code>c55bafc4…ab6fa9</code></td><td>0.2778 OWNER-REPORT (no organizer receipt in repo)</td><td><b>No</b>: 97.3%+ overlap with every other focus site (all 36 pairs, one direction)</td><td>Yes</td><td><b>DO NOT RESUBMIT.</b> Already on the board; a resubmission is a duplicate.</td></tr>
+<tr><td><b>Best NaN-free zero-fill of the GEMSDOE36 family</b></td><td>GEMSDOE36 <code>…9b9ea4e6-zeros.tif</code></td><td>0.2750 OWNER-REPORT</td><td><b>No</b>: same family as GEMSDOE32</td><td>Yes</td><td>Do not submit (duplicate family).</td></tr>
+<tr><td><b>New candidate E1 (this session)</b>: Euler N=1 solution density on TMI, 37,654 dots</td><td><code>E1-EULER-N1-TMI-37654.tif</code>, SHA-256 <code>62b8004758…4db9ec</code>; not published to downloads</td><td><b>Not estimable.</b> HOLDOUT-DTI HIDE-RECOVER 0.0196 [0.0157, 0.0236] (n=22,232; passes, but non-discriminating, IR-4); SGMC-CAL 0.0147 [0.0123, 0.0171] (n=62,703). ANALOG PROJECTION only (not a score): about 0.02, range 0.00–0.045, from 13 owner-reported rasters with the same SGMC-calibrated value</td><td><b>Fails</b> the literal rule: 4 of 131 registry rasters flagged (metric artifact, see IR-3)</td><td>Yes</td><td><b>NEGATIVE. DO NOT SUBMIT.</b> Fails SGMC-calibrated non-regression: 0.0147 [0.0123, 0.0171] vs champion 0.0641; below random-dot control 0.046–0.047.</td></tr>
+<tr><td><b>Branch-merged candidate H-GEO-1</b> (from main, 2026-10-31)</td><td><code>gemsdoe32-hgeo1-crossgrad-37654d-20261031T045529Z-2940f96e-zeros.tif</code>, SHA-256 <code>71c95fd0…ca113</code></td><td><b>Not estimable.</b> HOLDOUT-DTI HIDE-RECOVER 0.0053 [0.0039, 0.0069] (GEMSDOE32-HIDE-RECOVER-v3.0, n=22,232). SGMC-CAL 0.0405 [0.0321, 0.0490] (n=62,703) vs champion 0.0641: a regression.</td><td><b>No.</b> 7 of 131 registry rasters flagged; worst 99.94% within 3 px of the 13GEMSDOE lattice (<a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/arena/8d33bc2d-apartgemsdoe3/evidence/hgeo1_uniqueness_recheck_20261031.json">evidence</a>). The brief's "UNIQUE (max 46.24%)" is not reproduced.</td><td>Yes</td><td><b>DO NOT DOWNLOAD AS SUBMISSION.</b> Fails uniqueness and SGMC non-regression. Its card's "promote" verdict conflicts with its own fields (IR-13).</td></tr>
+<tr><td><b>Branch-merged candidate H1-LIDAR-SCARP-DEM-CHI</b> (from main)</td><td><code>gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif</code>, SHA-256 <code>3ec64572…5a9abc</code></td><td><b>Not estimable.</b> HOLDOUT-DTI 0.0062 [0.0047, 0.0074] (evaluator GEMSDOE32-HOLDOUT-v3-visible-gated, n=22,232; label differs from E1, IR-14). Leakage canaries not run.</td><td><b>No.</b> 7 of 131 registry rasters flagged; worst 99.78% within 3 px of the 13GEMSDOE lattice (<a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/arena/8d33bc2d-apartgemsdoe3/evidence/h1_uniqueness_recheck_20261031.json">evidence</a>).</td><td>Yes (per card)</td><td><b>RESEARCH ONLY, NOT A SUBMISSION.</b> Its card says ok_to_submit=false and ok_to_download_as_submission=false. The main-branch "OK TO DOWNLOAD ONLY" banner is withdrawn.</td></tr>
+</tbody></table></div>
+<p><b>Withdrawn on main:</b> main (commit c1990a7 and its merges) showed "Download: YES" for H-GEO-1 and "OK TO DOWNLOAD ONLY" for H1 on the executive summary and index pages. Both statements contradict the registry (<code>any_file_ok_to_submit=false</code>) and fail the uniqueness gate, so they are removed here. The files stay in <code>docs/downloads/</code> for audit only.</p><p><b>Why no unique, high-scoring file exists yet:</b> the nine focus files are one family (all pairs overlap, lowest 97.3%). The only new, catalogue-free candidate this session (E1) fails the scientific gate. Random dots beat E1 on the metric that matters. Every gate is automated; none requires human inspection.</p>
+<p class="muted">Evidence: <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/evidence/euler_n1_E1_run_card.json">E1 run card</a> · <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/docs/research/preregistration-euler-n1-tmi-20261031.md">E1 pre-registration</a> · <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/evidence/random_dot_controls_20261031.json">random-dot controls</a> · <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/evidence/champion_catalogue_proximity_20261031.json">catalogue-proximity table</a> · <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/main/docs/research/session-20261031-e1-euler-review.md">full session review</a></p>
+</section>
+<section><h2>Why 0.2778 scored highest — verified from bytes</h2>
+<ul>
+<li><b>Dot chain (count of positive pixels, from the files):</b> H19-5 121,131 → d1.5 60,069 → d2.8 44,090 → champion 37,654. Each file is a subset of its parent.</li>
+<li><b>The champion is d2.8 with exactly 6,436 dots removed:</b> the dots within 2 px (200 m) of <code>labels.tif</code> (60,988 known-fault pixels). All 37,654 champion dots lie inside d2.8. The champion has <b>0</b> dots within 2 px of the catalogue; d2.8 has 6,436 (14.6%). Within 300 m: 5.8% (champion) vs 19.5% (d2.8).</li>
+<li><b>Owner-reported effect:</b> d2.8 0.2600 → champion 0.2778 (+0.0178). OWNER-REPORT.</li>
+<li><b>The premise is not verified here:</b> the mechanism needs the organizer's hidden test to down-weight catalogue faults. The repo states this; DrivenData is unreachable from this sandbox (HTTP 000), so it cannot be checked today.</li>
+<li><b>The repo holdout cannot see this mechanism.</b> The HIDE-RECOVER holdout gives the champion 0.0045, the lowest in the family, while random dots score 0.045–0.049 on the same test (two-seed control run). The holdout penalizes catalogue pruning, which is the effect the leaderboard may reward. Do not use it alone to pick a file.</li>
+</ul></section>
+<section class="alert"><h2>Portal error: "Predicted values must be in range [0, 1]"</h2>
+<ul>
+<li><b>Verified:</b> every finite value in every downloadable TIF is inside [0, 1] (scanned 31 files, 0 values outside range). No file has infinite values.</li>
+<li><b>Verified:</b> five focus files (GEMSDOE24, 25, 27, 28, 31) and 18 of the 31 TIFs scanned contain NaN outside the footprint (7,111,787 pixels in each case; none inside). The owner-mirrored template <code>sample_submission.tif</code> has the same pattern (nodata = NaN, 7,111,787 NaN pixels outside its 5,167,373-pixel footprint).</li>
+<li><b>Therefore:</b> NaN outside the footprint is the template's own convention. The portal's behaviour is <b>not established</b> here. The repo's statement that the official page allows NaN outside the footprint could not be re-read (DrivenData and NLR unreachable). Owner-reported scores for NaN files (e.g., 0.2708, 0.2600) suggest the portal accepted some of them, which conflicts with the error you saw. Unresolved.</li>
+<li><b>Safe rule for any future file:</b> finite values everywhere, zero outside the footprint. That passes the strict check. But zero-filling an existing file gives the same predictions, which is a duplicate and not allowed as a unique submission.</li>
+<li><b>To resolve:</b> send the exact file name and size you uploaded, plus the portal's error text. I can check those bytes against the strict check.</li>
+</ul></section>
+<section><h2>Estimate method</h2>
+<ul>
+<li><b>Existing files:</b> the only numbers are OWNER-REPORT scores. No organizer receipt ties any score to a file hash in this repo.</li>
+<li><b>New files:</b> not estimable. The only projection is an analog from the 117-raster owner ledger, binned by SGMC-calibrated DTI (rank-association only, rho +0.40). Its top bin (&ge;0.10) has a lower median score (0.07) than 0.055–0.064 (0.23), so it is not monotonic and cannot be read as a score.</li>
+</ul></section>
+<section class="alert"><h2>Irregularities flagged for review</h2>
+<p>Canonical numbering is the one in <a href="https://github.com/apartanish22-droid/ApartGEMSDOE3/blob/arena/8d33bc2d-apartgemsdoe3/docs/research/session-20261031-e1-euler-review.md">the session review, section 8</a>. Legacy IDs used in the E1 run card: IR-E1-01 = IR-3, IR-E1-02 = IR-4.</p>
+<ol>
+<li><b>IR-1 Leaderboard values conflict.</b> Prompt: 0.4413 and 0.3195. Repo observations: 0.4437 (2026-10-26) and 0.4544 (2026-10-30). No live read was possible; none is an organizer receipt.</li>
+<li><b>IR-2 GEMSDOE25 vs GEMSDOE30.</b> Not byte-identical (SHA-256 <code>91eae1ca…</code> vs <code>8cf893ea…</code>). Same positive dot mask; GEMSDOE30 is zero-filled. Earlier wording "byte-identical" is corrected.</li>
+<li><b>IR-3 Uniqueness metric depends on registry density.</b> Dense lattice raster 13GEMSDOE (206,895 dots): 99.97% forward overlap from E1, 4.1% reverse. The literal 70% rule was kept, not waived. Owner decision needed on a density-corrected metric.</li>
+<li><b>IR-4 HIDE-RECOVER holdout rewards catalogue-proximate dots.</b> Random dots score 0.045–0.049 against the champion's 0.0045. The gate is safe only because the SGMC-CAL non-regression gate also applies.</li>
+<li><b>IR-5 NaN rule unverified.</b> The repo says the official page allows NaN outside the footprint; this could not be re-read here. The strict validator rejects NaN everywhere, which is stricter than the template.</li>
+<li><b>IR-6 Owner NaN scores vs portal error.</b> NaN-containing files carry owner-reported scores, yet the user reported a range error. Unresolved; needs the file name and the exact portal text.</li>
+<li><b>IR-7 Gate note cites DrivenData page 967.</b> Cited in <code>evidence/nine_site_verification_20261030.json</code>; not re-read this session.</li>
+<li><b>IR-8 Lane not assigned.</b> The protocol's method paragraph is absent from the prompt. E1 was chosen from the repo's own shortlist, not from an assigned lane.</li>
+<li><b>IR-9 Full registry not rerun.</b> The 2026-10-28 scan (784 unique rasters) is cited, not re-verified. Only the 131 registry rasters in the E1 uniqueness run were compared.</li>
+<li><b>IR-10 SGMC proxy is non-monotonic.</b> Rank correlation with owner scores is +0.40 (n=117), but the top bin (&ge;0.10) has a lower median (0.07) than 0.055–0.064 (0.23). Use as a rank tool only.</li>
+<li><b>IR-11 Nine-site association is n=9.</b> ρ = +0.95 (owner vs SGMC-CAL) and ρ = +1.00 (owner vs share beyond 1 km) come from one family of nine files. Not evidence of a general rule.</li>
+<li><b>IR-12 Main-branch CTAs overstated.</b> Merged main showed "Download: YES" for H-GEO-1 and "OK TO DOWNLOAD ONLY" for H1 while the registry says <code>any_file_ok_to_submit=false</code>. Both files fail the literal uniqueness rule (7 of 131 each). Removed on this branch; the files remain for audit.</li>
+<li><b>IR-13 H-GEO-1 card verdict "promote" conflicts with its own fields.</b> SGMC-CAL 0.0405 is below the champion 0.0641, and its lane check fails at 99.94% within 3 px of 13GEMSDOE. Its README line "UNIQUE vs all scored registry rasters (max 46.24%)" is not reproduced. Owner review of that card is needed.</li>
+<li><b>IR-14 Evaluator labels differ.</b> E1 and H-GEO-1 use GEMSDOE32-HIDE-RECOVER-v3.0; H1 uses GEMSDOE32-HOLDOUT-v3-visible-gated with n=22,232. Not reconciled here; both labels are reported as recorded.</li>
+</ol></section>
+<section><h2>Limits and what is needed</h2>
+<ul>
+<li><b>Reachable from this sandbox:</b> github.com, codeload, api.github.com, pypi, npm.</li>
+<li><b>Unreachable (HTTP 000, re-checked 2026-10-31):</b> drivendata.org (competition data, template, leaderboard, problem page), docs.nlr.gov (submission spec), usgs.gov, epsg.io, and the owner Pages sites (buffedlizard55-lab.github.io). The organizer template could not be authenticated, so all format checks use an owner mirror.</li>
+<li><b>Needed to make progress:</b> (1) the organizer template and data, or the NLR spec text, to settle the NaN rule; (2) the exact failing file and portal error text; (3) an owner decision on the uniqueness metric (IR-3); (4) an assigned method lane; (5) a live leaderboard read from a machine that can reach DrivenData.</li>
+</ul></section>
+'''
+
 RAW_BASE = "https://github.com/apartanish22-droid/ApartGEMSDOE3/raw/main/"
 
 
@@ -309,7 +370,7 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
     )
     calib = calibration_summary(root)
     warning = (
-        '<section class="alert"><strong>DO NOT SUBMIT — NOT YET OK TO SUBMIT.</strong> H1 OK TO DOWNLOAD only. '
+        '<section class="alert"><strong>DO NOT SUBMIT — NOT YET OK TO SUBMIT.</strong> No file is OK to download or submit. H1 is research-only and fails literal uniqueness (7 of 131 flagged). '
         "No candidate has passed all required scientific, uniqueness, format, and selector gates. No weekly slot was used. "
         f"Current negative candidate {esc(current_id)}; SHA-256 <code>{esc(current_hash)}</code>; "
         f"submission name <code>{esc(current_card.get('submission_name', 'not recorded'))}</code>. "
@@ -367,7 +428,7 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
         '<a href="repo-review-2026-10-31.md">current repository review</a> and its '
         f'<a href="{esc(repo_link("evidence/repo_review_20261031_run_card.json"))}">negative run card</a>.</p></section>'
     )
-    exec_body = warning + candidates_20261031_html(root) + latest_review + start_here_html(root) + candidate_under_review_html(root) + f'''<section><h2>Nine-site comparison</h2>
+    exec_body = warning + DECISION_HTML_20261031 + candidates_20261031_html(root) + latest_review + start_here_html(root) + candidate_under_review_html(root) + f'''<section><h2>Nine-site comparison</h2>
 <p>All submitted-score entries below are <b>OWNER-REPORT</b> from the supplied/repository audit. None is organizer-confirmed here. The score estimate for a new submission is <b>not estimable</b>; a HOLDOUT-DTI result cannot be converted to a live score without a validated calibration study.</p>{table}
 {calib}
 <p>{esc(top['site'])} is the largest listed owner report ({float(top['published_score_OWNER_REPORT']):.4f}). Existing analysis says the reported nested pruning sequence is consistent with removing low-credit false-positive mass, but no hidden truth or receipt-linked evidence establishes causation. See <a href="{esc(repo_link('knowledge/03_why_02778_and_the_anatomy_of_the_family.md'))}">the evidence and limitations</a>.</p><p>There is no file currently OK to submit. The nine reported files are <b>NOT UNIQUE in this nine-site cohort</b> according to the repository overlap audit; scores remain OWNER-REPORT, not organizer receipts. {current_registry_note} Earlier `H-APART3-2-CTHG-DHC` (`apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif`) had recorded overlaps of 75.90%, 72.25%, and 99.8035% within 3 px and a Band 6 interpretation issue; its paired HOLDOUT-DTI delta versus the 0.2778 incumbent was +0.000571 (95% CI [-0.006306, +0.007311]), spanning zero. For the current candidate, HOLDOUT-DTI diagnostic is <b>{float(holdout.get('pooled_dti', 0.0)):.6f}</b> (evaluator <code>{esc(holdout.get('evaluator_version', 'not recorded'))}</code>, n={int(holdout.get('n_withheld_positives', 0))}, 95% CI {esc(holdout.get('ci95', []))}); it is not a leaderboard score projection. {paired_note} Scientific-integrity review: {science_note}</p><p>Current negative candidate: <code>{esc(current_id)}</code> · <code>{esc(artifact)}</code> · SHA-256 <code>{esc(current_hash)}</code>. Not authorized to download or submit; local format validity does not cure scientific or uniqueness failures.</p></section>

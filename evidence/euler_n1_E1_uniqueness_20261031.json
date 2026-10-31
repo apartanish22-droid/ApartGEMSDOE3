@@ -1,0 +1,11 @@
+{
+  "n_compared": 131,
+  "n_measurable": 131,
+  "n_duplicates": 4,
+  "worst_within_3px_fraction": 0.9996547511552557,
+  "worst_within_3px_registry": "/home/user/ApartGEMSDOE3/.cache/ledger/13GEMSDOE/docs/downloads/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+  "worst_abs_spearman": 0.028591205862927176,
+  "worst_spearman_registry": "/home/user/ApartGEMSDOE3/.cache/ledger/18GEMSDOE/docs/downloads/18GEMSDOE_H19-C_20260930T212401Z_c11e495e.tif",
+  "passed_all": false,
+  "rule": "literal rho>0.90 OR directional <=3px overlap>0.70; compare_registry stage=final; surfaces = binary rasters (candidate density not saved)"
+}
