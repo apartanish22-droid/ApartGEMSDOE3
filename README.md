@@ -4,6 +4,13 @@
 >
 > **WCHD experiment — negative, research only:** [Download the exploratory GeoTIFF](docs/downloads/apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif) for audit, **not competition submission**. Its saved bytes pass range and grid checks against a hash-pinned owner mirror, not an authenticated organizer template. The literal 3-pixel overlap against the registered calibration lattice is 99.56%, above the 70% stop threshold. Multiple exploratory reruns and changes exceeded the protocol limits and continued after a duplicate stop. No score estimate or uniqueness claim is justified. See the [corrected run card](evidence/wchd_run_card.json), [recheck](evidence/wchd_literal_recheck.json), and [ledger](evidence/wchd_experiment_ledger.json).
 
+## Latest session (2026-10-31): read first
+
+- **Verdict: still DO NOT DOWNLOAD OR SUBMIT.** No new candidate was built. Full review: [docs/research/session-20261031-review.md](docs/research/session-20261031-review.md) · run card: [evidence/session_20261031_run_card.json](evidence/session_20261031_run_card.json).
+- **Reproduced from bytes:** the shared holdout evaluator returns the incumbent's recorded HOLDOUT-DTI exactly (0.0045154, 22,232 withheld positives, CI [0.003816, 0.005262]). The strict format check passes on the GEMSDOE32 file. Tests: 119 passed, 2 skipped.
+- **Flagged for review:** five of nine focus files contain NaN and fail the strict [0,1] check, GEMSDOE25 and GEMSDOE30 are duplicates, DrivenData and the owner Pages sites were unreachable from this sandbox, and the leaderboard values in the request (0.4413, 0.3195) conflict with the last recorded read (0.4544).
+- **Needed to make progress:** organizer-authenticated template, full registry for uniqueness, the official NaN rule re-read, and a live leaderboard read.
+
 ## Start here: what to do before every session
 
 1. **Decision (2026-10-30): no existing file is OK to download or submit.** The best owner-reported file, GEMSDOE32 (0.2778), is already on the leaderboard per the owner report and is not unique against the other eight focus files. The [executive summary](docs/executive-summary.html) has the table of files, estimated scores (not estimable), uniqueness, and verdicts.
