@@ -22,6 +22,7 @@ The highest-priority code defect found in this review was fixed: the registry su
 - Confirmed `scripts/check_release_status.py` passes after the change. It checks the repository's configured status and historical cards and confirms their hashes, fail-closed state, and no-slot status. It does not certify a newly generated submission.
 - Found and corrected a stale research page that still labelled H-SEISMIC `ok_to_download`/`ok_to_submit` after its run card's positive flags had been superseded. The page now marks H-SEISMIC withdrawn and cites the failed same-evaluator holdout gate and incomplete (15-raster) uniqueness scan. The original run card remains preserved as historical evidence; its positive fields must not be interpreted as current authorization.
 - Format-checked the archived GEMSDOE32 file (`docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif`) using the pinned owner-mirror `sample_submission.tif`: one band, float32, EPSG:32611, 3730×3292, matching transform, and finite whole-array values in [0,1]. This proves local format compatibility only; it is not an authorized candidate and does not verify its score.
+- Re-ran `scripts/format_audit.py` against all downloadable GeoTIFFs. It reports 11/17 portal-format pass; all 6 failures are `-nan` variants failing the whole-array finite/range check. This reproduces a plausible mechanism for the reported portal range error, but the template is an owner mirror and the actual portal validator is not observable here; do not assert exact causation.
 - No scientific experiment was run. The method paragraph assigning this session's single lane is not identifiable in the checkout; the complete feature stack and full registry are not restored. Running a hypothesis experiment, claiming a holdout score, or generating a purportedly unique submission would violate the run protocol or be unauditable.
 
 ### Pass 3 — clean environment and regression verification
@@ -30,6 +31,7 @@ The highest-priority code defect found in this review was fixed: the registry su
 - Final `pytest -q -rs`: **120 passed, 2 skipped**. Both skips are `tests/test_holdout_visible_gate.py` because the local holdout data cache is incomplete; they are not passing validation evidence. Rasterio emitted 33 `PendingDeprecationWarning`s for affine multiplication.
 - `scripts/check_release_status.py`: **PASS** (configured records fail closed; hashes match; no slot used).
 - Strict whole-array check of the archived GEMSDOE32 TIF against the owner-mirror template: **PASS**. This is not a scientific or slot authorization.
+- `scripts/format_audit.py --template .cache/gems_data/sample_submission.tif --out .cache/format_audit_recheck.json`: **11 pass / 6 fail of 17**; every failing item is a NaN-outside variant and fails `portal_safe_whole_array`. Format-only evidence.
 - `python -m compileall -q src scripts tests` and `git diff --check`: **PASS**.
 
 ## Focus-site executive comparison
