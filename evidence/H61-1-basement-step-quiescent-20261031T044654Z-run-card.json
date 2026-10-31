@@ -1,0 +1,79 @@
+{
+  "hypothesis": "H61-1 basement-step lineaments gated by surface quiescence",
+  "mechanism": "ridge of multi-scale gradient magnitude of sediment-cover thickness (band 15 depth_to_base_surf) weighted by cover-thickness concealment and gated by surface quiescence (low band 19 det_elev_slope), with gravity gradient witness (band 13); targets concealed block boundaries under basin fill absent from the USGS/INGENIOUS catalogue",
+  "non_fault_mimic": "broad depositional/compaction cover-thickness trends (non-linear, low amplitude); suppressed by multi-scale gradient + ridge + quiescence gate",
+  "differs_from_repo": "features.py holds only depth_grad = smoothed |grad band15|, a scalar; no ridge extraction of the cover-thickness gradient, no concealment weighting, no surface-quiescence gate, no multi-scale cover step",
+  "layers": [
+    "band 15 depth_to_base_surf",
+    "band 19 det_elev_slope",
+    "band 12 det_elev",
+    "band 13 iso_grav_anom"
+  ],
+  "signature": "multi-scale ridge of |grad cover thickness| x concealment x quiescence x gravity witness",
+  "expected_dti_improvement": "high (changes where mass goes); cost low (bands on disk, no external data)",
+  "rank": 1,
+  "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+  "pooled_holdout_dti": 0.003463526634262916,
+  "ci95": [
+    0.0023511596421829043,
+    0.004619163059546308
+  ],
+  "n_withheld_positives": 22232,
+  "incumbent_holdout_dti": 0.0045154,
+  "beats_incumbent": false,
+  "emitted_pixels": 37522,
+  "on_catalogue_pixels": 0,
+  "field_threshold": 116.1042709350586,
+  "format_audit_passed": true,
+  "format_report": {
+    "file_path": "/home/user/ApartGEMSDOE3/docs/downloads/gemsdoe32-h611-basement-step-quiescent-37654d-20261031T044654Z-fbb4fc67-zeros.tif",
+    "sha256": "9eaedee06a66424540f50bf41e03a7e4f424f7203e7821e0863194b21df631a6",
+    "passed": true,
+    "checks": [
+      {
+        "name": "dimensions",
+        "passed": true,
+        "detail": "shape (3730, 3292) (expected (3730, 3292))"
+      },
+      {
+        "name": "band_count",
+        "passed": true,
+        "detail": "bands: 1 (expected 1)"
+      },
+      {
+        "name": "crs",
+        "passed": true,
+        "detail": "CRS: EPSG:32611 (expected EPSG:32611)"
+      },
+      {
+        "name": "transform",
+        "passed": true,
+        "detail": "transform matched template"
+      },
+      {
+        "name": "dtype",
+        "passed": true,
+        "detail": "dtype: float32 (expected float32)"
+      },
+      {
+        "name": "in_footprint_range",
+        "passed": true,
+        "detail": "in-footprint range [0.0000, 1.0000], all finite"
+      },
+      {
+        "name": "portal_safe_whole_array",
+        "passed": true,
+        "detail": "whole-array range [0.0000, 1.0000], finite=True"
+      }
+    ]
+  },
+  "raster_sha256": "9eaedee06a66424540f50bf41e03a7e4f424f7203e7821e0863194b21df631a6",
+  "raster_path": "/home/user/ApartGEMSDOE3/docs/downloads/gemsdoe32-h611-basement-step-quiescent-37654d-20261031T044654Z-fbb4fc67-zeros.tif",
+  "submission_name": "H61-1-BASEMENT-STEP-QUIESCENT-37654",
+  "note": "Concealed basement-block boundary emission; cover-step ridge gated by surface quiescence; off-catalogue B=2; 300 m kernel.",
+  "verdict": "negative",
+  "reasons": [
+    "holdout 0.003464 not above incumbent 0.0045154"
+  ],
+  "built_utc": "20261031T044654Z"
+}

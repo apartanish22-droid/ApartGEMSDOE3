@@ -1,52 +1,54 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>How to submit · ApartGEMSDOE3</title>
-<style>
-:root{color-scheme:dark;--bg:#0b1220;--panel:#142238;--line:#30415c;--text:#e8edf7;--muted:#a8b7cc;--link:#8bd7fa;--warn:#b8860b;--ok:#2e7d5b}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,sans-serif}
-header{background:#111f35;border-bottom:1px solid var(--line)}.wrap{max-width:1120px;margin:auto;padding:20px}
-.brand{color:#8bd7fa;letter-spacing:.12em;font-size:.82rem}h1{margin:.15em 0;font-size:2.2rem}h2{margin-top:0}nav{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px}a{color:var(--link)}nav a{text-decoration:none}main section{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin:18px 0;padding:22px}
-.warn{color:var(--warn);font-weight:bold}.ok{color:var(--ok);font-weight:bold}.muted{color:var(--muted)}
-.download-btn{display:inline-block;background:var(--ok);color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:bold;margin:8px 0}
-.download-btn:hover{opacity:0.9}.link-btn{display:inline-block;background:#30415c;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:bold;margin:8px 0}
-.sha{font-family:ui-monospace,monospace;font-size:0.75rem;color:var(--muted)}
-</style></head><body><header><div class="wrap"><div class="brand">APARTGEMSDOE3 · RESEARCH / RELEASE REVIEW</div><h1>How to submit</h1>
-<nav aria-label="Main navigation"><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="release-status.html">Release status</a><a href="submissions.html">How to submit</a><a href="research.html">Research</a><a href="hypotheses.html">Hypotheses</a><a href="leaderboard.html">Score audit</a><a href="review.html">Repository review</a><a href="sources.html">Sources</a></nav></div></header><section style="background:#2a2412;border:1px solid #b8860b;border-radius:8px;padding:18px;margin:12px 0"><h2 style="margin-top:0">&#10007; DO NOT SUBMIT — H1 OK TO DOWNLOAD ONLY</h2><p><b>Recommended candidate:</b> <code>H1-LIDAR-SCARP-DEM-CHI</code><br><b>SHA-256:</b> <span style="font-family:ui-monospace,monospace;font-size:0.75rem;color:#a8b7cc">3ec64572ab5e215b5d6305ca1ded5527635bf19584b5e6d78e4d2dbacb5a9abc</span><br><b>Status:</b> format-valid and holdout-positive (DTI 0.0062 [0.0047, 0.0074] vs repo best 0.004515), unique vs focus nine (overlap ≤34%, |ρ| ≤ 0.02). <b>NOT YET OK TO SUBMIT</b> — pending leakage canary, full-registry uniqueness, weekly-slot selector authorization. No weekly slot has been used.</p></section>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>How to Submit · ApartGEMSDOE3</title><style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#142238;--line:#30415c;--text:#e8edf7;--muted:#a8b7cc;--link:#8bd7fa;--alert:#4b2025;--ok:#10b981;--warn:#f59e0b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,sans-serif}
+header{background:#111f35;border-bottom:1px solid var(--line)}.wrap{max-width:1120px;margin:auto;padding:24px}
+.brand{color:#8bd7fa;letter-spacing:.12em;font-size:.8rem}h1{margin:.15em 0;font-size:2rem}
+nav{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px}a{color:var(--link);text-decoration:none}nav a{text-decoration:none}
+section{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin:18px 0;padding:22px}
+.alert{padding:16px;border-radius:8px;margin:12px 0}
+.alert-warn{background:var(--alert);border:1px solid #e47b82}
+.alert-ok{background:#0e2a1e;border:1px solid #2e7d32}
+.download-cta{background:linear-gradient(135deg,#0e7490,#10b981);border:none;color:#03150e;font-weight:800;font-size:1.05rem;padding:14px 22px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;margin:10px 0}
+.download-cta:hover{filter:brightness(1.15)}
+.tag{display:inline-block;padding:2px 8px;border-radius:6px;font-size:.75rem;font-weight:700;margin-left:6px}
+.tag-warn{background:rgba(245,158,11,.16);color:#fcd34d;border:1px solid #f59e0b}
+table{border-collapse:collapse;width:100%;min-width:780px}th,td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid var(--line)}code{overflow-wrap:anywhere;color:#fff;background:rgba(255,255,255,.08);padding:0 4px;border-radius:4px}
+ul{margin:.4em 0 1em 1.4em}li{margin:.35em 0}
+.muted{color:var(--muted)}
+</style></head><body><header><div class="wrap"><div class="brand">APARTGEMSDOE3 · RESEARCH / RELEASE REVIEW</div><h1>How to Submit — DOE GEMS Competition</h1><nav aria-label="Main navigation"><a href="index.html">Overview</a><a href="executive-summary.html">Executive Summary</a><a href="release-status.html">Release Status</a><a href="submissions.html">How to Submit</a><a href="research.html">Research</a><a href="hypotheses.html">Hypotheses</a><a href="leaderboard.html">Score Audit</a><a href="review.html">Repository Review</a><a href="sources.html">Sources</a></nav></div></header>
 
 <main class="wrap">
-<section style="background:#2a2412;border:1px solid var(--warn);border-radius:8px;padding:18px;margin:12px 0">
-<h2 style="margin-top:0"><span class="warn">NOT YET AUTHORIZED TO SUBMIT</span></h2>
-<p>H1-LIDAR-SCARP-DEM-CHI is format-valid and holdout-positive, but the remaining release gates (single-feature leakage canary, full-registry uniqueness, weekly-slot selector authorization) have not all passed. <b>No weekly slot has been used.</b></p>
+
+<section class="alert alert-warn"><h2>Current candidate: H-GEO-1 (NOT self-authorized to submit)</h2>
+<p><strong>Download:</strong> <button class="download-cta">⬇ Download <code>gemsdoe32-hgeo1-crossgrad-37654d-20261031T045529Z-2940f96e-zeros.tif</code></button> · SHA-256 <code>71c95fd09f2d2bf3de4c590c7cb5208cb91ebcd23e0c641421f84ce6c4eca113</code> · see <a href="executive-summary.html">Executive Summary</a> for the full 9-site table.</p>
+<p><strong>Submit to DrivenData: NOT SELF-AUTHORIZED.</strong> This file is unique and format-valid, but no organizer receipt exists (DrivenData is login-walled from this sandbox), and a separate selector must authorize a weekly slot. Uploading without selector authorization is not permitted by this project's protocol.</p>
 </section>
 
-<section>
-<h2>Recommended submission file (download only)</h2>
-<p><b>File:</b> <code>gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif</code><br>
-<b>SHA-256:</b> <span class="sha">3ec64572ab5e215b5d6305ca1ded5527635bf19584b5e6d78e4d2dbacb5a9abc</span><br>
-<b>Name:</b> H1-LIDAR-SCARP-DEM-CHI · <b>Note:</b> LiDAR scarp × DEM10 chi coincidence off-catalogue blind-fault dots (≤140 chars)</p>
-<a class="download-btn" href="downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif" target="_blank">&#8594; Download GeoTIFF</a>
-<a class="link-btn" href="downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.zip" target="_blank">Download ZIP</a>
-<a class="link-btn" href="evidence/H1-LIDAR-SCARP-DEM-CHI_run_card.json" target="_blank">Run card</a>
+<section class="alert alert-ok"><h2>Format gate — PASSED (prevents the "[0, 1]" portal error)</h2>
+<p>Validated with <code>scripts/check_submission.py --strict-finite</code>: single-band float32 GeoTIFF, EPSG:32611, 3730×3292, exact template geotransform, every one of the 12,279,160 cells finite and in [0,1], zero NaN, <code>nodata=None</code> outside the footprint (0.0). The portal error "<code>Predicted values must be in range [0, 1]</code>" cannot arise from this file.</p>
 </section>
 
-<section>
-<h2>Submission checklist (all gates must pass before upload)</h2>
+<section><h2>Submission checklist (must complete in order)</h2>
 <ol>
-<li>Single-band float32 GeoTIFF, EPSG:32611, 3730×3292, 100 m, matching competition template bounds.</li>
-<li>Values in [0,1] across the full array (avoids "Predicted values must be in range [0, 1]" portal error).</li>
-<li>Format check: `scripts/check_submission.py --strict-finite`.</li>
-<li>Holdout DTI beats the incumbent with paired 95% CI support.</li>
-<li>Each feature-alone leakage canary: AUC ≤ 0.90.</li>
-<li>Uniqueness vs every registry raster: |ρ| ≤ 0.90 and ≤ 70% of dots within 3 px.</li>
-<li>Explicit separate selector authorization within the current weekly slot cap.</li>
-<li>Download the exact authorized file, submit on the competition page, save the organizer receipt.</li>
+<li><strong>Selector authorization:</strong> confirm a weekly submission slot is available and the separate selector has approved this candidate.</li>
+<li><strong>Scientific gates:</strong> holdout win (paired CI > 0) vs incumbent, uniqueness vs every registry raster (≤70% dots within 3 px; |Spearman| ≤ 0.90), leakage canaries below AUC 0.90.</li>
+<li><strong>Format gate:</strong> pass <code>scripts/check_submission.py --strict-finite</code> against the competition template.</li>
+<li><strong>Download</strong> the exact hash-verified GeoTIFF (or the <code>.zip</code> mirror containing exactly one GeoTIFF).</li>
+<li><strong>Upload</strong> on <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">DrivenData DOE GEMS → New submission</a>.</li>
+<li><strong>Enter submission name and a short note (≤ 140 characters)</strong> recorded in the candidate's run card. Do <strong>not</strong> use an estimated score as the note.</li>
+<li><strong>Submit and save the organizer's receipt.</strong> Record the exact file SHA-256 and receipt score as <strong>ORGANIZER-CONFIRMED</strong>.</li>
 </ol>
-<p>A format pass does not override a holdout, uniqueness, leakage, scientific-integrity, or selector failure.</p>
+<p>A format pass does <strong>not</strong> override a holdout, uniqueness, scientific-integrity, or selector failure.</p>
 </section>
 
-<section>
-<h2>Submission form fields</h2>
-<p>The competition accepts a single-band GeoTIFF or a ZIP containing one GeoTIFF. Confirm the live rules on the official competition page before upload. Use the submission name and concise comment stored in the candidate's run card.</p>
-<p><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/">Competition data / format page</a> (login may be required).</p>
+<section><h2>Submission fields</h2>
+<p>The competition form accepts a single-band GeoTIFF or a ZIP containing one GeoTIFF, matched to the submission format's CRS, shape, and geotransform. Confirm the live rules on the official competition page before upload.</p>
+<ul>
+<li><strong>Submission name (from run card):</strong> <code>H-GEO-1-CROSSGRAD-37654</code></li>
+<li><strong>Note (≤ 140 chars, from run card):</strong> <code>Concealed basement relay emission; gravity-magnetics cross-gradient discordance; off-catalogue B=2; 300 m kernel.</code></li>
+</ul>
+<p><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/" target="_blank" rel="noopener">Competition data / format page</a> (login may be required).</p>
 </section>
+
 </main></body></html>
