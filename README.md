@@ -1,10 +1,17 @@
 # ApartGEMSDOE3 — research and submission review
 
-> **Read first every session:** [Project brief](docs/PROJECT_BRIEF.md) (goal, non-negotiable gates, core values). **Submission status:** [Executive summary](docs/executive-summary.html). **Format audit (2026-10-31):** 11 of 17 downloadable GeoTIFFs pass the portal format check; all 6 failures are `-nan` files (`evidence/format_audit_20261031.json`). Re-running the audit: `python scripts/format_audit.py --template .cache/gems_data/sample_submission.tif --out evidence/format_audit_YYYYMMDD.json`.
-
+> **Read first each session:** [Project brief](docs/PROJECT_BRIEF.md) · [Latest three-pass repo review](docs/repo-review-2026-10-31.md) · [Format audit evidence](evidence/format_audit_20261031.json) (11/17 downloadable TIFs pass the local owner-mirror format check; six `-nan` files fail whole-array finite/range checks).
+>
 > **Current decision: DO NOT SUBMIT.** No artifact has passed every release gate and received separate selector authorization. A format-valid GeoTIFF is not necessarily scientifically sound, unique, or competition-ready. No weekly slot has been used in this review.
 >
 > **WCHD experiment — negative, research only:** [Download the exploratory GeoTIFF](docs/downloads/apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif) for audit, **not competition submission**. Its saved bytes pass range and grid checks against a hash-pinned owner mirror, not an authenticated organizer template. The literal 3-pixel overlap against the registered calibration lattice is 99.56%, above the 70% stop threshold. Multiple exploratory reruns and changes exceeded the protocol limits and continued after a duplicate stop. No score estimate or uniqueness claim is justified. See the [corrected run card](evidence/wchd_run_card.json), [recheck](evidence/wchd_literal_recheck.json), and [ledger](evidence/wchd_experiment_ledger.json).
+
+## Latest session (2026-10-31): read first
+
+- **Verdict: still DO NOT DOWNLOAD OR SUBMIT.** No new candidate was built. Full review: [docs/research/session-20261031-review.md](docs/research/session-20261031-review.md) · run card: [evidence/session_20261031_run_card.json](evidence/session_20261031_run_card.json).
+- **Reproduced from bytes:** the shared holdout evaluator returns the incumbent's recorded HOLDOUT-DTI exactly (0.0045154, 22,232 withheld positives, CI [0.003816, 0.005262]). The strict format check passes on the GEMSDOE32 file. This review's regression suite: 120 passed, 2 skipped (holdout cache incomplete). Format audit: 11/17 pass; all six failures are NaN-outside variants under the strict local whole-array check.
+- **Flagged for review:** five of nine focus files contain NaN and fail the strict [0,1] check, GEMSDOE25 and GEMSDOE30 are duplicates, DrivenData and the owner Pages sites were unreachable from this sandbox, and the leaderboard values in the request (0.4413, 0.3195) conflict with the last recorded read (0.4544).
+- **Needed to make progress:** organizer-authenticated template, full registry for uniqueness, the official NaN rule re-read, and a live leaderboard read.
 
 ## Start here: what to do before every session
 
@@ -46,8 +53,9 @@ The user-supplied prompt refers to a single assigned method paragraph, but that 
 
 ## Current executive status
 
-- [Repository review — 2026-10-31](docs/repo-review-2026-10-31.md): three-pass review, verification results, corrected absolute-Spearman uniqueness gate, nine-site status, and blockers. This is the latest review; read it alongside the project brief at the start of each session.
-- [Repository review — 2026-10-30](docs/repo-review-2026-10-30.md): earlier three-pass review, nine-site score status, validation results, blockers, and follow-up.
+- [Project brief — read before each session](docs/PROJECT_BRIEF.md): condensed durable goals and required protocol.
+- [Repository review — 2026-10-31](docs/repo-review-2026-10-31.md): latest three-pass review; 120 passed, 2 skipped after restoring the hash-pinned core test inputs; release gate passes fail-closed. It fixes the absolute-Spearman duplicate check and withdraws the stale H-SEISMIC download language. No new candidate or TIF was generated because the assigned method lane, full feature stack, and full registry are unavailable. New leaderboard estimate: not estimable. Read this alongside the persistent project brief at the start of each session.
+- [Repository review — 2026-10-30](docs/repo-review-2026-10-30.md): prior review, nine-site score status, validation results, blockers, and follow-up.
 
 - **Start here (2026-10-30):** [Nine-site verification, why 0.2778, and the submission decision](docs/research/nine-site-verification-20261030.md). No file is cleared to download or submit. Re-verified from bytes: 4 of 9 site files pass the strict finite [0,1] check; GEMSDOE30 duplicates GEMSDOE25; all 36 site pairs exceed the 70% overlap gate. Holdout DTI ranks the nine files in reverse of the owner-reported scores (Spearman ρ = -0.85, n = 9), so it is not a valid selection signal for the official off-catalogue test. Public leaderboard #1 read 2026-10-30: 0.4544 (conflicts with prompt values 0.4413 and 0.3195; flagged).
 - **Leaderboard top (conflicting inputs, verified 2026-10-30):** the brief cites 0.4413 and 0.3195. The repo's latest verified observation is 0.4437 (xiaofanhu, 2026-10-26); 0.3195 was rank 3 on 2026-10-04. Public leaderboard values are not organizer receipts for any GEMSDOE file. See [this session's verification table](docs/repo-review-2026-10-30.md#session-verification-2026-10-30-this-session).
