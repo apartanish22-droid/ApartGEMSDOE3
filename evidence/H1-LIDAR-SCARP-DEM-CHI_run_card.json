@@ -60,7 +60,48 @@
   },
   "submission_name": "H1-LIDAR-SCARP-DEM-CHI",
   "submission_note": "H1 LiDAR scarp + DEM10 chi blind-fault dots, 30k, off-catalogue, [0,1] zeros TIF",
-  "verdict": "promote_if_holdout_and_sgmc_pass",
+  "verdict": "negative",
   "ok_to_submit": false,
-  "review_note": "FORMAT-VALID only: passes [0,1]/CRS/shape/transform/NaN checks. NOT organizer-authorized. Leaderboard score unknown; holdout DTI and SGMC cal are proxies, not live scores. Weekly-slot selector decision required before any submission."
+  "ok_to_download_as_submission": false,
+  "download_for_research_ok": true,
+  "selector_required": true,
+  "slot_used": false,
+  "slot_authorized": false,
+  "weekly_slots_used": 0,
+  "duplicate_gate_failure": {
+    "rule": "Reject if any registered raster has |Spearman| > 0.90 or >70% directional final-dot overlap within 3 px; no exemptions.",
+    "preplacement_surface_comparison_completed": false,
+    "final_dots_literal_gate_passed": false,
+    "reason": "Full registry raster set incomplete; pairwise check vs nine focus files passed (overlap 22-34%, |rho| approx 0.02) but full-registry literal gate not yet run.",
+    "max_focus_site_3px_overlap": 0.34,
+    "max_focus_site_abs_spearman": 0.02
+  },
+  "scientific_integrity_gate": {
+    "passed": false,
+    "issue": "Single-feature leakage canaries (scarp-only / chi-only AUC <= 0.90) not yet computed. Full-registry uniqueness check not yet run. Physical mimics identified but not eliminated.",
+    "artifact_scientific_promotion_allowed": false,
+    "action": "Run leakage canary and full-registry uniqueness before any weekly slot."
+  },
+  "release_gate_decision": {
+    "verdict": "negative",
+    "gates": {
+      "holdout_against_current_incumbent": true,
+      "feature_canaries": false,
+      "full_registry_surface_and_final_dots": false,
+      "format": true,
+      "scientific_integrity": false,
+      "selector": false,
+      "final": false
+    },
+    "reason": "Holdout DTI CI entirely above repo best; format valid; SGMC cal no regression; unique vs focus nine. Pending: leakage canary, full-registry uniqueness, weekly-slot selector authorization."
+  },
+  "artifacts": {
+    "primary_zeros_tif": "docs/downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif",
+    "primary_zeros_sha256": "3ec64572ab5e215b5d6305ca1ded5527635bf19584b5e6d78e4d2dbacb5a9abc",
+    "primary_zeros_bytes": 278714,
+    "nan_companion_tif": "docs/downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-nan.tif",
+    "audit_json": "docs/downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-audit.json",
+    "submission_mirror_tif": "submission/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif"
+  },
+  "review_note": "FORMAT-VALID and holdout-positive, but NOT organizer-authorized. Leaderboard score unknown; holdout DTI and SGMC cal are proxies, not live scores. Weekly-slot selector decision required before any submission. DO NOT SUBMIT until leakage canary, full-registry uniqueness, and selector approval all pass."
 }
