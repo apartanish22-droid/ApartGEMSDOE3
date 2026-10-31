@@ -256,8 +256,8 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
     )
     calib = calibration_summary(root)
     warning = (
-        '<section class="alert"><strong>DO NOT SUBMIT.</strong> No candidate has passed all '
-        "required scientific, uniqueness, format, and selector gates. No weekly slot was used. "
+        '<section class="alert"><strong>DO NOT SUBMIT — NOT YET OK TO SUBMIT.</strong> H1 OK TO DOWNLOAD only. '
+        "No candidate has passed all required scientific, uniqueness, format, and selector gates. No weekly slot was used. "
         f"Current negative candidate {esc(current_id)}; SHA-256 <code>{esc(current_hash)}</code>; "
         f"submission name <code>{esc(current_card.get('submission_name', 'not recorded'))}</code>. "
         "The historical files are audit/research records only; this site does not authorize downloads.</section>"
