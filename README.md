@@ -44,6 +44,7 @@ The user-supplied prompt refers to a single assigned method paragraph, but that 
 
 ## Current executive status
 
+- [Project brief — read before each session](docs/PROJECT_BRIEF.md): condensed durable goals and required protocol.
 - [Repository review — 2026-10-31](docs/repo-review-2026-10-31.md): latest three-pass review; 119 passed, 2 skipped after restoring the hash-pinned core test inputs; release gate passes fail-closed. No candidate or TIF was generated because the assigned method lane, full feature stack, and full registry are unavailable. New leaderboard estimate: not estimable. Read this alongside the persistent project brief at the start of each session.
 - [Repository review — 2026-10-30](docs/repo-review-2026-10-30.md): prior review, nine-site score status, validation results, blockers, and follow-up.
 
