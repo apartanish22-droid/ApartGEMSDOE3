@@ -62,7 +62,7 @@ def test_status_and_public_feed_point_to_current_negative_candidate_card():
     assert status["current_review"] == "evidence/session_review_20261028.json"
     assert review_card["holdout_dti"] is None
     assert latest["candidate_id"] == status["current_candidate"]["candidate_id"]
-    assert latest["candidate_id"] == "H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS"
+    assert latest["candidate_id"] == "H1-LIDAR-SCARP-DEM-CHI"
     assert len(latest["submission_note"]) <= 140
     assert feed["current_candidate"]["run_card"] == status["current_run_card"]
     assert feed["current_candidate"]["verdict"] == "negative"

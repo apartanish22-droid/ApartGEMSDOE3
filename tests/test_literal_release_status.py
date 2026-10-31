@@ -19,7 +19,7 @@ def test_legacy_promotion_cannot_exempt_dense_registry():
         status.check(forged)
 
 def test_rechecked_bytes_are_bound_to_current_card():
-    card=json.loads((ROOT/'run_card.json').read_text())
+    card=json.loads((ROOT/'evidence'/'cshd_run_card.json').read_text())
     review=json.loads((ROOT/'evidence/session_literal_review_20261028.json').read_text())['results'][0]
     assert review['candidate_sha256']==card['raster_sha256']
     assert review['directional_within_3px']>.70

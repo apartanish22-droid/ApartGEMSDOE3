@@ -103,5 +103,6 @@
     "audit_json": "docs/downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-audit.json",
     "submission_mirror_tif": "submission/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif"
   },
-  "review_note": "FORMAT-VALID and holdout-positive, but NOT organizer-authorized. Leaderboard score unknown; holdout DTI and SGMC cal are proxies, not live scores. Weekly-slot selector decision required before any submission. DO NOT SUBMIT until leakage canary, full-registry uniqueness, and selector approval all pass."
+  "review_note": "FORMAT-VALID and holdout-positive, but NOT organizer-authorized. Leaderboard score unknown; holdout DTI and SGMC cal are proxies, not live scores. Weekly-slot selector decision required before any submission. DO NOT SUBMIT until leakage canary, full-registry uniqueness, and selector approval all pass.",
+  "release_status": "negative"
 }
