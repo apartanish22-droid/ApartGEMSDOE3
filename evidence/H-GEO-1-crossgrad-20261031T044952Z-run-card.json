@@ -1,0 +1,75 @@
+{
+  "hypothesis": "H-GEO-1 cross-gradient gravity x magnetics concealed basement relay",
+  "mechanism": "cross-gradient vector discordance grad(g) x grad(m) between gravity (band 5) and magnetics (band 2) plus minimum principal curvature of residual gravity; targets concealed basement contacts/relay ramps under alluvium",
+  "non_fault_mimic": "un-faulted buried volcanic flow margins / dikes and lithologic contacts",
+  "differs_from_repo": "prior arms used 1D gradient magnitudes or scalar tilt; none computed the cross-gradient vector product grad(g) x grad(m)",
+  "layers": [
+    "band 5 iso_grav_anom_slope",
+    "band 2 rtp"
+  ],
+  "signature": "cross-gradient magnitude x (1+min principal curvature) x (1+gravity grad) x (1+magnetic grad)",
+  "expected_dti_improvement": "medium; cost low-medium (bands on disk)",
+  "rank": 2,
+  "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+  "pooled_holdout_dti": 0.00530981946931312,
+  "ci95": [
+    0.0038942124823663324,
+    0.006855868013164474
+  ],
+  "n_withheld_positives": 22232,
+  "incumbent_holdout_dti": 0.0045154,
+  "beats_incumbent": true,
+  "emitted_pixels": 36945,
+  "on_catalogue_pixels": 0,
+  "field_threshold": 5.179785251617432,
+  "format_audit_passed": true,
+  "format_report": {
+    "file_path": "/home/user/ApartGEMSDOE3/docs/downloads/gemsdoe32-hgeo1-crossgrad-37654d-20261031T044952Z-2940f96e-zeros.tif",
+    "sha256": "71c95fd09f2d2bf3de4c590c7cb5208cb91ebcd23e0c641421f84ce6c4eca113",
+    "passed": true,
+    "checks": [
+      {
+        "name": "dimensions",
+        "passed": true,
+        "detail": "shape (3730, 3292) (expected (3730, 3292))"
+      },
+      {
+        "name": "band_count",
+        "passed": true,
+        "detail": "bands: 1 (expected 1)"
+      },
+      {
+        "name": "crs",
+        "passed": true,
+        "detail": "CRS: EPSG:32611 (expected EPSG:32611)"
+      },
+      {
+        "name": "transform",
+        "passed": true,
+        "detail": "transform matched template"
+      },
+      {
+        "name": "dtype",
+        "passed": true,
+        "detail": "dtype: float32 (expected float32)"
+      },
+      {
+        "name": "in_footprint_range",
+        "passed": true,
+        "detail": "in-footprint range [0.0000, 1.0000], all finite"
+      },
+      {
+        "name": "portal_safe_whole_array",
+        "passed": true,
+        "detail": "whole-array range [0.0000, 1.0000], finite=True"
+      }
+    ]
+  },
+  "raster_sha256": "71c95fd09f2d2bf3de4c590c7cb5208cb91ebcd23e0c641421f84ce6c4eca113",
+  "raster_path": "/home/user/ApartGEMSDOE3/docs/downloads/gemsdoe32-hgeo1-crossgrad-37654d-20261031T044952Z-2940f96e-zeros.tif",
+  "submission_name": "H-GEO-1-CROSSGRAD-37654",
+  "note": "Concealed basement relay emission; gravity-magnetics cross-gradient discordance; off-catalogue B=2; 300 m kernel.",
+  "verdict": "promote",
+  "reasons": [],
+  "built_utc": "20261031T044952Z"
+}
