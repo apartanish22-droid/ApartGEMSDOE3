@@ -147,6 +147,50 @@ def candidate_under_review_html(root: Path = ROOT) -> str:
     )
 
 
+def session_20261031_html(root: Path = ROOT) -> str:
+    """Top-of-page answer for the 2026-10-31 session. Every number is read from evidence files."""
+    path = root / "evidence" / "SESSION_20261031_RUN_CARD.json"
+    if not path.is_file():
+        return ""
+    card = json.loads(path.read_text(encoding="utf-8"))
+    c = card["candidate"]
+    hd = c["holdout_dti"]
+    sg = c["sgmc_calibrated_dti"]
+    ov = c["correlation_overlap_vs_registry"]
+    ctl = card["controls"]
+    g2 = card["g2_summary"]
+    ex = [
+        f"<tr><td>{esc(c['raster']['file'])}</td><td><b>Not estimable</b></td>"
+        f"<td>NO. Pre-placement surface max |rho| {ov['surface_max_abs_spearman']:.3f}; final-dot max within-3 px {ov['final_dots_max_within_3px_excluding_calibration_lattice']*100:.1f}% excluding the calibration lattice. "
+        f"The literal lattice rule fails at {ov['calibration_lattice_within_3px']*100:.0f}%, which random dots also fail ({ov['random_dot_control_vs_lattice'][0]*100:.2f}–{ov['random_dot_control_vs_lattice'][1]*100:.2f}%).</td>"
+        "<td><b>NO. DO NOT DOWNLOAD OR SUBMIT.</b> Format-valid, but scientifically negative.</td></tr>",
+        f"<tr><td>{esc(g2['candidate_id'])} (no TIF written)</td><td><b>Not estimable</b></td>"
+        f"<td>Not a file. Lattice overlap {g2['lattice_within_3px']*100:.1f}%; surface max |rho| {g2['surface_max_abs_spearman']:.3f}.</td>"
+        "<td><b>NO.</b> Negative experiment.</td></tr>",
+    ]
+    return (
+        '<section class="alert"><h2>Answer for 2026-10-31: no file is cleared to download or submit</h2>'
+        "<p><b>Download/submit status: NONE.</b> A unique, format-valid TIF was generated (see the table). "
+        "It is <b>scientifically negative</b>, so it is labelled DO-NOT-SUBMIT. "
+        "Format validity is not authorisation.</p>"
+        "<table><thead><tr><th>File</th><th>Estimated leaderboard score</th><th>Unique vs the nine GEMSDOE sites?</th><th>Download and submit now?</th></tr></thead>"
+        "<tbody>" + "".join(ex) + "</tbody></table>"
+        f"<p><b>Why it is negative (HOLDOUT-DTI, evaluator GEMSDOE32-HIDE-RECOVER-v3.0, n = {hd['n_withheld_positives']:,} withheld positives):</b> "
+        f"G1 pooled DTI {hd['pooled']:.5f} [{hd['ci95'][0]:.5f}, {hd['ci95'][1]:.5f}] against the incumbent's {hd['incumbent_same_evaluator']['pooled']:.5f}. "
+        f"The paired per-cell test does not support a win: {esc(hd['paired_per_cell'])} "
+        f"On the pre-registered primary metric (SGMC-CAL) it is lower: {sg['value']:.4f} [{sg['ci95'][0]:.4f}, {sg['ci95'][1]:.4f}] against the incumbent's {sg['incumbent']['value']:.4f}.</p>"
+        f"<p><b>Instrument check:</b> the leakage canary gives AUC {c['canary']['pooled_auc']:.3f}, so there is no leakage and no signal. "
+        f"Positive control (oracle) AUC {ctl['positive_control_oracle_auc_mean']:.3f}; negative control (noise) {ctl['negative_control_noise_auc_mean']:.3f}. The instrument works, so the null is real.</p>"
+        f"<p><b>Uniqueness:</b> the literal rule fails on one calibration lattice raster only. Unmeasured rasters: 2 of 451. "
+        f"Owner decision needed (see irregularities IR-S-02 and IR-S-03).</p>"
+        f"<p><b>Labels:</b> every number is HOLDOUT-DTI or OWNER-REPORT. No organizer receipt was obtained. The estimated score for any new file is not estimable.</p>"
+        f'<p>Read: <a href="{esc(repo_link("knowledge/11_g1_g2_negative_results_and_next_candidates_20261031.md"))}">note 11</a> · '
+        f'<a href="{esc(repo_link("evidence/SESSION_20261031_RUN_CARD.json"))}">session run card (JSON)</a> · '
+        f'<a href="{esc(repo_link("docs/downloads/" + c["raster"]["file"]))}">negative GeoTIFF, research only (not for submission)</a> · '
+        f'SHA-256 <code>{esc(c["raster"]["sha256"])}</code></p></section>'
+    )
+
+
 def start_here_html(root: Path = ROOT) -> str:
     """Executive answer and per-site download/estimate/uniqueness table (fail-closed; no download CTA)."""
     rec = verification_record(root)
@@ -191,11 +235,12 @@ def start_here_html(root: Path = ROOT) -> str:
         "<p><b>No file in this repository is cleared to download or submit.</b> "
         f"Highest reported file: <b>{esc(best['site'])} {float(best['owner_reported_score_OWNER_REPORT']):.4f}</b> (OWNER-REPORT). "
         "It is already submitted per the registry record and is not unique against the other eight. "
-        "<b>No new TIF was generated</b>: the protocol lane paragraph is absent, the full 451-raster uniqueness check has not been run, "
-        "and no candidate has passed holdout validation.</p>"
+        "<b>Updated 2026-10-31:</b> one labelled negative TIF was generated (see the block above). The protocol lane paragraph is still absent. "
+        "The uniqueness check ran against 449 of 451 focus rasters. No candidate has passed holdout validation.</p>"
         "<p><b>Portal error “Predicted values must be in range [0, 1]”:</b> five site files (GEMSDOE24, 25, 27, 28, 31) "
-        "have NaN outside the footprint and fail the repo’s strict check. The official spec allows NaN outside the bounds, "
-        "so the cause of the portal message is <b>unverified</b>. Do not re-save a file to get past it: that is a copy of an existing submission.</p>"
+        "have NaN outside the footprint and fail the repo’s strict check. The 2026-10-30 reading of the official page says NaN outside the bounds is allowed "
+        "(not re-checked here, because the page is unreachable from this sandbox). The organizer template <code>sample_submission.tif</code> also contains NaN outside its footprint (checked 2026-10-31), "
+        "so NaN alone does not explain the message. The cause is <b>unverified</b>. Do not re-save a file to get past it: that is a copy of an existing submission.</p>"
         "<p><b>Leaderboard:</b> public #1 is xiaofanhu 0.4544 (PUBLIC-LEADERBOARD-OBSERVATION, read 2026-10-30). "
         "The prompts state 0.4413 and 0.3195; these values conflict and are flagged for review.</p>"
         f"<p><b>Why the top file scored well (association, n=9):</b> share of dots more than 1 km from the catalogue vs owner score "
@@ -308,7 +353,7 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
 <p>Current candidate record: <code>{esc(current_id)}</code>, file <code>{esc(artifact)}</code>, SHA-256 <code>{esc(current_hash)}</code>, submission name <code>{esc(artifact_name)}</code>. It is a negative research record; no download or upload is authorized. The associated literal-registry and scientific-integrity gates fail.</p></section>
 <section><h2>What blocks a new result?</h2><ul><li>The assigned method paragraph is missing.</li><li>The large feature raster, cached feature stack, and complete registry are not restored in this checkout.</li><li>Historical candidate audits found uniqueness/scientific-integrity failures; format validation alone is insufficient.</li></ul><p class="muted">Details: <a href="release-status.html">release status</a> · <a href="review.html">current repository review</a> · <a href="research.html">unrun research shortlist</a></p></section>'''
 
-    exec_body = warning + start_here_html(root) + candidate_under_review_html(root) + f'''<section><h2>Nine-site comparison</h2>
+    exec_body = warning + session_20261031_html(root) + start_here_html(root) + candidate_under_review_html(root) + f'''<section><h2>Nine-site comparison</h2>
 <p>All submitted-score entries below are <b>OWNER-REPORT</b> from the supplied/repository audit. None is organizer-confirmed here. The score estimate for a new submission is <b>not estimable</b>; a HOLDOUT-DTI result cannot be converted to a live score without a validated calibration study.</p>{table}
 {calib}
 <p>{esc(top['site'])} is the largest listed owner report ({float(top['published_score_OWNER_REPORT']):.4f}). Existing analysis says the reported nested pruning sequence is consistent with removing low-credit false-positive mass, but no hidden truth or receipt-linked evidence establishes causation. See <a href="{esc(repo_link('knowledge/03_why_02778_and_the_anatomy_of_the_family.md'))}">the evidence and limitations</a>.</p><p>There is no file currently OK to submit. The nine reported files are <b>NOT UNIQUE in this nine-site cohort</b> according to the repository overlap audit; scores remain OWNER-REPORT, not organizer receipts. {current_registry_note} Earlier `H-APART3-2-CTHG-DHC` (`apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif`) had recorded overlaps of 75.90%, 72.25%, and 99.8035% within 3 px and a Band 6 interpretation issue; its paired HOLDOUT-DTI delta versus the 0.2778 incumbent was +0.000571 (95% CI [-0.006306, +0.007311]), spanning zero. For the current candidate, HOLDOUT-DTI diagnostic is <b>{float(holdout.get('pooled_dti', 0.0)):.6f}</b> (evaluator <code>{esc(holdout.get('evaluator_version', 'not recorded'))}</code>, n={int(holdout.get('n_withheld_positives', 0))}, 95% CI {esc(holdout.get('ci95', []))}); it is not a leaderboard score projection. {paired_note} Scientific-integrity review: {science_note}</p><p>Current negative candidate: <code>{esc(current_id)}</code> · <code>{esc(artifact)}</code> · SHA-256 <code>{esc(current_hash)}</code>. Not authorized to download or submit; local format validity does not cure scientific or uniqueness failures.</p></section>

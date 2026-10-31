@@ -1,0 +1,174 @@
+{
+  "schema": "gems-parallel-runcard-v4-session-2026-10-31",
+  "session": "2026-10-31 \u00b7 branch arena/1a385930-apartgemsdoe3",
+  "budget": {
+    "experiments_used": 3,
+    "limit": 3,
+    "wall_clock_note": "about 25 min of compute; limit 2 h",
+    "experiments": [
+      {
+        "id": 1,
+        "name": "G1 Euler N=1 on TMI (band 14)",
+        "verdict": "negative"
+      },
+      {
+        "id": 2,
+        "name": "G2 gravity-magnetic gradient coupling (bands 13+14)",
+        "verdict": "negative"
+      },
+      {
+        "id": 3,
+        "name": "Canary instrument controls (oracle + noise)",
+        "verdict": "instrument valid; not a candidate"
+      }
+    ]
+  },
+  "lane_note": "The single assigned method paragraph is absent from this checkout. G1 and G2 are the two top pre-registered candidates in knowledge/10 \u00a75, used as the lane. This is a flagged assumption.",
+  "candidate": {
+    "candidate_id": "H-G1-EULER-N1-TMI",
+    "hypothesis": "Buried faults with no catalogue trace produce clusters of structural-index-1 Euler solutions at 0.4-6 km depth in the TMI field (band 14).",
+    "mechanism": "FFT horizontal and vertical derivatives of TMI; least-squares Euler N=1 in 21-px windows every 4 px; keep depth 0.4-6 km, source in-window, relative residual <= 0.10; 2-px Gaussian density; percentile rank; shared dot placement (30k budget, 200 m catalogue collar).",
+    "named_non_fault_mimic": "Magnetic dikes and mafic intrusions also give N~1 solutions (Reid et al. 1990; Reid & Thurston 2014, cited in knowledge/10); near-surface magnetic noise at short wavelengths.",
+    "canary": {
+      "pooled_auc": 0.5121213372327943,
+      "per_cell_range": [
+        0.43850821540062435,
+        0.5698490189553221
+      ],
+      "leakage_flag": false,
+      "reading": "No leakage, and no signal: AUC ~0.5. Instrument control passed (oracle 1.000, noise 0.500)."
+    },
+    "holdout_dti": {
+      "label": "HOLDOUT-DTI",
+      "evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0 (shared evaluator, scripts/evaluate_holdout.py)",
+      "pooled": 0.004822,
+      "ci95": [
+        0.003858,
+        0.005924
+      ],
+      "n_withheld_positives": 22232,
+      "incumbent_same_evaluator": {
+        "pooled": 0.004515,
+        "ci95": [
+          0.003816,
+          0.005262
+        ]
+      },
+      "paired_per_cell": "G1 beats the incumbent in 3 of 8 cells; mean paired diff +0.00007, cell-bootstrap 95% CI [-0.00104, +0.00119] (spans zero)."
+    },
+    "sgmc_calibrated_dti": {
+      "label": "HOLDOUT-DTI (pre-registered primary metric)",
+      "evaluator": "GEMSDOE32-SGMC-CAL-v3.0",
+      "value": 0.039767,
+      "ci95": [
+        0.033917,
+        0.04547
+      ],
+      "incumbent": {
+        "value": 0.064121,
+        "ci95": [
+          0.05673,
+          0.071649
+        ]
+      },
+      "reading": "Worse than incumbent with non-overlapping CIs."
+    },
+    "correlation_overlap_vs_registry": {
+      "registry": "451 focus-registry rasters (9 GEMSDOE sites)",
+      "surface_max_abs_spearman": 0.0908,
+      "surface_threshold": 0.9,
+      "final_dots_max_within_3px_excluding_calibration_lattice": 0.3888,
+      "final_dots_within_3px_threshold": 0.7,
+      "calibration_lattice_within_3px": 1.0,
+      "calibration_lattice_raster": "GEMSDOE24:inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "random_dot_control_vs_lattice": [
+        0.9982,
+        0.9989
+      ],
+      "measurable_rasters": 449,
+      "unmeasured_rasters": [
+        "GEMSDOE31:docs/downloads/gems31-tgj31-transfer-20261025-8d912b23db-DO-NOT-SUBMIT.tif (non-finite inside footprint)",
+        "GEMSDOE36 (grid mismatch)"
+      ],
+      "literal_rule_passed": false,
+      "reading": "Literal rule fails only because of the calibration lattice, which every dot set fails (random control 0.998-0.999). Flagged for owner decision; not exempted here."
+    },
+    "raster": {
+      "file": "gemsdoe32-NEG-DO-NOT-SUBMIT-g1-euler-n1-tmi-20261031T044935Z-f1362e88-zeros.tif",
+      "path": "docs/downloads/gemsdoe32-NEG-DO-NOT-SUBMIT-g1-euler-n1-tmi-20261031T044935Z-f1362e88-zeros.tif",
+      "sha256": "c4384fe6f656eb9351607a5b8d2a0ea36f3668ec65b560a7f34d2f086cf70f8a"
+    },
+    "validator": {
+      "tool": "scripts/check_submission.py --strict-finite",
+      "passed": true,
+      "checks": [
+        "dimensions 3730x3292",
+        "band_count 1",
+        "crs EPSG:32611",
+        "transform matched template",
+        "dtype float32",
+        "in_footprint_range [0,1]",
+        "portal_safe_whole_array [0,1] finite"
+      ],
+      "independent_check": "float32; no NaN; values in {0,1}; 37,284 positive cells, none outside footprint; CRS and transform equal to sample_submission.tif"
+    },
+    "submission_name": "NEG-DO-NOT-SUBMIT-g1-euler-n1-tmi",
+    "submission_note": "NEG DO-NOT-SUBMIT G1 Euler N=1 TMI dots: canary AUC 0.51 (no signal), literal lattice rule fails",
+    "submission_note_length": 96,
+    "verdict": "negative",
+    "download_allowed": false,
+    "submit_allowed": false,
+    "reasons": [
+      "Primary SGMC-calibrated DTI below the incumbent with non-overlapping CIs",
+      "Canary AUC 0.51: no ranking signal for withheld faults",
+      "Literal uniqueness rule fails on the calibration lattice (100%); the rule cannot discriminate any candidate",
+      "Two registry rasters unmeasurable",
+      "No selector authorization; weekly slot not used"
+    ]
+  },
+  "g2_summary": {
+    "candidate_id": "H-G2-GRAV-MAG-COUPLING",
+    "evidence": "evidence/H-G2-GRAV-MAG-COUPLING_dry_run_20261031.json",
+    "holdout_dti_pooled": 0.004722,
+    "holdout_ci95": [
+      0.003265,
+      0.0059
+    ],
+    "sgmc_calibrated_dti": 0.032174,
+    "canary_auc": 0.5076,
+    "lattice_within_3px": 0.9805,
+    "surface_max_abs_spearman": 0.159,
+    "verdict": "negative",
+    "file_written": false
+  },
+  "controls": {
+    "experiment": 3,
+    "purpose": "canary instrument check (positive and negative control)",
+    "positive_control_oracle_auc_mean": 1.0,
+    "positive_control_oracle_auc_min": 1.0,
+    "negative_control_noise_auc_mean": 0.49976715830109486,
+    "negative_control_noise_auc_min": 0.49556448020687915,
+    "n_cells": 8,
+    "instrument_valid": true
+  },
+  "irregularities": [
+    "IR-S-01 Pre-registration row G2 says 'high gradient magnitude where gradients are collinear' while the cross-gradient magnitude is zero for collinear gradients; implemented as min(normalised magnitudes) x (1 - sin theta). Flagged.",
+    "IR-S-02 The literal 3-px uniqueness rule fails for every dot set against the 13gems calibration lattice (random dots 0.998-0.999). Owner decision required on the rule (null-calibrated excess exists in registry_audit.space_filling_coverage).",
+    "IR-S-03 Uniqueness audit incomplete: 2 of 451 registry rasters unmeasurable (GEMSDOE31 non-finite inside footprint; GEMSDOE36 grid mismatch).",
+    "IR-S-04 The competition template sample_submission.tif contains NaN outside its footprint (7,111,787 of 12,279,160 cells). The repo's 'NaN-free whole array' gate is stricter than the template. The portal message cause is unverified.",
+    "IR-S-05 The reference solution writes sigmoid outputs into a zero-initialised np.zeros array (float64 by default) with no nodata value, so it has no NaN (read from the GitHub notebook source, not run). It reads 'numeric_features.tif', while this repo uses 'training_features.tif'. Naming and content equivalence are unverified.",
+    "IR-S-06 The organizer data page, problem page, NLR PDF, epsg.io, and GitHub Pages hosts were unreachable from this sandbox (HTTP 000 on each). Only GitHub, PyPI, and npm were reachable. The leaderboard values in the prompt (0.4413, 0.3195) and the repo record of 0.4544 (2026-10-30) were not re-read live and remain unreconciled.",
+    "IR-S-07 Two pytest failures seen before restoring the data were environmental (missing sample_submission.tif). All 121 tests pass after restore_data.py.",
+    "IR-S-08 For G1 the gated-holdout SGMC value (0.03976686) matched the shared evaluator (0.03976686) exactly, so the two evaluation paths agree on this file.",
+    "IR-S-09 G1 did not run the structural-index plateau test. Reid & Thurston (2014) and the Euler literature require the depth estimates to form a plateau across window sizes to confirm the chosen integer index. SI=1 was pre-registered, not verified, so a wrong SI is a possible cause of the null result. Flagged for review."
+  ],
+  "sources": [
+    "https://github.com/drivendataorg/gems-prize-reference-solution (reachable; notebook unet-mc-cv-reference-solution.ipynb)",
+    "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/ (NOT reachable from sandbox, HTTP 000)",
+    "https://docs.nlr.gov/docs/fy26osti/96647.pdf (NOT reachable from sandbox, HTTP 000)",
+    "https://epsg.io/32611 (NOT reachable from sandbox, HTTP 000)",
+    "Reid, A.B., Allsop, J.M., Granser, H., Millett, A.J., Somerton, I.W. (1990) Magnetic interpretation in three dimensions using Euler deconvolution. Geophysics 55, 80-91. doi:10.1190/1.1442774 [verified via Springer Encyclopedia of Solid Earth Geophysics bibliography and academia.edu reference list]",
+    "Gallardo, L.A. & Meju, M.A. (2003) Characterisation of heterogeneous near-surface materials by joint 2D inversion of dc resistivity and seismic data. Geophys. Res. Lett. 30(13), 1658. doi:10.1029/2003GL017370 [verified via AGU/Wiley and Lancaster EPrints records]",
+    "Reid, A.B. & Thurston, J.B. (2014) The structural index in gravity and magnetic interpretation: errors, uses and abuses. [title verified via citing papers; journal details not independently verified in this session]. Statement that SI is an integer and that a wrong SI gives no depth plateau: Correct structural index defined by base level estimates (SBGf 15th CISBGf expanded abstract), citing Reid et al. 2014 and Reid & Thurston 2014."
+  ]
+}

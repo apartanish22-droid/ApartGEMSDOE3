@@ -1,0 +1,10 @@
+{
+  "experiment": 3,
+  "purpose": "canary instrument check (positive and negative control)",
+  "positive_control_oracle_auc_mean": 1.0,
+  "positive_control_oracle_auc_min": 1.0,
+  "negative_control_noise_auc_mean": 0.49976715830109486,
+  "negative_control_noise_auc_min": 0.49556448020687915,
+  "n_cells": 8,
+  "instrument_valid": true
+}

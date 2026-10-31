@@ -6,6 +6,7 @@
 
 ## Start here: what to do before every session
 
+0. **Session 2026-10-31 (read first):** [executive summary](docs/executive-summary.html) (top block) and [note 11](knowledge/11_g1_g2_negative_results_and_next_candidates_20261031.md). One unique, format-valid GeoTIFF was generated, `docs/downloads/gemsdoe32-NEG-DO-NOT-SUBMIT-g1-euler-n1-tmi-20261031T044935Z-f1362e88-zeros.tif` (SHA-256 `c4384fe6…70cf70f8a`), and it is **negative: DO NOT download or submit**. Two pre-registered candidates were tested (G1 Euler N=1 on TMI, G2 gravity–magnetic coupling). Both fail the paired holdout test, and their canary AUC is about 0.51. The instrument controls pass (oracle 1.000, noise 0.500). The literal uniqueness rule fails only on the calibration lattice, which random dots also fail, so that rule needs an owner decision. No organizer score was obtained, and the estimated score for a new file is not estimable. Run card: [evidence/SESSION_20261031_RUN_CARD.json](evidence/SESSION_20261031_RUN_CARD.json).
 1. **Decision (2026-10-30): no existing file is OK to download or submit.** The best owner-reported file, GEMSDOE32 (0.2778), is already on the leaderboard per the owner report and is not unique against the other eight focus files. The [executive summary](docs/executive-summary.html) has the table of files, estimated scores (not estimable), uniqueness, and verdicts.
 2. **Restore inputs** (`GEMS_DATA_DIR` defaults to `.cache/gems_data`): `python scripts/restore_data.py --group all` verifies all 36 pinned files against SHA-256 and rewrites `data/restore_receipt.json`. Inputs come from owner mirrors on GitHub and are **not organizer-authenticated**.
 3. **Re-read the official pages** before quoting any number: [problem and metric](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/) · [leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) · [data (login)](https://www.drivendata.org/competitions/306/competition-doe-gems/data/).
@@ -81,6 +82,10 @@ python3 -m venv .venv
 # Re-verify the nine focus files from bytes (about 2 minutes; fetches 5 files from pinned GitHub refs if absent)
 .venv/bin/python scripts/verify_nine_site.py
 .venv/bin/python -m pytest -q
+# 2026-10-31 session (experiments G1, G2 and the canary instrument check; ~5 min each)
+.venv/bin/python scripts/canary_controls.py                       # instrument check (oracle and noise controls)
+.venv/bin/python scripts/run_g1_euler_n1.py --hypothesis g1 --dry-run   # G1 without writing a TIF (drop --dry-run to write)
+.venv/bin/python scripts/run_g1_euler_n1.py --hypothesis g2 --dry-run   # G2 (dry run only; no TIF written)
 .venv/bin/python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite submission/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif
 # Format only (owner mirror, NOT authorization); negative candidate, do not submit
 .venv/bin/python scripts/check_submission.py --template .cache/gems_data/sample_submission.tif --strict-finite docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif

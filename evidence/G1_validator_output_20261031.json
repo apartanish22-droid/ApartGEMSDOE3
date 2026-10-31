@@ -1,0 +1,42 @@
+{
+  "file_path": "docs/downloads/gemsdoe32-NEG-DO-NOT-SUBMIT-g1-euler-n1-tmi-20261031T044935Z-f1362e88-zeros.tif",
+  "sha256": "c4384fe6f656eb9351607a5b8d2a0ea36f3668ec65b560a7f34d2f086cf70f8a",
+  "passed": true,
+  "checks": [
+    {
+      "name": "dimensions",
+      "passed": true,
+      "detail": "shape (3730, 3292) (expected (3730, 3292))"
+    },
+    {
+      "name": "band_count",
+      "passed": true,
+      "detail": "bands: 1 (expected 1)"
+    },
+    {
+      "name": "crs",
+      "passed": true,
+      "detail": "CRS: EPSG:32611 (expected EPSG:32611)"
+    },
+    {
+      "name": "transform",
+      "passed": true,
+      "detail": "transform matched template"
+    },
+    {
+      "name": "dtype",
+      "passed": true,
+      "detail": "dtype: float32 (expected float32)"
+    },
+    {
+      "name": "in_footprint_range",
+      "passed": true,
+      "detail": "in-footprint range [0.0000, 1.0000], all finite"
+    },
+    {
+      "name": "portal_safe_whole_array",
+      "passed": true,
+      "detail": "whole-array range [0.0000, 1.0000], finite=True"
+    }
+  ]
+}
