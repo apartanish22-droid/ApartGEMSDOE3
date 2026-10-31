@@ -1,0 +1,358 @@
+{
+  "run_id": "H-M1-CROSSGRAD-MG-20261031T045331Z",
+  "date_utc": "20261031T045331Z",
+  "lane": "NOT ASSIGNED (no method paragraph in prompt or checkout). Self-declared research run; cannot be cleared for a weekly slot.",
+  "hypothesis": "Co-located, co-oriented magnetic (rtp) and gravity (iso_grav_anom) edges mark offsets that cut both fields.",
+  "mechanism": "A fault that juxtaposes contrasting magnetic and density blocks produces aligned gradients in both fields; the H35-C functional form scores that coincidence.",
+  "named_non_fault_mimic": "Intrusive or lithologic contacts with both a magnetic and a density contrast (the cross-gradient mimic).",
+  "single_feature_canary_auc_holdout_seed20": {
+    "rtp_band2_residual": 0.5126019441208436,
+    "iso_grav_band13_residual": 0.534512498235528,
+    "h_m1_surface": 0.5188352162953034
+  },
+  "canary_threshold": 0.9,
+  "canary_passed": true,
+  "controls": {
+    "acquisition_block_eta_squared_surface": 0.00944939282234022
+  },
+  "dots_before_label_mask": 37270,
+  "dots_after_label_mask": 36681,
+  "candidate_file": "docs/downloads/gemsdoe32-h-crossgrad-mg-h2-20261031T045331Z-8b399900-zeros.tif",
+  "candidate_sha256": "15ca1f62b45dbe6715578982a84f812af151b91d857a65f8949ab5d7e57e6a3a",
+  "candidate_zip": "gemsdoe32-h-crossgrad-mg-h2-20261031T045331Z-8b399900-zeros.zip",
+  "submission_name": "H-CROSSGRAD-MG-H2",
+  "submission_note": "H-M1 magnetic-gravity co-gradient alignment, 37654 dots, 100m, no catalogue input, NaN-free",
+  "note_chars": 91,
+  "holdout_candidate": {
+    "candidate_id": "H-M1-CROSSGRAD-MG",
+    "path": "/home/user/ApartGEMSDOE3/docs/downloads/gemsdoe32-h-crossgrad-mg-h2-20261031T045331Z-8b399900-zeros.tif",
+    "emitted_pixels": 36681,
+    "hide_and_recover": {
+      "candidate_id": "H-M1-CROSSGRAD-MG",
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "score_label": "HOLDOUT-DTI",
+      "b_visible_px": 0.0,
+      "n_withheld_positives": 22232,
+      "n_spatial_clusters": 140,
+      "n_bootstrap_reps": 1000,
+      "pooled_dti": 0.030361591997966165,
+      "ci95_cluster_bootstrap": [
+        0.02429784252046225,
+        0.036597640190158306
+      ],
+      "fold_mean_dti": 0.027038774914189746,
+      "per_quadrant_dti": {
+        "NW": 0.02634360594880649,
+        "NE": 0.012761377901934337,
+        "SW": 0.043704614535872245,
+        "SE": 0.02534550127014592
+      },
+      "folds": {
+        "draw20_fold0": {
+          "dti": 0.021790024361885228,
+          "coverage": 0.0347474258633463,
+          "tp": 66.40233082485479,
+          "fp": 7526.462420231754,
+          "fn": 1844.5976691751453,
+          "n_truth": 1911,
+          "emitted": 7567
+        },
+        "draw20_fold1": {
+          "dti": 0.015441729546699274,
+          "coverage": 0.017675637755864473,
+          "tp": 41.55542436403737,
+          "fp": 4010.0047958704818,
+          "fn": 2309.444575635963,
+          "n_truth": 2351,
+          "emitted": 4031
+        },
+        "draw20_fold2": {
+          "dti": 0.05032187133404333,
+          "coverage": 0.07950863059424358,
+          "tp": 292.9893037397876,
+          "fp": 14078.53774926717,
+          "fn": 3392.010696260212,
+          "n_truth": 3685,
+          "emitted": 14238
+        },
+        "draw20_fold3": {
+          "dti": 0.030042458477686648,
+          "coverage": 0.03537799880241645,
+          "tp": 114.09404613779303,
+          "fp": 5974.705792353082,
+          "fn": 3110.905953862207,
+          "n_truth": 3225,
+          "emitted": 6036
+        },
+        "draw21_fold0": {
+          "dti": 0.03089718753572775,
+          "coverage": 0.04699025330850219,
+          "tp": 99.19642473424813,
+          "fp": 7509.466074003378,
+          "fn": 2011.803575265752,
+          "n_truth": 2111,
+          "emitted": 7567
+        },
+        "draw21_fold1": {
+          "dti": 0.010081026257169398,
+          "coverage": 0.01166250610924591,
+          "tp": 26.415576337441987,
+          "fp": 4015.2149836741532,
+          "fn": 2238.584423662558,
+          "n_truth": 2265,
+          "emitted": 4031
+        },
+        "draw21_fold2": {
+          "dti": 0.03708735773770116,
+          "coverage": 0.059349309191397616,
+          "tp": 212.70792414196904,
+          "fp": 14127.900105787958,
+          "fn": 3371.292075858031,
+          "n_truth": 3584,
+          "emitted": 14238
+        },
+        "draw21_fold3": {
+          "dti": 0.020648544062605193,
+          "coverage": 0.02460736634432173,
+          "tp": 76.28283566739736,
+          "fp": 5995.439779765481,
+          "fn": 3023.717164332603,
+          "n_truth": 3100,
+          "emitted": 6036
+        }
+      }
+    },
+    "sgmc_off_catalogue": {
+      "candidate_id": "H-M1-CROSSGRAD-MG",
+      "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+      "score_label": "HOLDOUT-DTI",
+      "n_withheld_positives": 62703,
+      "n_spatial_clusters": 140,
+      "n_bootstrap_reps": 1000,
+      "sgmc_raw_pooled_dti": 0.0508253569704073,
+      "sgmc_raw_ci95": [
+        0.04006339450299999,
+        0.06393040682576406
+      ],
+      "sgmc_prevalence_calibrated_dti": 0.03398607420802156,
+      "sgmc_calibrated_ci95": [
+        0.027540174057853306,
+        0.04107279553876633
+      ]
+    },
+    "legacy_summary": {
+      "catalogue_hidden_mean": 0.027038774914189746,
+      "sgmc_prevalence_calibrated_dti": 0.03398607420802154,
+      "drift_corrected_holdout_mean": 0.0502068485865137
+    }
+  },
+  "holdout_champion_GEMSDOE32": {
+    "candidate_id": "GEMSDOE32-champion",
+    "path": "/home/user/ApartGEMSDOE3/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+    "emitted_pixels": 37654,
+    "hide_and_recover": {
+      "candidate_id": "GEMSDOE32-champion",
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "score_label": "HOLDOUT-DTI",
+      "b_visible_px": 0.0,
+      "n_withheld_positives": 22232,
+      "n_spatial_clusters": 140,
+      "n_bootstrap_reps": 1000,
+      "pooled_dti": 0.00451537871535044,
+      "ci95_cluster_bootstrap": [
+        0.0038164175817344387,
+        0.005261598301920283
+      ],
+      "fold_mean_dti": 0.004600104084398947,
+      "per_quadrant_dti": {
+        "NW": 0.00512840329036098,
+        "NE": 0.005504306306184852,
+        "SW": 0.0036920786311337214,
+        "SE": 0.004075628109916233
+      },
+      "folds": {
+        "draw20_fold0": {
+          "dti": 0.005385639773569569,
+          "coverage": 0.009078166496374933,
+          "tp": 17.348376174572497,
+          "fp": 8444.793980125369,
+          "fn": 1893.6516238254276,
+          "n_truth": 1911,
+          "emitted": 8458
+        },
+        "draw20_fold1": {
+          "dti": 0.006335943576507519,
+          "coverage": 0.010261877623361285,
+          "tp": 24.125674292522383,
+          "fp": 9610.612598232361,
+          "fn": 2326.8743257074775,
+          "n_truth": 2351,
+          "emitted": 9629
+        },
+        "draw20_fold2": {
+          "dti": 0.003796426179210498,
+          "coverage": 0.005136499475503275,
+          "tp": 18.928000567229567,
+          "fp": 10169.78083470613,
+          "fn": 3666.0719994327706,
+          "n_truth": 3685,
+          "emitted": 10184
+        },
+        "draw20_fold3": {
+          "dti": 0.0048529260906769785,
+          "coverage": 0.006012700417157937,
+          "tp": 19.390958845334346,
+          "fp": 7059.23480529578,
+          "fn": 3205.6090411546656,
+          "n_truth": 3225,
+          "emitted": 7074
+        },
+        "draw21_fold0": {
+          "dti": 0.0048711668071523915,
+          "coverage": 0.007802019059799343,
+          "tp": 16.470062235236412,
+          "fp": 8445.194316834295,
+          "fn": 2094.5299377647634,
+          "n_truth": 2111,
+          "emitted": 8458
+        },
+        "draw21_fold1": {
+          "dti": 0.004672669035862185,
+          "coverage": 0.007712224592569388,
+          "tp": 17.468188702169662,
+          "fp": 9614.406378171032,
+          "fn": 2247.5318112978302,
+          "n_truth": 2265,
+          "emitted": 9629
+        },
+        "draw21_fold2": {
+          "dti": 0.0035877310830569444,
+          "coverage": 0.004910041733066764,
+          "tp": 17.597589571311282,
+          "fp": 10171.07993491746,
+          "fn": 3566.4024104286887,
+          "n_truth": 3584,
+          "emitted": 10184
+        },
+        "draw21_fold3": {
+          "dti": 0.003298330129155487,
+          "coverage": 0.004144469410263709,
+          "tp": 12.847855171817496,
+          "fp": 7063.454802117206,
+          "fn": 3087.1521448281824,
+          "n_truth": 3100,
+          "emitted": 7074
+        }
+      }
+    },
+    "sgmc_off_catalogue": {
+      "candidate_id": "GEMSDOE32-champion",
+      "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+      "score_label": "HOLDOUT-DTI",
+      "n_withheld_positives": 62703,
+      "n_spatial_clusters": 140,
+      "n_bootstrap_reps": 1000,
+      "sgmc_raw_pooled_dti": 0.09606004283619354,
+      "sgmc_raw_ci95": [
+        0.08565972243445039,
+        0.10707194739837263
+      ],
+      "sgmc_prevalence_calibrated_dti": 0.0641209376417646,
+      "sgmc_calibrated_ci95": [
+        0.056730181217206584,
+        0.0716486609703412
+      ]
+    },
+    "legacy_summary": {
+      "catalogue_hidden_mean": 0.004600104084398947,
+      "sgmc_prevalence_calibrated_dti": 0.06412093764176459,
+      "drift_corrected_holdout_mean": 0.04504333270394367
+    }
+  },
+  "score_label": "HOLDOUT-DTI (evaluator GEMSDOE32-HIDE-RECOVER-v3.0 and GEMSDOE32-SGMC-CAL-v3.0). Live score: NOT ESTIMABLE.",
+  "verdict": "negative",
+  "gates": {
+    "G1_format_strict_finite_0_1_crs_shape_transform": {
+      "passed": true
+    },
+    "G2_single_feature_leakage_canary_max_auc_le_0.90": {
+      "passed": true
+    },
+    "G3_holdout_HIDE_RECOVER_beats_GEMSDOE32_incumbent": {
+      "passed": true
+    },
+    "G4_SGMC_calibrated_no_regression_vs_GEMSDOE32": {
+      "passed": false
+    },
+    "G5_surface_registry_literal_abs_spearman_le_0.90": {
+      "passed": true
+    },
+    "G6_final_dots_registry_literal_within_3px_le_0.70": {
+      "passed": false
+    },
+    "G9_submission_note_states_actual_dot_count": {
+      "passed": false
+    },
+    "G7_method_lane_assigned": {
+      "passed": false
+    },
+    "G8_selector_authorization_weekly_slot": {
+      "passed": false
+    }
+  },
+  "blocking_gates": [
+    "G4_SGMC_calibrated_no_regression_vs_GEMSDOE32",
+    "G6_final_dots_registry_literal_within_3px_le_0.70",
+    "G9_submission_note_states_actual_dot_count",
+    "G7_method_lane_assigned",
+    "G8_selector_authorization_weekly_slot"
+  ],
+  "validator_output": {
+    "tool": "gemsdoe32.submission.validate_submission_geotiff(strict_whole_array_finite=True)",
+    "passed": true,
+    "detail": {
+      "file_path": "/home/user/ApartGEMSDOE3/docs/downloads/gemsdoe32-h-crossgrad-mg-h2-20261031T045331Z-8b399900-zeros.tif",
+      "sha256": "15ca1f62b45dbe6715578982a84f812af151b91d857a65f8949ab5d7e57e6a3a",
+      "passed": true,
+      "checks": [
+        {
+          "name": "dimensions",
+          "passed": true,
+          "detail": "shape (3730, 3292) (expected (3730, 3292))"
+        },
+        {
+          "name": "band_count",
+          "passed": true,
+          "detail": "bands: 1 (expected 1)"
+        },
+        {
+          "name": "crs",
+          "passed": true,
+          "detail": "CRS: EPSG:32611 (expected EPSG:32611)"
+        },
+        {
+          "name": "transform",
+          "passed": true,
+          "detail": "transform matched template"
+        },
+        {
+          "name": "dtype",
+          "passed": true,
+          "detail": "dtype: float32 (expected float32)"
+        },
+        {
+          "name": "in_footprint_range",
+          "passed": true,
+          "detail": "in-footprint range [0.0000, 1.0000], all finite"
+        },
+        {
+          "name": "portal_safe_whole_array",
+          "passed": true,
+          "detail": "whole-array range [0.0000, 1.0000], finite=True"
+        }
+      ]
+    }
+  },
+  "ok_to_submit": false,
+  "registry_scan": "evidence/H-M1-CROSSGRAD-MG_registry_scan.json"
+}
