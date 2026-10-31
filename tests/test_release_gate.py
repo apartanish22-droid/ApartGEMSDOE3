@@ -21,6 +21,14 @@ def test_identical_surface_stops_before_placement():
     assert r['stop'] and r['comparisons'][0]['spearman'] > .90
 
 
+def test_inverse_rank_surface_stops_before_placement():
+    s = np.arange(400).reshape(20, 20)
+    r = compare_registry(s, None, np.ones(s.shape, bool), {'inverse': (-s, s % 7 == 0)}, stage='surface')
+    assert r['stop']
+    assert r['comparisons'][0]['spearman'] == pytest.approx(-1.0)
+    assert r['comparisons'][0]['duplicate']
+
+
 def test_missing_and_constant_registry_fail_closed():
     s = np.arange(100).reshape(10, 10)
     assert compare_registry(s, s > 50, s >= 0, {})['stop']
@@ -55,10 +63,11 @@ def test_shifted_transform_and_wrong_crs_rejected_before_pixel_checks(tmp_path):
 
 def test_surface_check_can_run_before_dots_exist():
     s = np.arange(100).reshape(10, 10)
-    r = compare_registry(s, None, s >= 0, {'other': (-s, s > 50)}, stage='surface')
+    other = np.random.default_rng(2).permutation(s.ravel()).reshape(s.shape)
+    r = compare_registry(s, None, s >= 0, {'other': (other, s > 50)}, stage='surface')
     assert r['passed']
     with pytest.raises(ValueError, match='requires dots'):
-        compare_registry(s, None, s >= 0, {'other': (-s, s > 50)})
+        compare_registry(s, None, s >= 0, {'other': (other, s > 50)})
 
 
 def test_audit_rejects_out_of_range_nonfinite_and_fractional_catalogue(tmp_path, monkeypatch):
