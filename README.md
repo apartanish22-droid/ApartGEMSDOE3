@@ -1,5 +1,7 @@
 # ApartGEMSDOE3 — research and submission review
 
+> &#10007; **DO NOT SUBMIT — H1 OK TO DOWNLOAD ONLY.** Recommended candidate: `H1-LIDAR-SCARP-DEM-CHI`, SHA-256 `3ec64572ab5e215b5d6305ca1ded5527635bf19584b5e6d78e4d2dbacb5a9abc`. Format-valid and holdout-positive (DTI 0.0062 [0.0047, 0.0074] vs repo best 0.004515), unique vs focus nine (overlap ≤34%, |ρ| ≤ 0.02). **NOT YET OK TO SUBMIT** — pending leakage canary, full-registry uniqueness, weekly-slot selector authorization. No weekly slot has been used.
+
 ## PROJECT BRIEF — read before every session (from the standing goal prompt)
 
 **Goal:** Place at the top of the DrivenData DOE GEMS fault-mapping competition leaderboard (metric: distance-weighted Tversky index, α=0.2, β=0.8, 300 m triangular kernel; submission: single-band float32 GeoTIFF, EPSG:32611, 3730×3292, 100 m, values in [0,1], matching `sample_submission.tif`).
