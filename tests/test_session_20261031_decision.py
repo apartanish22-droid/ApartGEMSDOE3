@@ -62,3 +62,23 @@ def test_random_controls_cover_both_seeds() -> None:
     hr = [ctl[k]["hide_and_recover_pooled_dti"] for k in ("random_seed0", "random_seed1")]
     assert all(0.04 < x < 0.05 for x in hr)
     assert re.search(r"0\.045–0\.049", _page())
+
+
+def test_no_download_cta_for_failed_main_candidates() -> None:
+    """Main-branch H-GEO-1 and H1 were shown as downloadable; both fail uniqueness, so no CTA may remain."""
+    for rel in ("docs/executive-summary.html", "docs/executive-summary/index.html", "docs/index.html"):
+        text = (ROOT / rel).read_text(encoding="utf-8")
+        # match live CTA elements only; the withdrawal note quotes these phrases as plain text
+        assert not re.search(r">\s*(⬇\s*)?Download: YES", text), rel
+        assert not re.search(r">\s*(H1 )?OK TO DOWNLOAD ONLY", text), rel
+        assert 'href="downloads/' not in text, rel
+        assert 'href="../downloads/' not in text, rel
+
+
+def test_main_candidate_uniqueness_recheck_matches_evidence() -> None:
+    for name in ("hgeo1", "h1"):
+        d = json.loads((ROOT / f"evidence/{name}_uniqueness_recheck_20261031.json").read_text())
+        assert d["n_compared"] == 131 and d["n_duplicates"] == 7 and d["passed_all"] is False, name
+    assert json.loads((ROOT / "evidence/hgeo1_uniqueness_recheck_20261031.json").read_text())["worst_within_3px_fraction"] > 0.999
+    page = _page()
+    assert "99.94%" in page and "99.78%" in page

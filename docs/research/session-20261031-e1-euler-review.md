@@ -117,8 +117,17 @@ Analog projection (not a score): ledger rasters with SGMC-CAL in [0, 0.02) (n=13
 - **IR-9 Full registry not rerun.** The 2026-10-28 scan (784 unique rasters) is cited, not re-verified.
 - **IR-10 SGMC proxy non-monotonic.** Rank correlation with owner scores is +0.40 (n=117), but bins are not monotonic (≥0.10 bin median 0.07; 0.055–0.064 bin median 0.23). Use as a rank tool only.
 - **IR-11 Nine-site association is n=9.** ρ = +0.95 (owner vs SGMC-CAL) and ρ = +1.00 (owner vs share beyond 1 km) come from one family of nine files and are not evidence of a general rule.
+- **IR-12 Main-branch CTAs overstated.** Merged main showed "Download: YES" for H-GEO-1 and "OK TO DOWNLOAD ONLY" for H1, while `registry/current_status.json` says `any_file_ok_to_submit=false`. Re-checked from bytes with the same comparison as E1: H-GEO-1 7/131 flagged, worst 99.94% (13GEMSDOE); H1 7/131 flagged, worst 99.78% (13GEMSDOE). Both CTAs removed here. Evidence: `evidence/hgeo1_uniqueness_recheck_20261031.json`, `evidence/h1_uniqueness_recheck_20261031.json`.
+- **IR-13 H-GEO-1 card verdict "promote" conflicts with its own fields.** Its SGMC-CAL is 0.0405 [0.0321, 0.0490] vs champion 0.0641 (a regression), and its lane check shows `lane_pass: false` (99.94%). Its README claim "UNIQUE vs all scored registry rasters (max 46.24%)" is not reproduced. Needs owner review of that card.
+- **IR-14 Evaluator labels differ.** E1 and H-GEO-1 are labelled GEMSDOE32-HIDE-RECOVER-v3.0; H1 is labelled GEMSDOE32-HOLDOUT-v3-visible-gated (same n=22,232). Not reconciled. Each number is reported under its recorded label.
 
 Legacy IDs: `IR-E1-01` (run card, Key Results) = IR-3; `IR-E1-02` = IR-4. The run card text is left unchanged; this section is the canonical numbering used by the executive summary and README.
+
+## 8a. Merge with main (2026-10-31)
+
+- Main had moved to `0acfc77` (PRs #46–#49, other sessions). Conflicts in `scripts/build_review_site.py` and the two executive-summary pages were resolved by keeping this branch's decision block first, then main's latest-review block. The generator output is the single source of the pages; `registry/current_status.json` was kept as main has it.
+- The main-branch H-GEO-1 and H1 download CTAs were withdrawn (IR-12). Their files remain in `docs/downloads/` for audit; no file is cleared.
+- Main's H-GEO-1 summary text is recoverable from git history at `origin/main` (commit c1990a7 and its merges).
 
 ## 9. Limits
 

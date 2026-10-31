@@ -38,11 +38,11 @@ def compare_registry(surface, dots, footprint, registry, *, stage="final"):
         overlap = None
         if dots.any() and other_dots.any():
             overlap = float((distance_transform_edt(~other_dots)[dots] <= 3).mean())
-        duplicate = (rho is not None and rho > .90) or (stage == 'final' and overlap is not None and overlap > .70)
+        duplicate = (rho is not None and abs(rho) > .90) or (stage == 'final' and overlap is not None and overlap > .70)
         rows.append(dict(registry=name, spearman=rho, within_3px_fraction=overlap,
                          duplicate=duplicate, measurable=rho is not None and (stage == 'surface' or overlap is not None)))
     passed = bool(rows) and (stage == 'surface' or bool(dots.any())) and all(r['measurable'] and not r['duplicate'] for r in rows)
-    return dict(stage=stage, rule="literal rho>0.90 OR directional overlap>0.70; no density exemptions",
+    return dict(stage=stage, rule="literal abs(rho)>0.90 OR directional overlap>0.70; no density exemptions",
                 comparisons=rows, passed=passed, stop=not passed)
 
 

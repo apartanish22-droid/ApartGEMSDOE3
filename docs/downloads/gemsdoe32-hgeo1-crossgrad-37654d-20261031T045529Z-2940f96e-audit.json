@@ -1,0 +1,120 @@
+{
+  "candidate_id": "H-GEO-1-CROSSGRAD-37654",
+  "slug": "hgeo1-crossgrad-37654d",
+  "content_digest8": "2940f96e",
+  "description": "H-GEO-1 cross-gradient gravity x magnetics concealed-basement relay detector; built 2026-10-31 from hash-restored official bands 2 and 5.",
+  "submission_note_zeros": "Concealed basement relay emission; gravity-magnetics cross-gradient discordance; off-catalogue B=2; 300 m kernel.",
+  "submission_note_nan": "Concealed basement relay emission; gravity-magnetics cross-gradient discordance; off-catalogue B=2; 300 m kernel.",
+  "zeros_tif": {
+    "filename": "gemsdoe32-hgeo1-crossgrad-37654d-20261031T045529Z-2940f96e-zeros.tif",
+    "size_bytes": 183135,
+    "sha256": "71c95fd09f2d2bf3de4c590c7cb5208cb91ebcd23e0c641421f84ce6c4eca113",
+    "mode": "zeros",
+    "geometry_reference": "/home/user/ApartGEMSDOE3/.cache/gems_data/sample_submission.tif",
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "shape": [
+      3730,
+      3292
+    ],
+    "dtype": "float32",
+    "nodata": null,
+    "nodata_repr": "None",
+    "emitted_positive_pixels": 36945,
+    "footprint_fraction": 0.00715,
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_finite_pixels": 5167373,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "full_grid_finite_pixels": 12279160,
+    "checks": {
+      "exact_reference_grid_match": true,
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_zero_nan": true,
+      "in_footprint_zero_inf": true,
+      "in_footprint_zero_sentinel": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_compliant": true,
+      "zero_on_catalogue_leakage": true,
+      "validator_range_0_1_guaranteed": true
+    },
+    "all_checks_passed": true
+  },
+  "nan_tif": {
+    "filename": "gemsdoe32-hgeo1-crossgrad-37654d-20261031T045529Z-2940f96e-nan.tif",
+    "size_bytes": 316880,
+    "sha256": "7407b5d09f0cbc4286b97f429a5028a8652f06323dd1e98df0a881a4dd91844d",
+    "mode": "nan",
+    "geometry_reference": "/home/user/ApartGEMSDOE3/.cache/gems_data/sample_submission.tif",
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "shape": [
+      3730,
+      3292
+    ],
+    "dtype": "float32",
+    "nodata": null,
+    "nodata_repr": "nan",
+    "emitted_positive_pixels": 36945,
+    "footprint_fraction": 0.00715,
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_finite_pixels": 5167373,
+    "in_footprint_min": 0.0,
+    "in_footprint_max": 1.0,
+    "full_grid_finite_pixels": 5167373,
+    "checks": {
+      "exact_reference_grid_match": true,
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_zero_nan": true,
+      "in_footprint_zero_inf": true,
+      "in_footprint_zero_sentinel": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_compliant": true,
+      "zero_on_catalogue_leakage": true,
+      "validator_range_0_1_guaranteed": true
+    },
+    "all_checks_passed": true
+  },
+  "holdout_metrics": {
+    "catalogue_hidden_mean": 0.00530981946931312,
+    "catalogue_hidden_per_quadrant": {
+      "NW": 0.003391659592285365,
+      "NE": 0.0016778945202511092,
+      "SW": 0.007471380580927936,
+      "SE": 0.005576844125375147
+    },
+    "sgmc_prevalence_calibrated_dti": 0.04054022191094268,
+    "drift_corrected_holdout_mean": 0.00530981946931312,
+    "drift_corrected_per_quadrant": {
+      "NW": 0.003391659592285365,
+      "NE": 0.0016778945202511092,
+      "SW": 0.007471380580927936,
+      "SE": 0.005576844125375147
+    },
+    "predicted_leaderboard_dti": null,
+    "ei_drift_corrected": null,
+    "slot_decision": "PENDING-SELECTOR-AUTHORIZATION"
+  }
+}

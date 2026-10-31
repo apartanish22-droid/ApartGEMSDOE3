@@ -1,0 +1,14 @@
+{
+  "n_compared": 131,
+  "n_measurable": 131,
+  "n_duplicates": 7,
+  "worst_within_3px_fraction": 0.9977909042885271,
+  "worst_within_3px_registry": "/home/user/ApartGEMSDOE3/.cache/ledger/13GEMSDOE/docs/downloads/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+  "worst_abs_spearman": 0.09589503390443384,
+  "worst_spearman_registry": "/home/user/ApartGEMSDOE3/.cache/ledger/GEMSDOE74/docs/downloads/gemsdoe74-triregime-radon-piedmont-37654-20261021T051000Z-zeros.tif",
+  "passed_all": false,
+  "rule": "literal rho>0.90 OR directional <=3px overlap>0.70; compare_registry stage=final; surfaces = binary rasters (candidate density not saved)",
+  "candidate": "docs/downloads/gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif (also present on origin/main)",
+  "candidate_sha256": "3ec64572ab5e215b5d6305ca1ded5527635bf19584b5e6d78e4d2dbacb5a9abc",
+  "checked_by": "2026-10-31 session; same compare_registry code path as evidence/euler_n1_E1_uniqueness_20261031.json"
+}
