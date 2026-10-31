@@ -1,0 +1,48 @@
+{
+  "schema_version": "gems-parallel-runcard-v3",
+  "generated_utc": "2026-10-31",
+  "review_type": "repository review; no candidate experiment",
+  "hypothesis": "No candidate hypothesis tested: the assigned single-method lane is absent and the training feature raster/cached feature stack are not present in this checkout.",
+  "mechanism": "Not tested. No candidate surface or submission raster was generated.",
+  "named_non_fault_process_that_could_mimic_it": "Not applicable to this review; no experiment was run. For the highest-ranked unrun proposal ARENA49-H2-NODE, potential mimics are channel junctions, lithologic contacts, and raster or flight-line seams.",
+  "holdout_dti": {
+    "label": "No HOLDOUT-DTI result",
+    "evaluator_version": null,
+    "n_withheld_positives": null,
+    "ci95": null,
+    "reason": "Required full training raster and cached feature stack are absent; evaluator not run."
+  },
+  "registry_correlation_overlap": {
+    "candidate_surface_checked": false,
+    "final_dots_checked": false,
+    "full_registry_available": false,
+    "result": "Not applicable: no candidate generated. The archived nine-site audit found every one of 36 pairs exceeded the directional 70% within-3-pixel threshold; this is not a full-registry check."
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "new_raster_generated": false,
+    "no_nan_inside_footprint": null,
+    "values_in_0_1": null,
+    "crs_shape_transform_match": null,
+    "note": "No new raster to validate. Core template/label inputs were restored from a SHA-256-pinned owner mirror; not organizer-authenticated."
+  },
+  "submission_name": null,
+  "submission_note": "No submission file produced or authorized.",
+  "verdict": "negative",
+  "slot_used": false,
+  "experiment_count": 0,
+  "budget_status": "No experiment budget used; no model experiment attempted.",
+  "verification": {
+    "pytest": "119 passed, 2 skipped",
+    "release_status": "PASS; fail-closed; no slot used",
+    "compileall": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "limitations": [
+    "The assigned method paragraph is absent.",
+    "The training_features.tif and cached feature stack are absent.",
+    "The complete registry rasters are absent.",
+    "No current leaderboard fetch was performed.",
+    "The highest listed nine-site score 0.2778 is OWNER-REPORT, not ORGANIZER-CONFIRMED."
+  ]
+}

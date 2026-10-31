@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-31",
+  "review_type": "three-pass repository and release-safety review; no model experiment",
+  "decision": "negative",
+  "submission_authorized": false,
+  "weekly_slots_used": 0,
+  "new_raster_generated": false,
+  "new_score_estimate": null,
+  "best_of_nine": {
+    "site": "GEMSDOE32",
+    "submission_name": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+    "file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+    "score": 0.2778,
+    "evidence_class": "OWNER-REPORT",
+    "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+    "recommendation": "Do not resubmit; existing previous submission and not unique within the focus nine."
+  },
+  "nine_site_uniqueness": {
+    "source": "evidence/nine_site_best_files_audit.json",
+    "audit_date": "2026-10-30",
+    "pairs": 36,
+    "pairs_exceeding_70_percent_directional_dot_overlap": 36,
+    "evidence_class": "GEOMETRY",
+    "recomputed_this_review": false
+  },
+  "hypothesis_shortlist": [
+    {
+      "rank": 1,
+      "name": "Euler structural-index-1 source clustering",
+      "layers": ["band 14 tmi"],
+      "physical_signature": "Persistent, low-residual N≈1 Euler source solutions aligned in map view",
+      "off_catalogue_rationale": "Buried magnetic structure can lack a mapped surface scarp",
+      "non_fault_mimic": "Mafic dikes and intrusive contacts",
+      "repo_distinction": "tmspi.py implements Euler-N≈0 local-wavenumber/SPI contact estimation; no N≈1 solver was found in inspected code. Existing preregistration in knowledge/10 means not new to written research.",
+      "relative_value": "highest test priority, qualitative only",
+      "implementation_cost": "medium",
+      "validated": false
+    },
+    {
+      "rank": 2,
+      "name": "Directional semivariogram anisotropy of geophysical residuals",
+      "layers": ["band 2 rtp", "band 13 iso_grav_anom"],
+      "physical_signature": "Scale-dependent along- versus cross-azimuth short-range semivariance contrast",
+      "off_catalogue_rationale": "Elongated fractured/basement corridors may show directional continuity without a sharp edge",
+      "non_fault_mimic": "Flight-line striping, interpolation seams, aligned lithologic fabric",
+      "repo_distinction": "Existing anisotropy and structure-tensor code exists; no direct semivariogram implementation located by search.",
+      "relative_value": "low-to-medium, qualitative only",
+      "implementation_cost": "medium-high",
+      "validated": false
+    },
+    {
+      "rank": 3,
+      "name": "Signed magnetic-gravity edge displacement persistence",
+      "layers": ["band 2 rtp", "band 14 tmi", "band 13 iso_grav_anom", "band 18 iso_grav_anom_hg"],
+      "physical_signature": "Persistent signed separation between independently detected magnetic and gravity edges along local edge normals",
+      "off_catalogue_rationale": "Faulted basement may separate shallow magnetic and deeper gravity responses beneath cover",
+      "non_fault_mimic": "Unfaulted intrusions, source-depth contrasts, differing transfer functions",
+      "repo_distinction": "Related multi-physics concordance exists; no exact signed inter-field displacement persistence transform was located.",
+      "relative_value": "low-to-medium, qualitative only",
+      "implementation_cost": "medium",
+      "validated": false
+    }
+  ],
+  "lane_assignment": "missing from user-provided parallel-run prompt; no method lane inferred",
+  "experiment_budget": {
+    "experiments_run_this_review": 0,
+    "cap": 3,
+    "two_hour_limit_exhausted": false
+  },
+  "inputs": {
+    "core_files_restored_during_review": ["training_features.tif", "labels.tif", "existing_faults.tif", "sample_submission.tif"],
+    "integrity": "restore_data.py reported SHA-256 matches to pinned manifest",
+    "provenance": "owner-maintained GitHub mirror; not organizer-authenticated",
+    "cache": "raw training raster present in ignored .cache; prepared shared feature cache not confirmed",
+    "full_registry_restored": false
+  },
+  "tests": {
+    "command": ".venv/bin/python -m pytest -q",
+    "result": "119 passed, 2 skipped, 33 Rasterio affine pending-deprecation warnings",
+    "release_gate_command": ".venv/bin/python scripts/check_release_status.py",
+    "release_gate_result": "PASS; fail-closed; no slot used"
+  },
+  "holdout_dti": null,
+  "holdout_note": "No new HOLDOUT-DTI experiment; no candidate withheld-positive count or CI. Historical incumbent metric is cited in the review and remains labelled HOLDOUT-DTI.",
+  "correlation_overlap_vs_registry": "No new surface or final-dot check; full registry unavailable. No uniqueness claim for any new candidate.",
+  "raster_sha256": null,
+  "validator_output": "No new raster generated or validated.",
+  "submission_name": null,
+  "submission_note": "Review only; no new submission raster or slot used.",
+  "limitations": [
+    "No assigned lane paragraph.",
+    "Full registry not restored locally.",
+    "Organizer-authenticated competition data not available in this session.",
+    "No new candidate, holdout, leakage canary, or full-registry uniqueness result.",
+    "Public leaderboard not fetched on 2026-10-31.",
+    "No organizer submission-page receipt ties the historical 0.2778 claim to the listed raster SHA-256."
+  ]
+}
