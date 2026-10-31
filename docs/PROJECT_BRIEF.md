@@ -60,11 +60,11 @@ producing a single-band GeoTIFF of predicted geothermal-fault probabilities that
 ## Process rules
 
 - Work in passes: implement, then review for bugs and missing requirements, then re-check against this brief.
-- Only the branch `arena/1136ff37-apartgemsdoe3` is used for this session's work.
+- Use the active Arena session branch specified by the workspace instructions; branch names vary between sessions. Never switch to or push another branch.
 - Do not put credentials in the repo or in chat.
 - Large data stays out of Git (see `.gitignore` and `scripts/restore_data.py`).
 
 ## Current status
 
 See the [executive summary](executive-summary.html) for the current download/submit verdict and the
-per-site table, and [repo review 2026-10-30](repo-review-2026-10-30.md) for the most recent verified review.
+per-site table, and [repo review 2026-10-31](repo-review-2026-10-31.md) for the most recent verified review.
