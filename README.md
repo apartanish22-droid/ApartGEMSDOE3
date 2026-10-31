@@ -1,6 +1,6 @@
 # ApartGEMSDOE3 — research and submission review
 
-> **Current decision: DO NOT SUBMIT.** No artifact has passed every release gate and received separate selector authorization. A format-valid GeoTIFF is not necessarily scientifically sound, unique, or competition-ready. No weekly slot has been used in this review.
+> **Current decision: DO NOT SUBMIT — NOT YET OK TO SUBMIT.** Recommended candidate: `H1-LIDAR-SCARP-DEM-CHI`, SHA-256 `3ec64572ab5e215b5d6305ca1ded5527635bf19584b5e6d78e4d2dbacb5a9abc`. Format-valid and holdout-positive (DTI 0.0062 [0.0047, 0.0074] vs repo best 0.004515), unique vs focus nine (overlap ≤34%, |ρ| ≤ 0.02). OK TO DOWNLOAD only. No weekly slot has been used.
 >
 > **WCHD experiment — negative, research only:** [Download the exploratory GeoTIFF](docs/downloads/apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif) for audit, **not competition submission**. Its saved bytes pass range and grid checks against a hash-pinned owner mirror, not an authenticated organizer template. The literal 3-pixel overlap against the registered calibration lattice is 99.56%, above the 70% stop threshold. Multiple exploratory reruns and changes exceeded the protocol limits and continued after a duplicate stop. No score estimate or uniqueness claim is justified. See the [corrected run card](evidence/wchd_run_card.json), [recheck](evidence/wchd_literal_recheck.json), and [ledger](evidence/wchd_experiment_ledger.json).
 

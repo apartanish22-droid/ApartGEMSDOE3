@@ -26,9 +26,9 @@ def test_current_card_and_portal_fail_closed():
         assert current['candidate_id'] in text
         assert current['sha256'] in text
     summary = (ROOT / 'docs/executive-summary.html').read_text()
-    assert 'H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS' in summary
-    assert 'gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif' in summary
-    assert '99.8035%' in summary
+    assert 'H1-LIDAR-SCARP-DEM-CHI' in summary
+    assert 'gemsdoe32-h1-lidar-scarp-dem-chi-20261031T044640Z-6660ab7a-zeros.tif' in summary
+    assert '0.0062' in summary
     assert 'HOLDOUT-DTI' in summary
     assert 'Historical CSHD:' not in summary
     latest = json.loads((ROOT / 'docs/data/latest-run-card.json').read_text())
@@ -36,7 +36,7 @@ def test_current_card_and_portal_fail_closed():
     site_data = json.loads((ROOT / 'docs/assets/site-data.json').read_text())
     assert site_data['run_card']['candidate_id'] == current['candidate_id']
     feed = json.loads((ROOT / 'docs/data/feed.json').read_text())
-    assert feed['current_candidate']['run_card'] == 'evidence/H-APART3-UNIQUE-OFFCATALOGUE-GEOPHYS_run_card.json'
+    assert feed['current_candidate']['run_card'] == 'evidence/H1-LIDAR-SCARP-DEM-CHI_run_card.json'
 
 
 def test_release_check_rejects_inconsistent_gate(tmp_path, monkeypatch):
