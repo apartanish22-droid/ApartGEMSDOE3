@@ -1,0 +1,50 @@
+{
+  "purpose": "Catalogue proximity of dot sets, measured from bytes against labels.tif (60,988 positive pixels). Verifies the GEMSDOE32 B=2 mechanism.",
+  "label": "MEASURED-FROM-BYTES (not a score)",
+  "sources": {
+    "champion": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+    "champion_sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+    "d28_gems25": ".cache/gems_data/scored/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+    "d28_sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8"
+  },
+  "rows": {
+    "GEMSDOE32 champion (h33-2-b2 zeros)": {
+      "n": 37654,
+      "within_2px": 0.0,
+      "within_300m": 0.0577,
+      "beyond_1km": 0.6983
+    },
+    "GEMSDOE25 d2.8 (nan)": {
+      "n": 44090,
+      "within_2px": 0.146,
+      "within_300m": 0.1952,
+      "beyond_1km": 0.5964
+    },
+    "GEMSDOE24 d1.5 (nan)": {
+      "n": 60069,
+      "within_2px": 0.146,
+      "within_300m": 0.1987,
+      "beyond_1km": 0.5931
+    },
+    "H19-5 parent (nan)": {
+      "n": 121131,
+      "within_2px": 0.143,
+      "within_300m": 0.1995,
+      "beyond_1km": 0.5893
+    },
+    "E1 Euler N1 (this session)": {
+      "n": 37654,
+      "within_2px": 0.0776,
+      "within_300m": 0.1098,
+      "beyond_1km": 0.7121
+    }
+  },
+  "facts": {
+    "champion_subset_of_d28": true,
+    "champion_dots_in_d28": 37654,
+    "d28_dots_removed_to_make_champion": 6436,
+    "d28_dots_within_2px_of_labels": 6436,
+    "of_which_B1_removed_3891_B2_removed_2545": true,
+    "champion_dots_within_2px_of_labels": 0
+  }
+}

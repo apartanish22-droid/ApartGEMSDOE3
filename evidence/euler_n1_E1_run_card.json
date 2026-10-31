@@ -1,0 +1,100 @@
+{
+  "experiment": "E1",
+  "name": "E1-EULER-N1-TMI-37654",
+  "preregistration": "docs/research/preregistration-euler-n1-tmi-20261031.md",
+  "lane": "Euler N=1 windowed solution density on TMI band 14",
+  "hypothesis": "Clusters of N=1 Euler solutions at 0.2-3 km depth on TMI mark buried magnetic boundaries without a catalogue trace.",
+  "mechanism": "Windowed (15 px) Euler N=1 solves on FFT derivatives; solutions accepted if inside window and at 200-3000 m depth; density gaussian sigma 2 px; top 37,654 footprint cells.",
+  "named_non_fault_mimic": "Magnetic dikes, mafic intrusions, magnetic basement lithology contacts.",
+  "band_1based": 14,
+  "band_description": "Total magnetic intensity - total strength of magnetic field",
+  "n_euler_solutions_accepted": 450002,
+  "median_solution_depth_m": 443.11641983658546,
+  "emitted_pixels": 37654,
+  "values": [
+    0.0,
+    1.0
+  ],
+  "leakage_canary_auc_density_vs_catalogue": 0.5298568001911838,
+  "leakage_canary_rule": "AUC > 0.90 means leakage until proven otherwise",
+  "candidate_path": ".cache/candidates/E1-EULER-N1-TMI-37654.tif",
+  "candidate_sha256": "62b8004758d0d22e53930abee6b535687269216f6ecacfa3d333cfb8164db9ec",
+  "holdout": "NOT RUN in this script - see evaluate step",
+  "runtime_s": 16.1,
+  "verdict": "negative",
+  "submission_name": "E1-EULER-N1-TMI-37654",
+  "submission_note": "E1 Euler N=1 TMI density 37654 dots. NEGATIVE: SGMC-cal 0.0147 < champion 0.0641; not for submission.",
+  "submission_note_chars": 101,
+  "holdout_dti": {
+    "HOLDOUT-DTI_hide_and_recover": {
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "pooled_dti": 0.019550322712933443,
+      "ci95": [
+        0.01568546961570417,
+        0.023574513380198406
+      ],
+      "n_withheld_positives": 22232,
+      "evidence": "evidence/euler_n1_E1_holdout_20261031.json"
+    },
+    "HOLDOUT-DTI_sgmc_prevalence_calibrated": {
+      "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+      "calibrated_dti": 0.01467510755305396,
+      "ci95": [
+        0.012336005400962097,
+        0.017081316570429356
+      ],
+      "n_withheld_positives": 62703,
+      "evidence": "evidence/euler_n1_E1_holdout_20261031.json"
+    },
+    "comparators_same_evaluator": {
+      "champion_GEMSDOE32_hide_recover": 0.00451537871535044,
+      "champion_sgmc_cal": 0.0641,
+      "random_dots_hide_recover": "0.04517 / 0.04890",
+      "random_dots_sgmc_cal": "0.04678 / 0.04616",
+      "evidence": "evidence/random_dot_controls_20261031.json"
+    }
+  },
+  "gates": {
+    "1_method_canary_synthetic_1_over_R": "PASS (tests/test_euler_n1.py: 4 passed; depth recovered within 60 m from analytic derivatives, within 150 m via FFT path)",
+    "2_leakage_canary_single_feature_AUC_vs_catalogue": {
+      "value": 0.5298568001911838,
+      "rule": "<= 0.90",
+      "result": "PASS"
+    },
+    "3_format_strict_finite": "PASS (scripts/check_submission.py --strict-finite; float32; values {0,1}; zero outside footprint; CRS/shape/transform match template)",
+    "4_holdout_vs_incumbent": "PASS on HIDE-RECOVER (0.0196 > 0.0045), but this gate does not discriminate: random dots score 0.045",
+    "5_sgmc_non_regression_vs_champion_0.0641": "FAIL (0.0147 < 0.0641; also below random 0.0468)",
+    "6_uniqueness_literal_rule": {
+      "result": "FAIL",
+      "registry_rasters_compared": 131,
+      "duplicates_flagged": 4,
+      "worst_forward_within_3px": 0.9997,
+      "worst_registry": "13GEMSDOE r13-lattice (206,895 dots)",
+      "reverse_direction_within_3px_for_that_registry": 0.0407,
+      "evidence": "evidence/euler_n1_E1_uniqueness_20261031.json",
+      "note": "Full 451/866-source registry not rerun. Uniqueness metric is driven by registry density; see irregularity IR-E1-01."
+    },
+    "7_selector_slot": "NOT REQUESTED; no weekly slot used"
+  },
+  "analog_estimate_not_a_score": {
+    "label": "ANALOG PROJECTION from OWNER-REPORT ledger (n=13 rasters with SGMC-cal in [0, 0.02)); not a score",
+    "median_owner_score": 0.0187,
+    "range": [
+      0.0,
+      0.0449
+    ],
+    "source": "evidence/ledger_calibration_check_20261030.json"
+  },
+  "validator_output": "check_submission.py --strict-finite: PASSED (float32, whole-array finite, [0,1], CRS EPSG:32611, shape 3730x3292, transform match)",
+  "budget": {
+    "experiments_used_this_session": 1,
+    "limit": 3,
+    "wallclock_note": "approx. 1 h of compute and review"
+  },
+  "ok_to_download": false,
+  "ok_to_submit": false,
+  "irregularities": [
+    "IR-E1-01: uniqueness metric flags dense registry rasters (r13 lattice 206,895 dots: 99.97% forward overlap but only 4.1% reverse overlap); gate kept as written, not waived; needs owner review (chance-corrected metric proposal)",
+    "IR-E1-02: holdout HIDE-RECOVER ranks random dots 10x above champion; gate pair is only safe because SGMC-CAL non-regression also applies"
+  ]
+}
