@@ -191,8 +191,9 @@ def start_here_html(root: Path = ROOT) -> str:
         "<p><b>No file in this repository is cleared to download or submit.</b> "
         f"Highest reported file: <b>{esc(best['site'])} {float(best['owner_reported_score_OWNER_REPORT']):.4f}</b> (OWNER-REPORT). "
         "It is already submitted per the registry record and is not unique against the other eight. "
-        "<b>No new TIF was generated</b>: the protocol lane paragraph is absent, the full 451-raster uniqueness check has not been run, "
-        "and no candidate has passed holdout validation.</p>"
+        "<b>Three candidate TIFs were checked on 2026-10-31</b> (H-S1, H-M1, and H1-LIDAR-SCARP-DEM-CHI). All pass the format check. None clears the release gates: "
+        "the SGMC calibrated estimates of H-S1 and H-M1 are below the GEMSDOE32 reference, and the H1 intervals overlap the reference on both holdouts. Literal final-dot uniqueness fails for all three. "
+        "A method lane is still not assigned, so no weekly slot can be selected.</p>"
         "<p><b>Portal error “Predicted values must be in range [0, 1]”:</b> five site files (GEMSDOE24, 25, 27, 28, 31) "
         "have NaN outside the footprint and fail the repo’s strict check. The official spec allows NaN outside the bounds, "
         "so the cause of the portal message is <b>unverified</b>. Do not re-save a file to get past it: that is a copy of an existing submission.</p>"
@@ -214,7 +215,7 @@ def start_here_html(root: Path = ROOT) -> str:
 
 # Session 2026-10-31 decision block (static, reviewed text). Numbers trace to evidence/ files; see tests/test_session_20261031_decision.py.
 DECISION_HTML_20261031 = '''<section class="alert" id="decision"><h2>SUBMISSION DECISION (31 Oct 2026) — read this first</h2>
-<p style="font-size:1.1rem"><b>Download: NONE. Submit: NONE.</b> No file on this site is cleared to download or submit. There is no download button for any candidate on this page, on purpose: every candidate fails at least one automated gate. Verified from bytes this session; every number is labelled.</p>
+<p style="font-size:1.1rem"><b>Download: NONE. Submit: NONE.</b> No file on this site is cleared to download or submit. No file below is a download-to-submit link; the research-only links in the table below are audit copies, on purpose: every candidate fails at least one automated gate. Verified from bytes this session; every number is labelled.</p>
 <div class="scroll"><table><thead><tr><th>Item</th><th>File</th><th>Score (label)</th><th>Unique?</th><th>Format: finite, [0,1], no NaN</th><th>Verdict</th></tr></thead><tbody>
 <tr><td><b>Highest reported score</b></td><td><code>gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</code><br>SHA-256 <code>c55bafc4…ab6fa9</code></td><td>0.2778 OWNER-REPORT (no organizer receipt in repo)</td><td><b>No</b>: 97.3%+ overlap with every other focus site (all 36 pairs, one direction)</td><td>Yes</td><td><b>DO NOT RESUBMIT.</b> Already on the board; a resubmission is a duplicate.</td></tr>
 <tr><td><b>Best NaN-free zero-fill of the GEMSDOE36 family</b></td><td>GEMSDOE36 <code>…9b9ea4e6-zeros.tif</code></td><td>0.2750 OWNER-REPORT</td><td><b>No</b>: same family as GEMSDOE32</td><td>Yes</td><td>Do not submit (duplicate family).</td></tr>
@@ -271,6 +272,57 @@ DECISION_HTML_20261031 = '''<section class="alert" id="decision"><h2>SUBMISSION 
 <li><b>Needed to make progress:</b> (1) the organizer template and data, or the NLR spec text, to settle the NaN rule; (2) the exact failing file and portal error text; (3) an owner decision on the uniqueness metric (IR-3); (4) an assigned method lane; (5) a live leaderboard read from a machine that can reach DrivenData.</li>
 </ul></section>
 '''
+
+RAW_BASE = "https://github.com/apartanish22-droid/ApartGEMSDOE3/raw/main/"
+
+
+def candidates_20261031_html(root: Path = ROOT) -> str:
+    """Fail-closed block for the 2026-10-31 H-S1 and H-M1 candidates, generated from the gate summary."""
+    path = root / "evidence/candidates_20261031_summary.json"
+    if not path.is_file():
+        return ""
+    summary = json.loads(path.read_text(encoding="utf-8"))
+    if summary.get("any_file_ok_to_submit") is not False:
+        raise ValueError("2026-10-31 candidate summary must remain fail-closed")
+    rows = []
+    gate_items = []
+    for c in summary["candidates"]:
+        if c.get("ok_to_submit") is not False or c.get("verdict") == "promote_pending_selector":
+            raise ValueError("Candidate block must not authorize submission")
+        if len(c["submission_note"]) > 140:
+            raise ValueError("Submission note exceeds 140 characters")
+        hd = c["holdout_dti_hide_recover"]
+        sg = c["sgmc_calibrated_dti"]
+        url = RAW_BASE + c["file"]
+        blocking = ", ".join(esc(b.split("_")[0]) for b in c["blocking_gates"])
+        rows.append(
+            "<tr>"
+            f'<td><a href="{esc(url)}">{esc(Path(c["file"]).name)}</a><br><br><span class="muted">research download only · SHA-256 <code>{esc(c["sha256"])}</code></span></td>'
+            f'<td>HOLDOUT-DTI {hd["value"]:.4f} [{hd["ci95"][0]:.4f}, {hd["ci95"][1]:.4f}]<br>'
+            f'<span class="muted">evaluator {esc(hd["evaluator"])}; withheld positives {hd["withheld_positives"]:,}</span></td>'
+            f'<td>HOLDOUT-DTI {sg["value"]:.4f} [{sg["ci95"][0]:.4f}, {sg["ci95"][1]:.4f}] vs GEMSDOE32 0.0641</td>'
+            f'<td>Not estimable. No organizer receipt and no calibrated mapping.</td>'
+            f'<td>{"Literal rule: FAIL" if not c["unique_literal_rule"] else "Literal rule: PASS"}</td>'
+            f'<td><b>NO.</b> Verdict {esc(c["verdict"])}; failed gates: {blocking}.</td>'
+            "</tr>"
+        )
+    for c in summary["candidates"]:
+        gate_items.append(f'<li><b>{esc(c["candidate_id"])}</b>: ' + "; ".join(
+            f'{esc(k.split("_")[0])} {"pass" if g["passed"] else "FAIL"}' for k, g in c["gates"].items()) + "</li>")
+    return (
+        '<section class="alert"><h2>Submission decision 2026-10-31 — read first</h2>'
+        '<p><b>DO NOT SUBMIT any file below.</b> Three candidate GeoTIFFs were checked on 2026-10-31 (H-S1 and H-M1 from this review; H1-LIDAR-SCARP-DEM-CHI from the parallel session, re-verified here). Each passes the format check, and none clears the release gates. '
+        'Their live score is not estimable. The links are for research and audit only.</p>'
+        '<table><thead><tr><th>File (research download, not for submission)</th><th>Holdout estimate (label, 95% CI)</th>'
+        '<th>SGMC off-catalogue check</th><th>Estimated live score</th><th>Unique?</th><th>OK to download and submit?</th></tr></thead>'
+        "<tbody>" + "".join(rows) + "</tbody></table>"
+        "<p>Reference: GEMSDOE32 owner-reported 0.2778 is OWNER-REPORT. Its catalogue-withheld HOLDOUT-DTI is 0.0045 [0.0038, 0.0053] and its SGMC-calibrated score is 0.0641 [0.0567, 0.0716]. "
+        "Neither candidate beats the SGMC reference.</p>"
+        "<ul>" + "".join(gate_items) + "</ul>"
+        f'<p class="muted">Gate summary: <a href="{esc(RAW_BASE)}evidence/candidates_20261031_summary.json">evidence/candidates_20261031_summary.json</a>. '
+        'Gates are fail-closed. A method lane and a selector approval are also required, and neither exists.</p></section>'
+    )
+
 
 
 def build_pages(root: Path = ROOT) -> dict[str, str]:
@@ -364,7 +416,7 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
     else:
         science_note = "Feature-alone leakage canaries were not computed, and the assigned lane is absent; physical mimics remain unresolved."
 
-    home = warning + '<section><h2>Start here</h2><p><b>No file is cleared to download or submit.</b> Read the <a href="executive-summary.html">executive summary</a> for the verified answer, the per-site table, and why the portal error occurs.</p></section>' + f'''<section><h2>Decision at a glance</h2>
+    home = warning + candidates_20261031_html(root) + '<section><h2>Start here</h2><p><b>No file is cleared to download or submit.</b> Read the <a href="executive-summary.html">executive summary</a> for the verified answer, the per-site table, and why the portal error occurs.</p></section>' + f'''<section><h2>Decision at a glance</h2>
 <p>The highest result among these nine sites is <b>{esc(top['site'])}: OWNER-REPORT {float(top['published_score_OWNER_REPORT']):.4f}</b> for <code>{esc(top['leaderboard_name'])}</code>. This is an owner-supplied report, not an organizer receipt. It does not establish that the artifact's method caused the score or predict the score of a new raster.</p>
 <p><a href="executive-summary.html">Open the executive summary</a> for the site-by-site comparison and exact upload checklist.</p>
 <p>Current candidate record: <code>{esc(current_id)}</code>, file <code>{esc(artifact)}</code>, SHA-256 <code>{esc(current_hash)}</code>, submission name <code>{esc(artifact_name)}</code>. It is a negative research record; no download or upload is authorized. The associated literal-registry and scientific-integrity gates fail.</p></section>
@@ -376,7 +428,7 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
         '<a href="repo-review-2026-10-31.md">current repository review</a> and its '
         f'<a href="{esc(repo_link("evidence/repo_review_20261031_run_card.json"))}">negative run card</a>.</p></section>'
     )
-    exec_body = warning + DECISION_HTML_20261031 + latest_review + start_here_html(root) + candidate_under_review_html(root) + f'''<section><h2>Nine-site comparison</h2>
+    exec_body = warning + DECISION_HTML_20261031 + candidates_20261031_html(root) + latest_review + start_here_html(root) + candidate_under_review_html(root) + f'''<section><h2>Nine-site comparison</h2>
 <p>All submitted-score entries below are <b>OWNER-REPORT</b> from the supplied/repository audit. None is organizer-confirmed here. The score estimate for a new submission is <b>not estimable</b>; a HOLDOUT-DTI result cannot be converted to a live score without a validated calibration study.</p>{table}
 {calib}
 <p>{esc(top['site'])} is the largest listed owner report ({float(top['published_score_OWNER_REPORT']):.4f}). Existing analysis says the reported nested pruning sequence is consistent with removing low-credit false-positive mass, but no hidden truth or receipt-linked evidence establishes causation. See <a href="{esc(repo_link('knowledge/03_why_02778_and_the_anatomy_of_the_family.md'))}">the evidence and limitations</a>.</p><p>There is no file currently OK to submit. The nine reported files are <b>NOT UNIQUE in this nine-site cohort</b> according to the repository overlap audit; scores remain OWNER-REPORT, not organizer receipts. {current_registry_note} Earlier `H-APART3-2-CTHG-DHC` (`apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif`) had recorded overlaps of 75.90%, 72.25%, and 99.8035% within 3 px and a Band 6 interpretation issue; its paired HOLDOUT-DTI delta versus the 0.2778 incumbent was +0.000571 (95% CI [-0.006306, +0.007311]), spanning zero. For the current candidate, HOLDOUT-DTI diagnostic is <b>{float(holdout.get('pooled_dti', 0.0)):.6f}</b> (evaluator <code>{esc(holdout.get('evaluator_version', 'not recorded'))}</code>, n={int(holdout.get('n_withheld_positives', 0))}, 95% CI {esc(holdout.get('ci95', []))}); it is not a leaderboard score projection. {paired_note} Scientific-integrity review: {science_note}</p><p>Current negative candidate: <code>{esc(current_id)}</code> · <code>{esc(artifact)}</code> · SHA-256 <code>{esc(current_hash)}</code>. Not authorized to download or submit; local format validity does not cure scientific or uniqueness failures.</p></section>
@@ -388,13 +440,13 @@ def build_pages(root: Path = ROOT) -> dict[str, str]:
     instructions = warning + '''<section><h2>Submission checklist</h2><ol><li>Do not submit until a candidate beats the current holdout incumbent on the agreed spatially blocked, buffered hide-and-recover evaluator, with a paired 95% CI supporting the improvement.</li><li>Run each feature-alone leakage canary; AUC above 0.90 is presumed leakage until resolved.</li><li>Pass the pre-placement surface correlation and post-placement dot overlap gates against every registry raster; log a duplicate and stop on a threshold breach.</li><li>Pass automated single-band GeoTIFF validation against the competition template: matching CRS, shape, transform, finite values in [0,1] across the full array.</li><li>Obtain explicit separate selector authorization within the current weekly slot cap.</li><li>Download the exact authorized file, submit it on the competition page, and save the organizer receipt.</li></ol><p>These checks are independent; a format pass does not override a holdout, uniqueness, scientific-integrity, or selector failure.</p></section>
 <section><h2>Submission fields</h2><p>The submission-form text supplied in this project says a single-band GeoTIFF or a ZIP containing one GeoTIFF is accepted. Confirm the live rules on the official competition page before upload. Use the submission name and a concise comment stored in that candidate's run card. The local validator checks file structure/range, not portal account, slot quota, score, or scientific validity.</p><p><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/">Competition data / format page</a> (login may be required).</p></section>'''
 
-    research_body = warning + f'''<section><h2>Research status</h2><p>There was no new experiment in this review. The assigned method paragraph was not identifiable, and the predictor stack and full raster registry are missing. The shortlist is preregisterable research, not validated performance or a submission recommendation.</p><p><a href="research/next-hypotheses-review-20261028.md">Read the ranked four-hypothesis shortlist</a> · <a href="{esc(repo_link('knowledge/03_why_02778_and_the_anatomy_of_the_family.md'))}">Why the 0.2778 owner report does not imply a score projection</a>.</p><h3>Next gates</h3><ol><li>Resolve the lane and restore hash-checked data.</li><li>Run feature-alone canaries.</li><li>Use visible-only buffered segment holdout and exact masking.</li><li>Run literal all-registry checks before and after placement.</li><li>Keep weekly-slot selection separate.</li></ol></section>'''
+    research_body = warning + f'''<section><h2>Research status</h2><p>Two experiments ran on 2026-10-31 (H-S1 spectral roll-off, H-M1 magnetic–gravity cross-gradient). Both are negative. The predictor stack and the full raster registry were restored and hash-verified. The method lane is still not assigned. The shortlist is preregisterable research, not validated performance or a submission recommendation. Details: <a href="repo-review-2026-10-31.md">repo review 2026-10-31</a>.</p><p><a href="research/next-hypotheses-review-20261028.md">Read the ranked four-hypothesis shortlist</a> · <a href="{esc(repo_link('knowledge/03_why_02778_and_the_anatomy_of_the_family.md'))}">Why the 0.2778 owner report does not imply a score projection</a>.</p><h3>Next gates</h3><ol><li>Resolve the lane and restore hash-checked data.</li><li>Run feature-alone canaries.</li><li>Use visible-only buffered segment holdout and exact masking.</li><li>Run literal all-registry checks before and after placement.</li><li>Keep weekly-slot selection separate.</li></ol></section>'''
 
     hypotheses_body = warning + '''<section><h2>Unrun candidates</h2><p>The current shortlist ranks four in-band hypotheses by qualitative expected utility and cost, names non-fault mimics, and documents repository overlaps. These are not numeric DTI estimates.</p><ol><li>Buried sediment-cover thickness ridge with a surface-quiescence gate (top research priority; related to unvalidated H61-1).</li><li>Directional semivariogram anisotropy of potential-field residuals.</li><li>Signed cross-edge magnetic–gravity offset persistence.</li><li>Paired signed cross-front topographic profile residual.</li></ol><p><a href="research/next-hypotheses-review-20261028.md">Full proposal, layer names, caveats, and cost ranking</a>.</p></section>'''
 
     leaderboard = warning + f'''<section><h2>Scope and evidence classes</h2><p>This page audits the nine supplied site claims; it is not a live leaderboard feed. Best listed result: {esc(top['site'])}, OWNER-REPORT {float(top['published_score_OWNER_REPORT']):.4f}. No new score estimate is available.</p>{table}<p>Official public leaderboard: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">DrivenData leaderboard</a>. It was not fetched during this review, so no current rank is asserted.</p></section>'''
 
-    review_body = warning + f'''<section><h2>Current review — 2026-10-31</h2><p><a href="repo-review-2026-10-31.md">Read the current three-pass repository review</a> and <a href="{esc(repo_link('evidence/repo_review_20261031_run_card.json'))}">machine-readable negative run card</a>. The README remains the persistent project brief and first-read requirement.</p><p>Reproduced checks: <b>119 passed, 2 skipped</b> after restoring two hash-pinned owner-mirror inputs; <code>scripts/check_release_status.py</code> passed. No new experiment or TIFF was generated. The assigned method lane, full training feature raster/cache, and complete registry remain unavailable in this checkout; no new holdout or candidate uniqueness experiment was run.</p><p>All supplied focus-site score claims remain OWNER-REPORT, not organizer receipts. No file is authorized for competition download/submission. Review the <a href="{esc(repo_link('evidence/nine_site_best_files_audit.json'))}">nine-site byte/overlap audit</a> and <a href="{esc(repo_link('evidence/irregularities_ledger.json'))}">irregularities ledger</a>.</p></section>'''
+    review_body = warning + f'''<section><h2>Current review — 2026-10-31</h2><p><a href="repo-review-2026-10-31.md">Read the current three-pass repository review</a> and <a href="{esc(repo_link('evidence/repo_review_20261031_run_card.json'))}">machine-readable negative run card</a>. Companion review of this session's two negative experiments and irregularity list: <a href=\"repo-review-2026-10-31-experiments.md\">repo-review-2026-10-31-experiments.md</a>. The README remains the persistent project brief and first-read requirement.</p><p>Reproduced checks: <b>119 passed, 2 skipped</b> after restoring two hash-pinned owner-mirror inputs; <code>scripts/check_release_status.py</code> passed. That review session generated no new experiment or TIFF. Experiments H-S1 and H-M1 and the H1 verification are in the companion review. The assigned method lane, full training feature raster/cache, and complete registry remain unavailable in this checkout; no new holdout or candidate uniqueness experiment was run.</p><p>All supplied focus-site score claims remain OWNER-REPORT, not organizer receipts. No file is authorized for competition download/submission. Review the <a href="{esc(repo_link('evidence/nine_site_best_files_audit.json'))}">nine-site byte/overlap audit</a> and <a href="{esc(repo_link('evidence/irregularities_ledger.json'))}">irregularities ledger</a>.</p></section>'''
 
     sources_body = warning + f'''<section><h2>Official review pointers</h2><ul><li><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">Competition overview</a>, <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">problem description</a>, <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/">data/format page</a>, and <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">leaderboard</a>.</li><li><a href="https://github.com/drivendataorg/gems-prize-reference-solution">DrivenData reference solution</a>.</li><li><a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN</a>, <a href="https://www.usgs.gov/3d-elevation-program">USGS 3DEP</a>, <a href="https://gbcge.org/current-projects/ingenious/">INGENIOUS</a>, and <a href="https://gdr.openei.org/submissions/1391">GDR submission 1391</a>.</li><li><a href="https://epsg.io/32611">EPSG:32611</a>.</li></ul><p>These are source pointers for review. Current source contents/reachability were not revalidated in this session. Provenance and prior access notes are in <a href="{esc(repo_link('registry/sources.json'))}">registry/sources.json</a>.</p></section>'''
 
