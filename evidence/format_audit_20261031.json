@@ -1,0 +1,159 @@
+{
+  "generated_utc": "2026-10-31T04:37:30+00:00",
+  "template": ".cache/gems_data/sample_submission.tif",
+  "template_note": "Owner-mirror template restored by SHA-256 (not organizer-authenticated).",
+  "scope": "FORMAT ONLY. Not scientific, uniqueness, or weekly-slot authorization.",
+  "files_total": 17,
+  "files_pass": 11,
+  "files_fail": 6,
+  "rows": [
+    {
+      "file": "docs/downloads/apartgemsdoe3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif",
+      "sha256": "afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065",
+      "bytes": 216370,
+      "portal_format_pass": true,
+      "failed_checks": [],
+      "variant": "zeros"
+    },
+    {
+      "file": "docs/downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-nan.tif",
+      "sha256": "b6ac6220167c59cdf0ca82902dbe62c6908de13948913824884179cf4a20182c",
+      "bytes": 355092,
+      "portal_format_pass": false,
+      "failed_checks": [
+        "portal_safe_whole_array"
+      ],
+      "variant": "nan"
+    },
+    {
+      "file": "docs/downloads/apartgemsdoe3-h-apart3-2-cthg-dhc-37654-20261028T084500Z-5d4d0085-zeros.tif",
+      "sha256": "9d5cab2ed8b393cd509c196961481520772bee5b1791e322e0b15cdbba696112",
+      "bytes": 219267,
+      "portal_format_pass": true,
+      "failed_checks": [],
+      "variant": "zeros"
+    },
+    {
+      "file": "docs/downloads/apartgemsdoe3-h1-bhgc3-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif",
+      "sha256": "ba092640a4f776e3a22c8af1a5fe503487d4fa3f2277020a6e8268fd08e0797a",
+      "bytes": 219077,
+      "portal_format_pass": true,
+      "failed_checks": [],
+      "variant": "zeros"
+    },
+    {
+      "file": "docs/downloads/apartgemsdoe3-h2-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif",
+      "sha256": "65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38",
+      "bytes": 220542,
+      "portal_format_pass": true,
+      "failed_checks": [],
+      "variant": "zeros"
+    },
+    {
+      "file": "docs/downloads/apartgemsdoe3-h3-wchd-dual104-axial388-37654-20261028T224500Z-b3dbc603-zeros.tif",
+      "sha256": "11f698c3c3f342029a1aa44d805d49b366a6a7724c178025d09790b47152a9dc",
+      "bytes": 222539,
+      "portal_format_pass": true,
+      "failed_checks": [],
+      "variant": "zeros"
+    },
+    {
+      "file": "docs/downloads/gemsdoe32-apart3-bhgc-bipop-axial32-37654-20261027T214500Z-ab6646b7-nan.tif",
+      "sha256": "18cc97b46fad63dc292fe0c3d2b3e67cacf95d3df1ebf2929bc47b2574743c8b",
+      "bytes": 354957,
+      "portal_format_pass": false,
+      "failed_checks": [
+        "portal_safe_whole_array"
+      ],
+      "variant": "nan"
+    },
+    {
+      "file": "docs/downloads/gemsdoe32-apart3-bhgc-bipop-axial32-37654-20261027T214500Z-ab6646b7-zeros.tif",
+      "sha256": "ba092640a4f776e3a22c8af1a5fe503487d4fa3f2277020a6e8268fd08e0797a",
+      "bytes": 219077,
+      "portal_format_pass": true,
+      "failed_checks": [],
+      "variant": "zeros"
+    },
+    {
+      "file": "docs/downloads/gemsdoe32-apart3-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-nan.tif",
+      "sha256": "99936c1f4b5625335d9eb6108ca4937f3e5699c8c2dce4f762d9714429e2f240",
+      "bytes": 356025,
+      "portal_format_pass": false,
+      "failed_checks": [
+        "portal_safe_whole_array"
+      ],
+      "variant": "nan"
+    },
+    {
+      "file": "docs/downloads/gemsdoe32-apart3-cshd-dual97-axial362-37654-20261028T063000Z-37b32d5b-zeros.tif",
+      "sha256": "65f2ac84ff2c762495107487769a49e90919c5c6bf4a7948ca77e4a6971e5b38",
+      "bytes": 220542,
+      "portal_format_pass": true,
+      "failed_checks": [],
+      "variant": "zeros"
+    },
+    {
+      "file": "docs/downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-nan.tif",
+      "sha256": "b0855f1a0a8f7da8dc39c076d747e49d0601414e5e6e03fbfbcbc681f5610e88",
+      "bytes": 352163,
+      "portal_format_pass": false,
+      "failed_checks": [
+        "portal_safe_whole_array"
+      ],
+      "variant": "nan"
+    },
+    {
+      "file": "docs/downloads/gemsdoe32-apart3-h-apart3-1-cfkc-dhc-37654-20261027T215000Z-9dedadfc-zeros.tif",
+      "sha256": "afbfee1f46d6d3ca16297904cadf29d9cf9327d2ec5519e37f472c85bfaec065",
+      "bytes": 216370,
+      "portal_format_pass": true,
+      "failed_checks": [],
+      "variant": "zeros"
+    },
+    {
+      "file": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-nan.tif",
+      "sha256": "662f0e448c2d49d6f49ef60a253eb2c530a5cceffe3479a9d1e5e81282fbc952",
+      "bytes": 282058,
+      "portal_format_pass": false,
+      "failed_checks": [
+        "portal_safe_whole_array"
+      ],
+      "variant": "nan"
+    },
+    {
+      "file": "docs/downloads/gemsdoe32-apart3-unique-offcatalogue-geophys-20261028T225009Z-22727d79-zeros.tif",
+      "sha256": "8d90342de3a9d62bb718ea209ed5644cca0878eff906029dbc975da438cdcafd",
+      "bytes": 149028,
+      "portal_format_pass": true,
+      "failed_checks": [],
+      "variant": "zeros"
+    },
+    {
+      "file": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "bytes": 219065,
+      "portal_format_pass": true,
+      "failed_checks": [],
+      "variant": "zeros"
+    },
+    {
+      "file": "docs/downloads/gemsdoe32-hseismic-comcat-sgmc-b2-20261030T020420Z-a1200c82-nan.tif",
+      "sha256": "423921b3747210746b36375e4e45d239cacd936d6040acf34ec3914267b51f5e",
+      "bytes": 315062,
+      "portal_format_pass": false,
+      "failed_checks": [
+        "portal_safe_whole_array"
+      ],
+      "variant": "nan"
+    },
+    {
+      "file": "docs/downloads/gemsdoe32-hseismic-comcat-sgmc-b2-20261030T020420Z-a1200c82-zeros.tif",
+      "sha256": "3cf5774b2fe9bcab97988480e4da011ddf4fe9f90214e1696d24ca7c4d3b4c23",
+      "bytes": 179852,
+      "portal_format_pass": true,
+      "failed_checks": [],
+      "variant": "zeros"
+    }
+  ]
+}
